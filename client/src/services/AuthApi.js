@@ -2,7 +2,10 @@ import axios from "../common/config/AxiosConfig";
 import {
     loginRequest,
     loginFailure,
-    loginSuccess
+    loginSuccess,
+    logoutFailure,
+    logoutRequest,
+    logoutSuccess
 } from "../actionCreators/AuthActions";
 
 export const userLogin = (userName, password, history) => {
@@ -10,7 +13,7 @@ export const userLogin = (userName, password, history) => {
     return (dispatch) => {
         dispatch(loginRequest()); 
         axios
-            .post ("/login/authentication", {userName,password}) // this parameter part will be attached to base url
+            .post ("/login/authentication", {userName,password}) // /login/authentication part will be attached to base url
             .then ((res) => {
                 if (!res.data || !res.data.users || !res.data.users.length) { throw new Error("User not found");} // this is added so mock server can be used(jugad)
                 dispatch(loginSuccess(res.data.users[0]));
@@ -22,8 +25,24 @@ export const userLogin = (userName, password, history) => {
                 console.log("-----this is catch------", err);
                 
             })
- 
     }
-      
+}
 
+export const userLogout = (userName,history) => {
+    return (dispatch) => {
+        dispatch(logoutRequest());
+        axios
+            .post ("/logout",{userName})
+            .then ((message) => {
+                dispatch(logoutSuccess());
+                console.log("-------logout then------- ", message);
+                history.push("/login");
+            })
+            .catch ((err) => { // checking not done
+                dispatch(logoutFailure(err));
+                console.log("---------logout error-------", err);
+            }
+
+            ) 
+    }
 }
