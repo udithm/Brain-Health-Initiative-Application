@@ -6,11 +6,12 @@ const makeServer = () => {
            users: Model 
         },
         routes() {
-            this.namespace = "api";
+            this.namespace = "/api/";
             this.post("/login/authentication", (schema, request) => {
                 const attrs = JSON.parse(request.requestBody);
-                console.log("######################### attrs", attrs);
-                return schema.users.find(user => user.userName === attrs.email);
+                const user = schema.users.where({userName: attrs.userName});
+                console.log("######################### attrs", attrs, "user ", user);
+                return user;
             });
             this.passthrough();
 
