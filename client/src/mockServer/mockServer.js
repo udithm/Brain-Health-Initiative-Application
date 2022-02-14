@@ -13,6 +13,10 @@ const makeServer = () => {
                 console.log("######################### attrs", attrs, "user ", user);
                 return user;
             });
+            this.post("/logout",(schema,request) => {
+                return "Sucesss"
+            }
+            )
             this.passthrough();
 
         }
