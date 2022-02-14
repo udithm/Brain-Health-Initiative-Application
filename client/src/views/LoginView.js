@@ -48,7 +48,7 @@ export const LoginView =()=>{
 
 //export default loginView;
 */
-
+//https://formik.org/docs/examples/with-material-ui
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -66,7 +66,7 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-export const LoginView = ({login}) => {
+export const LoginView = ({login, err}) => {
   const formik = useFormik({
     initialValues: {
       email: 'alvar@katherin.com',
@@ -106,6 +106,7 @@ export const LoginView = ({login}) => {
           Submit
         </Button>
       </form>
+      <div>{err}</div>
     </div>
   );
 };

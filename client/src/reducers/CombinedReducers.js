@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import { authReducer } from "./AuthReducer";
+import { AuthReducer } from "./AuthReducer";
 
 
 export default combineReducers({
-    auth: authReducer
+   AuthReducer
 }); // we will be splliting state into parts and this is the place we will be combining

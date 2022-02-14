@@ -12,12 +12,15 @@ export const userLogin = (userName, password, history) => {
         axios
             .post ("/login/authentication", {userName,password}) // this parameter part will be attached to base url
             .then ((res) => {
-                dispatch(loginSuccess(res));
-                console.log("-------this is then------- ");
+                if (!res.data || !res.data.users || !res.data.users.length) { throw new Error("User not found");} // this is added so mock server can be used(jugad)
+                dispatch(loginSuccess(res.data.users[0]));
+                console.log("-------this is then------- ", res);
+                history.push(`/dashboard/${res.data.users[0].userId} `); // discards existing route completly and adds the "/dashboard" after localhost:3000
             })
             .catch((err)=>{
-                dispatch(loginFailure(err));
+                dispatch(loginFailure(err.message));
                 console.log("-----this is catch------", err);
+                
             })
  
     }

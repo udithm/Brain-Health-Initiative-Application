@@ -10,16 +10,16 @@ const initialState = {
     authError: "" // login error
 }
 
-export const authReducer = (state = initialState, action) => {
+export const AuthReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_SUCCESS : 
             return {
                 ...state,
-                userId: action.usedDetails.userId,
-                userName: action.usedDetails.userName,
-                orgName: action.usedDetails.orgName,
-                name: action.usedDetails.name,
-                role: action.usedDetails.role,
+                userId: action.userDetails.userId,
+                userName: action.userDetails.userName,
+                orgName: action.userDetails.orgName,
+                name: action.userDetails.name,
+                role: action.userDetails.role,
                 userLoading: false
             };
             // if the state values are coming from outside then we need to use action.userdetails.userid else if we are using the previous state value then we can use state.username
