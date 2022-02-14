@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 //import Button from '@material-ui/core/Button';
 import AppBar from '@mui/material/AppBar';
@@ -47,7 +46,6 @@ export const DashboardView = ({userName,userId,orgName,name,role,logout}) =>{
             <br></br>
             Your full name is {name}
         </p>
-
         </>
     );
 };
