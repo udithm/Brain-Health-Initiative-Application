@@ -23,8 +23,7 @@ const makeServer = () => {
                 const user = schema.users.where({userName: attrs.userName});
                 user.update({...user.models[0].attrs, password: attrs.newPassword});
                 return " change password Sucesss"
-            }
-            );
+            });
             this.passthrough();
 
         }

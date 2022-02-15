@@ -11,7 +11,6 @@ const DashboardContainer = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const logout = (userName) => userLogout(userName,history)(dispatch);
-
     return (
     <DashboardView userName={authState.userName}
         userId={authState.userId}
