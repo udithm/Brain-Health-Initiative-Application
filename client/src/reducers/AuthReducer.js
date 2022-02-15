@@ -1,4 +1,12 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_FAILURE, LOGOUT_REQUEST, LOGOUT_SUCCESS } from "../common/constants/ActionConstants"
+import { LOGIN_FAILURE,
+    LOGIN_REQUEST,
+    LOGIN_SUCCESS,
+    LOGOUT_FAILURE,
+    LOGOUT_REQUEST, 
+    LOGOUT_SUCCESS,
+    CHANGE_PASSWORD_FAILURE, 
+    CHANGE_PASSWORD_SUCCESS, 
+    CHANGE_PASSWORD_REQUEST } from "../common/constants/ActionConstants"
 
 const initialState = {
     userId: "",
@@ -7,7 +15,9 @@ const initialState = {
     name: "", // actual name
     role: "", // phc/secodary/teriary/admin
     userLoading: true, // true indiactes that user is not logged in yet becomes false at request 
-    authError: "" // login error
+    authError: "",// login error
+    changePasswordLoading: true,
+    changePasswordError: ""
 }
 
 export const AuthReducer = (state = initialState, action) => {
@@ -34,6 +44,7 @@ export const AuthReducer = (state = initialState, action) => {
         case LOGIN_REQUEST:
             return {
                 ...state,
+                //authError: "",
                 userLoading: false
             }
         
@@ -51,6 +62,20 @@ export const AuthReducer = (state = initialState, action) => {
             return {
                 ...state,
                 authError: action.err
+            }
+        case CHANGE_PASSWORD_REQUEST:
+            return{
+                ...state,
+                changePasswordLoading: false
+            }
+        case CHANGE_PASSWORD_SUCCESS:
+            return {
+                ...state
+            }
+        case CHANGE_PASSWORD_FAILURE:
+            return{
+                ...state,
+                changePasswordError: action.err
             }
         default:
             return state;

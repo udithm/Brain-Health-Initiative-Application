@@ -1,5 +1,6 @@
 import { createServer, Model } from "miragejs";
 import data from "./data.json";
+import { v4 as uuidv4 } from 'uuid';
 const makeServer = () => {
     const server = createServer({
         models: {
@@ -9,14 +10,20 @@ const makeServer = () => {
             this.namespace = "/api/";
             this.post("/login/authentication", (schema, request) => {
                 const attrs = JSON.parse(request.requestBody);
-                const user = schema.users.where({userName: attrs.userName});
+                const user = schema.users.where({userName: attrs.userName, hashedPassword: attrs.password});
+                user.models[0].attrs.jwt = uuidv4();
                 console.log("######################### attrs", attrs, "user ", user);
                 return user;
             });
             this.post("/logout",(schema,request) => {
-                return "Sucesss"
-            }
-            )
+                return "logout Sucesss"
+            });
+            this.post("/changePassword",(schema,request) => {
+                const attrs = JSON.parse(request.requestBody);
+                const user = schema.users.where({userName: attrs.userName});
+                user.update({...user.models[0].attrs, password: attrs.newPassword});
+                return " change password Sucesss"
+            });
             this.passthrough();
 
         }

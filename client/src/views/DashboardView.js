@@ -10,31 +10,50 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-export const DashboardView = ({userName,userId,orgName,name,role,logout}) =>{
+export const DashboardView = ({userName,userId,orgName,name,role,logout,history}) =>{
+    const textstyle = {margin: "25px"};
+    // const backStyle = {backgroundColor: "#1976d2"}
     return (
         <>
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <Box sx={{ flexGrow: 1 }}  >
+        <AppBar position="static" >
             <Toolbar>
-            <IconButton
+            {/* <IconButton
                 size="large"
                 edge="start"
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
             >
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                News
+                <MenuIcon /> */}
+            {/* </IconButton> */}
+            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+                Brain Health Initiative
             </Typography>
-            <Button color="inherit"> Change passoword</Button>      
+            <Button color="inherit" onClick= { () =>
+                {history.push("/changePassword")}}> Change passoword</Button>      
             <Button color="inherit" onClick= {() =>
                 {logout(userName)}}> logout</Button>
             </Toolbar>
         </AppBar>
         </Box>
-        <h1> hi login is success !!</h1>
+
+        <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} style={textstyle} >
+                <h2>Welcome to Brain Health Initiative Program, {name} !!! </h2>
+                
+                <div><b>User Details:</b></div>
+                Name: {name}<br/>
+            UserId: {userId}
+            <br/>
+            Username: {userName}
+            <br></br>
+            Organisation: {orgName}
+            <br></br>
+            Role: {role.toLowerCase()}
+            <br></br>
+
+        </Typography>
+        {/* <h1> Welcome to !!</h1>
         <p>
             your user id is {userId}
             <br/>
@@ -45,7 +64,7 @@ export const DashboardView = ({userName,userId,orgName,name,role,logout}) =>{
             your role is {role}
             <br></br>
             Your full name is {name}
-        </p>
+        </p> */}
         </>
     );
 };

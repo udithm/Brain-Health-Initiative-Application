@@ -18,6 +18,7 @@ const DashboardContainer = () => {
         name={authState.name}
         role={authState.role}
         logout= {logout}
+        history= {history}
         />);
 }
 export default DashboardContainer;
