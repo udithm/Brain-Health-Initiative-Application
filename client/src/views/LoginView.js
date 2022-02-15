@@ -1,59 +1,57 @@
 //https://github.com/vikas62081/YT/blob/loginPage/src/components/login.js
-/*
-import React from 'react'
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-export const LoginView =()=>{
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'8px 0'}
-    return(
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-                    <h2>Sign In</h2>
-                </Grid>
-                <TextField label='Username' placeholder='Enter username' fullWidth required/>
-                <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/>
-                {<FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
-                    label="Remember me"
-                 /> }
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
-                { <Typography >
-                     <Link href="#" >
-                        Forgot password ?
-                </Link>
-                </Typography>
-                <Typography > Do you have an account ?
-                     <Link href="#" >
-                        Sign Up 
-                </Link>
-                </Typography> }
-            </Paper>
-        </Grid>
-    )
-}
+// import React from 'react'
+// import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
+// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
+// export const LoginView =()=>{
 
-//export default LoginView;
+//     const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
+//     const avatarStyle={backgroundColor:'#1bbd7e'}
+//     const btnstyle={margin:'8px 0'}
+//     return(
+//         <Grid>
+//             <Paper elevation={10} style={paperStyle}>
+//                 <Grid align='center'>
+//                      <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
+//                     <h2>Sign In</h2>
+//                 </Grid>
+//                 <TextField label='Username' placeholder='Enter username' fullWidth required/>
+//                 <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/>
+//                 {<FormControlLabel
+//                     control={
+//                     <Checkbox
+//                         name="checkedB"
+//                         color="primary"
+//                     />
+//                     }
+//                     label="Remember me"
+//                  /> }
+//                 <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
+//                 { <Typography >
+//                      <Link href="#" >
+//                         Forgot password ?
+//                 </Link>
+//                 </Typography>
+//                 <Typography > Do you have an account ?
+//                      <Link href="#" >
+//                         Sign Up 
+//                 </Link>
+//                 </Typography> }
+//             </Paper>
+//         </Grid>
+//     )
+// }
 
-//export default loginView;
-*/
 //https://formik.org/docs/examples/with-material-ui
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
+import { Grid,Paper } from '@material-ui/core'
+import sha256 from "sha256";
 
 const validationSchema = yup.object({
   email: yup
@@ -70,41 +68,57 @@ export const LoginView = ({login, err}) => {
   const formik = useFormik({
     initialValues: {
       email: 'alvar@katherin.com',
-      password: 'alvar123',
+      password: 'alvar12345678',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      login(values.email, values.password);
+      login(values.email, sha256(values.password));
     },
   });
+  const paperStyle={padding :30,height:'40vh',width:280, margin:"150px auto"};
+  const btnstyle={margin:'30px 0', align: 'center'};
+  const textstyle={margin:'15px 0'};
 
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          id="email"
-          name="email"
-          label="Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-        <TextField
-          fullWidth
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        />
-        <Button color="primary" variant="contained"  type="submit">
-          Submit
-        </Button>
+      <Grid>
+            <Paper elevation={10} style={paperStyle}>
+            <Grid align='center'>
+                   <h2>Sign In</h2>
+              </Grid>
+                <TextField
+                fullWidth
+                id="email"
+                name="email"
+                label="Email"
+                style={textstyle}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                />
+                <TextField
+                fullWidth
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                style={textstyle}
+                error={formik.touched.password && Boolean(formik.errors.password)}
+                helperText={formik.touched.password && formik.errors.password}
+                
+                />
+                <Grid align='center'>
+                <Button color="primary" variant="contained"  type="submit" style={btnstyle} >
+                Submit
+                </Button>
+              </Grid>
+            
+            </Paper>
+            </Grid> 
       </form>
       <div>{err}</div>
     </div>

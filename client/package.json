@@ -25,6 +25,8 @@
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
+    "sha256": "^0.2.0",
+    "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
   "scripts": {
