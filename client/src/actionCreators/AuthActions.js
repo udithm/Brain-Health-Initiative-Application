@@ -1,4 +1,4 @@
-import {LOGIN_REQUEST,LOGIN_FAILURE,LOGIN_SUCCESS,LOGOUT_REQUEST,LOGOUT_SUCCESS,LOGOUT_FAILURE} from "../common/constants/ActionConstants"
+import {LOGIN_REQUEST,LOGIN_FAILURE,LOGIN_SUCCESS,LOGOUT_REQUEST,LOGOUT_SUCCESS,LOGOUT_FAILURE, SET_NEW_USER} from "../common/constants/ActionConstants"
 
 // these are the new syntax of js (arrow function)
 
@@ -29,4 +29,10 @@ export const logoutSuccess = () => ({
 export const logoutFailure = (err) => ({
     type: LOGOUT_FAILURE,
     err: err
+})
+
+
+export const setIsNewUser = (isNewUser) => ({
+    type: SET_NEW_USER,
+    isNewUser
 })

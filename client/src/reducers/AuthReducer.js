@@ -6,7 +6,8 @@ import { LOGIN_FAILURE,
     LOGOUT_SUCCESS,
     CHANGE_PASSWORD_FAILURE, 
     CHANGE_PASSWORD_SUCCESS, 
-    CHANGE_PASSWORD_REQUEST } from "../common/constants/ActionConstants"
+    CHANGE_PASSWORD_REQUEST, 
+    SET_NEW_USER} from "../common/constants/ActionConstants"
 
 const initialState = {
     userId: "",
@@ -17,7 +18,8 @@ const initialState = {
     userLoading: true, // true indiactes that user is not logged in yet becomes false at request 
     authError: "",// login error
     changePasswordLoading: true,
-    changePasswordError: ""
+    changePasswordError: "",
+    isNewUser: false
 }
 
 export const AuthReducer = (state = initialState, action) => {
@@ -30,7 +32,8 @@ export const AuthReducer = (state = initialState, action) => {
                 orgName: action.userDetails.orgName,
                 name: action.userDetails.name,
                 role: action.userDetails.role,
-                userLoading: false
+                userLoading: false,
+                isNewUser: false
             };
             // if the state values are coming from outside then we need to use action.userdetails.userid else if we are using the previous state value then we can use state.username
         case LOGIN_FAILURE:
@@ -76,6 +79,11 @@ export const AuthReducer = (state = initialState, action) => {
             return{
                 ...state,
                 changePasswordError: action.err
+            }
+        case SET_NEW_USER:
+            return {
+                ...state, 
+                isNewUser: action.isNewUser
             }
         default:
             return state;

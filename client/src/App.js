@@ -10,6 +10,7 @@ import ProtectedRoute from './ProtectedRoute';
 //import { requirePropFactory } from '@material-ui/core';
 
 function App() {
+    localStorage.removeItem("jwt");
   return (
       <Router>
             <Switch>
@@ -18,7 +19,6 @@ function App() {
                 <ProtectedRoute path="/changePassword" component={ChangePasswordContainer}></ProtectedRoute>
                 <Redirect from="*" to="/dashboard"></Redirect> 
             </Switch>
-
             
       </Router>
     
