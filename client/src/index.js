@@ -9,6 +9,7 @@ import combinedReducers from './reducers/CombinedReducers';
 import * as serviceWorker from './serviceWorker';
 import {createStore, applyMiddleware,compose} from "redux";
 import makeServer from "./mockServer/mockServer";
+import { ToastNotification } from './components/ToastNotification';
 
 makeServer();
 const store = createStore(
@@ -20,6 +21,7 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <App />
+            <ToastNotification/>
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')

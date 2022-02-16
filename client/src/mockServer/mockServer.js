@@ -11,7 +11,10 @@ const makeServer = () => {
             this.post("/login/authentication", (schema, request) => {
                 const attrs = JSON.parse(request.requestBody);
                 const user = schema.users.where({userName: attrs.userName, hashedPassword: attrs.password});
-                user.models[0].attrs.jwt = uuidv4();
+                if (user.models.length) {
+                    user.models[0].attrs.jwt = uuidv4();
+                }
+              
                 console.log("######################### attrs", attrs, "user ", user);
                 return user;
             });
@@ -21,7 +24,7 @@ const makeServer = () => {
             this.post("/changePassword",(schema,request) => {
                 const attrs = JSON.parse(request.requestBody);
                 const user = schema.users.where({userName: attrs.userName});
-                user.update({...user.models[0].attrs, password: attrs.newPassword});
+                user.update({...user.models[0].attrs, hashedPassword: attrs.newPassword});
                 return " change password Sucesss"
             });
             this.passthrough();

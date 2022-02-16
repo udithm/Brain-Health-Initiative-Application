@@ -50,8 +50,10 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
-import { Grid,Paper } from '@material-ui/core'
+import { Grid,Paper,Typography,Link } from '@material-ui/core'
 import sha256 from "sha256";
+import { baseUrl } from '../common/constants/AppConstants';
+import { setIsNewUser } from '../actionCreators/AuthActions';
 
 const validationSchema = yup.object({
   email: yup
@@ -64,7 +66,7 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-export const LoginView = ({login, err}) => {
+export const LoginView = ({login, err, signUp}) => {
   const formik = useFormik({
     initialValues: {
       email: 'alvar@katherin.com',
@@ -111,16 +113,21 @@ export const LoginView = ({login, err}) => {
                 helperText={formik.touched.password && formik.errors.password}
                 
                 />
+                <div style={{color: "red"}}>{err}</div>
                 <Grid align='center'>
                 <Button color="primary" variant="contained"  type="submit" style={btnstyle} >
                 Submit
                 </Button>
               </Grid>
+              <Typography> Don't have an account ?
+                    <Link component="button"variant="body1" onClick={() => signUp(true)} >
+                        Sign Up 
+                    </Link>
+                 </Typography> 
             
             </Paper>
             </Grid> 
       </form>
-      <div>{err}</div>
     </div>
   );
 };
