@@ -6,7 +6,7 @@ import { ALERT_CLEAR,
 
 const intialState = {
         message: "",
-        severity: "",
+        severity: "info",
         open: false,
        vertical: "top",
         horizontal: "right"

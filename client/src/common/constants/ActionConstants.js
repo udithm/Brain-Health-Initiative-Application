@@ -20,3 +20,8 @@ export const ALERT_ERROR = "alertError";
 export const ALERT_CLEAR = "alertClear";
 export const ALERT_INFO = "alertInfo";
 export const ALERT_WARNING = "alertWarning";
+
+//My profile constants
+export const MY_PROFILE_REQUEST = "MyProfileRequest";
+export const MY_PROFILE_SUCCESS = "MyProfileSuccess";
+export const MY_PROFILE_FAILURE = "MyProfileFailure";

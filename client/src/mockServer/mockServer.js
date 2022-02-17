@@ -27,6 +27,12 @@ const makeServer = () => {
                 user.update({...user.models[0].attrs, hashedPassword: attrs.newPassword});
                 return " change password Sucesss"
             });
+            this.post("/myProfile", (schema, request) => {
+                const attrs = JSON.parse(request.requestBody);
+                const user = schema.users.where({userId: attrs.uId});              
+                console.log("######################### attrs", attrs, "user ", user);
+                return user;
+            });
             this.passthrough();
 
         }

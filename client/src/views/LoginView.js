@@ -52,8 +52,8 @@ import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
 import { Grid,Paper,Typography,Link } from '@material-ui/core'
 import sha256 from "sha256";
-import { baseUrl } from '../common/constants/AppConstants';
-import { setIsNewUser } from '../actionCreators/AuthActions';
+// import { baseUrl } from '../common/constants/AppConstants';
+// import { setIsNewUser } from '../actionCreators/AuthActions';
 
 const validationSchema = yup.object({
   email: yup
