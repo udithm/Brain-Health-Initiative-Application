@@ -1,32 +1,32 @@
 import React from "react";
 
 //import Button from '@material-ui/core/Button';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-
+// import Button from '@mui/material/Button';
+// import IconButton from '@mui/material/IconButton';
+// import MenuIcon from '@mui/icons-material/Menu';
+import { NavBar } from "../components/NavBar";
 
 export const DashboardView = ({userName,userId,orgName,name,role,logout,history}) =>{
     const textstyle = {margin: "25px"};
     // const backStyle = {backgroundColor: "#1976d2"}
     return (
         <>
-        <Box sx={{ flexGrow: 1 }}  >
+        {/* <Box sx={{ flexGrow: 1 }}  >
         <AppBar position="static" >
             <Toolbar>
-            {/* <IconButton
+            { <IconButton
                 size="large"
                 edge="start"
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
             >
-                <MenuIcon /> */}
-            {/* </IconButton> */}
+                <MenuIcon /> }
+            { </IconButton> }
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                 Brain Health Initiative
             </Typography>
@@ -36,22 +36,10 @@ export const DashboardView = ({userName,userId,orgName,name,role,logout,history}
                 {logout(userName)}}> logout</Button>
             </Toolbar>
         </AppBar>
-        </Box>
-
+        </Box> */}
+        <NavBar></NavBar>
         <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} style={textstyle} >
-                <h2>Welcome to Brain Health Initiative Program, {name} !!! </h2>
-                
-                <div><b>User Details:</b></div>
-                Name: {name}<br/>
-            UserId: {userId}
-            <br/>
-            Username: {userName}
-            <br></br>
-            Organisation: {orgName}
-            <br></br>
-            Role: {role.toLowerCase()}
-            <br></br>
-
+                <h2>Welcome to Brain Health Initiative Program!!!, This is dashboard </h2>
         </Typography>
         {/* <h1> Welcome to !!</h1>
         <p>

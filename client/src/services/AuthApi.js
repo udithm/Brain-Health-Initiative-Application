@@ -23,6 +23,7 @@ export const userLogin = (userName, password, history) => {
                 localStorage.setItem("jwt", res.data.jwt);
                 console.log("-------this is then------- ", res);
                 dispatch(alertSuccess("Login Successful!"));
+                localStorage.setItem("userId", res.data.users[0].userId);
                 if (res.data.users[0].firstLogin)
                     history.push("/changePassword");
                 else

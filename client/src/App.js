@@ -6,6 +6,7 @@ import {Redirect} from "react-router";
 import LoginContainer from './containers/LoginContainer';
 import DashboardContainer from './containers/DashboardContainer';
 import ChangePasswordContainer from './containers/ChangePasswordContainer';
+import MyProfileContainer from './containers/MyProfileContainer';
 import ProtectedRoute from './ProtectedRoute';
 //import { requirePropFactory } from '@material-ui/core';
 
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/login" component={LoginContainer}></Route>
                 <ProtectedRoute path="/dashboard/" component={DashboardContainer}></ProtectedRoute>
                 <ProtectedRoute path="/changePassword" component={ChangePasswordContainer}></ProtectedRoute>
+                <ProtectedRoute path="/myProfile" component={MyProfileContainer}></ProtectedRoute>
                 <Redirect from="*" to="/dashboard"></Redirect> 
             </Switch>
             

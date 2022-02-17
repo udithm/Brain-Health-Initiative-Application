@@ -16,6 +16,7 @@
     "axios": "^0.25.0",
     "faker": "^6.6.6",
     "formik": "^2.2.9",
+    "material-ui-phone-number": "^3.0.0",
     "miragejs": "^0.1.43",
     "mui": "^0.0.1",
     "react": "^17.0.2",

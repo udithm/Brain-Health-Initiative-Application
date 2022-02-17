@@ -39,7 +39,7 @@ export const AuthReducer = (state = initialState, action) => {
         case LOGIN_FAILURE:
             return {
                 ...state, // this statement does the implimention of the below statement
-                userId: state.userId, // this is example of using alredy existing state (this is not required only for demonstatrion of fetching values of from state)
+            //    userId: state.userId, // this is example of using alredy existing state (this is not required only for demonstatrion of fetching values of from state)
                 userLoading: false,
                 authError: action.err 
             }
