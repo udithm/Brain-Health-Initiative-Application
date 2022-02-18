@@ -12,13 +12,11 @@ const DashboardContainer = () => {
     const dispatch = useDispatch();
     const logout = (userName) => userLogout(userName,history)(dispatch);
     return (
+        <>
     <DashboardView userName={authState.userName}
-        userId={authState.userId}
-        orgName={authState.orgName}
         name={authState.name}
-        role={authState.role}
-        logout= {logout}
-        history= {history}
-        />);
+        />)
+        </>
+    );
 }
 export default DashboardContainer;

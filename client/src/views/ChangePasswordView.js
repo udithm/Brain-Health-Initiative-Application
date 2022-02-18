@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
 import { Grid,Paper } from '@material-ui/core'
 import sha256 from 'sha256';
+import { NavBar } from '../components/NavBar';
 
 const validationSchema = yup.object({
     newPassword: yup
@@ -36,6 +37,8 @@ export const ChangePasswordView = ({change, err}) => {
   const textstyle={margin:'15px 0'};
 
   return (
+      <>
+      <NavBar></NavBar>
     <div>
       <form onSubmit={formik.handleSubmit}>
       <Grid>
@@ -77,5 +80,6 @@ export const ChangePasswordView = ({change, err}) => {
       </form>
       <div>{err}</div>
     </div>
+    </>
   );
 };

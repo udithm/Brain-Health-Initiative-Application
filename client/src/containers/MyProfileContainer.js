@@ -4,13 +4,13 @@ import { useSelector } from "react-redux";
 import {MyProfileView} from "../views/MyProfileView";
 
 const MyProfileContainer = () => {
-    const authState = useSelector(state => state.AuthReducer);
+    const myProfileState = useSelector(state => state.MyProfileReducer);
     return (
-    <MyProfileView userName={authState.userName}
-        userId={authState.userId}
-        orgName={authState.orgName}
-        name={authState.name}
-        role={authState.role}
+    <MyProfileView userName={myProfileState.userName}
+        userId={myProfileState.userId}
+        orgName={myProfileState.orgName}
+        name={myProfileState.name}
+        role={myProfileState.role}
         />);
 }
 export default MyProfileContainer;

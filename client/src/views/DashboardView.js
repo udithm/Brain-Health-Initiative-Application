@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 // import MenuIcon from '@mui/icons-material/Menu';
 import { NavBar } from "../components/NavBar";
 
-export const DashboardView = ({userName,userId,orgName,name,role,logout,history}) =>{
+export const DashboardView = ({name}) =>{
     const textstyle = {margin: "25px"};
     // const backStyle = {backgroundColor: "#1976d2"}
     return (
@@ -39,7 +39,7 @@ export const DashboardView = ({userName,userId,orgName,name,role,logout,history}
         </Box> */}
         <NavBar></NavBar>
         <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} style={textstyle} >
-                <h2>Welcome to Brain Health Initiative Program!!!, This is dashboard </h2>
+                <h2>Welcome to Brain Health Initiative Program {name}!!!, This is dashboard </h2>
         </Typography>
         {/* <h1> Welcome to !!</h1>
         <p>

@@ -45,7 +45,7 @@ export const AlertReducer = (state = intialState, action) => {
             return {
                 ...state,
                 message: "",
-                severity: "",
+                severity: "info",
                 open: false
             };
         default:
