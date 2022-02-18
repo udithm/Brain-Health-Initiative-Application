@@ -33,6 +33,12 @@ const makeServer = () => {
                 console.log("######################### attrs", attrs, "user ", user);
                 return user;
             });
+            this.post("/addHospital", (schema, request) => {
+                const attrs = JSON.parse(request.requestBody);
+                //const user = schema.users.where({userId: attrs.uId});              
+                console.log("######################### attrs", attrs, "user ");
+                return "sucess";
+            });
             this.passthrough();
 
         }

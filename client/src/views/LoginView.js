@@ -66,7 +66,7 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-export const LoginView = ({login, err, signUp}) => {
+export const LoginView = ({login, err}) => {
   const formik = useFormik({
     initialValues: {
       email: 'alvar@katherin.com',
@@ -119,12 +119,6 @@ export const LoginView = ({login, err, signUp}) => {
                 Submit
                 </Button>
               </Grid>
-              <Typography> Don't have an account ?
-                    <Link component="button"variant="body1" onClick={() => signUp(true)} >
-                        Sign Up 
-                    </Link>
-                 </Typography> 
-            
             </Paper>
             </Grid> 
       </form>

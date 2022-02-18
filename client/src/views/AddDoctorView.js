@@ -1,5 +1,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +10,8 @@ import { Grid,Paper,Typography,Link } from '@material-ui/core'
 import sha256 from "sha256";
 import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
+
+import { addDoctor } from '../services/CreateApi';
 
 const rolesList = [
     {label: "Primary Docotor", value: "Primary Docotor"},
@@ -52,7 +57,14 @@ const validationSchema = yup.object({
         .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
   });
   
-  export const SignupView = () => {
+  export const AddDoctorView = () => {
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const add = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber) => addDoctor(fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,history)(dispatch);
+    
+
+
     const formik = useFormik({
       initialValues: {
         fname: '',
@@ -67,7 +79,7 @@ const validationSchema = yup.object({
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-          
+        add(values.fname,values.lname,values.email,sha256(values.confirmPassword),values.role,values.gender,values.hospitalName,values.phoneNumber);
       },
     });
     const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
