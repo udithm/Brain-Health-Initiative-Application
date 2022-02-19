@@ -39,3 +39,8 @@
         transform: translateY(0px);
     }
 }
+
+header.MuiPaper-root {
+    background-color: #1976d2 !important;
+    color: #FFF !important;
+}

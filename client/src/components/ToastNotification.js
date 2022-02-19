@@ -22,7 +22,7 @@ export const ToastNotification = () => {
     const position = { vertical: alertState.vertical, horizontal: alertState.horizontal};
     
     return (
-        <Snackbar  open={alertState.open} autoHideDuration={6000} onClose={handleClose} anchorOrigin = {position}>
+        <Snackbar  open={alertState.open} autoHideDuration={60000} onClose={handleClose} anchorOrigin = {position}>
             <Alert onClose={handleClose} severity = {alertState.severity} sx={{ width: '100%' }}>
                 {alertState.message}
             </Alert>

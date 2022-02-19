@@ -12,7 +12,7 @@ import KeyIcon from '@mui/icons-material/Key';
 import PersonIcon from '@mui/icons-material/Person';
 
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {userLogout} from "../services/AuthApi";
 import { myProfile } from '../services/MyProfileApi';
@@ -27,11 +27,12 @@ export default function AccountMenu() {
   
   const history = useHistory();
   const dispatch = useDispatch();
+  const authState = useSelector(state => state.AuthReducer);
   
   const logout = (userName) => userLogout(userName,history)(dispatch);
   const mypro = (uId) => myProfile(uId,history)(dispatch);
   const loadProfile = () => {
-      if (jwt && uId) {
+      if (jwt && uId && !authState.name) {
           myProfile(uId)(dispatch);
       }
   }
@@ -60,7 +61,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-          <Avatar /> Profile          
+          <Avatar /> {authState.name}
           </IconButton>
         </Tooltip>
       </Box>
@@ -90,7 +91,7 @@ export default function AccountMenu() {
               right: 14,
               width: 10,
               height: 10,
-              bgcolor: 'background.paper',
+            //   bgcolor: 'background.paper',
               transform: 'translateY(-50%) rotate(45deg)',
               zIndex: 0,
             },

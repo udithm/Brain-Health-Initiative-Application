@@ -6,13 +6,10 @@ import Typography from '@mui/material/Typography';
 
 import AppBar from '@mui/material/AppBar';
 
-
-
-
 export const NavBar = () => {
 return (
 <Box sx={{ flexGrow: 1 }}  >
-<AppBar position="static" color = "primary" >
+<AppBar position="static" color="primary" >
     <Toolbar>
     {/* <IconButton
         size="large"

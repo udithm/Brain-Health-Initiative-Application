@@ -1,11 +1,16 @@
 import axios from "../common/config/AxiosConfig";
+// import {
+//     loginRequest,
+//     loginFailure,
+//     loginSuccess
+// } from "../actionCreators/AuthActions";
 import {
     myProfileFailure,
     myProfileRequest,
     myProfileSuccess
 } from "../actionCreators/MyProfileActions";
 
-import { alertError, alertSuccess } from "../actionCreators/AlertActions";
+import { alertError } from "../actionCreators/AlertActions";
 
 
 export const myProfile = (uId,history) => {
