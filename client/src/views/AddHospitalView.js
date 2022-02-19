@@ -11,7 +11,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
 import { getDropdownList } from '../utlis/utils';
 import statesData from "../common/StatesData.json";
-
+import { NavBar } from '../components/NavBar';
 import { addHospital } from '../services/CreateApi';
 
 const rolesList = [ "Primary Health Centre","Secondary Health Centre", "Tertiary Health Centre"]
@@ -61,7 +61,7 @@ const validationSchema = yup.object({
 
     const [stateName, setStateName] = useState("");
     const [district, setDistrict] = useState([]);
-    const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
+    const paperStyle={padding :30,height:'90vh',width:"50vw", margin:"7vh auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
     const statesList = getDropdownList(statesData.states.map(stateInfo => stateInfo.state));
@@ -96,6 +96,7 @@ const validationSchema = yup.object({
     }
     return (
       <div>
+          <NavBar></NavBar>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>
@@ -103,7 +104,7 @@ const validationSchema = yup.object({
                         <h2>Add A Hospital</h2>
                     </Grid>
 
-                    <Grid item md={1}lg={6}> 
+                    <Grid item xs={12} sm={12}> 
                         <TextField
                             required
                             id="hospitalName"
@@ -117,7 +118,19 @@ const validationSchema = yup.object({
                             variant="outlined"
                         />
                     </Grid> 
-
+                    <Grid item xs={6} sm={6}>  
+                        <Autocomplete
+                            disablePortal
+                            id="roles"
+                            options={rolesList}
+                            openOnFocus
+                            autoHighlight
+                            onChange={changeRole}
+                            renderInput={(params) => <TextField {...params} required
+                            name="role"
+                            label="Role" variant="outlined"/>}
+                        />
+                    </Grid> 
                     <Grid item xs={12} sm={12}> 
                         <TextField
                             fullWidth
@@ -206,19 +219,6 @@ const validationSchema = yup.object({
                     </Grid>
 
                     </Grid>
-                    <Grid item xs={6} sm={6}>  
-                        <Autocomplete
-                            disablePortal
-                            id="roles"
-                            options={rolesList}
-                            openOnFocus
-                            autoHighlight
-                            onChange={changeRole}
-                            renderInput={(params) => <TextField {...params} required
-                            name="role"
-                            label="Role" variant="outlined"/>}
-                        />
-                    </Grid> 
 
                     <Grid item xs ={8} sm={12} >
                         <MuiPhoneNumber

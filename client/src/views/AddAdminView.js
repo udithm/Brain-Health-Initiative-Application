@@ -12,7 +12,8 @@ import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
 
 import { addAdmin } from '../services/CreateApi';
-
+import { NavBar } from '../components/NavBar';
+import { Container, containerClasses } from '@mui/material';
 
 const rolesList = ["Admin"];
 
@@ -66,7 +67,7 @@ const validationSchema = yup.object({
     const [role, setRole] = useState(rolesList[0]);
     const [gender,setGender] = useState(genderList[0])
     const [orgName,setOrgName] = useState(orgList[0])
-    const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
+    const paperStyle={padding :30,height:'95vh',width:"50vw", margin:"10vh auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
   
@@ -89,6 +90,8 @@ const validationSchema = yup.object({
 
     return (
       <div>
+          <NavBar></NavBar>
+          <Container>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>
@@ -226,6 +229,7 @@ const validationSchema = yup.object({
              </Grid> 
         </Paper>
         </form>
+        </Container>
       </div>
     );
   };

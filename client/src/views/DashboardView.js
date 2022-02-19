@@ -15,44 +15,11 @@ export const DashboardView = ({name}) =>{
     // const backStyle = {backgroundColor: "#1976d2"}
     return (
         <>
-        {/* <Box sx={{ flexGrow: 1 }}  >
-        <AppBar position="static" >
-            <Toolbar>
-            { <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-            >
-                <MenuIcon /> }
-            { </IconButton> }
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                Brain Health Initiative
-            </Typography>
-            <Button color="inherit" onClick= { () =>
-                {history.push("/changePassword")}}> Change passoword</Button>      
-            <Button color="inherit" onClick= {() =>
-                {logout(userName)}}> logout</Button>
-            </Toolbar>
-        </AppBar>
-        </Box> */}
         <NavBar></NavBar>
         <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} style={textstyle} >
                 <h2>Welcome to Brain Health Initiative Program {name}!!!, This is dashboard </h2>
         </Typography>
-        {/* <h1> Welcome to !!</h1>
-        <p>
-            your user id is {userId}
-            <br/>
-            your userName id is {userName}
-            <br></br>
-            your organisation is {orgName}
-            <br></br>
-            your role is {role}
-            <br></br>
-            Your full name is {name}
-        </p> */}
+        
         </>
     );
 };

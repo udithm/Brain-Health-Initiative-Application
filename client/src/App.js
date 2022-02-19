@@ -13,12 +13,11 @@ import { AddAdminOrgView } from './views/AddAdminOrgView';
 import { AddAdminView } from './views/AddAdminView';
 import { AddHospitalView } from './views/AddHospitalView';
 import { AddDoctorView } from './views/AddDoctorView';
-import { NavBar } from './components/NavBar';
-//import { requirePropFactory } from '@material-ui/core';
+import { PatientOptionsView } from './views/PatientOptionsView';
+
 
 function App() {
   return (
-      
       <Router>
             <Switch>
                 <Route path="/login" component={LoginContainer}></Route>
@@ -30,9 +29,10 @@ function App() {
                 <ProtectedRoute path="/addDoctor" component={AddDoctorView}></ProtectedRoute>
                 <ProtectedRoute path="/addAdmin" component={AddAdminView}></ProtectedRoute>
                 <ProtectedRoute path="/addAdminOrg" component={AddAdminOrgView}></ProtectedRoute>
+                <ProtectedRoute path="/patientOptions" component={PatientOptionsView}></ProtectedRoute>
                 <Redirect from="*" to="/dashboard"></Redirect> 
             </Switch>
-      </Router>    
+      </Router>
   )
 }
 

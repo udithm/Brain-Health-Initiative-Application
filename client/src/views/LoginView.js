@@ -50,10 +50,10 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
-import { Grid,Paper,Typography,Link } from '@material-ui/core'
+import { Grid,Paper } from '@material-ui/core'
 import sha256 from "sha256";
+import { Container } from '@mui/material';
 // import { baseUrl } from '../common/constants/AppConstants';
-// import { setIsNewUser } from '../actionCreators/AuthActions';
 
 const validationSchema = yup.object({
   email: yup
@@ -79,8 +79,8 @@ export const LoginView = ({login, err}) => {
       login(values.email, sha256(values.password));
     },
   });
-  const paperStyle={padding :30,height:'40vh',width:280, margin:"150px auto"};
-  const btnstyle={margin:'30px 0', align: 'center'};
+  const paperStyle={padding :30,height:'40vh',width:'20vw', margin:"25vh auto"};
+  const btnstyle={margin:'3vh 0', align: 'center'};
   const textstyle={margin:'15px 0'};
 
   return (
@@ -122,7 +122,7 @@ export const LoginView = ({login, err}) => {
                 </Button>
               </Grid>
             </Paper>
-            </Grid> 
+        </Grid> 
       </form>
     </div>
   );

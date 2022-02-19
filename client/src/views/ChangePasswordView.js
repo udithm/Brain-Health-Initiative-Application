@@ -32,8 +32,8 @@ export const ChangePasswordView = ({change, err}) => {
       change(sha256(values.confirmPassword));
     },
   });
-  const paperStyle={padding :30,height:'40vh',width:280, margin:"150px auto"};
-  const btnstyle={margin:'30px 0', align: 'center'};
+  const paperStyle={padding :30,height:'40vh',width:'20vw', margin:"20vh auto"};
+  const btnstyle={margin:'3vh 0', align: 'center'};
   const textstyle={margin:'15px 0'};
 
   return (

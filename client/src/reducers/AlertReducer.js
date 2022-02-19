@@ -8,7 +8,7 @@ const intialState = {
         message: "",
         severity: "info",
         open: false,
-       vertical: "top",
+       vertical: "bottom",
         horizontal: "right"
 }
 export const AlertReducer = (state = intialState, action) => {

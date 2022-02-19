@@ -1,11 +1,16 @@
 import axios from "../common/config/AxiosConfig";
+// import {
+//     loginRequest,
+//     loginFailure,
+//     loginSuccess
+// } from "../actionCreators/AuthActions";
 import {
     myProfileFailure,
     myProfileRequest,
     myProfileSuccess
 } from "../actionCreators/MyProfileActions";
 
-import { alertError, alertSuccess } from "../actionCreators/AlertActions";
+import { alertError } from "../actionCreators/AlertActions";
 
 
 export const myProfile = (uId,history) => {
@@ -17,9 +22,11 @@ export const myProfile = (uId,history) => {
                 if (!res.data || !res.data.users || !res.data.users.length) { throw new Error("Profile fetch unsucessful.");} // this is added so mock server can be used(jugad)
                 dispatch(myProfileSuccess(res.data.users[0]));
                 console.log("-------this is then------- ", res);
-                dispatch(alertSuccess("Profile fetch Successful!"));
                 localStorage.setItem("userId", res.data.users[0].userId);
-                history.push("/myProfile");
+                if (history) {
+                    history.push("/myProfile");
+                    // dispatch(alertSuccess("Profile fetch Successful!"));
+                }
             })
             .catch((err)=>{
                 dispatch(myProfileFailure(err.message));

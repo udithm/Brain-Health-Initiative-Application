@@ -7,7 +7,9 @@ import { LOGIN_FAILURE,
     CHANGE_PASSWORD_FAILURE, 
     CHANGE_PASSWORD_SUCCESS, 
     CHANGE_PASSWORD_REQUEST, 
-    SET_NEW_USER} from "../common/constants/ActionConstants"
+    MY_PROFILE_FAILURE,
+    MY_PROFILE_REQUEST,
+    MY_PROFILE_SUCCESS} from "../common/constants/ActionConstants"
 
 const initialState = {
     userId: "",
@@ -19,7 +21,8 @@ const initialState = {
     authError: "",// login error
     changePasswordLoading: true,
     changePasswordError: "",
-    isNewUser: false
+    myProfileError: "",// login error
+    myProfileLoading: true,
 }
 
 export const AuthReducer = (state = initialState, action) => {
@@ -32,8 +35,7 @@ export const AuthReducer = (state = initialState, action) => {
                 orgName: action.userDetails.orgName,
                 name: action.userDetails.name,
                 role: action.userDetails.role,
-                userLoading: false,
-                isNewUser: false
+                userLoading: false
             };
             // if the state values are coming from outside then we need to use action.userdetails.userid else if we are using the previous state value then we can use state.username
         case LOGIN_FAILURE:
@@ -80,11 +82,27 @@ export const AuthReducer = (state = initialState, action) => {
                 ...state,
                 changePasswordError: action.err
             }
-        case SET_NEW_USER:
+        case MY_PROFILE_FAILURE:
             return {
-                ...state, 
-                isNewUser: action.isNewUser
-            }
+                ...state,
+                myProfileLoading: false,
+                myProfileError: action.err
+            };
+        case MY_PROFILE_REQUEST:
+            return {
+                ...state,
+                myProfileLoading:false
+            };
+        case MY_PROFILE_SUCCESS:
+            return {
+                ...state,
+                userId: action.userDetails.userId,
+                userName: action.userDetails.userName,
+                orgName: action.userDetails.orgName,
+                name: action.userDetails.name,
+                role: action.userDetails.role,
+                myProfileLoading: false,
+            };
         default:
             return state;
           
