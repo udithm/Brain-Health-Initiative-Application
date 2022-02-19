@@ -71,6 +71,8 @@ export const LoginView = ({login, err}) => {
     initialValues: {
       email: 'alvar@katherin.com',
       password: 'alvar12345678',
+        // email: "",
+        // password: ""
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {

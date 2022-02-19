@@ -33,7 +33,25 @@ const makeServer = () => {
                 console.log("######################### attrs", attrs, "user ", user);
                 return user;
             });
+            this.post("/addDoctor", (schema, request) => {
+                const attrs = JSON.parse(request.requestBody);
+                //const user = schema.users.where({userId: attrs.uId});              
+                console.log("######################### attrs", attrs, "user ");
+                return "sucess";
+            });
             this.post("/addHospital", (schema, request) => {
+                const attrs = JSON.parse(request.requestBody);
+                //const user = schema.users.where({userId: attrs.uId});              
+                console.log("######################### attrs", attrs, "user ");
+                return "sucess";
+            });
+            this.post("/addAdmin", (schema, request) => {
+                const attrs = JSON.parse(request.requestBody);
+                //const user = schema.users.where({userId: attrs.uId});              
+                console.log("######################### attrs", attrs, "user ");
+                return "sucess";
+            });
+            this.post("/addAdminOrg", (schema, request) => {
                 const attrs = JSON.parse(request.requestBody);
                 //const user = schema.users.where({userId: attrs.uId});              
                 console.log("######################### attrs", attrs, "user ");

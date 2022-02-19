@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -13,30 +13,17 @@ import MuiPhoneNumber from "material-ui-phone-number";
 
 import { addDoctor } from '../services/CreateApi';
 
-const rolesList = [
-    {label: "Primary Docotor", value: "Primary Docotor"},
-    {label: "Secondary Specalist", value: "Secondary Specalist"},
-    {label: "Tertiary Specalist", value: "Tertiary Specalist"}
-]
+// const rolesList = [
+//     {label: "Primary Docotor", value: "Primary Docotor"},
+//     {label: "Secondary Specalist", value: "Secondary Specalist"},
+//     {label: "Tertiary Specalist", value: "Tertiary Specalist"}
+// ]
 
-const genderList = [
-    {label: "Male", value: "Male"},
-    {label:"Female", value: "Female"}
-]
+const rolesList = ["Primary Doctor", "Secondary Specalist",  "Tertiary Specalist"];
+const genderList = [  "Male","Female"];
 
-const hospitalList = [
-    {label: "Hospital 1", value: "Hospital 1"},
-    {label: "Hospital 2", value: "Hospital 2"},
-    {label: "Hospital 3", value: "Hospital 3"},
-    {label: "Hospital 4", value: "Hospital 4"},
-    {label: "Hospital 5", value: "Hospital 5"},
-    {label: "Hospital 6", value: "Hospital 6"},
-    {label: "Hospital 7", value: "Hospital 7"},
-    {label: "Hospital 8", value: "Hospital 8"}
-]
-const phoneRegex = RegExp(
-    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-  );
+const hospitalList = [ "Hospital 1","Hospital 2","Hospital 3","Hospital 4","Hospital 5","Hospital 6","Hospital 7","Hospital 8"];
+
 const validationSchema = yup.object({
     email: yup
       .string('Enter your email')
@@ -52,26 +39,25 @@ const validationSchema = yup.object({
       .test('passwords-match', 'Passwords must match', function(value){
           return this.parent.password === value
         }),
-    phoneNumber: yup
+    // phoneNumber: yup
         // regexr.com/6anqd
-        .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
+        // .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
   });
   
   export const AddDoctorView = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
+  
     const add = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber) => addDoctor(fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,history)(dispatch);
     
-
-
     const formik = useFormik({
       initialValues: {
-        fname: '',
-        lname: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
+        fname: 'fghjkl',
+        lname: 'dfghjkl',
+        email: 'sdfghj@sdfghjk.com',
+        password: '1234567890',
+        confirmPassword: '1234567890',
         role: '',
         gender: '',
         hospitalName: '',
@@ -79,20 +65,38 @@ const validationSchema = yup.object({
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
+          console.log("^^^^^^^^^^^^^^^^^ add doctor submit = ", values)
         add(values.fname,values.lname,values.email,sha256(values.confirmPassword),values.role,values.gender,values.hospitalName,values.phoneNumber);
       },
     });
+    const [role, setRole] = useState(rolesList[0]);
+    const [gender,setGender] = useState(genderList[0])
+    const [hospitalName,setHospitalName] = useState(hospitalList[0])
     const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
-  
+    const changeRole = (event, value) => {
+        formik.values.role = value;
+        setRole(value);
+    }
+    const changeGender = (event, value) => {
+        formik.values.gender = value;
+        setGender(value);
+    }
+    const changeHospitalName = (event, value) => {
+        formik.values.hospitalName = value;
+        setHospitalName(value);
+    }
+    const handlePhoneNumberChange = (value) => {
+        formik.values.phoneNumber = value;
+    }
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>
                     <Grid align='center' item xs={12} sm={12}>
-                        <h2>Sign Up</h2>
+                        <h2>Add a doctor</h2>
                     </Grid>
 
                     <Grid item md={1}lg={6}> 
@@ -172,12 +176,14 @@ const validationSchema = yup.object({
                     </Grid>
                     <Grid item xs={6} sm={6}>  
                         <Autocomplete
-                                disablePortal
+                            disablePortal
                             id="roles"
                             options={rolesList}
                             openOnFocus
                             autoHighlight
-                            renderInput={(params) => <TextField {...params} required value={formik.values.role}
+                            onChange={changeRole}
+                            renderInput={(params) => <TextField {...params} required
+                            name="role"
                             label="Role" variant="outlined"/>}
                         />
                     </Grid> 
@@ -188,8 +194,9 @@ const validationSchema = yup.object({
                             id="gender"
                             options={genderList}
                             autoHighlight
-                            renderInput={(params) => <TextField {...params} required value={formik.values.gender}
-                            label="Gender" variant="outlined" />}
+                            onChange={changeGender}
+                            renderInput={(params) => <TextField {...params} required 
+                            label="Gender" name= "gender" variant="outlined" />}
                         />
                     </Grid>
                     <Grid item xs={12}>  
@@ -199,29 +206,26 @@ const validationSchema = yup.object({
                             id="hospitalName"
                             options={hospitalList}
                             autoHighlight
-                            renderInput={(params) => <TextField {...params} required value={formik.values.hospitalName}
-                            label="Hospital Name" variant="outlined"/>}
+                            onChange={changeHospitalName}
+                            renderInput={(params) => <TextField {...params} required 
+                            label="Hospital Name" name="hospitalName" variant="outlined"/>}
                         />
                     </Grid>
-                    <Grid item xs ={8} sm={12} >
+                     <Grid item xs ={8} sm={12} >
                         <MuiPhoneNumber
-                            name="phone"
+                            name="phoneNumber"
                             label="Phone Number"
                             defaultCountry={"in"}
-                            value={formik.values.phone}
+                            onChange={handlePhoneNumberChange}
+                            value={formik.values.phoneNumber}
                             variant="outlined"
                         /> 
-                    </Grid>                  
+                    </Grid> 
                   <Grid align='center'>
                   <Button align="center" color="primary" variant="contained"  type="submit" style={btnstyle} >
                   Submit
                   </Button>
                 </Grid>
-                {/* <Typography> Don't have an account ?
-                      <Link component="button"variant="body1" onClick={() => signUp(true)} >
-                          Sign Up 
-                      </Link>
-                   </Typography>  */}
              </Grid> 
 
         </Paper>

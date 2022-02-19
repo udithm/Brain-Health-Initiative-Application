@@ -1,8 +1,5 @@
 const getDropdownOption = (value) => {
-    return {
-        label: value,
-        value: value
-    }
+    return value;
 };
 
 export const getDropdownList = (valueList) => {

@@ -26,7 +26,7 @@ export const CreateView = () => {
             <Grid container spacing={2}>
                 <Grid item xs={3} sm={3}>
                     <Link href="/addHospital">
-                    <Card variant="outline" className={classes.root}>
+                    <Card variant="outlined" className={classes.root}>
                         <CardActionArea >
                             <CardContent>
                                 <div style={{height: "240px", width: "240px", padding: "10px"}}><HospitalIcon/></div>
