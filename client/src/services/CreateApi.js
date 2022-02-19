@@ -58,7 +58,7 @@ export const addAdminOrg = (email,orgName,phoneNumber,stateName,district,city,pi
 export const addHospital = (email,role,hospitalName,phoneNumber,stateName,district,city,pincode,history) => {
     return(dispatch) => {
         axios
-            .post("/addAdminOrg",{email,role,hospitalName,phoneNumber,stateName,district,city,pincode})
+            .post("/addHospital",{email,role,hospitalName,phoneNumber,stateName,district,city,pincode})
             .then ( (res) => {
                 console.log("-------this is then------- ", res);
                 dispatch(alertSuccess("Hospital add sucessful"));

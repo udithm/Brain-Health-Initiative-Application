@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -14,28 +14,12 @@ import MuiPhoneNumber from "material-ui-phone-number";
 import { addAdmin } from '../services/CreateApi';
 
 
-const rolesList = [
-    {label: "Admin", value: "Admin"},
-]
+const rolesList = ["Admin"];
 
-const genderList = [
-    {label: "Male", value: "Male"},
-    {label:"Female", value: "Female"}
-]
+const genderList = [  "Male","Female"];
 
-const orgList = [
-    {label: "Admin org 1", value: "Admin org 1"},
-    {label: "Admin org 2", value: "Admin org 2"},
-    {label: "Admin org 3", value: "Admin org 3"},
-    {label: "Admin org 4", value: "Admin org 4"},
-    {label: "Admin org 5", value: "Admin org 5"},
-    {label: "Admin org 6", value: "Admin org 6"},
-    {label: "Admin org 7", value: "Admin org 7"},
-    {label: "Admin org 8", value: "Admin org 8"}
-]
-const phoneRegex = RegExp(
-    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-  );
+const orgList = [ "Admin org 1", "Admin org 2","Admin org 3", "Admin org 4","Admin org 5","Admin org 6", "Admin org 7", "Admin org 8"];
+
 const validationSchema = yup.object({
     email: yup
       .string('Enter your email')
@@ -51,9 +35,9 @@ const validationSchema = yup.object({
       .test('passwords-match', 'Passwords must match', function(value){
           return this.parent.password === value
         }),
-    phoneNumber: yup
-        // regexr.com/6anqd
-        .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
+    // phoneNumber: yup
+    //     // regexr.com/6anqd
+    //     .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
   });
 
   export const AddAdminView = () => {
@@ -79,17 +63,37 @@ const validationSchema = yup.object({
           add(values.fname,values.lname,values.email,sha256(values.confirmPassword),values.role,values.gender,values.orgName,values.phoneNumber);
       },
     });
+    const [role, setRole] = useState(rolesList[0]);
+    const [gender,setGender] = useState(genderList[0])
+    const [orgName,setOrgName] = useState(orgList[0])
     const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
   
+    const changeRole = (event, value) => {
+        formik.values.role = value;
+        setRole(value);
+    }
+    const changeGender = (event, value) => {
+        formik.values.gender = value;
+        setGender(value);
+    }
+    const changeOrgName = (event, value) => {
+        formik.values.orgName = value;
+        setOrgName(value);
+    }
+    const handlePhoneNumberChange = (value) => {
+        formik.values.phoneNumber = value;
+    }
+
+
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>
                     <Grid align='center' item xs={12} sm={12}>
-                        <h2>Sign Up</h2>
+                        <h2>Add admin</h2>
                     </Grid>
 
                     <Grid item md={1}lg={6}> 
@@ -169,12 +173,14 @@ const validationSchema = yup.object({
                     </Grid>
                     <Grid item xs={6} sm={6}>  
                         <Autocomplete
-                                disablePortal
+                            disablePortal
                             id="roles"
                             options={rolesList}
                             openOnFocus
                             autoHighlight
-                            renderInput={(params) => <TextField {...params} required value={formik.values.role}
+                            onChange={changeRole}
+                            renderInput={(params) => <TextField {...params} required
+                            name="role"
                             label="Role" variant="outlined"/>}
                         />
                     </Grid> 
@@ -185,42 +191,39 @@ const validationSchema = yup.object({
                             id="gender"
                             options={genderList}
                             autoHighlight
-                            renderInput={(params) => <TextField {...params} required value={formik.values.gender}
-                            label="Gender" variant="outlined" />}
+                            onChange={changeGender}
+                            renderInput={(params) => <TextField {...params} required 
+                            label="Gender" name= "gender" variant="outlined" />}
                         />
                     </Grid>
                     <Grid item xs={12}>  
                         <Autocomplete
                             disablePortal
                             openOnFocus
-                            id="hospitalName"
+                            id="orgName"
                             options={orgList}
                             autoHighlight
-                            renderInput={(params) => <TextField {...params} required value={formik.values.orgName}
-                            label="Hospital Name" variant="outlined"/>}
+                            onChange={changeOrgName}
+                            renderInput={(params) => <TextField {...params} required 
+                            label="Organisation Name" name="orgName" variant="outlined"/>}
                         />
                     </Grid>
                     <Grid item xs ={8} sm={12} >
                         <MuiPhoneNumber
-                            name="phone"
+                            name="phoneNumber"
                             label="Phone Number"
                             defaultCountry={"in"}
-                            value={formik.values.phone}
+                            onChange={handlePhoneNumberChange}
+                            value={formik.values.phoneNumber}
                             variant="outlined"
                         /> 
-                    </Grid>                  
+                    </Grid>               
                   <Grid align='center'>
                   <Button align="center" color="primary" variant="contained"  type="submit" style={btnstyle} >
                   Submit
                   </Button>
                 </Grid>
-                {/* <Typography> Don't have an account ?
-                      <Link component="button"variant="body1" onClick={() => signUp(true)} >
-                          Sign Up 
-                      </Link>
-                   </Typography>  */}
              </Grid> 
-
         </Paper>
         </form>
       </div>

@@ -14,16 +14,12 @@ import statesData from "../common/StatesData.json";
 
 import { addHospital } from '../services/CreateApi';
 
-const rolesList = [
-    {label: "Primary Health Centre", value: "Primary Health Centre"},
-    {label: "Secondary Health Centre", value: "Secondary Health Centre"},
-    {label: "Tertiary Health Centre", value: "Tertiary Health Centre"}
-]
+const rolesList = [ "Primary Health Centre","Secondary Health Centre", "Tertiary Health Centre"]
 
 
-const phoneRegex = RegExp(
-    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-  );
+// const phoneRegex = RegExp(
+//     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+//   );
 const validationSchema = yup.object({
     email: yup
       .string('Enter Hospital email')
@@ -34,9 +30,9 @@ const validationSchema = yup.object({
       .min(6,'pincode should be of length 6')
 //      .max(6,'pincode should be of length 6')
       .required('Pincode is required'),
-    phoneNumber: yup
-        // regexr.com/6anqd
-        .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
+    // phoneNumber: yup
+    //     // regexr.com/6anqd
+    //     .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
   });
   
   export const AddHospitalView = () => {
@@ -61,8 +57,10 @@ const validationSchema = yup.object({
         add(values.email,values.role,values.hospitalName,values.phoneNumber,values.stateName,values.district,values.city,values.pincode)
       },
     });
-    const [selectedState, setSelectedState] = useState("");
-    // const [districtsList, setDistrictsList] = useState([]);
+    const [role, setRole] = useState(rolesList[0]);
+
+    const [stateName, setStateName] = useState("");
+    const [district, setDistrict] = useState([]);
     const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
@@ -70,21 +68,32 @@ const validationSchema = yup.object({
 
     const getDistrictList = () => {
         let districtList = [];
-        if (selectedState) {
-            districtList = getDropdownList(statesData.states.filter((stateInfo) => stateInfo.state === selectedState)[0].districts);
+        if (stateName) {
+            districtList = statesData.states.filter((stateInfo) => stateInfo.state === stateName)[0].districts;
         }
        
         return districtList;
     }
+    // const [disrtict,setDistrict] = useState(districtList[0])
+
     const handleStatesChange = (event, value, reason) => {
         if (reason === "selectOption") {
             // setDistrictsList([]);
-            setSelectedState(value.value);
-    
-
+            formik.values.stateName = value;
+            setStateName(value);
         }
     }
-  
+    const changeRole = (event, value) => {
+        formik.values.role = value;
+        setRole(value);
+    }
+    const changeDistrict = (event, value) => {
+        formik.values.district = value;
+        setDistrict(value);
+    }
+    const handlePhoneNumberChange = (value) => {
+        formik.values.phoneNumber = value;
+    }
     return (
       <div>
         <form onSubmit={formik.handleSubmit}>
@@ -160,6 +169,7 @@ const validationSchema = yup.object({
                             options={getDistrictList()}
                             openOnFocus
                             autoHighlight
+                            onChange={changeDistrict}
                             renderInput={(params) => <TextField {...params} required value={formik.values.district}
                             label="District" variant="outlined"/>}
                         />
@@ -195,27 +205,31 @@ const validationSchema = yup.object({
                         />
                     </Grid>
 
+                    </Grid>
                     <Grid item xs={6} sm={6}>  
                         <Autocomplete
-                                disablePortal
+                            disablePortal
                             id="roles"
                             options={rolesList}
                             openOnFocus
                             autoHighlight
-                            renderInput={(params) => <TextField {...params} required value={formik.values.role}
+                            onChange={changeRole}
+                            renderInput={(params) => <TextField {...params} required
+                            name="role"
                             label="Role" variant="outlined"/>}
                         />
                     </Grid> 
 
                     <Grid item xs ={8} sm={12} >
                         <MuiPhoneNumber
-                            name="phone"
+                            name="phoneNumber"
                             label="Phone Number"
                             defaultCountry={"in"}
-                            value={formik.values.phone}
+                            onChange={handlePhoneNumberChange}
+                            value={formik.values.phoneNumber}
                             variant="outlined"
                         /> 
-                    </Grid>                  
+                    </Grid>          
                   <Grid align='center'>
                   <Button align="center" color="primary" variant="contained"  type="submit" style={btnstyle} >
                   Submit
@@ -226,7 +240,6 @@ const validationSchema = yup.object({
                           Sign Up 
                       </Link>
                    </Typography>  */}
-             </Grid> 
 
         </Paper>
         </form>

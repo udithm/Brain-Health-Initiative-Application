@@ -30,11 +30,11 @@ const validationSchema = yup.object({
     pincode: yup
       .number('Enter Organisation Pincode ')
       .min(6,'pincode should be of length 6')
-      .max(6,'pincode should be of length 6')
+    //   .max(6,'pincode should be of length 6')
       .required('Pincode is required'),
-    phoneNumber: yup
-        // regexr.com/6anqd
-        .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
+    // phoneNumber: yup
+    //     // regexr.com/6anqd
+    //     .string().matches(phoneRegex, "Invalid phone").required("Phone is required")
   });
   
   export const AddAdminOrgView = () => {
@@ -44,8 +44,6 @@ const validationSchema = yup.object({
     const history = useHistory();
     const add = (email,orgName,phoneNumber,stateName,district,city,pincode) => addAdminOrg(email,orgName,phoneNumber,stateName,district,city,pincode,history)(dispatch);
     
-
-
     const formik = useFormik({
       initialValues: {
         email: '',
@@ -61,8 +59,8 @@ const validationSchema = yup.object({
           add(values.email,values.orgName,values.phoneNumber,values.stateName,values.district,values.city,values.pincode)
       },
     });
-    const [selectedState, setSelectedState] = useState("");
-    // const [districtsList, setDistrictsList] = useState([]);
+    const [stateName, setStateName] = useState("");
+    const [district, setDistrict] = useState([]);
     const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
@@ -70,8 +68,8 @@ const validationSchema = yup.object({
 
     const getDistrictList = () => {
         let districtList = [];
-        if (selectedState) {
-            districtList = getDropdownList(statesData.states.filter((stateInfo) => stateInfo.state === selectedState)[0].districts);
+        if (stateName) {
+            districtList = statesData.states.filter((stateInfo) => stateInfo.state === stateName)[0].districts;
         }
        
         return districtList;
@@ -79,18 +77,25 @@ const validationSchema = yup.object({
     const handleStatesChange = (event, value, reason) => {
         if (reason === "selectOption") {
             // setDistrictsList([]);
-            setSelectedState(value.value);
-    
-
+            formik.values.stateName = value;
+            setStateName(value);
         }
     }
+    const changeDistrict = (event, value) => {
+        formik.values.district = value;
+        setDistrict(value);
+    }
+    const handlePhoneNumberChange = (value) => {
+        formik.values.phoneNumber = value;
+    }
+
     return (
         <div>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>
                     <Grid align='center' item xs={12} sm={12}>
-                        <h2>Add A Organisation</h2>
+                        <h2>Add Admin Organisation</h2>
                     </Grid>
 
                     <Grid item md={1}lg={6}> 
@@ -138,8 +143,7 @@ const validationSchema = yup.object({
                             helperText={formik.touched.city && formik.errors.city}
                             variant="outlined"
                         />
-                    </Grid>
-                    <Grid item xs={6} sm={6}>  
+                    </Grid>                    <Grid item xs={6} sm={6}>  
                         <Autocomplete
                                 disablePortal
                             id="stateName"
@@ -159,6 +163,7 @@ const validationSchema = yup.object({
                             options={getDistrictList()}
                             openOnFocus
                             autoHighlight
+                            onChange={changeDistrict}
                             renderInput={(params) => <TextField {...params} required value={formik.values.district}
                             label="District" variant="outlined"/>}
                         />
@@ -195,13 +200,14 @@ const validationSchema = yup.object({
                     </Grid>
                     <Grid item xs ={8} sm={12} >
                         <MuiPhoneNumber
-                            name="phone"
+                            name="phoneNumber"
                             label="Phone Number"
                             defaultCountry={"in"}
-                            value={formik.values.phone}
+                            onChange={handlePhoneNumberChange}
+                            value={formik.values.phoneNumber}
                             variant="outlined"
                         /> 
-                    </Grid>                  
+                    </Grid>                
                   <Grid align='center'>
                   <Button align="center" color="primary" variant="contained"  type="submit" style={btnstyle} >
                   Submit
