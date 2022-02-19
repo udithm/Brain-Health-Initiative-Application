@@ -47,6 +47,7 @@ export const userLogout = (userName,history) => {
             .then ((message) => {
                 dispatch(logoutSuccess());
                 localStorage.removeItem("jwt");
+                localStorage.removeItem("userId");
                 console.log("-------logout then------- ", message);
                 dispatch(alertSuccess("Logout Successful!"));
 

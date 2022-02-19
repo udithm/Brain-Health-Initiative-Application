@@ -13,8 +13,6 @@ import { AddAdminOrgView } from './views/AddAdminOrgView';
 import { AddAdminView } from './views/AddAdminView';
 import { AddHospitalView } from './views/AddHospitalView';
 import { AddDoctorView } from './views/AddDoctorView';
-import { NavBar } from './components/NavBar';
-//import { requirePropFactory } from '@material-ui/core';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -11,29 +11,42 @@ import Logout from '@mui/icons-material/Logout';
 import KeyIcon from '@mui/icons-material/Key';
 import PersonIcon from '@mui/icons-material/Person';
 
-
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-
 import {userLogout} from "../services/AuthApi";
 import { myProfile } from '../services/MyProfileApi';
+
+
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const uId = localStorage.getItem("userId");
   const jwt = localStorage.getItem("jwt");
+  
   const history = useHistory();
   const dispatch = useDispatch();
+  
   const logout = (userName) => userLogout(userName,history)(dispatch);
-    const mypro = (uId) => myProfile(uId,history)(dispatch);
+  const mypro = (uId) => myProfile(uId,history)(dispatch);
+  const loadProfile = () => {
+      if (jwt && uId) {
+          myProfile(uId)(dispatch);
+      }
+  }
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+        loadProfile()
+  }, []);
+
   return (
     <>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>

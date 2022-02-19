@@ -12,7 +12,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
 
 import { addAdmin } from '../services/CreateApi';
-
+import { NavBar } from '../components/NavBar';
 
 const rolesList = ["Admin"];
 
@@ -89,6 +89,7 @@ const validationSchema = yup.object({
 
     return (
       <div>
+          <NavBar></NavBar>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>

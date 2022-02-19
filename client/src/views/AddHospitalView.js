@@ -11,7 +11,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
 import { getDropdownList } from '../utlis/utils';
 import statesData from "../common/StatesData.json";
-
+import { NavBar } from '../components/NavBar';
 import { addHospital } from '../services/CreateApi';
 
 const rolesList = [ "Primary Health Centre","Secondary Health Centre", "Tertiary Health Centre"]
@@ -96,6 +96,7 @@ const validationSchema = yup.object({
     }
     return (
       <div>
+          <NavBar></NavBar>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>

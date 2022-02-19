@@ -10,7 +10,7 @@ import { Grid,Paper,Typography,Link } from '@material-ui/core'
 import sha256 from "sha256";
 import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
-
+import { NavBar } from '../components/NavBar';
 import { addDoctor } from '../services/CreateApi';
 
 // const rolesList = [
@@ -92,6 +92,7 @@ const validationSchema = yup.object({
     }
     return (
       <div>
+          <NavBar></NavBar>
         <form onSubmit={formik.handleSubmit}>
         <Paper elevation={10} style={paperStyle}>
             <Grid container spacing={2}>
