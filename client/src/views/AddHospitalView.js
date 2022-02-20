@@ -235,12 +235,6 @@ const validationSchema = yup.object({
                   Submit
                   </Button>
                 </Grid>
-                {/* <Typography> Don't have an account ?
-                      <Link component="button"variant="body1" onClick={() => signUp(true)} >
-                          Sign Up 
-                      </Link>
-                   </Typography>  */}
-
         </Paper>
         </form>
       </div>

@@ -61,7 +61,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-          <Avatar /> {authState.name}
+          <Avatar />
           </IconButton>
         </Tooltip>
       </Box>
