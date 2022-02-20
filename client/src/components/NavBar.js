@@ -3,10 +3,14 @@ import Box from '@mui/material/Box';
 import AccountMenu from './AccountMenu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
+import { useSelector } from "react-redux";
 import AppBar from '@mui/material/AppBar';
+import { Button, Link } from '@mui/material';
+import { red } from '@mui/material/colors';
 
 export const NavBar = () => {
+    const authState = useSelector(state => state.AuthReducer);
+
 return (
 <Box sx={{ flexGrow: 1 }}  >
 <AppBar position="static" color="primary" >
@@ -23,6 +27,31 @@ return (
     <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
         Brain Health Initiative
     </Typography>
+    {/* <div> */}
+      {authState.role ? (authState.role==="ADMIN" ? (
+          <>
+          <Link href="/create" underline="none">
+                <Button sx={{color: "#fff"}}>
+                        Create
+                </Button>
+            </Link>
+            <Link href="/analytics" underline=''>
+            <Button sx={{color: "#fff"}}>
+                Analytics
+            </Button>
+            </Link>
+          </>
+    ) : (
+        <>
+            <Link href="/patientOptions" underline="none">
+                <Button sx={{color: "#fff"}} >
+                    Patient Options
+                </Button>
+            </Link>
+        </>      
+      )) : null}
+    {/* </div> */}
+    
     <AccountMenu></AccountMenu>
     </Toolbar>
 </AppBar>

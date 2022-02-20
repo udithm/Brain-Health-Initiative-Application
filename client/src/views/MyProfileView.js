@@ -19,7 +19,7 @@ export const MyProfileView = ({userName,userId,orgName,name,role}) =>{
             <br></br>
             Organisation: {orgName}
             <br></br>
-            Role: {role.toLowerCase()}
+            Role: {role}
             <br></br>
 
         </Typography>

@@ -50,7 +50,6 @@ export const userLogout = (userName,history) => {
                 localStorage.removeItem("userId");
                 console.log("-------logout then------- ", message);
                 dispatch(alertSuccess("Logout Successful!"));
-
                 history.push("/login");
 
             })
