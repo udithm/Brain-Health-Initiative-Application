@@ -14,7 +14,7 @@ import { AddAdminView } from './views/AddAdminView';
 import { AddHospitalView } from './views/AddHospitalView';
 import { AddDoctorView } from './views/AddDoctorView';
 import { PatientOptionsView } from './views/PatientOptionsView';
-
+import {ReferedContainer} from './containers/ReferedContainer';
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
                 <ProtectedRoute path="/addAdmin" component={AddAdminView}></ProtectedRoute>
                 <ProtectedRoute path="/addAdminOrg" component={AddAdminOrgView}></ProtectedRoute>
                 <ProtectedRoute path="/patientOptions" component={PatientOptionsView}></ProtectedRoute>
+                <ProtectedRoute path="/refered" component={ReferedContainer}></ProtectedRoute>
                 <Redirect from="*" to="/dashboard"></Redirect> 
             </Switch>
       </Router>
