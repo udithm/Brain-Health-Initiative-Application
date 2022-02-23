@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {useSelector} from "react-redux"
 import { useDispatch } from "react-redux";
 
@@ -20,10 +20,12 @@ export const ToastNotification = () => {
         dispatch(alertClear())
     }
     const position = { vertical: alertState.vertical, horizontal: alertState.horizontal};
-    
+    useEffect(() => {
+
+    })
     return (
-        <Snackbar  open={alertState.open} autoHideDuration={60000} onClose={handleClose} anchorOrigin = {position}>
-            <Alert onClose={handleClose} severity = {alertState.severity} sx={{ width: '100%' }}>
+        <Snackbar  open={alertState.open} autoHideDuration={600000} onClose={handleClose} anchorOrigin = {position}>
+            <Alert onClose={handleClose} severity = {alertState.severity} sx={{ width: '100%', color: alertState.color, backgroundColor: alertState.backgroundColor  }}>
                 {alertState.message}
             </Alert>
         </Snackbar>
