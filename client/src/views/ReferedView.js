@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MUIDataTable from "mui-datatables";
 
-export const ReferedView = (apiData) => {
+export const ReferedView = ({apiData}) => {
     const columns = [
         { label: "Name",name:"name", options: { filterOptions: { fullWidth: true } ,
         customBodyRenderLite: (dataIndex) => {
