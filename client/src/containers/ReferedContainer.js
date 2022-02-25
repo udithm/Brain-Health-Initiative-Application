@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { ReferedView } from "../views/ReferedView";
+import { ReferedListView } from "../views/ReferedListView";
 
 export const ReferedContainer = () => {
     //const authState = useSelector(state => state.AuthReducer);
@@ -237,5 +237,5 @@ export const ReferedContainer = () => {
                 "userName": "adee@jo.com"
             }
     ]
-   return  <ReferedView apiData={appiData} ></ReferedView>
+   return  <ReferedListView apiData={appiData} ></ReferedListView>
 }
