@@ -15,6 +15,11 @@ import { AddHospitalView } from './views/AddHospitalView';
 import { AddDoctorView } from './views/AddDoctorView';
 import { PatientOptionsView } from './views/PatientOptionsView';
 import {ReferedContainer} from './containers/ReferedContainer';
+import AddPatientDetailsContainer from './containers/AddPatientDetailsContainer';
+import ViewPatientDetailsContainer from './containers/ViewPatientDetailsContainer';
+import SearchPatientContainer from './containers/SearchPatientContainer';
+import AddConsultationContainer from "./containers/AddConsultationContainer";
+import ViewPatientDashboard from "./views/ViewPatientDashboard";
 
 function App() {
   return (
@@ -31,6 +36,11 @@ function App() {
                 <ProtectedRoute path="/addAdminOrg" component={AddAdminOrgView}></ProtectedRoute>
                 <ProtectedRoute path="/patientOptions" component={PatientOptionsView}></ProtectedRoute>
                 <ProtectedRoute path="/refered" component={ReferedContainer}></ProtectedRoute>
+                <ProtectedRoute path="/addPatient" component={AddPatientDetailsContainer}></ProtectedRoute>
+                <ProtectedRoute path="/searchPatient" component={SearchPatientContainer}></ProtectedRoute>
+                <ProtectedRoute path="/viewPatientDashboard" component={ViewPatientDashboard}></ProtectedRoute>
+                <ProtectedRoute path="/viewPatient" component={ViewPatientDetailsContainer}></ProtectedRoute>
+                <ProtectedRoute path="/addConsultation" component={AddConsultationContainer}></ProtectedRoute>
                 <Redirect from="*" to="/dashboard"></Redirect> 
             </Switch>
       </Router>

@@ -25,3 +25,19 @@ export const ALERT_WARNING = "alertWarning";
 export const MY_PROFILE_REQUEST = "MyProfileRequest";
 export const MY_PROFILE_SUCCESS = "MyProfileSuccess";
 export const MY_PROFILE_FAILURE = "MyProfileFailure";
+
+// Patients constants
+export const GET_PATIENTS_REQUEST = "getPatientsRequest";
+export const GET_PATIENTS_SUCCESS = "getPatientsSuccess";
+export const GET_PATIENTS_FAILURE = "getPatientsFailure";
+
+export const ADD_PATIENTS_REQUEST = "addPatientRequest";
+export const ADD_PATIENTS_SUCCESS = "addPatientSuccess";
+export const ADD_PATIENTS_FAILURE = "addPatientFailure";
+
+export const SET_CURRENT_PATIENT = "setPatient";
+
+//Consultation Constants
+export const ADD_CONSULTATION_REQUEST = "addConsultationRequest";
+export const ADD_CONSULTATION_SUCCESS = "addConsultationSuccess";
+export const ADD_CONSULTATION_FAILURE = "addConsultationFailure";

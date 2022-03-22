@@ -1,12 +1,14 @@
 import { Card } from "@material-ui/core";
-import { CardActionArea, CardContent, Typography, Grid, Paper, Link } from "@mui/material";
+import { CardActionArea, CardContent, Typography, Grid, Paper, Link, Button } from "@mui/material";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavBar } from "../components/NavBar";
 
 import { ReactComponent as SearchIcon } from "../common/Icons/search.svg";
 import { ReactComponent as AddPatientIcon } from "../common/Icons/addPatient.svg";
+import { useHistory } from "react-router-dom";
 
 export const PatientOptionsView = () => {
+    let history = useHistory()
     const useStyles = makeStyles({
         root: {
           maxWidth: "20vw",
@@ -16,14 +18,19 @@ export const PatientOptionsView = () => {
       });
       const classes = useStyles();
       const paperStyle={padding :50, margin:"4.8vw"};
-        
+    const gotoAddPatient = () => {
+        history.push('/addPatient')
+    }
+    const gotoSearchPatient = () => {
+        history.push('/searchPatient')
+    }
     return (
         <>
         <NavBar></NavBar>
          <Paper elevation={5} style={paperStyle}>
             <Grid container spacing={2}>
-                <Grid item xs={3} sm={3}>
-                    <Link href="/addPatient">
+                <Grid item xs={12} sm={3}>
+                    <Button onClick={gotoAddPatient} href="/addPatient">
                     <Card variant="outlined" className={classes.root}>
                         <CardActionArea >
                             <CardContent>
@@ -36,12 +43,12 @@ export const PatientOptionsView = () => {
                             </CardContent>
                         </CardActionArea>
                     </Card>
-                    </Link>
+                    </Button>
              
                 </Grid>
 
-                <Grid item xs={3} sm={3}>
-                    <Link href="/searchPatient">
+                <Grid item xs={12} sm={3}>
+                    <Button onClick={gotoSearchPatient} href="/searchPatient">
                         <Card className={classes.root}>
                             <CardActionArea>
                                 <CardContent>
@@ -54,7 +61,7 @@ export const PatientOptionsView = () => {
                                 </CardContent>
                             </CardActionArea>
                         </Card>
-                    </Link>
+                    </Button>
                 </Grid>
 
             </Grid>
