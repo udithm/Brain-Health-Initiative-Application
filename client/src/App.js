@@ -20,6 +20,8 @@ import ViewPatientDetailsContainer from './containers/ViewPatientDetailsContaine
 import SearchPatientContainer from './containers/SearchPatientContainer';
 import AddConsultationContainer from "./containers/AddConsultationContainer";
 import ViewPatientDashboard from "./views/ViewPatientDashboard";
+import ViewConsultationContainer from "./containers/ViewConsultationContainer";
+import ViewAllConsultationsContainer from "./containers/ViewAllConsultationsContainer";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
                 <ProtectedRoute path="/viewPatientDashboard" component={ViewPatientDashboard}></ProtectedRoute>
                 <ProtectedRoute path="/viewPatient" component={ViewPatientDetailsContainer}></ProtectedRoute>
                 <ProtectedRoute path="/addConsultation" component={AddConsultationContainer}></ProtectedRoute>
+                <ProtectedRoute path="/viewConsultation" component={ViewConsultationContainer}></ProtectedRoute>
+                <ProtectedRoute path="/viewPastConsultations" component={ViewAllConsultationsContainer}></ProtectedRoute>
                 <Redirect from="*" to="/dashboard"></Redirect> 
             </Switch>
       </Router>
