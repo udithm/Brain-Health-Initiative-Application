@@ -7,11 +7,11 @@ import { Provider } from 'react-redux';
 import thunk from "redux-thunk"
 import combinedReducers from './reducers/CombinedReducers';
 import * as serviceWorker from './serviceWorker';
-import {createStore, applyMiddleware,compose} from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import makeServer from "./mockServer/mockServer";
 import { ToastNotification } from './components/ToastNotification';
 
-makeServer();
+// makeServer();
 const store = createStore(
     combinedReducers,
     compose(applyMiddleware(thunk))
@@ -21,7 +21,7 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <App />
-            <ToastNotification/>
+            <ToastNotification />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')

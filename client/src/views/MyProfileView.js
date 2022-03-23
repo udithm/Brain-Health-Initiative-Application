@@ -4,6 +4,7 @@ import { NavBar } from "../components/NavBar";
 
 export const MyProfileView = ({userName,userId,orgName,name,role}) =>{
     const textstyle = {margin: "25px"};
+    const abc= "User" + userId
     // const backStyle = {backgroundColor: "#1976d2"}
     return (
         <>
@@ -12,12 +13,10 @@ export const MyProfileView = ({userName,userId,orgName,name,role}) =>{
                 <h2>Welcome to Brain Health Initiative Program, {name} !!! </h2>
                 
             <div><b>User Details:</b></div>
-                Name: {name}<br/>
+                Name:{abc} <br/>
             UserId: {userId}
             <br/>
-            Username: {userName}
-            <br></br>
-            Organisation: {orgName}
+            email: {userName}
             <br></br>
             Role: {role}
             <br></br>

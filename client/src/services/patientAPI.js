@@ -12,13 +12,13 @@ import axios from "../common/config/AxiosConfig";
 
 export const getPatients = (url) => {
     return (dispatch) => {
-        dispatch(getPatientsRequest()); 
+        dispatch(getPatientsRequest());
         axios
-            .get (url) 
-            .then ((res) => {
+            .get(url)
+            .then((res) => {
                 dispatch(getPatientsSuccess(res.data));
             })
-            .catch((err)=>{
+            .catch((err) => {
                 dispatch(getPatientsFailure(err.message));
                 console.log("-----this is catch------", err);
             })
@@ -27,14 +27,14 @@ export const getPatients = (url) => {
 
 export const addPatient = (patientDetail) => {
     return (dispatch) => {
-        dispatch(addPatientRequest()); 
+        dispatch(addPatientRequest());
         axios
-            .post ("/v1/patientdemographics", patientDetail ) 
-            .then ((res) => {
-                dispatch(addPatientSuccess({success: true, failure: false, message: "Patient details added successfully" }));
+            .post("/v1/patientdemographics", patientDetail)
+            .then((res) => {
+                dispatch(addPatientSuccess({ success: true, failure: false, message: "Patient details added successfully" }));
             })
-            .catch((err)=>{
-                dispatch(addPatientFailure({success: false, failure: true, message: err.response.data.message }));
+            .catch((err) => {
+                dispatch(addPatientFailure({ success: false, failure: true, message: err.response.data.message }));
             })
     }
 }
@@ -42,6 +42,6 @@ export const addPatient = (patientDetail) => {
 export const setPatientSelected = (patientDetail) => {
     console.log(patientDetail)
     return (dispatch) => {
-        dispatch(setPatient(patientDetail)); 
+        dispatch(setPatient(patientDetail));
     }
 }

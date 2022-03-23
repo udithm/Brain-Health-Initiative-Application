@@ -11,11 +11,11 @@ import { red } from '@mui/material/colors';
 export const NavBar = () => {
     const authState = useSelector(state => state.AuthReducer);
 
-return (
-<Box sx={{ flexGrow: 1 }}  >
-<AppBar position="static" color="primary" >
-    <Toolbar>
-    {/* <IconButton
+    return (
+        <Box sx={{ flexGrow: 1 }}  >
+            <AppBar position="static" color="primary" >
+                <Toolbar>
+                    {/* <IconButton
         size="large"
         edge="start"
         color="inherit"
@@ -23,38 +23,58 @@ return (
         sx={{ mr: 2 }}
     >
         <MenuIcon /> */}
-    {/* </IconButton> */}
-    <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-        Brain Health Initiative
-    </Typography>
-    {/* <div> */}
-      {authState.role ? (authState.role==="ADMIN" ? (
-          <>
-          <Link href="/create" underline="none">
-                <Button sx={{color: "#fff"}}>
-                        Create
-                </Button>
-            </Link>
-            <Link href="/analytics" underline=''>
-            <Button sx={{color: "#fff"}}>
-                Analytics
-            </Button>
-            </Link>
-          </>
-    ) : (
-        <>
-            <Link href="/patientOptions" underline="none">
-                <Button sx={{color: "#fff"}} >
-                    Patient Options
-                </Button>
-            </Link>
-        </>      
-      )) : null}
-    {/* </div> */}
-    
-    <AccountMenu></AccountMenu>
-    </Toolbar>
-</AppBar>
-</Box>
-)
+                    {/* </IconButton> */}
+                    <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+                        Brain Health Initiative
+                    </Typography>
+                    {/* <div> */}
+                    {authState.role ? (authState.role === "ADMIN" ? (
+                        <>
+                            <Link href="/create" underline="none">
+                                <Button sx={{ color: "#fff" }}>
+                                    Create
+                                </Button>
+                            </Link>
+                            <Link href="/analytics" underline='none'>
+                                <Button sx={{ color: "#fff" }}>
+                                    Analytics
+                                </Button>
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link href="/patientOptions" underline="none">
+                                <Button sx={{ color: "#fff" }} >
+                                    Patient Options
+                                </Button>
+                            </Link>
+                            <Link href="/refered" underline="none">
+                                <Button sx={{ color: "#fff" }} >
+                                    Referred List
+                                </Button>
+                            </Link>
+
+                        </>
+                    )) : (
+                        <>
+                            <Link href="/patientOptions" underline="none">
+                                <Button sx={{ color: "#fff" }} >
+                                    Patient Options
+                                </Button>
+                            </Link>
+                            <Link href="/refered" underline="none">
+                                <Button sx={{ color: "#fff" }} >
+                                    Referred List
+                                </Button>
+                            </Link>
+
+                        </>
+                    )}
+                    {/* </div> */}
+
+                    <AccountMenu></AccountMenu>
+                </Toolbar>
+            </AppBar>
+        </Box>
+    )
 }

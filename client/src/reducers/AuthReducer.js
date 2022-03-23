@@ -30,11 +30,11 @@ export const AuthReducer = (state = initialState, action) => {
         case LOGIN_SUCCESS : 
             return {
                 ...state,
-                userId: action.userDetails.userId,
-                userName: action.userDetails.userName,
+                userId: action.userDetails.id,
+                userName: action.userDetails.email,
                 orgName: action.userDetails.orgName,
-                name: action.userDetails.name,
-                role: action.userDetails.role,
+                name: action.userDetails.username,
+                role: action.userDetails.roles[0],
                 userLoading: false
             };
             // if the state values are coming from outside then we need to use action.userdetails.userid else if we are using the previous state value then we can use state.username
@@ -94,12 +94,15 @@ export const AuthReducer = (state = initialState, action) => {
                 myProfileLoading:false
             };
         case MY_PROFILE_SUCCESS:
+            console.log("^^^^^^^^^^^^^^^^^");
+            const uId = localStorage.getItem("userId");
+
             return {
                 ...state,
-                userId: action.userDetails.userId,
-                userName: action.userDetails.userName,
+                userId: uId,
+                userName: action.userDetails.email,
                 orgName: action.userDetails.orgName,
-                name: action.userDetails.name,
+                name: action.userDetails.userName,
                 role: action.userDetails.role,
                 myProfileLoading: false,
             };

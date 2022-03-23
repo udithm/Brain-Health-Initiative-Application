@@ -6,7 +6,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(request => {
     return request;
-},  error => {
+}, error => {
     return Promise.reject(error);
 }
 );
@@ -14,15 +14,15 @@ instance.interceptors.request.use(request => {
 instance.interceptors.response.use(response => {
     return response;
 },
-error=> {
-    return Promise.reject(error);
-}
+    error => {
+        return Promise.reject(error);
+    }
 );
 
-instance.defaults.headers.common["Content-Type"]="application/json";
+instance.defaults.headers.common["Content-Type"] = "application/json";
 
 const token = localStorage.getItem("jwt");
-if (token){
-    instance.defaults.headers.common.Authorization = "Bearer" + token;
+if (token) {
+    instance.defaults.headers.common.Authorization = "Bearer " + token;
 }
 export default instance;
