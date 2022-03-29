@@ -22,7 +22,6 @@ import AddConsultationContainer from "./containers/AddConsultationContainer";
 import ViewPatientDashboard from "./views/ViewPatientDashboard";
 import ViewConsultationContainer from "./containers/ViewConsultationContainer";
 import ViewAllConsultationsContainer from "./containers/ViewAllConsultationsContainer";
-
 function App() {
   return (
     <Router>
