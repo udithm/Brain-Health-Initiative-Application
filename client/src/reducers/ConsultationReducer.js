@@ -26,16 +26,12 @@ const consultationState = {
         reviewSos: "",
     },
     errMessage: "",
-    success: false,
-    failure: false,
-    message: "",
     consultationLoading: false, 
     consultationAdding: false,
     consultations: []
 }
 
 export const ConsultationReducer = (state = consultationState, action) => {
-    console.log(action)
     switch (action.type) {
         case GET_CONSULTATION_SUCCESS : 
             return {
@@ -64,17 +60,11 @@ export const ConsultationReducer = (state = consultationState, action) => {
         case ADD_CONSULTATION_SUCCESS: 
             return {
                 ...state,
-                success: action.status.success,
-                failure: action.status.failure,
-                message: action.status.message,
                 consultationAdding: false,
             }
         case ADD_CONSULTATION_FAILURE:
             return {
                 ...state,
-                success: action.status.success,
-                failure: action.status.failure,
-                message: action.status.message,
                 consultationAdding: false,
             }
         case SET_CURRENT_CONSULTATION:

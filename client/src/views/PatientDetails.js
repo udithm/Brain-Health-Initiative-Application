@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import FormControl from "@material-ui/core/FormControl";
-// import FormLabel from "@material-ui/core/FormLabel";
-// import RadioGroup from "@material-ui/core/RadioGroup";
-import { MenuItem, Paper } from "@material-ui/core";
-// import Radio from "@material-ui/core/Radio";
-import Button from "@material-ui/core/Button";
-import Alert from "@mui/material/Alert";
-import IconButton from "@mui/material/IconButton";
-import Collapse from "@mui/material/Collapse";
-import CloseIcon from "@mui/icons-material/Close";
+import { MenuItem, Paper } from "@mui/material";
+import { Button } from "@mui/material"
 import update from "immutability-helper";
 import * as yup from "yup";
-import axios from "axios";
 import "react-phone-input-2/lib/style.css";
-import {Link} from "react-router-dom"
 import { NavBar } from "../components/NavBar";
 
 const formSchema = yup.object().shape({
@@ -46,6 +35,7 @@ const defaultValues = {
   lastName: "",
   abhaId: "",
   dob: "",
+  age:"",
   gender: "",
   education: "",
   occupation: "",
@@ -83,16 +73,10 @@ const PatientDetails = (props) => {
   });
 
   const [formValues, setFormValues] = useState(defaultValues);
-  const [success, setSuccess] = useState(false);
-  const [failure, setFailure] = useState(false);
-  const [message, setMessage] = useState("");
 
   useEffect(() => {
     props.view ? setFormValues(props.values) : setFormValues(formValues);
-    setSuccess(props.success) 
-    setFailure(props.failure) 
-    setMessage(props.message) 
-  }, [props.view, props.values, props.success, props.failure, props.message]);
+  }, [props.view, props.values]);
 
   
   const handleInputChange = (e) => {
@@ -468,45 +452,6 @@ const PatientDetails = (props) => {
                 Submit
               </Button>
               
-              <Collapse in={success}>
-                <Alert
-                  action={
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        setSuccess(false);
-                      }}
-                    >
-                      <CloseIcon fontSize="inherit" />
-                    </IconButton>
-                  }
-                  sx={{ mt: 2, mb: 2 }}
-                >
-                  {message}
-                </Alert>
-              </Collapse>
-              <Collapse in={failure}>
-                <Alert
-                  severity="error"
-                  action={
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        setFailure(false);
-                      }}
-                    >
-                      <CloseIcon fontSize="inherit" />
-                    </IconButton>
-                  }
-                  sx={{ mt: 2, mb: 2 }}
-                >
-                  {message}
-                </Alert>
-              </Collapse>
             </div>
           </div>
         </form>

@@ -7,6 +7,7 @@ import {
     addPatientFailure,
     setPatient
 } from "../actionCreators/PatientActions.js";
+import { alertError, alertSuccess } from "../actionCreators/AlertActions";
 import axios from "../common/config/AxiosConfig";
 
 
@@ -31,11 +32,27 @@ export const addPatient = (patientDetail) => {
         axios
             .post("/v1/patientdemographics", patientDetail)
             .then((res) => {
-                dispatch(addPatientSuccess({ success: true, failure: false, message: "Patient details added successfully" }));
+                dispatch(alertSuccess("Patient Details Added Successfully!"));
+                dispatch(addPatientSuccess());
             })
             .catch((err) => {
-                dispatch(addPatientFailure({ success: false, failure: true, message: err.response.data.message }));
+                dispatch(alertError(err.response.data.message));
+                dispatch(addPatientFailure());
             })
+    }
+}
+
+export const setPatientByAPI = (id) => {
+    return (dispatch) => {
+        axios
+        .get("/v1/patientdemographics/id/"+id)
+        .then((res) => {
+            dispatch(setPatient(res.data));
+        })
+        .catch((err) => {
+            dispatch(getPatientsFailure(err.message));
+            console.log("-----this is catch------", err);
+        })
     }
 }
 

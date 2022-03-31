@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import MUIDataTable from "mui-datatables";
-import Button from "@material-ui/core/Button";
-import { Grid, Select, MenuItem, Container, Box } from '@material-ui/core';
+import Button from "@mui/material/Button";
+import { Grid, Select, MenuItem, Container, Box } from '@mui/material';
 import { NavBar } from '../components/NavBar';
 import { useHistory } from 'react-router-dom';
 
-const SearchPatient = (props) => {
+const AllConsultations = (props) => {
   let history = useHistory();
   const [results, setResult] = useState([]);
   useEffect(() => {
-    props.get(props.id)
+    props.get(props.patient.id)
   }, [])
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const SearchPatient = (props) => {
 
   const ViewConsultation = (result) => {
     props.set(result);
-    return history.push("/viewConsultation");
+    return history.push("/viewConsultation/"+props.patient.id+"/"+result.id);
   }
   const columns =
     [
@@ -78,8 +78,9 @@ const SearchPatient = (props) => {
       <NavBar></NavBar>
       <Box sx={{ mt: 6 }}>
         <Container maxWidth="md" className='searchPatient'>
+          
           <MUIDataTable
-            title={"Consultation History"}
+            title={"Consultation History of "+props.patient.firstName+" "+props.patient.lastName+", "+props.patient.age+" years old, "+props.patient.gender }
             data={results}
             columns={columns}
             options={options}></MUIDataTable>
@@ -89,4 +90,4 @@ const SearchPatient = (props) => {
   )
 }
 
-export default SearchPatient
+export default AllConsultations

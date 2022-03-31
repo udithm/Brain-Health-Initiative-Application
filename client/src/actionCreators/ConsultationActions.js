@@ -12,16 +12,14 @@ export const addConsultationRequest = () => ({
     type: ADD_CONSULTATION_REQUEST
 })
 
-export const addConsultationSuccess = (status) => {
+export const addConsultationSuccess = () => {
     return {
         type: ADD_CONSULTATION_SUCCESS,
-        status: status
     }
 }
 
-export const addConsultationFailure = (status) => ({
+export const addConsultationFailure = () => ({
     type: ADD_CONSULTATION_FAILURE,
-    status: status
 })
 
 export const getConsultationRequest = () => ({

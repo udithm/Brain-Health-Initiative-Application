@@ -7,6 +7,7 @@ import {
     getConsultationFailure,
     setConsultation
 } from "../actionCreators/ConsultationActions.js";
+import { alertError, alertSuccess } from "../actionCreators/AlertActions";
 import axios from "../common/config/AxiosConfig";
 
 
@@ -16,10 +17,12 @@ export const addConsultation = (consultation) => {
         axios
             .post ("http://localhost:8080/api/v1/consultationrecords", consultation ) 
             .then ((res) => {
-                dispatch(addConsultationSuccess({success: true, failure: false, message: "Consultation added successfully" }));
+                dispatch(alertSuccess("Consultation Added Successfully!"));
+                dispatch(addConsultationSuccess());
             })
             .catch((err)=>{
-                dispatch(addConsultationFailure({success: false, failure: true, message: err.response.data.message }));
+                dispatch(alertError(err.response.data.message));
+                dispatch(addConsultationFailure());
             })
     }
 }
@@ -36,6 +39,20 @@ export const getConsultations = (id) => {
                 dispatch(getConsultationFailure(err.message));
                 console.log("-----this is catch------", err);
             })
+    }
+}
+
+export const setConsultationByAPI = (id) => {
+    return (dispatch) => {
+        axios
+        .get ("http://localhost:8080/api/v1/consultationrecords/id/"+id) 
+        .then ((res) => {
+            dispatch(setConsultation(res.data));
+        })
+        .catch((err)=>{
+            dispatch(getConsultationFailure(err.message));
+            console.log("-----this is catch------", err);
+        })
     }
 }
 

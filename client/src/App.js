@@ -40,10 +40,10 @@ function App() {
         <ProtectedRoute path="/addPatient" component={AddPatientDetailsContainer}></ProtectedRoute>
         <ProtectedRoute path="/searchPatient" component={SearchPatientContainer}></ProtectedRoute>
         <ProtectedRoute path="/viewPatientDashboard" component={ViewPatientDashboard}></ProtectedRoute>
-        <ProtectedRoute path="/viewPatient" component={ViewPatientDetailsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/addConsultation" component={AddConsultationContainer}></ProtectedRoute>
-        <ProtectedRoute path="/viewConsultation" component={ViewConsultationContainer}></ProtectedRoute>
-        <ProtectedRoute path="/viewPastConsultations" component={ViewAllConsultationsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/viewPatient/:id" component={ViewPatientDetailsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/addConsultation/:id" component={AddConsultationContainer}></ProtectedRoute>
+        <ProtectedRoute path="/viewConsultation/:pid/:cid" component={ViewConsultationContainer}></ProtectedRoute>
+        <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
         <Redirect from="*" to="/login"></Redirect>
       </Switch>
     </Router>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MUIDataTable from "mui-datatables";
 import TextField from "@mui/material/TextField";
-import Button from "@material-ui/core/Button";
-import { Grid, Select, MenuItem, Container, Box } from '@material-ui/core';
+import { Button }from "@mui/material";
+import { Grid, Select, MenuItem, Container, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useHistory } from 'react-router-dom';
 import { NavBar } from "../components/NavBar";
@@ -21,19 +21,35 @@ const SearchPatient = (props) => {
     useEffect(() => {
       setResult(props.values) 
     }, [props.values]);
+    useEffect(()=>{
+      console.log(localStorage.getItem('Value'),localStorage.getItem('Field'))
+      let val = localStorage.getItem('Value');
+      let field = localStorage.getItem('Field');
+      val ? props.get(fetchUrl(val,field)):console.log("no call");
+    },[])
     const handleSubmit =  async (event) => {
       // Prevent form from submitting:
       event.preventDefault();
+      localStorage.setItem('Value', value);
+      localStorage.setItem('Field', field);
       props.get(fetchUrl(value,field));
       // console.log(res);
       // setResult(res.data);
     }
 
-    const ViewPatient = (result) => {
-      console.log(result);
+    const viewPatient = (result) => {
       props.set(result);
-      return history.push("/viewPatientDashboard");
+      return history.push("/viewPatient/"+result.id);
     }
+    const addConsultation = (result) => {
+      props.set(result);
+      return history.push("/addConsultation/"+result.id);
+    }
+    const pastHistory = (result) => {
+      props.set(result);
+      return history.push("/viewPastConsultations/"+result.id);
+    }
+
     const columns = 
     [
         { label: "Name",name:"name", options: { filterOptions: { fullWidth: false } ,
@@ -54,11 +70,29 @@ const SearchPatient = (props) => {
             return val;
           } } 
         },
-        {name: "Actions",
+        {name: "View Patient",
             options: {
                 customBodyRenderLite: (dataIndex) => {
                     return (<>
-                        <Button variant="outlined" color="primary" onClick={() => ViewPatient(results[dataIndex])}>View Patient Details</Button>
+                        <Button variant="outlined" color="primary" onClick={() => viewPatient(results[dataIndex])}>View Patient Details</Button>
+                    </>
+                    )}
+            }
+        },
+        {name: "Add Consultation",
+            options: {
+                customBodyRenderLite: (dataIndex) => {
+                    return (<>
+                        <Button variant="outlined" color="primary" onClick={() => addConsultation(results[dataIndex])}>Add Consultation</Button>
+                    </>
+                    )}
+            }
+        },
+        {name: "Past History",
+            options: {
+                customBodyRenderLite: (dataIndex) => {
+                    return (<>
+                        <Button variant="outlined" color="primary" onClick={() => pastHistory(results[dataIndex])}>View Patient History</Button>
                     </>
                     )}
             }
@@ -79,7 +113,7 @@ const SearchPatient = (props) => {
     <React.Fragment>
       <NavBar></NavBar>
         <Box sx={{mt : 6}}>
-        <Container maxWidth="md" className='searchPatient'>
+        <Container maxWidth="lg" className='searchPatient'>
         <Grid container direction="row" alignItems="center" style = {{marginBottom: "10px", background: "white", padding: "10px", borderRadius: "10px"}}
           justifyContent="center">
             <Grid item  xs={5}>

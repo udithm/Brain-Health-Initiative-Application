@@ -29,16 +29,12 @@ const patientState = {
         bloodGroup: ""
     },
     errMessage: "",
-    success: false,
-    failure: false,
-    message: "",
     patientLoading: false, 
     patientAdding: false,
     patients: []
 }
 
 export const PatientReducer = (state = patientState, action) => {
-    console.log(action)
     switch (action.type) {
         case GET_PATIENTS_SUCCESS : 
             return {
@@ -67,17 +63,11 @@ export const PatientReducer = (state = patientState, action) => {
         case ADD_PATIENTS_SUCCESS: 
             return {
                 ...state,
-                success: action.status.success,
-                failure: action.status.failure,
-                message: action.status.message,
                 patientAdding: false,
             }
         case ADD_PATIENTS_FAILURE:
             return {
                 ...state,
-                success: action.status.success,
-                failure: action.status.failure,
-                message: action.status.message,
                 patientAdding: false,
             }
         case SET_CURRENT_PATIENT:

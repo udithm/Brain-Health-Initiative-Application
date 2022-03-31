@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import FormControl from "@material-ui/core/FormControl";
-// import FormLabel from "@material-ui/core/FormLabel";
-// import RadioGroup from "@material-ui/core/RadioGroup";
-import { MenuItem, Paper } from "@material-ui/core";
-// import Radio from "@material-ui/core/Radio";
-import Button from "@material-ui/core/Button";
-import Alert from "@mui/material/Alert";
-import IconButton from "@mui/material/IconButton";
-import Collapse from "@mui/material/Collapse";
-import CloseIcon from "@mui/icons-material/Close";
+import { MenuItem, Paper } from "@mui/material";
+import Button from "@mui/material/Button";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
 import update from "immutability-helper";
 import * as yup from "yup";
-import axios from "axios";
 import "react-phone-input-2/lib/style.css";
 import { NavBar } from "../components/NavBar";
 
@@ -86,7 +75,12 @@ const Consultation = (props) => {
 
   // handle click event of the Add button
   const handleAddClick = () => {
-    setMedicineList([...medicineList, Medicines]);
+    setMedicineList([...medicineList, {
+      medicineName: "",
+      dosage: "",
+      dosingTime: "",
+      duration: "",
+    }]);
   };
   const [errors, setErrors] = useState({
     consultationDate: false,
@@ -105,9 +99,6 @@ const Consultation = (props) => {
 
   const [formValues, setFormValues] = useState(defaultValues);
 
-  const [success, setSuccess] = useState(false);
-  const [failure, setFailure] = useState(false);
-  const [message, setMessage] = useState("");
 
   const [radioValue, setRadioValue] = useState("");
 
@@ -129,10 +120,7 @@ const Consultation = (props) => {
     props.view ? setFormValues(props.values) : setFormValues(formValues);
     props.view ? setRadioValue(props.values.reviewSos ? "reviewSOS" : props.values.moveToIP ? "moveToIP" : "") : setRadioValue("")
     props.view ? setMedicineList(props.values.medicines) : setMedicineList(medicineList);
-    setSuccess(props.success)
-    setFailure(props.failure)
-    setMessage(props.message)
-  }, [props.view, props.values, props.success, props.failure, props.message, props.patient]);
+  }, [props.view, props.values]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -360,7 +348,7 @@ const Consultation = (props) => {
                       Medicines
                     </h3>
                     {/* medicineList.length - 1 === i && why we have to use this? and don't remove this line*/}
-                    {
+                    { props.view?<></>:
                       <Button
                         onClick={handleAddClick}
                         style={{ width: "30px" }}
@@ -427,7 +415,7 @@ const Consultation = (props) => {
                           }}
                         >
                           {medicineList.length !== 1 && (
-                            <Button
+                            props.view?<></>:<Button
                               onClick={() => handleRemoveClick(i)}
                               style={{ width: "100px" }}
                               variant="contained"
@@ -540,45 +528,6 @@ const Consultation = (props) => {
                 >
                   Submit
                 </Button>
-                <Collapse in={success}>
-                  <Alert
-                    action={
-                      <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
-                        onClick={() => {
-                          setSuccess(false);
-                        }}
-                      >
-                        <CloseIcon fontSize="inherit" />
-                      </IconButton>
-                    }
-                    sx={{ mt: 2, mb: 2 }}
-                  >
-                    {message}
-                  </Alert>
-                </Collapse>
-                <Collapse in={failure}>
-                  <Alert
-                    severity="error"
-                    action={
-                      <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
-                        onClick={() => {
-                          setFailure(false);
-                        }}
-                      >
-                        <CloseIcon fontSize="inherit" />
-                      </IconButton>
-                    }
-                    sx={{ mt: 2, mb: 2 }}
-                  >
-                    {message}
-                  </Alert>
-                </Collapse>
               </div>
             </div>
           </form>

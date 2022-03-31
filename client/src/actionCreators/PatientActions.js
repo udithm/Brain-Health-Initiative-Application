@@ -28,16 +28,14 @@ export const addPatientRequest = () => ({
     type: ADD_PATIENTS_REQUEST
 })
 
-export const addPatientSuccess = (status) => {
+export const addPatientSuccess = () => {
     return {
-        type: ADD_PATIENTS_SUCCESS,
-        status: status
+        type: ADD_PATIENTS_SUCCESS
     }
 }
 
-export const addPatientFailure = (status) => ({
-    type: ADD_PATIENTS_FAILURE,
-    status: status
+export const addPatientFailure = () => ({
+    type: ADD_PATIENTS_FAILURE
 })
 
 export const setPatient = (patientDetail) => {

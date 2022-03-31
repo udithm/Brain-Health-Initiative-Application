@@ -12,7 +12,7 @@ const AddPatientDetailsContainer = () => {
 
     const addPatientDetails = (patientDetail) => addPatient(patientDetail)(dispatch);
   return (
-    <PatientDetails view={false} add={addPatientDetails} success={patientState.success} failure={patientState.failure} message={patientState.message}/>
+    <PatientDetails view={false} add={addPatientDetails}/>
   )
 }
 
