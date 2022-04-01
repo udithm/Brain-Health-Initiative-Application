@@ -66,7 +66,7 @@ const validationSchema = yup.object({
       validationSchema: validationSchema,
       onSubmit: (values) => {
           console.log("^^^^^^^^^^^^^^^^^ add doctor submit = ", values)
-        add(values.fname,values.lname,values.email,sha256(values.confirmPassword),values.role,values.gender,values.hospitalName,values.phoneNumber);
+        add(values.fname,values.lname,values.email,values.confirmPassword,values.role,values.gender,values.hospitalName,values.phoneNumber);
       },
     });
     const [role, setRole] = useState(rolesList[0]);
