@@ -6,10 +6,13 @@ import Button from "@mui/material/Button";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 import update from "immutability-helper";
 import * as yup from "yup";
 import "react-phone-input-2/lib/style.css";
 import { NavBar } from "../components/NavBar";
+import { useHistory } from 'react-router-dom';
 
 const formSchema = yup.object().shape({
   consultationDate: yup.date().required(),
@@ -38,6 +41,33 @@ const Medicines = {
 };
 const Consultation = (props) => {
 
+  // console.log(props.questions)
+  let questions = props.questions.map((element) => {
+    return {
+      question: element,
+      response: false,
+    };
+  });
+  // console.log(questions)
+  
+  const [responseList, setResponseList] = useState(questions);
+
+  const handleQButton = (e, key) => {
+    // const { response } = e.target;
+    // let newObject = { question: data, response: response === "yes" };
+    // setResponseList([...responseList, newObject]);
+
+    let newState = [...responseList];
+    // let newObject = newState[key];
+    console.log(responseList);
+
+    // newState[key].response = e.target.value === "yes";
+    setResponseList(newState);
+
+    console.log(e.target.value);
+  };
+
+  let history = useHistory();
   const defaultValues = {
     consultationDate: currentDate,
     complaint: "",
@@ -98,6 +128,7 @@ const Consultation = (props) => {
   });
 
   const [formValues, setFormValues] = useState(defaultValues);
+  const [questionnaireInUse, setQuestionnaireInUse] = useState(false);
 
 
   const [radioValue, setRadioValue] = useState("");
@@ -144,8 +175,9 @@ const Consultation = (props) => {
       });
       if (isFormValid) {
         console.log("in")
+
         console.log(formValues);
-        props.add(formValues);
+        // props.add(formValues);
       } else {
         formSchema.validate(formValues, { abortEarly: false }).catch((err) => {
           const errors = err.inner.reduce((acc, error) => {
@@ -166,15 +198,129 @@ const Consultation = (props) => {
     [formValues]
   );
 
+  const goBack = () => {
+    return history.goBack()
+  }
+  const pastHistory = () => {
+    return history.push("/viewPastConsultations/"+props.patient.id);
+  }
+  const viewPatient = () => {
+      return history.push("/viewPatient/"+props.patient.id);
+    }
   return (
     <>
       <NavBar></NavBar>
+      {
+      questionnaireInUse?
+      <>
+      <Grid
+        container
+        spacing={3}
+        alignItems="center"
+        justifyContent="center"
+        style={{display:"flex",alignItems:"flex-end",flexDirection:"column",paddingTop:"20px",paddingRight:"20px"}}
+       >
+          <Grid item xs={12} sm={12} md={12} xl={12} direction="column">
+                <Button variant="outlined" color="primary" onClick={() => {setQuestionnaireInUse(false);setFormValues({...formValues, responses: responseList})}}>Go Back</Button>
+          </Grid>
+        </Grid>
+        <Paper
+      elevation={10}
+      style={{ margin: "20px 5%" }}
+      className="page-content"
+    >
+      <fieldset disabled={props.view}>
+        <h1
+          style={{ textAlign: "center", marginTop: "10px" }}
+          className="heading"
+        >
+          {"Common Questionnaire"}
+        </h1>
+        <form>
+          <div style={{ maxWidth: "80%", margin: "auto" }}>
+            <Grid
+              container
+              spacing={3}
+              // direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {props.questions.map((data, key) => {
+                return (
+                  <>
+                    <Grid item xs={9} sm={9} md={9} xl={9}>
+                      <h3>{data.question}</h3>
+                    </Grid>
+                    <Grid>
+                      <FormControl>
+                        <FormLabel id="response"></FormLabel>
+                        <RadioGroup
+                          row
+                          aria-labelledby="response"
+                          name="response"
+                          defaultValue="top"
+                          onChange={(e) => handleQButton(e, key)}
+                        >
+                          <FormControlLabel
+                            value="yes"
+                            control={<Radio />}
+                            label="Yes"
+                            labelPlacement="top"
+                          />
+                          <FormControlLabel
+                            value="no"
+                            control={<Radio />}
+                            label="No"
+                            labelPlacement="top"
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </Grid>
+                  </>
+                );
+              })}
+            </Grid>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                maxWidth: "400px",
+                margin: "50px auto",
+              }}
+            >
+              <Button
+                style={{ width: "200px" }}
+                variant="contained"
+                color="primary"
+                type="submit"
+                onClick={()=>{setQuestionnaireInUse(false);setFormValues({...formValues, responses: responseList})}}
+              >
+                Submit
+              </Button>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </Paper>
+      </>:
       <Paper
         elevation={10}
         style={{ margin: "5vh 10%", width: "80%" }}
         className="page-content"
       >
-        <fieldset disabled={props.view}>
+        <Grid
+        container
+        spacing={3}
+        alignItems="center"
+        justifyContent="center"
+        style={{display:"flex",alignItems:"flex-end",flexDirection:"column", paddingRight:"20px"}}
+       >
+          <Grid item xs={12} sm={12} md={12} xl={12} direction="column">
+                <Button variant="outlined" color="primary" onClick={() => {setQuestionnaireInUse(true);setResponseList(questions)}}>Questionnaire</Button>
+          </Grid>
+        </Grid>
+        <fieldset style={{border:"none"}} disabled={props.view}>
           <h2
             style={{ textAlign: "center", marginTop: "5px" }}
             className="heading"
@@ -532,7 +678,25 @@ const Consultation = (props) => {
             </div>
           </form>
         </fieldset>
+        <Grid
+        container
+        spacing={3}
+        alignItems="center"
+        justifyContent="center"
+        style={{paddingBottom:"10px",marginTop:"-30px", paddingLeft:"20px"}}
+       >
+        <Grid item xs={12} sm={4} md={4} xl={4} direction="column">
+              <Button variant="outlined" color="primary" onClick={() => goBack()}>Go Back</Button>
+        </Grid>
+         <Grid item xs={12} sm={4} md={4} xl={4} direction="column">
+              <Button variant="outlined" color="primary" onClick={() => viewPatient()}>View Patient Details</Button>
+        </Grid>
+        <Grid item xs={12} sm={4} md={4} xl={4} direction="column">
+              <Button variant="outlined" color="primary" onClick={() => pastHistory()}>View Patient History</Button>
+        </Grid>
+      </Grid>
       </Paper>
+    }
     </>
   );
 };

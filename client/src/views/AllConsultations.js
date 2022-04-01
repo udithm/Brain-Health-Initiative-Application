@@ -51,7 +51,7 @@ const AllConsultations = (props) => {
         }
       },
       {
-        name: "Actions",
+        name: "View Consultation",
         options: {
           customBodyRenderLite: (dataIndex) => {
             return (<>
@@ -60,7 +60,25 @@ const AllConsultations = (props) => {
             )
           }
         }
-      }
+      },
+      {name: "View Patient",
+            options: {
+                customBodyRenderLite: (dataIndex) => {
+                    return (<>
+                        <Button variant="outlined" color="primary" onClick={() => viewPatient(results[dataIndex])}>View Patient Details</Button>
+                    </>
+                    )}
+            }
+        },
+        {name: "Add Consultation",
+            options: {
+                customBodyRenderLite: (dataIndex) => {
+                    return (<>
+                        <Button variant="outlined" color="primary" onClick={() => addConsultation(results[dataIndex])}>Add Consultation</Button>
+                    </>
+                    )}
+            }
+        }
     ];
 
   const options = {
@@ -73,11 +91,21 @@ const AllConsultations = (props) => {
     responsive: "standard",
     selectableRows: "none",
   };
+  const goBack = () => {
+    return history.goBack()
+  }
+  const addConsultation = (result) => {
+    return history.push("/addConsultation/"+result.patient.id);
+  }
+  const viewPatient = (result) => {
+      return history.push("/viewPatient/"+result.patient.id);
+    }
+
   return (
     <React.Fragment>
       <NavBar></NavBar>
       <Box sx={{ mt: 6 }}>
-        <Container maxWidth="md" className='searchPatient'>
+        <Container maxWidth="lg" className='searchPatient'>
           
           <MUIDataTable
             title={"Consultation History of "+props.patient.firstName+" "+props.patient.lastName+", "+props.patient.age+" years old, "+props.patient.gender }
@@ -86,6 +114,19 @@ const AllConsultations = (props) => {
             options={options}></MUIDataTable>
         </Container>
       </Box>
+      <Container maxWidth="lg">
+        <Grid
+          container
+          spacing={3}
+          alignItems="center"
+          justifyContent="center"
+          style={{paddingLeft:"20px",marginTop:"5px"}}
+        >
+          <Grid item xs={12} sm={12} md={12} xl={12} direction="column">
+                <Button variant="outlined" color="primary" onClick={() => goBack()}>Go Back</Button>
+          </Grid>
+        </Grid>
+      </Container>
     </React.Fragment>
   )
 }

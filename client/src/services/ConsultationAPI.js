@@ -62,3 +62,15 @@ export const setConsultationSelected = (consultation) => {
         dispatch(setConsultation(consultation)); 
     }
 }
+
+// export const getCommonQuestionnaire = async () => {
+//     axios
+//     .get ("http://localhost:8080/api/v1/questionnaire/Common") 
+//     .then ((res) => {
+//         console.log(res.data)
+//         return res.data;
+//     })
+//     .catch((err)=>{
+//         return err.message;
+//     })
+// }

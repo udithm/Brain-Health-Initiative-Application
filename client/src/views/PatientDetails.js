@@ -7,6 +7,7 @@ import update from "immutability-helper";
 import * as yup from "yup";
 import "react-phone-input-2/lib/style.css";
 import { NavBar } from "../components/NavBar";
+import {useHistory} from "react-router-dom"
 
 const formSchema = yup.object().shape({
   firstName: yup.string().required(),
@@ -51,7 +52,7 @@ const defaultValues = {
   // Consultation_List (List of Prior Consultation Ids)
 };
 const PatientDetails = (props) => {
-  
+  let history = useHistory();
 
   const [errors, setErrors] = useState({
     firstName: false,
@@ -121,12 +122,21 @@ const PatientDetails = (props) => {
     },
     [formValues]
   );
+  const goBack = () => {
+    return history.goBack()
+  }
+  const addConsultation = () => {
+    return history.push("/addConsultation/"+props.values.id);
+  }
+  const pastHistory = () => {
+    return history.push("/viewPastConsultations/"+props.values.id);
+  }
 
   return (
     <>
     <NavBar></NavBar>
     <Paper elevation={10} style={{ margin: "20px 5%" }} className="page-content">
-      <fieldset disabled={props.view}>
+      <fieldset style={{border:"none"}} disabled={props.view}>
         <h2
           style={{ textAlign: "center", marginTop: "10px" }}
           className="heading"  
@@ -451,11 +461,25 @@ const PatientDetails = (props) => {
               >
                 Submit
               </Button>
-              
             </div>
           </div>
         </form>
       </fieldset>
+      <Grid
+        container
+        spacing={3}
+        style={{paddingBottom:"10px",marginTop:"-80px", paddingLeft:"20px"}}
+      >
+        <Grid item xs={12} sm={props.view ? 4 : 12} md={props.view ? 4 : 12} xl={props.view ? 4 : 12} direction="column">
+              <Button style= {{width: "250px"}} variant="outlined" color="primary" onClick={() => goBack()}>Go Back</Button>
+        </Grid>
+        <Grid item xs={12} sm={4} md={4} xl={4} direction="column" style={props.view ? {} : { display: "none" }}>
+              <Button style={{ width: "250px" }} variant="outlined" color="primary" onClick={() => addConsultation()}>Add Consultation</Button>
+        </Grid>
+        <Grid item xs={12} sm={4} md={4} xl={4} direction="column" style={props.view ? {} : { display: "none" }}>
+              <Button style={{ width: "250px" }} variant="outlined" color="primary" onClick={() => pastHistory()}>View Patient history</Button>
+        </Grid>
+      </Grid>
     </Paper>
     </>
   );

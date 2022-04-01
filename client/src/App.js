@@ -22,6 +22,8 @@ import AddConsultationContainer from "./containers/AddConsultationContainer";
 import ViewPatientDashboard from "./views/ViewPatientDashboard";
 import ViewConsultationContainer from "./containers/ViewConsultationContainer";
 import ViewAllConsultationsContainer from "./containers/ViewAllConsultationsContainer";
+import {AnalyticsContainer} from "./containers/AnalyticsContainer"
+import {DiseaseAnalyticsContainer} from "./containers/DiseaseAnalyticsContainer"
 function App() {
   return (
     <Router>
@@ -44,6 +46,8 @@ function App() {
         <ProtectedRoute path="/addConsultation/:id" component={AddConsultationContainer}></ProtectedRoute>
         <ProtectedRoute path="/viewConsultation/:pid/:cid" component={ViewConsultationContainer}></ProtectedRoute>
         <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/diseaseAnalytics" component={DiseaseAnalyticsContainer}></ProtectedRoute>
         <Redirect from="*" to="/login"></Redirect>
       </Switch>
     </Router>
