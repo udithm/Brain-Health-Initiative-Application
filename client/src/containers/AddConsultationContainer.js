@@ -14,23 +14,25 @@ const AddConsultationContainer = () => {
     const setPatientByID = (id) => setPatientByAPI(id)(dispatch);
     const patientState = useSelector(state => state.PatientReducer);
     let { id } = useParams();
-    const [questions,setQuestions] = useState([])
+    const [questionnaire,setQuestionnaire] = useState([])
     useEffect(()=>{
+      console.log("ADD Container");
       setPatientByID(id);
       axios
-      .get ("/v1/questionnaire/Common") 
+      .get ("/v1/questionnaire/") 
       .then ((res) => {
-          setQuestions(res.data);
+          console.log(res.data)
+          setQuestionnaire(res.data);
       })
       .catch((err)=>{
+        console.log(err);
           return err.message;
       })
     },[])
-    // useEffect(()=>{},[questions])
 
     const addConsultationDetails = (consultation) => addConsultation(consultation)(dispatch);
   return (
-    <Consultation view={false} add={addConsultationDetails} patient={patientState.patient} questions={questions} />
+    <Consultation view={false} add={addConsultationDetails} patient={patientState.patient} questionnaire={questionnaire} />
   )
 }
 
