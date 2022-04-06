@@ -88,7 +88,7 @@ const ConsultationForm = (props) => {
          props.view
            ? setMedicineList(props.formValues.medicines)
            : setMedicineList(medicineList);
-    },[])
+    },[props.view,props.formValues.medicines])
 
     return (
       <>
