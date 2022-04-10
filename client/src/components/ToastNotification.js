@@ -24,7 +24,7 @@ export const ToastNotification = () => {
 
     })
     return (
-        <Snackbar  open={alertState.open} autoHideDuration={600000} onClose={handleClose} anchorOrigin = {position}>
+        <Snackbar  open={alertState.open} autoHideDuration={6000} onClose={handleClose} anchorOrigin = {position}>
             <Alert onClose={handleClose} severity = {alertState.severity} sx={{ width: '100%', color: alertState.color, backgroundColor: alertState.backgroundColor  }}>
                 {alertState.message}
             </Alert>

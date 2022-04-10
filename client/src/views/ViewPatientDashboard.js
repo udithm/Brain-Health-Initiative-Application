@@ -1,15 +1,13 @@
 import * as React from "react";
 import { Card } from "@material-ui/core";
-import { CardActionArea, CardContent, Typography, Grid, Paper, Link } from "@mui/material";
+import { CardActionArea, CardContent, Typography, Grid, Paper, Button } from "@mui/material";
 import { makeStyles } from "@material-ui/core/styles";
-// import { DoctorIcon1 } from "../components/Icons";
-import {ReactComponent as DoctorIcon} from '../common/Icons/doctor.svg';
-import {ReactComponent as HospitalIcon} from '../common/Icons/hospital.svg';
+import {ReactComponent as ConsultationIcon} from '../common/Icons/addConsultation.svg';
 import {ReactComponent as PatientIcon} from '../common/Icons/patient.svg';
-import {ReactComponent as OrgIcon} from '../common/Icons/organisation.svg';
+import {ReactComponent as HistoryIcon} from '../common/Icons/pastRecords.svg';
+import {useHistory} from 'react-router-dom'
 import { NavBar } from "../components/NavBar";
-// import {ReactComponent as AdminIcon} from '../common/Icons/admin.svg';
-export const CreateView = () => {
+const ViewPatientDashboard = () => {
     const useStyles = makeStyles({
         root: {
           maxWidth: 300,
@@ -19,85 +17,73 @@ export const CreateView = () => {
       });
       const classes = useStyles();
       const paperStyle={padding :50, margin:"70px"};
+      let history = useHistory();
       
+    const gotoViewPatient = () => {
+        history.push('/viewPatient')
+    }
+    const gotoAddConsultation = () => {
+        history.push('/addConsultation')
+    }
+    const gotoViewPastConsultations = () => {
+        history.push('/viewPastConsultations')
+    }
     return (
         <>
         <NavBar></NavBar>
          <Paper elevation={5} style={paperStyle}>
             <Grid container spacing={2}>
-                <Grid item xs={3} sm={3}>
-                    <Link href="/addHospital">
-                    <Card variant="outlined" className={classes.root}>
+                <Grid item xs={12} sm={4}>
+                    <Button onClick={gotoViewPatient}>
+                    <Card className={classes.root}>
                         <CardActionArea >
                             <CardContent>
-                                <div style={{height: "240px", width: "240px", padding: "10px"}}><HospitalIcon/></div>
+                                <div style={{height: "240px", width: "240px", padding: "10px"}}><PatientIcon/></div>
                                 <Typography align="center">
-                                    Add Hospital
+                                    View Patient Details
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
-                    </Link>
+                    </Button>
              
                 </Grid>
 
-                <Grid item xs={3} sm={3}>
-                    <Link href="/addDoctor">
+                <Grid item xs={12} sm={4}>
+                    <Button onClick={gotoAddConsultation}>
                         <Card className={classes.root}>
                             <CardActionArea>
                                 <CardContent>
                                 <div style={{height: "240px", width: "240px", padding: "10px"}}>
-                                <DoctorIcon/></div>
+                                <ConsultationIcon/></div>
                                     <Typography align="center">
-                                        Add doctor
+                                        Add Consultation
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                         </Card>
-                    </Link>
+                    </Button>
                 </Grid>
-                <Grid item xs={3} sm={3}>
-                    <Link href="/addAdminOrg">
+                <Grid item xs={12} sm={4}>
+                    <Button onClick={gotoViewPastConsultations}>
                         <Card className={classes.root}>
                             <CardActionArea>
                                 <CardContent>
                                 <div style={{height: "240px", width: "240px", padding: "10px"}}>
-                                    <OrgIcon/>
+                                    <HistoryIcon/>
                                     </div>
                                     <Typography align="center">
-                                        Add Admin Organisation
+                                        View Past Consultations
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                         </Card>
-                    </Link>
+                    </Button>
                 </Grid>
-                <Grid item xs={3} sm={3}>
-                    <Link href="/addAdmin">
-                        <Card className={classes.root}>
-                            <CardActionArea>
-                                <CardContent>
-                                <div style={{height: "240px", width: "240px", padding: "10px"}}>
-                                    <PatientIcon/></div>
-                                    <Typography align="center">
-                                        Add Admin
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                    </Link>
-       
-                </Grid>
-
 
             </Grid>
          </Paper>
-     
-
-          
-
-          
-        
         </>
     )
 } 
+export default ViewPatientDashboard;

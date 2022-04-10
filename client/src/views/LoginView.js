@@ -50,7 +50,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
-import { Grid,Paper } from '@material-ui/core'
+import { Grid, Paper } from '@material-ui/core'
 import sha256 from "sha256";
 import { Container } from '@mui/material';
 // import { baseUrl } from '../common/constants/AppConstants';
@@ -58,7 +58,7 @@ import { Container } from '@mui/material';
 const validationSchema = yup.object({
   email: yup
     .string('Enter your email')
-    .email('Enter a valid email')
+    // .email('Enter a valid email')
     .required('Email is required'),
   password: yup
     .string('Enter your password')
@@ -66,63 +66,63 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-export const LoginView = ({login, err}) => {
+export const LoginView = ({ login, err }) => {
   const formik = useFormik({
     initialValues: {
       email: 'alvar@katherin.com',
       password: 'alvar12345678',
-        // email: "",
-        // password: ""
+      // email: "",
+      // password: ""
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      login(values.email, sha256(values.password));
+      login(values.email, values.password);
     },
   });
-  const paperStyle={padding :30,height:'40vh',width:'20vw', margin:"25vh auto"};
-  const btnstyle={margin:'3vh 0', align: 'center'};
-  const textstyle={margin:'15px 0'};
+  const paperStyle = { padding: 30, height: '40vh', width: '20vw', margin: "25vh auto" };
+  const btnstyle = { margin: '3vh 0', align: 'center' };
+  const textstyle = { margin: '15px 0' };
 
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-      <Grid>
-            <Paper elevation={10} style={paperStyle}>
+        <Grid>
+          <Paper elevation={10} style={paperStyle}>
             <Grid align='center'>
-                   <h2>Sign In</h2>
-              </Grid>
-                <TextField
-                fullWidth
-                id="email"
-                name="email"
-                label="Email"
-                style={textstyle}
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-                />
-                <TextField
-                fullWidth
-                id="password"
-                name="password"
-                label="Password"
-                type="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                style={textstyle}
-                error={formik.touched.password && Boolean(formik.errors.password)}
-                helperText={formik.touched.password && formik.errors.password}
-                
-                />
-                <div style={{color: "red"}}>{err}</div>
-                <Grid align='center'>
-                <Button color="primary" variant="contained"  type="submit" style={btnstyle} >
+              <h2>Sign In</h2>
+            </Grid>
+            <TextField
+              fullWidth
+              id="email"
+              name="email"
+              label="Email"
+              style={textstyle}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+            <TextField
+              fullWidth
+              id="password"
+              name="password"
+              label="Password"
+              type="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              style={textstyle}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+
+            />
+            <div style={{ color: "red" }}>{err}</div>
+            <Grid align='center'>
+              <Button color="primary" variant="contained" type="submit" style={btnstyle} >
                 Submit
-                </Button>
-              </Grid>
-            </Paper>
-        </Grid> 
+              </Button>
+            </Grid>
+          </Paper>
+        </Grid>
       </form>
     </div>
   );

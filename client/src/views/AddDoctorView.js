@@ -66,13 +66,13 @@ const validationSchema = yup.object({
       validationSchema: validationSchema,
       onSubmit: (values) => {
           console.log("^^^^^^^^^^^^^^^^^ add doctor submit = ", values)
-        add(values.fname,values.lname,values.email,sha256(values.confirmPassword),values.role,values.gender,values.hospitalName,values.phoneNumber);
+        add(values.fname,values.lname,values.email,values.confirmPassword,values.role,values.gender,values.hospitalName,values.phoneNumber);
       },
     });
     const [role, setRole] = useState(rolesList[0]);
     const [gender,setGender] = useState(genderList[0])
     const [hospitalName,setHospitalName] = useState(hospitalList[0])
-    const paperStyle={padding :30,height:'100vh',width:610, margin:"70px auto"};
+    const paperStyle={padding :30,height:'90vh',width:610, margin:"50px auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
     const changeRole = (event, value) => {
@@ -212,7 +212,7 @@ const validationSchema = yup.object({
                             label="Hospital Name" name="hospitalName" variant="outlined"/>}
                         />
                     </Grid>
-                     <Grid item xs ={8} sm={12} >
+                     <Grid item xs ={12} sm={12} >
                         <MuiPhoneNumber
                             name="phoneNumber"
                             label="Phone Number"
@@ -222,7 +222,7 @@ const validationSchema = yup.object({
                             variant="outlined"
                         /> 
                     </Grid> 
-                  <Grid align='center'>
+                  <Grid item xs ={12} sm={12} align='center'>
                   <Button align="center" color="primary" variant="contained"  type="submit" style={btnstyle} >
                   Submit
                   </Button>
