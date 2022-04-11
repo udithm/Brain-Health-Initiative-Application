@@ -61,6 +61,10 @@ public class ConsultationRecord {
 	@ManyToOne
 	@JoinColumn(name = "patientId")
 	private PatientDemographics patient;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="Doctor_id")
+	private Doctor doctor;
 
 	@Column(name = "consultationDate", nullable = false)
 	@NotNull(groups = New.class)

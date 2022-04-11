@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -98,6 +100,19 @@ public class AdminController {
 		
 		this.hospitalService.deleteHospitalById(id);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/getallHospitals")
+	
+	public  Map<Long ,String> getallHospitals() {
+        List<Hospital> listHospitals = hospitalRepository.findAll();
+//        model.addAttribute("listUsers", listUsers);
+         System.out.println(listHospitals);
+         Map<Long, String> map = new HashMap<>();
+         for(Hospital h:listHospitals) {
+        	 map.put(h.getId(), h.getName()); 
+         }
+         return map;
 	}
 	
 	@PostMapping("/addDoctor")
