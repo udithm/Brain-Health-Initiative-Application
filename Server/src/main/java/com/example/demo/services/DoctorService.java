@@ -9,4 +9,5 @@ public interface DoctorService {
 	void addDoctor(Doctor doctor);
 	Doctor getDoctorById(long id);
 	void deleteDoctorById(long id);
+	List<String> getallDoctorsByRole(String role);
 }
