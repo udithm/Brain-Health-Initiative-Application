@@ -30,21 +30,6 @@ const formSchema = yup.object().shape({
 });
 
 const Consultation = (props) => {
-  let commonQuestionnaire = props.questionnaire
-    ? props.questionnaire.filter((element) => {
-        return element.name === "Common";
-      })
-    : [];
-  let commonQuestionnaireAnswers = {};
-  console.log(commonQuestionnaire);
-  commonQuestionnaire.length !== 0
-    ? Object.entries(commonQuestionnaire[0].questions).map(
-        ([key, data]) => (commonQuestionnaireAnswers[key] = "NA")
-      )
-    : console.log("empty");
-
-  console.log(commonQuestionnaireAnswers);
-
   const defaultValues = {
     consultationDate: currentDate,
     complaint: "",
@@ -61,6 +46,14 @@ const Consultation = (props) => {
     patient: props.patient,
     moveToIP: false,
     reviewSos: false,
+    medicines: [
+      {
+        medicineName: "",
+        dosage: "",
+        dosingTime: "",
+        duration: "",
+      },
+    ],
     // Consultation_List (List of Prior Consultation Ids)
   };
   const [errors, setErrors] = useState({
@@ -81,6 +74,9 @@ const Consultation = (props) => {
   const [formValues, setFormValues] = useState(defaultValues);
   const [questionnaireInUse, setQuestionnaireInUse] = useState(false);
   const [responseList, setResponseList] = useState([]);
+  const [questionnaireNames, setQuestionnaireNames] = useState(["Common"]);
+  const [diagnosis, setDiagnosis] = useState("");
+  const [referTo, setReferTo] = useState("");
 
   useEffect(() => {
     setFormValues({
@@ -90,7 +86,21 @@ const Consultation = (props) => {
   }, [responseList]);
 
   useEffect(() => {
+    console.log(props.values);
     props.view ? setFormValues(props.values) : setFormValues(formValues);
+    props.view
+      ? props.values.responses.map((r, i) => {
+          // console.log(r.questionnaire.name,i)
+          if (!questionnaireNames.includes(r.questionnaire.name)) {
+            console.log(r.questionnaire.name, i);
+
+            setQuestionnaireNames([
+              ...questionnaireNames,
+              r.questionnaire.name,
+            ]);
+          }
+        })
+      : setQuestionnaireNames(questionnaireNames);
   }, [props.view, props.values]);
 
   const handleSubmit = React.useCallback(
@@ -104,16 +114,14 @@ const Consultation = (props) => {
       if (isFormValid) {
         console.log("in");
         console.log(formValues);
-        let responses = {
-          answers: commonQuestionnaireAnswers,
-          questionnaire: commonQuestionnaire[0],
-        };
-        formValues.responses
-          ? props.add(formValues)
-          : props.add({
-              ...formValues,
-              responses: [...responseList, responses],
-            });
+        props.add({
+          ...formValues,
+          responses: responseList,
+        });
+        props.set({
+          ...formValues,
+          responses: responseList,
+        });
       } else {
         formSchema.validate(formValues, { abortEarly: false }).catch((err) => {
           const errors = err.inner.reduce((acc, error) => {
@@ -183,17 +191,52 @@ const Consultation = (props) => {
               style={{ margin: "20px 5%" }}
               className="page-content"
             >
-              <Questionnaire
-                questionnaire={props.questionnaire}
-                formValues={formValues}
-                view={props.view}
-                setFormValues={setFormValues}
-                setQuestionnaireInUse={setQuestionnaireInUse}
-                responseList={responseList}
-                setResponseList={setResponseList}
-                commonQuestionnaire={commonQuestionnaire}
-                commonQuestionnaireAnswers={commonQuestionnaireAnswers}
-              />
+              {questionnaireNames &&
+                questionnaireNames.map((name, id) => {
+                  console.log(id, name, questionnaireNames);
+                  let currentQuestionnaire = props.questionnaire
+                    ? props.questionnaire.filter((element) => {
+                        return element.name === name;
+                      })
+                    : [];
+                  console.log(currentQuestionnaire);
+                  let currentQuestionnaireAnswers = {};
+                  currentQuestionnaire.length !== 0
+                    ? Object.entries(currentQuestionnaire[0].questions).map(
+                        ([key, data]) =>
+                          (currentQuestionnaireAnswers[key] = "NA")
+                      )
+                    : console.log("empty");
+                  console.log(currentQuestionnaireAnswers);
+                  return (
+                    <Questionnaire
+                      name={name}
+                      id={id}
+                      setDiagnosis={setDiagnosis}
+                      setReferTo={setReferTo}
+                      currentQuestionnaire={
+                        props.view
+                          ? [props.values.responses[id].questionnaire]
+                          : currentQuestionnaire
+                      }
+                      currentQuestionnaireAnswers={
+                        props.view
+                          ? props.values.responses[id].answers
+                          : responseList[id]
+                          ? responseList[id].answers
+                          : currentQuestionnaireAnswers
+                      }
+                      questionnaireNames={questionnaireNames}
+                      patient={props.patient}
+                      setQuestionnaireNames={setQuestionnaireNames}
+                      formValues={props.values}
+                      view={props.view}
+                      setQuestionnaireInUse={setQuestionnaireInUse}
+                      responseList={responseList}
+                      setResponseList={setResponseList}
+                    />
+                  );
+                })}
             </Paper>
           </>
         )
@@ -204,6 +247,7 @@ const Consultation = (props) => {
           className="page-content"
         >
           <ConsultationForm
+            view={props.view}
             formValues={formValues}
             setFormValues={setFormValues}
             handleSubmit={handleSubmit}
@@ -211,6 +255,11 @@ const Consultation = (props) => {
             setErrors={setErrors}
             setQuestionnaireInUse={setQuestionnaireInUse}
           />
+          <h4 style={{ textAlign: "center", marginTop: "5px" }}>
+            {" "}
+            {diagnosis !== "" ? "Diagnosis: " + diagnosis : ""}{" "}
+            {referTo !== "" ? "Refer to: " + referTo : ""}{" "}
+          </h4>
           <Grid
             container
             spacing={3}
