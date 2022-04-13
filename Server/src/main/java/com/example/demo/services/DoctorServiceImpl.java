@@ -56,4 +56,18 @@ public class DoctorServiceImpl implements DoctorService{
 		}
 		return docnames;
 	}
+	
+	@Override
+	public List<String> getallDoctorsByHospitalId(long hospitalId) {
+		List<Doctor> docs = new ArrayList<Doctor>();
+		doctorRepository.findByHospitalId(hospitalId).forEach(docs::add);
+		for(Doctor x:docs) {
+			System.out.println("get by id" + x.toString());
+		}
+		List<String> docnames = new ArrayList<String>();
+		for(Doctor d:docs) {
+			docnames.add(d.getFname());
+		}
+		return docnames;
+	}
 }
