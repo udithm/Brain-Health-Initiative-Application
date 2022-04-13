@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import {useSelector} from "react-redux"
-import {addConsultation,getCommonQuestionnaire} from "../services/ConsultationAPI";
+import {addConsultation, setConsultationSelected} from "../services/ConsultationAPI";
 import Consultation from "../views/Consultation";
 import { setPatientByAPI } from "../services/patientAPI";
 import { useEffect } from "react";
@@ -12,6 +12,8 @@ import axios from "../common/config/AxiosConfig";
 const AddConsultationContainer = () => {
     const dispatch = useDispatch();
     const setPatientByID = (id) => setPatientByAPI(id)(dispatch);
+    const setConsultation = (consultation) =>
+      setConsultationSelected(id)(dispatch);
     const patientState = useSelector(state => state.PatientReducer);
     let { id } = useParams();
     const [questionnaire,setQuestionnaire] = useState([])
@@ -32,8 +34,14 @@ const AddConsultationContainer = () => {
 
     const addConsultationDetails = (consultation) => addConsultation(consultation)(dispatch);
   return (
-    <Consultation view={false} add={addConsultationDetails} patient={patientState.patient} questionnaire={questionnaire} />
-  )
+    <Consultation
+      view={false}
+      add={addConsultationDetails}
+      set={setConsultation}
+      patient={patientState.patient}
+      questionnaire={questionnaire}
+    />
+  );
 }
 
 export default AddConsultationContainer
