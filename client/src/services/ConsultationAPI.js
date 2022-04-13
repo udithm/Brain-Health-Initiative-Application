@@ -13,6 +13,7 @@ import axios from "../common/config/AxiosConfig";
 
 export const addConsultation = (consultation) => {
     return (dispatch) => {
+        console.log(consultation)
         dispatch(addConsultationRequest()); 
         axios
             .post ("http://localhost:8080/api/v1/consultationrecords", consultation ) 

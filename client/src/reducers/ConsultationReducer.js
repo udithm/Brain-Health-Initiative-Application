@@ -24,6 +24,7 @@ const consultationState = {
         referral: "",
         moveToIP: "",
         reviewSos: "",
+        medicines: []
     },
     errMessage: "",
     consultationLoading: false, 

@@ -40,7 +40,7 @@ public class Doctor {
 	@Column(length = 20)
 	private String contactNumber;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="Hospital_id")
+	@JoinColumn(name="hospitalId")
 	@JsonIgnore
 	private Hospital hospital;
 	

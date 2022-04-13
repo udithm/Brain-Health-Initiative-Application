@@ -161,6 +161,14 @@ public class ConsultationRecord {
 	public void setPatient(PatientDemographics patient) {
 		this.patient = patient;
 	}
+	
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
 
 	public LocalDate getConsultationDate() {
 		return consultationDate;

@@ -32,6 +32,7 @@ import com.example.demo.models.User;
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.DoctorRepository;
 import com.example.demo.repository.HospitalRepository;
+import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.request.AdminRequest;
 import com.example.demo.request.DoctorRequest;
@@ -59,6 +60,10 @@ public class AdminController {
 	AdminRepository adminRepository;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	RoleRepository roleRepository;
+	@Autowired
+	PasswordEncoder encoder;
 	
 	@GetMapping ("/showHospitalform")
 	public String showHospitalForm(Model model) {
@@ -128,7 +133,37 @@ public class AdminController {
 		
 		User user = new User(doctorRequest.getFname(),
 							 doctorRequest.getEmail(),
-							 doctorRequest.getPassword());
+							 encoder.encode(doctorRequest.getPassword()));
+		
+		String strRole = doctorRequest.getRole();
+		//System.out.println(strRole);
+		Set<Role> roles = new HashSet<>();
+		
+		if(strRole.equals("Primary_Doctor")) {
+			System.out.println(strRole);
+			Role primaryRole = roleRepository.findByName(ERole.PRIMARY_DOCTOR)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(primaryRole);
+		}
+		else if(strRole.equals("Secondary_Specalist")) {
+			System.out.println(strRole);
+			Role secondaryRole = roleRepository.findByName(ERole.SECONDARY_SPECIALIST)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(secondaryRole);
+		}
+		else if(strRole.equals("Tertiary_Specalist")) {
+			System.out.println(strRole);
+			Role tertiaryRole = roleRepository.findByName(ERole.TERTIARY_SPECIALIST)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(tertiaryRole);
+		}
+		else{
+			Role adminRole = roleRepository.findByName(ERole.ADMIN)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(adminRole);
+		}
+		
+		user.setRoles(roles);
 		
 		doctorRepository.save(doctor);
 		userRepository.save(user);
