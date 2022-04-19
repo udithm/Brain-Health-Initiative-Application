@@ -13,9 +13,6 @@ public class QuestionnaireResponseService {
 
     HashMap<String, String> ret = new HashMap<>();
 
-    @Autowired
-    // private QuestionnaireResponseRepository questionnaireResponseRepository;
-
     public HashMap<String, String> getNextQuestionnaire(QuestionnaireResponse questionnaireResponse) {
         ret.put("nextQuestionnaire", "none");
         ret.put("Diagnosis", "none");
