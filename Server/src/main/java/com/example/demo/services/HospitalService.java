@@ -8,5 +8,6 @@ public interface HospitalService {
 		Hospital getHospitalById(long id);
 		void deleteHospitalById(long id);
 		List<String> getallHospitalsByType(String type);
+		Hospital getHospitalByname(String name);
 }
 

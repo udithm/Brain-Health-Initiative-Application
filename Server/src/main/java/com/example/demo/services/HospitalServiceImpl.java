@@ -39,6 +39,18 @@ public class HospitalServiceImpl implements HospitalService{
 	}
 	
 	@Override
+	public Hospital getHospitalByname(String name) {
+		Optional<Hospital> optional = hospitalRepository.findByName(name);
+		Hospital hospital = null;
+		if (optional.isPresent()) {
+			hospital = optional.get();
+		} else {
+			throw new RuntimeException(" Hospital not found for name :: " + name);
+		}
+		return hospital;
+	}
+	
+	@Override
 	public List<String> getallHospitalsByType(String type) {
 		List<Hospital> hosps = new ArrayList<Hospital>();
 		hospitalRepository.findByType(type).forEach(hosps::add);

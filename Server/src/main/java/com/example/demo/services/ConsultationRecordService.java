@@ -71,4 +71,13 @@ public class ConsultationRecordService {
 		}
 		return records;
 	}
+	
+	public List<ConsultationRecord> getAllConsultationRecordsByDoctorId(long Doctor_id) {
+		List<ConsultationRecord> records = new ArrayList<ConsultationRecord>();
+		consultationRecordRepository.findByDoctorId(Doctor_id).forEach(records::add);
+		for(ConsultationRecord e:records) {
+			System.out.println("get by doctor inside service" + e.toString());
+		}
+		return records;
+	}
 }
