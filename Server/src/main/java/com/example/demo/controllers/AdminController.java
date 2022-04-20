@@ -131,6 +131,8 @@ public class AdminController {
 				 doctorRequest.getHospitalName(),
 				 doctorRequest.getContactNumber());
 		
+		doctor.setHospital(hospitalService.getHospitalByname(doctorRequest.getHospitalName()));
+		
 		User user = new User(doctorRequest.getFname(),
 							 doctorRequest.getEmail(),
 							 encoder.encode(doctorRequest.getPassword()));
