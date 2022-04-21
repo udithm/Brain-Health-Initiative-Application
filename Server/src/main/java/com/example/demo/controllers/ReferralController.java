@@ -153,5 +153,14 @@ public class ReferralController {
 		
 		return objectNode;
 	}
+	@GetMapping("getHospitalsforReferral")
 	
+	public Map<String, List<String>> getAllHospitalsforReferral(){
+		List<Hospital> listHospitals = hospitalRepository.findAll();
+		Map<String, List<String>> hospmap = new HashMap<>();
+		for(Hospital h:listHospitals) {
+        	 hospmap.put(h.getType(), hospitalServiceimpl.getallHospitalsByType(h.getType())); 
+         }
+		return hospmap;
+}
 }
