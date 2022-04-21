@@ -3,39 +3,52 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
+import {useRef} from 'react';
+import { useReactToPrint } from "react-to-print";
+import { Button } from "@mui/material";
+
 const style = {
     position: "absolute",
-    top: "50%",
+    top: "70%",
     left: "50%",
-    transform: "translate(-50%, -50%)",
+    transform: "translate(-50%, -60%)",
     width: 800 ,
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
+    overflow:'scroll',
+    // scroll: "paper",
     p: 4
   };
 
 export const PrintView = ({dName,dRole,patient,consultation,shouldOpen, handleClose}) => {
     console.log("asdfhgasbjdf");
     console.log(shouldOpen)
-    
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+      content: () => componentRef.current,
+    });
+  
 
     return (
         <>
-        <Modal
+      <Modal
         open={shouldOpen.shouldOpen}
         onClose={shouldOpen.handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        // aria-labelledby="modal-modal-title"
+        // aria-describedby="modal-modal-description"
         >
         <Box sx={style}>
-            <div id="modal-modal-title">
+        <Button variant="outlined" onClick={handlePrint}>  Print </Button> 
+        <Button color="primary" variant="outlined" onClick={shouldOpen.handleClose}> Close </Button>
+        <div ref={componentRef} id ="toPriint" >
+            {/* <div id="modal-modal-title"> */}
                 <h1>Hospital name</h1>
                 <h2>Hospital adreess</h2>
                 <h3>Hospital Number</h3>
-            </div>
+            {/* </div> */}
             <hr />
-            <div id="modal-modal-title">
+            {/* <div> */}
                 <ul>
                     <h3>Doctor details </h3>
                     <li>  Name : <span> {dName}</span> </li>
@@ -68,10 +81,11 @@ export const PrintView = ({dName,dRole,patient,consultation,shouldOpen, handleCl
                     <li> Review SOS : <span> {consultation.reviewSos} </span> </li>
 
                 </ul>
-            </div>
+            {/* </div> */}
+        </div>
         </Box>
       </Modal>
-        </>
+      </>
     );
 
 };
