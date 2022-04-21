@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import ConsultationForm from "./ConsultationForm";
 import * as yup from "yup";
 import Questionnaire from "./Questionnaire";
+import PrintContainer from "../containers/PrintContainer";
 
 const tempDate = new Date();
 const currentDate = tempDate.toISOString().substring(0, 10);
@@ -153,10 +154,17 @@ const Consultation = (props) => {
   const viewPatient = () => {
     return history.push("/viewPatient/" + props.patient.id);
   };
-
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => {
+    console.log("!!!!!!!!!!!!!!!!!!");
+    setOpen(true);
+    }
   return (
     <>
       <NavBar></NavBar>
+      <Button variant="outlined" onClick={() => handleOpen()}>Print</Button>
+
       {questionnaireInUse ? (
         props.questionnaire && (
           <>
@@ -301,6 +309,7 @@ const Consultation = (props) => {
           </Grid>
         </Paper>
       )}
+    <PrintContainer shouldOpen={open} handleClose={handleClose} ></PrintContainer>
     </>
   );
 };

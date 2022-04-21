@@ -49,7 +49,7 @@ function App() {
         <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
         <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute>
         <ProtectedRoute path="/diseaseAnalytics" component={DiseaseAnalyticsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/print" component={PrintContainer}></ProtectedRoute>
+        {/* <ProtectedRoute path="/print" component={PrintContainer}></ProtectedRoute> */}
         <Redirect from="*" to="/dashboard"></Redirect>
       </Switch>
     </Router>
