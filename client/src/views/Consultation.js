@@ -163,6 +163,8 @@ const Consultation = (props) => {
   return (
     <>
       <NavBar></NavBar>
+      <Button variant="outlined" onClick={() => handleOpen()}>Print</Button>
+
       {questionnaireInUse ? (
         props.questionnaire && (
           <>
@@ -307,7 +309,6 @@ const Consultation = (props) => {
           </Grid>
         </Paper>
       )}
-      <Button onClick={() => handleOpen()}>Print</Button>
     <PrintContainer shouldOpen={open} handleClose={handleClose} ></PrintContainer>
     </>
   );
