@@ -78,6 +78,7 @@ const Consultation = (props) => {
   const [questionnaireNames, setQuestionnaireNames] = useState(["Common"]);
   const [diagnosis, setDiagnosis] = useState("");
   const [referTo, setReferTo] = useState("");
+  const [radioValue, setRadioValue] = useState("");
 
   useEffect(() => {
     setFormValues({
@@ -223,6 +224,7 @@ const Consultation = (props) => {
                       )
                     : console.log("empty");
                   console.log(currentQuestionnaireAnswers);
+                  if (name === "Epilepsy")
                   currentQuestionnaireAnswers["age"] = props.patient.age;
                   return (
                     <Questionnaire
@@ -267,6 +269,8 @@ const Consultation = (props) => {
             formValues={formValues}
             setFormValues={setFormValues}
             handleSubmit={handleSubmit}
+            radioValue={radioValue}
+            setRadioValue={setRadioValue}
             errors={errors}
             setErrors={setErrors}
             setQuestionnaireInUse={setQuestionnaireInUse}

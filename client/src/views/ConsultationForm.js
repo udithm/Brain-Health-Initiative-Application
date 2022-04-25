@@ -9,7 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import "react-phone-input-2/lib/style.css";
 
 const ConsultationForm = (props) => {
-  const [radioValue, setRadioValue] = useState("");
+  
 
   const handleButton = (e, index) => {
     const { name, value } = e.target;
@@ -48,7 +48,7 @@ const ConsultationForm = (props) => {
   };
   const handleRadioChange = (event) => {
     if(!props.view){console.log(event.target.value, event.target.value === "moveToIP");
-    setRadioValue(event.target.value);
+    props.setRadioValue(event.target.value);
     props.setFormValues({
       ...props.formValues,
       moveToIp: event.target.value === "moveToIP",
@@ -76,7 +76,7 @@ const ConsultationForm = (props) => {
   useEffect(() => {
     console.log(props.formValues.reviewSos, props.formValues);
     props.view
-      ? setRadioValue(
+      ? props.setRadioValue(
           props.formValues.reviewSos
             ? "reviewSOS"
             : props.formValues.moveToIp
@@ -465,7 +465,7 @@ const ConsultationForm = (props) => {
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
                   name="next-steps"
-                  value={radioValue}
+                  value={props.radioValue}
                   onChange={handleRadioChange}
                 >
                   <FormControlLabel
@@ -490,7 +490,7 @@ const ConsultationForm = (props) => {
                   />
                 </RadioGroup>
               </Grid>
-              {radioValue === "followUpDate" && (
+              {props.radioValue === "followUpDate" && (
                 <Grid item xs={12} sm={6} md={6} xl={4} direction="column">
                   <TextField
                     variant="outlined"
@@ -511,7 +511,7 @@ const ConsultationForm = (props) => {
                   />
                 </Grid>
               )}
-              {radioValue === "referral" && (
+              {props.radioValue === "referral" && (
                 <Grid item xs={12} sm={6} md={6} xl={4}>
                   <TextField
                     variant="outlined"
