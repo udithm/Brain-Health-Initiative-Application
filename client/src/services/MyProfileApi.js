@@ -13,7 +13,7 @@ import {
     loginSuccess
 } from "../actionCreators/AuthActions"
 import { alertError } from "../actionCreators/AlertActions";
-
+import { getAllHospitals } from "./CreateApi";
 
 export const myProfile = (uId, history) => {
     const id = uId;
@@ -22,14 +22,15 @@ export const myProfile = (uId, history) => {
         axios
             .post ("/myProfile", {id}) // /login/authentication part will be attached to base url
             .then ((res) => {
-                console.log("-------this is then------- ", res);
+                // console.log("-------this is then------- ", res);
 
                 if (!res.data) { throw new Error("Profile fetch unsucessful.");} // this is added so mock server can be used(jugad)
                 localStorage.setItem("userId", id);
-                console.log("-------this is then222------- ", res.data);
+                // console.log("-------this is then222------- ", res.data);
 
                 dispatch(myProfileSuccess(res.data));
-                console.log("-------this is then33333333333333------- ", res);
+                // console.log("-------this is then33333333333333------- ", res);
+                getAllHospitals();
 
                 if (history) {
                     history.push("/myProfile");
