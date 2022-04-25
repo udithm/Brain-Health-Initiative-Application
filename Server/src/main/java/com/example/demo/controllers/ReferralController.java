@@ -72,12 +72,14 @@ public class ReferralController {
 	DoctorServiceImpl doctorServiceimpl;
 	@Autowired
 	HospitalServiceImpl hospitalServiceimpl;
+	@Autowired
+	ConsultationRecordService consultationRecordService;
 
 	@GetMapping("/getallDoctors/{role}")
 	
-		public List<String> getAllDoctorsByType(@PathVariable(value = "role", required = true) String role) {
-			List<String> docs = doctorServiceimpl.getallDoctorsByRole(role);
-			return docs;
+	public List<String> getAllDoctorsByType(@PathVariable(value = "role", required = true) String role) {
+		List<String> docs = doctorServiceimpl.getallDoctorsByRole(role);
+		return docs;
 	}
 	
 	@GetMapping("/getallDoctors/{hospitalId}")
@@ -89,14 +91,21 @@ public class ReferralController {
 	
 	@GetMapping("/getDoctorsforReferral")
 	
-		public Map<String, List<String>> getAllDoctorsforReferral(){
-			List<Doctor> listDoctors = doctorRepository.findAll();
-			Map<String, List<String>> docmap = new HashMap<>();
-			for(Doctor d:listDoctors) {
-	        	 docmap.put(d.getRole(), doctorServiceimpl.getallDoctorsByRole(d.getRole())); 
-	         }
-			return docmap;
+	public Map<String, List<String>> getAllDoctorsforReferral(){
+		List<Doctor> listDoctors = doctorRepository.findAll();
+		Map<String, List<String>> docmap = new HashMap<>();
+		for(Doctor d:listDoctors) {
+        	 docmap.put(d.getRole(), doctorServiceimpl.getallDoctorsByRole(d.getRole())); 
+         }
+		return docmap;
 		
+	}
+	
+	@GetMapping("/getallPatients/{id}")
+	
+	public List<ConsultationRecord> getAllPatientsByDoctorId(@PathVariable(value = "id", required = true) Long id) {
+		List<ConsultationRecord> docs = consultationRecordService.getAllConsultationRecordsByDoctorId(id);
+		return docs;
 	}
 	
 	@GetMapping("/getHospitalsandDoctorsforReferral")
@@ -128,10 +137,30 @@ public class ReferralController {
 			}
 			
 		}
-		
+		return objectNode;
+	}
+	
+	@GetMapping("/getHospitalsByType")
+	public ObjectNode getHospitalsByType() {
+		List<Hospital> listHospitals = hospitalRepository.findAll();
+//		Map<Hospital, List<String>> hospmap = new HashMap<>();
+//		for(Hospital h:listHospitals) {
+//        	 hospmap.put(h, doctorServiceimpl.getallDoctorsByHospitalId(h.getId())); 
+//         }
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode objectNode = mapper.createObjectNode();
+		System.out.print(listHospitals);
 		
 		return objectNode;
+	}
+	@GetMapping("getHospitalsforReferral")
 	
+	public Map<String, List<String>> getAllHospitalsforReferral(){
+		List<Hospital> listHospitals = hospitalRepository.findAll();
+		Map<String, List<String>> hospmap = new HashMap<>();
+		for(Hospital h:listHospitals) {
+        	 hospmap.put(h.getType(), hospitalServiceimpl.getallHospitalsByType(h.getType())); 
+         }
+		return hospmap;
 }
-	
 }

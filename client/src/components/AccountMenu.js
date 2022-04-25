@@ -133,6 +133,21 @@ export default function AccountMenu() {
 
         <MenuItem>
         <IconButton
+            onClick= { () =>
+                {history.push("/print")}}
+            size="small"
+            sx={{ ml: 2 }}
+        >
+          <ListItemIcon>
+            <KeyIcon fontSize="small" />
+          </ListItemIcon> 
+         Print Info
+          </IconButton> 
+        </MenuItem>
+        <Divider />
+
+        <MenuItem>
+        <IconButton
             onClick= {() =>
                 {logout(uId)}}
             size="small"

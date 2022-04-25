@@ -13,4 +13,5 @@ import com.example.demo.models.Hospital;
 public interface HospitalRepository extends JpaRepository<Hospital, Long> {
 	Optional<Hospital> findById(Long id);
 	List<Hospital> findByType(String role);
+	Optional<Hospital> findByName(String name);
 }

@@ -69,8 +69,8 @@ const validationSchema = yup.object({
 export const LoginView = ({ login, err }) => {
   const formik = useFormik({
     initialValues: {
-      email: 'alvar@katherin.com',
-      password: 'alvar12345678',
+      email: '',
+      password: '',
       // email: "",
       // password: ""
     },

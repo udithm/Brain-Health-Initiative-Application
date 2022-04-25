@@ -131,6 +131,8 @@ public class AdminController {
 				 doctorRequest.getHospitalName(),
 				 doctorRequest.getContactNumber());
 		
+		doctor.setHospital(hospitalService.getHospitalByname(doctorRequest.getHospitalName()));
+		
 		User user = new User(doctorRequest.getFname(),
 							 doctorRequest.getEmail(),
 							 encoder.encode(doctorRequest.getPassword()));
@@ -139,19 +141,19 @@ public class AdminController {
 		//System.out.println(strRole);
 		Set<Role> roles = new HashSet<>();
 		
-		if(strRole.equals("Primary_Doctor")) {
+		if(strRole.equals("Primary Doctor")) {
 			System.out.println(strRole);
 			Role primaryRole = roleRepository.findByName(ERole.PRIMARY_DOCTOR)
 					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 			roles.add(primaryRole);
 		}
-		else if(strRole.equals("Secondary_Specalist")) {
+		else if(strRole.equals("Secondary Specalist")) {
 			System.out.println(strRole);
 			Role secondaryRole = roleRepository.findByName(ERole.SECONDARY_SPECIALIST)
 					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 			roles.add(secondaryRole);
 		}
-		else if(strRole.equals("Tertiary_Specalist")) {
+		else if(strRole.equals("Tertiary Specalist")) {
 			System.out.println(strRole);
 			Role tertiaryRole = roleRepository.findByName(ERole.TERTIARY_SPECIALIST)
 					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));

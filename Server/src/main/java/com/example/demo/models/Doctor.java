@@ -12,6 +12,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.repository.HospitalRepository;
+import com.example.demo.services.HospitalService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -44,9 +48,22 @@ public class Doctor {
 	@JsonIgnore
 	private Hospital hospital;
 	
+	public Hospital getHospital() {
+		return hospital;
+	}
+
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
+	}
+
 	public Doctor() {
 		super();
 	}
+	
+//	@Autowired
+//	HospitalRepository hospitalrepository;
+	@Autowired
+//	private HospitalService hospitalService;
 	
 	public Doctor(String fname, String lname, String email, String password, String role, String gender, String hospitalName, String contactNumber) {
 		super();
@@ -58,6 +75,8 @@ public class Doctor {
 		this.email = email;
 		this.hospitalName = hospitalName;
 		this.contactNumber = contactNumber;
+//		this.hospital = hospitalService.getHospitalByname(hospitalName);
+		
 	}
 	
 	public long getId() {
