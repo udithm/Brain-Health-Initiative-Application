@@ -22,7 +22,7 @@ import { addDoctor } from '../services/CreateApi';
 const rolesList = ["Primary Doctor", "Secondary Specalist",  "Tertiary Specalist"];
 const genderList = [  "Male","Female"];
 
-const hospitalList = [ "Hospital 1","Hospital 2","Hospital 3","Hospital 4","Hospital 5","Hospital 6","Hospital 7","Hospital 8"];
+const hospitalList = [ "kims","Hospital 2","Hospital 3","Hospital 4","Hospital 5","Hospital 6","Hospital 7","Hospital 8"];
 
 const validationSchema = yup.object({
     email: yup
