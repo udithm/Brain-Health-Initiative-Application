@@ -87,6 +87,13 @@ const Consultation = (props) => {
   }, [responseList]);
 
   useEffect(() => {
+    setFormValues({
+      ...formValues,
+      patient: props.patient,
+    });
+  }, [props.patient]);
+
+  useEffect(() => {
     console.log(props.values);
     props.view ? setFormValues(props.values) : setFormValues(formValues);
     props.view
@@ -216,6 +223,7 @@ const Consultation = (props) => {
                       )
                     : console.log("empty");
                   console.log(currentQuestionnaireAnswers);
+                  currentQuestionnaireAnswers["age"] = props.patient.age;
                   return (
                     <Questionnaire
                       name={name}
