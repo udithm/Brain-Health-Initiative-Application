@@ -83,8 +83,11 @@ const ConsultationForm = (props) => {
             ? "moveToIP"
             : ""
         )
-      : setRadioValue("");
-  }, [props.view]);
+      : console.log("");
+  }, [props.view, props.formValues.reviewSos, props.formValues.moveToIp]);
+
+  //  useEffect(() => {
+  //  }, [props.formValues.reviewSos, props.formValues.moveToIp]);
 
   return (
     <>
