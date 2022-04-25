@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import axios from "../common/config/AxiosConfig";
 
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
@@ -12,6 +13,8 @@ import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
 import { NavBar } from '../components/NavBar';
 import { addDoctor } from '../services/CreateApi';
+// import { getAllHospitals } from '../services/CreateApi';
+import { useEffect } from 'react';
 
 // const rolesList = [
 //     {label: "Primary Docotor", value: "Primary Docotor"},
@@ -19,10 +22,10 @@ import { addDoctor } from '../services/CreateApi';
 //     {label: "Tertiary Specalist", value: "Tertiary Specalist"}
 // ]
 
+
 const rolesList = ["Primary Doctor", "Secondary Specalist",  "Tertiary Specalist"];
 const genderList = [  "Male","Female"];
 
-const hospitalList = [ "Hospital 1","Hospital 2","Hospital 3","Hospital 4","Hospital 5","Hospital 6","Hospital 7","Hospital 8"];
 
 const validationSchema = yup.object({
     email: yup
@@ -49,15 +52,48 @@ const validationSchema = yup.object({
     const dispatch = useDispatch();
     const history = useHistory();
   
+    // const [hoslist, setHoslist] = useState([]);
+    // const getAllHospitals = () => {
+    
+    //         axios
+    //             .get("/getallHospitals")
+    //             .then ((res) => {
+    //                 console.log("adsfasdfasdf",res);
+    //                 const Hospi = res.data;
+    //                 setHoslist(Hospi);    
+    //             })
+    //             .catch((err) => {
+    //                 console.log("error fetching hospitals list");
+    //             })
+    // }
+    // useEffect(() => {
+    //     // const interval = setInterval(() => getAllHospitals(), 1000000);
+    //     return () => {
+    //       getAllHospitals();
+    //     };
+        
+    //   }, [hoslist]);
+    const getHospitalList = () => {
+        const hospitalData = JSON.parse(localStorage.getItem("hosList"))
+        console.log(hospitalData)
+        let hospitalList = [];
+        
+       // hospitalList = hospitalData.((stateInfo) => stateInfo.state === stateName)[0].districts;
+       
+        return hospitalList;
+    }
+
+
+
     const add = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber) => addDoctor(fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,history)(dispatch);
     
     const formik = useFormik({
       initialValues: {
-        fname: 'fghjkl',
-        lname: 'dfghjkl',
-        email: 'sdfghj@sdfghjk.com',
-        password: '1234567890',
-        confirmPassword: '1234567890',
+        fname: '',
+        lname: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
         role: '',
         gender: '',
         hospitalName: '',
@@ -71,7 +107,7 @@ const validationSchema = yup.object({
     });
     const [role, setRole] = useState(rolesList[0]);
     const [gender,setGender] = useState(genderList[0])
-    const [hospitalName,setHospitalName] = useState(hospitalList[0])
+    const [hospitalName,setHospitalName] = useState({})
     const paperStyle={padding :30,height:'90vh',width:610, margin:"50px auto"};
     const btnstyle={margin:'30px 0', align: 'center'};
     const textstyle={margin:'15px 0'};
@@ -205,7 +241,7 @@ const validationSchema = yup.object({
                             disablePortal
                             openOnFocus
                             id="hospitalName"
-                            options={hospitalList}
+                            options={getHospitalList()}
                             autoHighlight
                             onChange={changeHospitalName}
                             renderInput={(params) => <TextField {...params} required 
