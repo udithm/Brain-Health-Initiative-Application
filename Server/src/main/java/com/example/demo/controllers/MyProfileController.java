@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;import javax.validation.constraintvalidation.SupportedValidationTarget;
@@ -18,12 +20,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.models.Doctor;
+import com.example.demo.models.Hospital;
 import com.example.demo.models.User;
+import com.example.demo.repository.HospitalRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.request.MyProfileRequest;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.example.demo.services.DoctorServiceImpl;
+import com.example.demo.services.HospitalServiceImpl;
 //import com.example.demo.request.MyProfileRequest;
 import com.example.demo.services.UserDetailsImpl;
 //import com.example.demo.services.UserDetailsServiceImpl;
@@ -36,6 +44,12 @@ public class MyProfileController {
 	UserRepository userRepository;
 	@Autowired
 	RoleRepository roleRepository;
+	@Autowired
+	DoctorServiceImpl doctorServiceimpl;
+	@Autowired
+	HospitalServiceImpl hospitalServiceimpl;
+	@Autowired
+	HospitalRepository hospitalRepository;
 	
 	public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username)
@@ -51,17 +65,27 @@ public class MyProfileController {
 	
 	@PostMapping("/myProfile")
 	public ObjectNode viewprofile(@RequestBody MyProfileRequest profilerequest ) {
-		System.out.println("In My Profile");
+	   
+		List<Hospital> listHospitals = hospitalRepository.findAll();
+       Map<Long, String> hospmap = new HashMap<>();
+       for(Hospital h:listHospitals) {
+      	 hospmap.put(h.getId(), h.getName()); 
+       }
 		UserDetailsImpl user = loadUserById (profilerequest.getId());
+		Doctor doc = doctorServiceimpl.getDoctorById(user.getReferenceId());
+		Hospital hosp = doc.getHospital();
 		List<String> roles = user.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 		ObjectMapper mapper = new ObjectMapper();
+		JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
 		ObjectNode objectNode = mapper.createObjectNode();
 	    objectNode.put("userName", user.getUsername());
 	    objectNode.put("email", user.getEmail());
-//	    System.out.println(roles);
 	    objectNode.put("role", roles.get(0));
+	    objectNode.set("Hospital", hospnode);
+	    objectNode.set("List", mapper.convertValue(hospmap,JsonNode.class));
+	    
 	    return objectNode;
 	}
 }

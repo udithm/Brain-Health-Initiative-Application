@@ -112,7 +112,7 @@ public class AdminController {
 	public  Map<Long ,String> getallHospitals() {
         List<Hospital> listHospitals = hospitalRepository.findAll();
 //        model.addAttribute("listUsers", listUsers);
-         System.out.println(listHospitals);
+//         System.out.println(listHospitals);
          Map<Long, String> map = new HashMap<>();
          for(Hospital h:listHospitals) {
         	 map.put(h.getId(), h.getName()); 
@@ -132,10 +132,13 @@ public class AdminController {
 				 doctorRequest.getContactNumber());
 		
 		doctor.setHospital(hospitalService.getHospitalByname(doctorRequest.getHospitalName()));
+		doctorRepository.save(doctor);
+		
 		
 		User user = new User(doctorRequest.getFname(),
 							 doctorRequest.getEmail(),
-							 encoder.encode(doctorRequest.getPassword()));
+							 encoder.encode(doctorRequest.getPassword()),
+							 doctor.getId());
 		
 		String strRole = doctorRequest.getRole();
 		//System.out.println(strRole);
@@ -167,7 +170,6 @@ public class AdminController {
 		
 		user.setRoles(roles);
 		
-		doctorRepository.save(doctor);
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("Doctor registered successfully!"));
 	}
