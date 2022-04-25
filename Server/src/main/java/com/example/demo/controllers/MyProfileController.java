@@ -66,11 +66,6 @@ public class MyProfileController {
 	@PostMapping("/myProfile")
 	public ObjectNode viewprofile(@RequestBody MyProfileRequest profilerequest ) {
 	   
-		List<Hospital> listHospitals = hospitalRepository.findAll();
-       Map<Long, String> hospmap = new HashMap<>();
-       for(Hospital h:listHospitals) {
-      	 hospmap.put(h.getId(), h.getName()); 
-       }
 		UserDetailsImpl user = loadUserById (profilerequest.getId());
 		Doctor doc = doctorServiceimpl.getDoctorById(user.getReferenceId());
 		Hospital hosp = doc.getHospital();
@@ -84,7 +79,6 @@ public class MyProfileController {
 	    objectNode.put("email", user.getEmail());
 	    objectNode.put("role", roles.get(0));
 	    objectNode.set("Hospital", hospnode);
-	    objectNode.set("List", mapper.convertValue(hospmap,JsonNode.class));
 	    
 	    return objectNode;
 	}

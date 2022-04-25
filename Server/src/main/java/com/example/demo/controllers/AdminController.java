@@ -1,4 +1,5 @@
 package com.example.demo.controllers;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -107,17 +108,17 @@ public class AdminController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/getallHospitals")
 	
-	public  Map<Long ,String> getallHospitals() {
+	@GetMapping("/getAllHospitals")
+	
+	public  List<String> getAllHospitals() {
         List<Hospital> listHospitals = hospitalRepository.findAll();
-//        model.addAttribute("listUsers", listUsers);
-//         System.out.println(listHospitals);
-         Map<Long, String> map = new HashMap<>();
+        List<String> list = new ArrayList<String>();
          for(Hospital h:listHospitals) {
-        	 map.put(h.getId(), h.getName()); 
+        	  String str = h.getId() + ". " + h.getName() + ", " + h.getPincode();
+        	  list.add(str);
          }
-         return map;
+         return list;
 	}
 	
 	@PostMapping("/addDoctor")
