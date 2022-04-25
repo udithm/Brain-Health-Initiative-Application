@@ -11,6 +11,7 @@ import Questionnaire from "../views/Questionnaire";
 const ViewConsultationContainer = () => {
     const dispatch = useDispatch();
     const consultationState = useSelector(state => state.ConsultationReducer);
+    const patientState = useSelector((state) => state.PatientReducer);
     const setPatientByID = (id) => setPatientByAPI(id)(dispatch);
     const setConsultationByID = (id) => setConsultationByAPI(id)(dispatch);
     const [questionnaire,setQuestionnaire] = useState([])
@@ -19,12 +20,23 @@ const ViewConsultationContainer = () => {
       setPatientByID(pid);
       setConsultationByID(cid);
     },[pid,cid])
-    useEffect(()=>{
-      setQuestionnaire([...questionnaire, consultationState.consultation.responses[0].questionnaire])
-    },[])
-  return (
-    <Consultation view={true} values={consultationState.consultation} questionnaire={questionnaire} />
-  )
+    useEffect(() => {
+      consultationState.consultation.responses &&
+        setQuestionnaire([
+          ...questionnaire,
+          consultationState.consultation.responses[0].questionnaire,
+        ]);
+    }, [consultationState.consultation]);
+  return consultationState.consultation.responses ? (
+    <Consultation
+      view={true}
+      values={consultationState.consultation}
+      patient={patientState.patient}
+      questionnaire={questionnaire}
+    />
+  ) : (
+    <></>
+  );
 }
 
 export default ViewConsultationContainer

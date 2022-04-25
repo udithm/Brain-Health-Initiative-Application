@@ -78,6 +78,7 @@ const Consultation = (props) => {
   const [questionnaireNames, setQuestionnaireNames] = useState(["Common"]);
   const [diagnosis, setDiagnosis] = useState("");
   const [referTo, setReferTo] = useState("");
+  const [radioValue, setRadioValue] = useState("");
 
   useEffect(() => {
     setFormValues({
@@ -85,6 +86,13 @@ const Consultation = (props) => {
       responses: responseList,
     });
   }, [responseList]);
+
+  useEffect(() => {
+    setFormValues({
+      ...formValues,
+      patient: props.patient,
+    });
+  }, [props.patient]);
 
   useEffect(() => {
     console.log(props.values);
@@ -212,7 +220,8 @@ const Consultation = (props) => {
                   currentQuestionnaire.length !== 0
                     ? Object.entries(currentQuestionnaire[0].questions).map(
                         ([key, data]) =>
-                          (currentQuestionnaireAnswers[key] = "NA")
+                          (currentQuestionnaireAnswers[key] =
+                            data.question === "Age" ? props.patient.age : "NA")
                       )
                     : console.log("empty");
                   console.log(currentQuestionnaireAnswers);
@@ -259,6 +268,8 @@ const Consultation = (props) => {
             formValues={formValues}
             setFormValues={setFormValues}
             handleSubmit={handleSubmit}
+            radioValue={radioValue}
+            setRadioValue={setRadioValue}
             errors={errors}
             setErrors={setErrors}
             setQuestionnaireInUse={setQuestionnaireInUse}

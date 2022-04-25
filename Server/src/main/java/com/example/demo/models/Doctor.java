@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.repository.HospitalRepository;
 import com.example.demo.services.HospitalService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "doctor")
@@ -43,7 +44,8 @@ public class Doctor {
 	private String hospitalName;
 	@Column(length = 20)
 	private String contactNumber;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonManagedReference
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="hospitalId")
 	@JsonIgnore
 	private Hospital hospital;
