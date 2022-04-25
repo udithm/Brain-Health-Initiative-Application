@@ -220,12 +220,11 @@ const Consultation = (props) => {
                   currentQuestionnaire.length !== 0
                     ? Object.entries(currentQuestionnaire[0].questions).map(
                         ([key, data]) =>
-                          (currentQuestionnaireAnswers[key] = "NA")
+                          (currentQuestionnaireAnswers[key] =
+                            data.question === "Age" ? props.patient.age : "NA")
                       )
                     : console.log("empty");
                   console.log(currentQuestionnaireAnswers);
-                  if (name === "Epilepsy")
-                  currentQuestionnaireAnswers["age"] = props.patient.age;
                   return (
                     <Questionnaire
                       name={name}
