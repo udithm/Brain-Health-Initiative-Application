@@ -107,7 +107,7 @@ const Questionnaire = (props) => {
                     >
                       {Object.entries(props.currentQuestionnaire[0].questions).map(
                         ([key, data]) => {
-                          if (data.options.length === 0 && !props.view) {
+                          if (data.options.length === 0) {
                             return (
                               <>
                                 <Grid item xs={9} sm={9} md={9} xl={9}>
