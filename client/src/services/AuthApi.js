@@ -10,7 +10,7 @@ import {
 
 import { changePasswordFailure, changePasswordRequest, changePasswordSuccess } from "../actionCreators/ChangePasswordActions";
 import { alertError, alertSuccess } from "../actionCreators/AlertActions";
-
+import { getAllHospitals } from "./CreateApi";
 export const userLogin = (userName, password, history) => {
     //concept used below is call back. there we are sending a function as a parameter to parent function
     console.log("username:", userName);
@@ -29,6 +29,7 @@ export const userLogin = (userName, password, history) => {
                 // if (res.data.users[0].firstLogin)
                 //     history.push("/changePassword");
                 // else
+                getAllHospitals();
                 history.push(`/dashboard/`);//${res.data.users[0].userId} `); // discards existing route completly and adds the "/dashboard" after localhost:3000
             })
             .catch((err) => {
