@@ -21,6 +21,7 @@ public class ConsultationRecordService {
 	public ConsultationRecord addNewConsultation(ConsultationRecord consultationRecord) {
 		ConsultationRecord newConsultationRecord = new ConsultationRecord(
 				consultationRecord.getPatient(),
+				consultationRecord.getDoctor(),
 				consultationRecord.getConsultationDate(),
 				consultationRecord.getComplaint(),
 				consultationRecord.getExamination(),
@@ -68,6 +69,15 @@ public class ConsultationRecordService {
 		consultationRecordRepository.findByPatientId(patientId).forEach(records::add);
 		for(ConsultationRecord e:records) {
 			System.out.println("get by patient inside service" + e.toString());
+		}
+		return records;
+	}
+	
+	public List<ConsultationRecord> getHospitalConsultationRecordsByPatientId(long patientId,long hospitalId) {
+		List<ConsultationRecord> records = new ArrayList<ConsultationRecord>();
+		consultationRecordRepository.findByPatientIdAndDoctorHospitalId(patientId, hospitalId).forEach(records::add);
+		for(ConsultationRecord e:records) {
+			System.out.println("get by hospital : patient inside service" + e.toString());
 		}
 		return records;
 	}

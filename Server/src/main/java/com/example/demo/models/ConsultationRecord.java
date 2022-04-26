@@ -25,7 +25,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Table(name = "consultationRecords")
 public class ConsultationRecord {
 
-	public ConsultationRecord(PatientDemographics patient, @NotNull(groups = New.class) LocalDate consultationDate,
+	public ConsultationRecord(PatientDemographics patient,Doctor doctor, @NotNull(groups = New.class) LocalDate consultationDate,
 			@NotNull(groups = New.class) String complaint, @NotNull(groups = New.class) String examination,
 			@NotNull(groups = New.class) String illnessSummary, @NotNull(groups = New.class) String diagnosisType,
 			@NotNull(groups = New.class) String icdDescription, @NotNull(groups = New.class) String icd10Code,
@@ -34,6 +34,7 @@ public class ConsultationRecord {
 			boolean moveToIp, boolean reviewSos) {
 		super();
 		this.patient = patient;
+		this.doctor=doctor;
 		this.consultationDate = consultationDate;
 		this.complaint = complaint;
 		this.examination = examination;
@@ -62,8 +63,8 @@ public class ConsultationRecord {
 	@JoinColumn(name = "patientId")
 	private PatientDemographics patient;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="Doctor_id")
+	@ManyToOne
+	@JoinColumn(name="doctorId")
 	private Doctor doctor;
 
 	@Column(name = "consultationDate", nullable = false)
