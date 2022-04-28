@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;import javax.validation.constraintvalidation.SupportedValidationTarget;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.models.Doctor;
 import com.example.demo.models.Hospital;
 import com.example.demo.models.User;
+import com.example.demo.repository.HospitalRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.request.MyProfileRequest;
@@ -65,8 +68,8 @@ public class MyProfileController {
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 		ObjectMapper mapper = new ObjectMapper();
-		ObjectNode objectNode = mapper.createObjectNode();
 		JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
+		ObjectNode objectNode = mapper.createObjectNode();
 	    objectNode.put("userName", user.getUsername());
 	    objectNode.put("email", user.getEmail());
 	    objectNode.put("role", roles.get(0));

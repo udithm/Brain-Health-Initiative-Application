@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.repository.HospitalRepository;
 import com.example.demo.services.HospitalService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "doctor")

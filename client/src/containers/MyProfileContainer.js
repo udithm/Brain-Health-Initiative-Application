@@ -11,6 +11,7 @@ const MyProfileContainer = () => {
         orgName={authState.orgName}
         name={authState.name}
         role={authState.role}
+        Hospital = {authState.Hospital}
         />);
 }
 export default MyProfileContainer;

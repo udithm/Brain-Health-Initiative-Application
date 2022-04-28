@@ -3,6 +3,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 import {useRef} from 'react';
 import { useReactToPrint } from "react-to-print";
 import { Button } from "@mui/material";
@@ -21,34 +27,54 @@ const style = {
     p: 4
   };
 
-export const PrintView = ({dName,dRole,patient,consultation,shouldOpen, handleClose}) => {
+export const PrintView = ({dName,dRole,Hospital,patient,consultation,shouldOpen, handleClose}) => {
     console.log("asdfhgasbjdf");
     console.log(shouldOpen)
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
       content: () => componentRef.current,
     });
-  
+    // let rowArr = [];
+    // Object.keys(consultation.medicine).forEach(function(key) {
+    //    rowArr.push(consultation.medicine[key])
+    // })
+    // var temp = [consultation.medicine];
 
     return (
         <>
-      <Modal
+        <Dialog
         open={shouldOpen.shouldOpen}
         onClose={shouldOpen.handleClose}
-        // aria-labelledby="modal-modal-title"
-        // aria-describedby="modal-modal-description"
-        >
-        <Box sx={style}>
-        <Button variant="outlined" onClick={handlePrint}>  Print </Button> 
+        scroll="paper"
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description"
+        fullWidth
+        maxWidth="xl"
+      >
+        {/* <Box sx={style}> */}
+        <div style={{
+                display: "flex",
+                flexDirection: "row",
+                maxWidth: "400px",
+              }}>
+        <Button width= "20px"variant="outlined" onClick={handlePrint}>  Print </Button> 
         <Button color="primary" variant="outlined" onClick={shouldOpen.handleClose}> Close </Button>
+        </div>
         <div ref={componentRef} id ="toPriint" >
-            {/* <div id="modal-modal-title"> */}
-                <h1>Hospital name</h1>
-                <h2>Hospital adreess</h2>
-                <h3>Hospital Number</h3>
-            {/* </div> */}
+            <div align="center">
+            {/* <DialogTitle id="scroll-dialog-title">  */}
+                <h1>{Hospital.name}</h1>
+                <h2>{Hospital.city},{Hospital.district},{Hospital.state},{Hospital.pincode}</h2>
+                <h3>Phone number: {Hospital.contactNumber}</h3>
+            {/* </DialogTitle> */}
+            </div>
             <hr />
-            {/* <div> */}
+            <DialogContent dividers={false}>
+            <DialogContentText
+            id="scroll-dialog-description"
+            // ref={descriptionElementRef}
+            tabIndex={-1}
+          >
                 <ul>
                     <h3>Doctor details </h3>
                     <li>  Name : <span> {dName}</span> </li>
@@ -79,12 +105,37 @@ export const PrintView = ({dName,dRole,patient,consultation,shouldOpen, handleCl
                     <li> Referral : <span> {consultation.referral} </span> </li>
                     <li> Move To IP : <span> {consultation.moveToIP} </span> </li>
                     <li> Review SOS : <span> {consultation.reviewSos} </span> </li>
-
+                    {/* <ul>
+                            { 
+                                temp.map((items, i) => {      
+                                return <div>{ 
+                                    items.map((item, i) => {
+                                    return <li key={i}>{item.medicineName+",  "+ item.dosage+",  "+ item.dosingTime+",  "+ item.duration}</li>
+                                    })  }                               
+                                    </div>
+                                })
+                            }
+                        </ul> */}
+                        
+                        {/* <table>
+        {rowArr.map(row => (
+            <tr key={row}>
+                <td>{row.Task}</td>
+                <td>{row.Description}</td>
+                <td>{row.Assignee}</td>
+                <td>{row.Client}</td>
+                <td>{row.Contact}</td>
+            </tr>
+        ))}
+    </table>  */}
                 </ul>
             {/* </div> */}
+            </DialogContentText>
+        </DialogContent>
+
         </div>
-        </Box>
-      </Modal>
+        {/* </Box> */}
+        </Dialog>
       </>
     );
 

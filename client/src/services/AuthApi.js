@@ -7,6 +7,7 @@ import {
     logoutRequest,
     logoutSuccess
 } from "../actionCreators/AuthActions";
+import { getAllHospitals } from "./CreateApi";
 
 import { changePasswordFailure, changePasswordRequest, changePasswordSuccess } from "../actionCreators/ChangePasswordActions";
 import { alertError, alertSuccess } from "../actionCreators/AlertActions";
@@ -29,6 +30,7 @@ export const userLogin = (userName, password, history) => {
                 // if (res.data.users[0].firstLogin)
                 //     history.push("/changePassword");
                 // else
+                getAllHospitals();
                 history.push(`/dashboard/`);//${res.data.users[0].userId} `); // discards existing route completly and adds the "/dashboard" after localhost:3000
             })
             .catch((err) => {
