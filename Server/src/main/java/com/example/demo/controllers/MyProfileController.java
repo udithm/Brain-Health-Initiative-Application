@@ -31,7 +31,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.example.demo.services.DoctorServiceImpl;
-import com.example.demo.services.HospitalServiceImpl;
 //import com.example.demo.request.MyProfileRequest;
 import com.example.demo.services.UserDetailsImpl;
 //import com.example.demo.services.UserDetailsServiceImpl;
@@ -46,10 +45,6 @@ public class MyProfileController {
 	RoleRepository roleRepository;
 	@Autowired
 	DoctorServiceImpl doctorServiceimpl;
-	@Autowired
-	HospitalServiceImpl hospitalServiceimpl;
-	@Autowired
-	HospitalRepository hospitalRepository;
 	
 	public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username)
@@ -65,7 +60,7 @@ public class MyProfileController {
 	
 	@PostMapping("/myProfile")
 	public ObjectNode viewprofile(@RequestBody MyProfileRequest profilerequest ) {
-	   
+	
 		UserDetailsImpl user = loadUserById (profilerequest.getId());
 		Doctor doc = doctorServiceimpl.getDoctorById(user.getReferenceId());
 		Hospital hosp = doc.getHospital();
@@ -75,11 +70,11 @@ public class MyProfileController {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
 		ObjectNode objectNode = mapper.createObjectNode();
+		JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
 	    objectNode.put("userName", user.getUsername());
 	    objectNode.put("email", user.getEmail());
 	    objectNode.put("role", roles.get(0));
 	    objectNode.set("Hospital", hospnode);
-	    
 	    return objectNode;
 	}
 }

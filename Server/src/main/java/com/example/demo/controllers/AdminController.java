@@ -108,17 +108,16 @@ public class AdminController {
 		return "redirect:/";
 	}
 	
-	
 	@GetMapping("/getAllHospitals")
-	
+
 	public  List<String> getAllHospitals() {
-        List<Hospital> listHospitals = hospitalRepository.findAll();
-        List<String> list = new ArrayList<String>();
-         for(Hospital h:listHospitals) {
-        	  String str = h.getId() + ". " + h.getName() + ", " + h.getPincode();
-        	  list.add(str);
-         }
-         return list;
+	        List<Hospital> listHospitals = hospitalRepository.findAll();
+	        List<String> list = new ArrayList<String>();
+	         for(Hospital h:listHospitals) {
+	         String str = h.getId() + ". " + h.getName() + ", " + h.getCity() + "," + h.getPincode();
+	         list.add(str);
+	         }
+	         return list;
 	}
 	
 	@PostMapping("/addDoctor")
@@ -135,14 +134,12 @@ public class AdminController {
 		doctor.setHospital(hospitalService.getHospitalByname(doctorRequest.getHospitalName()));
 		doctorRepository.save(doctor);
 		
-		
 		User user = new User(doctorRequest.getFname(),
 							 doctorRequest.getEmail(),
 							 encoder.encode(doctorRequest.getPassword()),
 							 doctor.getId());
 		
 		String strRole = doctorRequest.getRole();
-		//System.out.println(strRole);
 		Set<Role> roles = new HashSet<>();
 		
 		if(strRole.equals("Primary Doctor")) {

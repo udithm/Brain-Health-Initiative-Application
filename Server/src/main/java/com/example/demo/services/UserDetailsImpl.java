@@ -16,9 +16,9 @@ public class UserDetailsImpl implements UserDetails {
 	private String username;
 	private String email;
 	@JsonIgnore
+	private Long referenceId;
 	private String password;
 	private Collection<? extends GrantedAuthority> authorities;
-	private Long referenceId;
 	public UserDetailsImpl(Long id, String username, String email, Long referenceId, String password,
 			Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
@@ -37,7 +37,7 @@ public class UserDetailsImpl implements UserDetails {
 				user.getUsername(), 
 				user.getEmail(),
 				user.getReferenceId(),
-				user.getPassword(), 
+				user.getPassword(),
 				authorities);
 	}
 	@Override
@@ -57,6 +57,12 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public String getUsername() {
 		return username;
+	}
+	public Long getReferenceId() {
+		return referenceId;
+	}
+	public void setReferenceId(Long referenceId) {
+		this.referenceId = referenceId;
 	}
 	@Override
 	public boolean isAccountNonExpired() {

@@ -56,7 +56,7 @@ public class QuestionnaireResponseService {
                 }
             }
             if (cnt >= 4) {
-                if (Integer.parseInt(answers.get("age")) < 10) {
+                if (Integer.parseInt(answers.get("Q10")) < 10) {
                     if (answers.get("Q9").equals(yes)) {
                         ret.put("nextQuestionnaire", "Apx4");
                     } else {
@@ -98,7 +98,7 @@ public class QuestionnaireResponseService {
             String yes = "Yes";
             if ((answers.get("Q1").equals(yes) || answers.get("Q2").equals(yes) || answers.get("Q3").equals(yes)
                     || answers.get("Q4").equals(yes) || answers.get("Q5").equals(yes) || answers.get("Q6").equals(yes))
-                    && Integer.parseInt(answers.get("age")) < 5) {
+                    && Integer.parseInt(answers.get("Q7")) < 5) {
                 ret.put("Diagnosis", "Typical febrile seizure");
             } else {
                 ret.put("Diagnosis", "Atypical febrile seizure");

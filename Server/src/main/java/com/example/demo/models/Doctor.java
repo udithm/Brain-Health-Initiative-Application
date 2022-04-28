@@ -44,8 +44,7 @@ public class Doctor {
 	private String hospitalName;
 	@Column(length = 20)
 	private String contactNumber;
-	@JsonManagedReference
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="hospitalId")
 	@JsonIgnore
 	private Hospital hospital;

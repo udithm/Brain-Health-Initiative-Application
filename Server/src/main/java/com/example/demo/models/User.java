@@ -42,6 +42,12 @@ public class User {
 		this.password = password;
 		this.referenceId = referenceId;
 	}
+	public Long getReferenceId() {
+		return referenceId;
+	}
+	public void setReferenceId(Long referenceId) {
+		this.referenceId = referenceId;
+	}
 	public Long getId() {
 		return id;
 	}

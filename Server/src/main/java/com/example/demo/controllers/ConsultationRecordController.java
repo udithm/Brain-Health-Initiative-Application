@@ -56,5 +56,12 @@ public class ConsultationRecordController {
 			List<ConsultationRecord> records = consultationRecordService.getAllConsultationRecordsByPatientId(patientId);
 			return records;
 		}
+		
+		//API to Get all Consultation records for a particular patient in the database
+				@GetMapping(path = "/patientAndHospital/{pid}/{hid}")
+				public List<ConsultationRecord> getHospitalConsultationRecordsByPatientId(@PathVariable(value = "pid", required = true) long patientId, @PathVariable(value = "hid", required = true) long hospitalId) {
+					List<ConsultationRecord> records = consultationRecordService.getHospitalConsultationRecordsByPatientId(patientId, hospitalId);
+					return records;
+				}
 
 }
