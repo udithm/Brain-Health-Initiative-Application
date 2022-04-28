@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "../common/config/AxiosConfig";
-
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@material-ui/core/TextField';
@@ -13,8 +12,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
 import { NavBar } from '../components/NavBar';
 import { addDoctor } from '../services/CreateApi';
-// import { getAllHospitals } from '../services/CreateApi';
-import { useEffect } from 'react';
 
 // const rolesList = [
 //     {label: "Primary Docotor", value: "Primary Docotor"},
@@ -22,10 +19,10 @@ import { useEffect } from 'react';
 //     {label: "Tertiary Specalist", value: "Tertiary Specalist"}
 // ]
 
-
 const rolesList = ["Primary Doctor", "Secondary Specalist",  "Tertiary Specalist"];
 const genderList = [  "Male","Female"];
 
+// const hospitalList = [ "Hospital 1","Hospital 2","Hospital 3","Hospital 4","Hospital 5","Hospital 6","Hospital 7","Hospital 8"];
 
 const validationSchema = yup.object({
     email: yup
@@ -51,10 +48,9 @@ const validationSchema = yup.object({
 
     const dispatch = useDispatch();
     const history = useHistory();
-  
-    // const [hoslist, setHoslist] = useState([]);
+      // const [hoslist, setHoslist] = useState([]);
     // const getAllHospitals = () => {
-    
+
     //         axios
     //             .get("/getallHospitals")
     //             .then ((res) => {
@@ -71,19 +67,17 @@ const validationSchema = yup.object({
     //     return () => {
     //       getAllHospitals();
     //     };
-        
+
     //   }, [hoslist]);
     const getHospitalList = () => {
         const hospitalData = JSON.parse(localStorage.getItem("hosList"))
         console.log(hospitalData)
         let hospitalList = [];
-        
+
        // hospitalList = hospitalData.((stateInfo) => stateInfo.state === stateName)[0].districts;
-       
+
         return hospitalList;
     }
-
-
 
     const add = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber) => addDoctor(fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,history)(dispatch);
     
@@ -270,6 +264,3 @@ const validationSchema = yup.object({
       </div>
     );
   };
-  
-  
-  

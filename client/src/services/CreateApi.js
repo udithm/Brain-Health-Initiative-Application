@@ -74,16 +74,16 @@ export const addHospital = (email,role,hospitalName,phoneNumber,stateName,distri
 }
 
 export const getAllHospitals = () => {
-        axios
-            .get("/getallHospitals")
-            .then ((res) => {
+    axios
+        .get("/getallHospitals")
+        .then ((res) => {
 
-                console.log("adsfasdfasdf",res);
-                localStorage.setItem("hosList",JSON.stringify(res.data));
+            console.log("adsfasdfasdf",res);
+            localStorage.setItem("hosList",JSON.stringify(res.data));
 
-            })
-            .catch((err) => {
-                // dispatch(alertError(err.message));
-                console.log("error fetching hospitals list");
-            })
+        })
+        .catch((err) => {
+            // dispatch(alertError(err.message));
+            console.log("error fetching hospitals list");
+        })
 }

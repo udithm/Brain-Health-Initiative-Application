@@ -23,6 +23,17 @@ const initialState = {
     changePasswordError: "",
     myProfileError: "",// login error
     myProfileLoading: true,
+    Hospital: {
+        id: "",
+        name: "",
+        city: "",
+        state: "",
+        district: "",
+        type: "",
+        email: "",
+        pincode: "",
+        contactNumber: ""
+    },
 }
 
 export const AuthReducer = (state = initialState, action) => {
@@ -35,7 +46,8 @@ export const AuthReducer = (state = initialState, action) => {
                 orgName: action.userDetails.orgName,
                 name: action.userDetails.username,
                 role: action.userDetails.roles[0],
-                userLoading: false
+                userLoading: false,
+                Hospital: action.userDetails.Hospital
             };
             // if the state values are coming from outside then we need to use action.userdetails.userid else if we are using the previous state value then we can use state.username
         case LOGIN_FAILURE:
@@ -105,6 +117,8 @@ export const AuthReducer = (state = initialState, action) => {
                 name: action.userDetails.userName,
                 role: action.userDetails.role,
                 myProfileLoading: false,
+                Hospital: action.userDetails.Hospital
+
             };
         default:
             return state;

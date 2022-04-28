@@ -7,10 +7,11 @@ import {
     logoutRequest,
     logoutSuccess
 } from "../actionCreators/AuthActions";
+import { getAllHospitals } from "./CreateApi";
 
 import { changePasswordFailure, changePasswordRequest, changePasswordSuccess } from "../actionCreators/ChangePasswordActions";
 import { alertError, alertSuccess } from "../actionCreators/AlertActions";
-import { getAllHospitals } from "./CreateApi";
+
 export const userLogin = (userName, password, history) => {
     //concept used below is call back. there we are sending a function as a parameter to parent function
     console.log("username:", userName);

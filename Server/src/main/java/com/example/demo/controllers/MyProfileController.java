@@ -70,7 +70,6 @@ public class MyProfileController {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
 		ObjectNode objectNode = mapper.createObjectNode();
-		JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
 	    objectNode.put("userName", user.getUsername());
 	    objectNode.put("email", user.getEmail());
 	    objectNode.put("role", roles.get(0));

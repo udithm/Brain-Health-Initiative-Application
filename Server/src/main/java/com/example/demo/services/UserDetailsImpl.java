@@ -89,10 +89,4 @@ public class UserDetailsImpl implements UserDetails {
 		UserDetailsImpl user = (UserDetailsImpl) o;
 		return Objects.equals(id, user.id);
 	}
-	public Long getReferenceId() {
-		return referenceId;
-	}
-	public void setReferenceId(Long referenceId) {
-		this.referenceId = referenceId;
-	}
 }

@@ -13,6 +13,7 @@ const PrintContainer = (shouldOpen,handleClose) => {
     <PrintView 
         dName={authState.userName}
         dRole={authState.role}
+        Hospital = {authState.Hospital}
         patient={paState.patient}
         consultation={consultState.consultation}
         handleClose= {handleClose}
