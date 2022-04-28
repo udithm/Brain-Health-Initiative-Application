@@ -18,12 +18,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.models.Doctor;
+import com.example.demo.models.Hospital;
 import com.example.demo.models.User;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.request.MyProfileRequest;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.example.demo.services.DoctorServiceImpl;
 //import com.example.demo.request.MyProfileRequest;
 import com.example.demo.services.UserDetailsImpl;
 //import com.example.demo.services.UserDetailsServiceImpl;
@@ -36,6 +40,8 @@ public class MyProfileController {
 	UserRepository userRepository;
 	@Autowired
 	RoleRepository roleRepository;
+	@Autowired
+	DoctorServiceImpl doctorServiceimpl;
 	
 	public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username)
@@ -51,17 +57,20 @@ public class MyProfileController {
 	
 	@PostMapping("/myProfile")
 	public ObjectNode viewprofile(@RequestBody MyProfileRequest profilerequest ) {
-		System.out.println("In My Profile");
+	
 		UserDetailsImpl user = loadUserById (profilerequest.getId());
+		Doctor doc = doctorServiceimpl.getDoctorById(user.getReferenceId());
+		Hospital hosp = doc.getHospital();
 		List<String> roles = user.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode objectNode = mapper.createObjectNode();
+		JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
 	    objectNode.put("userName", user.getUsername());
 	    objectNode.put("email", user.getEmail());
-//	    System.out.println(roles);
 	    objectNode.put("role", roles.get(0));
+	    objectNode.set("Hospital", hospnode);
 	    return objectNode;
 	}
 }

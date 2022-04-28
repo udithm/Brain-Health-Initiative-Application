@@ -1,4 +1,5 @@
 package com.example.demo.controllers;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -107,17 +108,16 @@ public class AdminController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/getallHospitals")
-	
-	public  Map<Long ,String> getallHospitals() {
-        List<Hospital> listHospitals = hospitalRepository.findAll();
-//        model.addAttribute("listUsers", listUsers);
-         System.out.println(listHospitals);
-         Map<Long, String> map = new HashMap<>();
-         for(Hospital h:listHospitals) {
-        	 map.put(h.getId(), h.getName()); 
-         }
-         return map;
+	@GetMapping("/getAllHospitals")
+
+	public  List<String> getAllHospitals() {
+	        List<Hospital> listHospitals = hospitalRepository.findAll();
+	        List<String> list = new ArrayList<String>();
+	         for(Hospital h:listHospitals) {
+	         String str = h.getId() + ". " + h.getName() + ", " + h.getCity() + "," + h.getPincode();
+	         list.add(str);
+	         }
+	         return list;
 	}
 	
 	@PostMapping("/addDoctor")
@@ -132,13 +132,14 @@ public class AdminController {
 				 doctorRequest.getContactNumber());
 		
 		doctor.setHospital(hospitalService.getHospitalByname(doctorRequest.getHospitalName()));
+		doctorRepository.save(doctor);
 		
 		User user = new User(doctorRequest.getFname(),
 							 doctorRequest.getEmail(),
-							 encoder.encode(doctorRequest.getPassword()));
+							 encoder.encode(doctorRequest.getPassword()),
+							 doctor.getId());
 		
 		String strRole = doctorRequest.getRole();
-		//System.out.println(strRole);
 		Set<Role> roles = new HashSet<>();
 		
 		if(strRole.equals("Primary Doctor")) {
@@ -167,7 +168,6 @@ public class AdminController {
 		
 		user.setRoles(roles);
 		
-		doctorRepository.save(doctor);
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("Doctor registered successfully!"));
 	}

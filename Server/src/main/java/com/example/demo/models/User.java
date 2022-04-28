@@ -28,6 +28,7 @@ public class User {
 	@NotBlank
 	@Size(max = 120)
 	private String password;
+	private Long referenceId;
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "user_roles", 
 				joinColumns = @JoinColumn(name = "user_id"), 
@@ -35,10 +36,17 @@ public class User {
 	private Set<Role> roles = new HashSet<>();
 	public User() {
 	}
-	public User(String username, String email, String password) {
+	public User(String username, String email, String password, Long referenceId) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.referenceId = referenceId;
+	}
+	public Long getReferenceId() {
+		return referenceId;
+	}
+	public void setReferenceId(Long referenceId) {
+		this.referenceId = referenceId;
 	}
 	public Long getId() {
 		return id;
