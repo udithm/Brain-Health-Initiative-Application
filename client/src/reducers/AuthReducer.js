@@ -13,6 +13,7 @@ import { LOGIN_FAILURE,
 
 const initialState = {
     userId: "",
+    doctorId: "",
     userName: "", // login username
     orgName:"",  // organisation name (hostpital name)
     name: "", // actual name
@@ -110,15 +111,15 @@ export const AuthReducer = (state = initialState, action) => {
             const uId = localStorage.getItem("userId");
 
             return {
-                ...state,
-                userId: uId,
-                userName: action.userDetails.email,
-                orgName: action.userDetails.orgName,
-                name: action.userDetails.userName,
-                role: action.userDetails.role,
-                myProfileLoading: false,
-                Hospital: action.userDetails.Hospital
-
+              ...state,
+              userId: uId,
+              doctorId: action.userDetails.doctorId,
+              userName: action.userDetails.email,
+              orgName: action.userDetails.orgName,
+              name: action.userDetails.userName,
+              role: action.userDetails.role,
+              myProfileLoading: false,
+              Hospital: action.userDetails.Hospital,
             };
         default:
             return state;

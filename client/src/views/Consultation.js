@@ -125,7 +125,7 @@ const Consultation = (props) => {
       if (isFormValid) {
         console.log("in");
         console.log(formValues);
-        console.log(props.doctor)
+        console.log(diagnosis)
         props.add({
           ...formValues,
           responses: responseList,
@@ -136,7 +136,7 @@ const Consultation = (props) => {
             fname: "string",
             gender: "string",
             hospitalName: "string",
-            id: props.doctor.userId,
+            id: props.doctor.doctorId,
             lname: "string",
             password: "string",
             role: "string",
@@ -225,6 +225,15 @@ const Consultation = (props) => {
               style={{ margin: "20px 5%" }}
               className="page-content"
             >
+              {props.view ? (
+                <>
+                  <h2 style={{ textAlign: "center" }}>
+                    Suggested Diagnosis: {props.values.suggestedDiagnosis}
+                  </h2>
+                </>
+              ) : (
+                <></>
+              )}
               {questionnaireNames &&
                 questionnaireNames.map((name, id) => {
                   console.log(id, name, questionnaireNames);
@@ -294,6 +303,7 @@ const Consultation = (props) => {
             setErrors={setErrors}
             setQuestionnaireInUse={setQuestionnaireInUse}
           />
+
           <Grid
             container
             spacing={3}
