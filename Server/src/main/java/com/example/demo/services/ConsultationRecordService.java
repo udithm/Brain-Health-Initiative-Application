@@ -34,7 +34,8 @@ public class ConsultationRecordService {
 				consultationRecord.getRemarks(),
 				consultationRecord.getFollowUpDate(),
 				consultationRecord.isMoveToIp(),
-				consultationRecord.isReviewSos());
+				consultationRecord.isReviewSos(),
+				consultationRecord.getSuggestedDiagnosis());
 		ArrayList < Medicine > medicineList = new ArrayList<>();
 		for (Medicine m : consultationRecord.getMedicines()) {
 		     medicineList.add(new Medicine(m.getMedicineName(),m.getDosage(),m.getDosingTime(),m.getDuration()));

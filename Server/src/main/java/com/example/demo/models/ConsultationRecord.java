@@ -31,7 +31,7 @@ public class ConsultationRecord {
 			@NotNull(groups = New.class) String icdDescription, @NotNull(groups = New.class) String icd10Code,
 			@NotNull(groups = New.class) String improvementStatus,
 			@NotNull(groups = New.class) String treatmentInstructions, String remarks, LocalDate followUpDate,
-			boolean moveToIp, boolean reviewSos) {
+			boolean moveToIp, boolean reviewSos,String suggestedDiagnosis) {
 		super();
 		this.patient = patient;
 		this.doctor=doctor;
@@ -48,6 +48,7 @@ public class ConsultationRecord {
 		this.followUpDate = followUpDate;
 		this.moveToIp = moveToIp;
 		this.reviewSos = reviewSos;
+		this.suggestedDiagnosis=suggestedDiagnosis;
 	}
 
 	public ConsultationRecord() {
@@ -146,6 +147,17 @@ public class ConsultationRecord {
 	private boolean reviewSos;
 
 	// Referral needs to be added
+	
+	@Column(name = "suggestedDiagnosis")
+	private String suggestedDiagnosis;
+
+	public String getSuggestedDiagnosis() {
+		return suggestedDiagnosis;
+	}
+
+	public void setSuggestedDiagnosis(String suggestedDiagnosis) {
+		this.suggestedDiagnosis = suggestedDiagnosis;
+	}
 
 	public long getId() {
 		return id;
