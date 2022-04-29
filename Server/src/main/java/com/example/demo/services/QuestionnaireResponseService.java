@@ -27,9 +27,12 @@ public class QuestionnaireResponseService {
                     || answers.get("Q7").equals(yes) || answers.get("Q8").equals(yes)) {
                 ret.put("nextQuestionnaire", "Stroke1");
             } else if (answers.get("Q11").equals(yes) || answers.get("Q12").equals(yes)) {
-                ret.put("nextQuestionnaire", "Headache");
+                ret.put("Diagnosis", "Headache");
             } else if (answers.get("Q9").equals(yes) || answers.get("Q13").equals(yes)) {
-                ret.put("nextQuestionnaire", "Dementia");
+                ret.put("Diagnosis", "Dementia");  
+            }
+            else {
+            	ret.put("Diagnosis", "No Diagnosis");
             }
         } else if (questionnaireResponse.getQuestionnaire().getName().equals("Stroke1")) {
             Map<String, String> answers = questionnaireResponse.getAnswers();
@@ -39,6 +42,9 @@ public class QuestionnaireResponseService {
                     || answers.get("Q7").equals(yes) || answers.get("Q8").equals(yes)) {
                 ret.put("Diagnosis", "Stroke");
                 ret.put("Referral", "Secondary");
+            }
+            else {
+            	ret.put("Diagnosis", "No Diagnosis");
             }
         } else if (questionnaireResponse.getQuestionnaire().getName().equals("Epilepsy1")) {
             Map<String, String> answers = questionnaireResponse.getAnswers();
@@ -93,6 +99,7 @@ public class QuestionnaireResponseService {
                     ret.put("Diagnosis", "Generalized seizure");
                 }
             }
+            
         } else if (questionnaireResponse.getQuestionnaire().getName().equals("Apx5")) {
             Map<String, String> answers = questionnaireResponse.getAnswers();
             String yes = "Yes";

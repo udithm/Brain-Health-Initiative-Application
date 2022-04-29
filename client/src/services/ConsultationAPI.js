@@ -14,14 +14,14 @@ import axios from "../common/config/AxiosConfig";
 export const addConsultation = (consultation) => {
     return (dispatch) => {
         console.log(consultation)
-        dispatch(addConsultationRequest()); 
+        dispatch(addConsultationRequest());
         axios
-            .post ("http://localhost:8080/api/v1/consultationrecords", consultation ) 
-            .then ((res) => {
+            .post("http://localhost:8080/api/v1/consultationrecords", consultation)
+            .then((res) => {
                 dispatch(alertSuccess("Consultation Added Successfully!"));
                 dispatch(addConsultationSuccess());
             })
-            .catch((err)=>{
+            .catch((err) => {
                 dispatch(alertError(err.response.data.message));
                 dispatch(addConsultationFailure());
             })
@@ -30,13 +30,30 @@ export const addConsultation = (consultation) => {
 
 export const getConsultations = (id) => {
     return (dispatch) => {
-        dispatch(getConsultationRequest()); 
+        console.log("f1");
+        dispatch(getConsultationRequest());
         axios
-            .get ("http://localhost:8080/api/v1/consultationrecords/patientId/"+id) 
-            .then ((res) => {
+            .get("http://localhost:8080/api/v1/consultationrecords/patientId/" + id)
+            .then((res) => {
                 dispatch(getConsultationSuccess(res.data));
             })
-            .catch((err)=>{
+            .catch((err) => {
+                dispatch(getConsultationFailure(err.message));
+                console.log("-----this is catch------", err);
+            })
+    }
+}
+
+export const getPatientConsultationsInHospital = (pid, hid) => {
+    return (dispatch) => {
+        console.log("f2");
+        dispatch(getConsultationRequest());
+        axios
+            .get("http://localhost:8080/api/v1/consultationrecords/patientAndHospital/" + pid + "/" + hid)
+            .then((res) => {
+                dispatch(getConsultationSuccess(res.data));
+            })
+            .catch((err) => {
                 dispatch(getConsultationFailure(err.message));
                 console.log("-----this is catch------", err);
             })
@@ -46,21 +63,21 @@ export const getConsultations = (id) => {
 export const setConsultationByAPI = (id) => {
     return (dispatch) => {
         axios
-        .get ("http://localhost:8080/api/v1/consultationrecords/id/"+id) 
-        .then ((res) => {
-            dispatch(setConsultation(res.data));
-        })
-        .catch((err)=>{
-            dispatch(getConsultationFailure(err.message));
-            console.log("-----this is catch------", err);
-        })
+            .get("http://localhost:8080/api/v1/consultationrecords/id/" + id)
+            .then((res) => {
+                dispatch(setConsultation(res.data));
+            })
+            .catch((err) => {
+                dispatch(getConsultationFailure(err.message));
+                console.log("-----this is catch------", err);
+            })
     }
 }
 
 export const setConsultationSelected = (consultation) => {
     console.log(consultation)
     return (dispatch) => {
-        dispatch(setConsultation(consultation)); 
+        dispatch(setConsultation(consultation));
     }
 }
 
