@@ -19,6 +19,7 @@ const AddConsultationContainer = () => {
     setConsultationSelected(consultation)(dispatch);
 
   const patientState = useSelector((state) => state.PatientReducer);
+  const doctorState = useSelector((state) => state.AuthReducer);
   let { id } = useParams();
   const [questionnaire, setQuestionnaire] = useState([]);
   useEffect(() => {
@@ -44,6 +45,7 @@ const AddConsultationContainer = () => {
       add={addConsultationDetails}
       set={setConsultationCurrent}
       patient={patientState.patient}
+      doctor={doctorState}
       questionnaire={questionnaire}
     />
   );

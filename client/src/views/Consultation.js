@@ -125,13 +125,27 @@ const Consultation = (props) => {
       if (isFormValid) {
         console.log("in");
         console.log(formValues);
+        console.log(props.doctor)
         props.add({
           ...formValues,
           responses: responseList,
+          suggestedDiagnosis: diagnosis,
+          doctor: {
+            contactNumber: "string",
+            email: "string",
+            fname: "string",
+            gender: "string",
+            hospitalName: "string",
+            id: props.doctor.userId,
+            lname: "string",
+            password: "string",
+            role: "string",
+          },
         });
         props.set({
           ...formValues,
           responses: responseList,
+          suggestedDiagnosis: diagnosis,
         });
       } else {
         formSchema.validate(formValues, { abortEarly: false }).catch((err) => {
