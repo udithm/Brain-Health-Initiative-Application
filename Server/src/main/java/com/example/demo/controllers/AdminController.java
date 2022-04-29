@@ -182,9 +182,22 @@ public class AdminController {
 				adminRequest.getGender(),
 				adminRequest.getOrgName(),
 				adminRequest.getContactNumber());
-		
 		adminRepository.save(admin);
-		return ResponseEntity.ok(new MessageResponse("Doctor registered successfully!"));
+		User user = new User(admin.getFname(),
+				 admin.getEmail(),
+				 encoder.encode(admin.getPassword()),
+				 admin.getId());
+		String strRole = admin.getRole();
+		Set<Role> roles = new HashSet<>();
+		if(strRole.equals("Admin"))
+		{
+			Role adminRole = roleRepository.findByName(ERole.ADMIN)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(adminRole);
+		}
+		user.setRoles(roles);
+		userRepository.save(user);
+		return ResponseEntity.ok(new MessageResponse("Admin registered successfully!"));
 	}
 
 }

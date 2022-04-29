@@ -1,4 +1,4 @@
-import { 
+import {
     ADD_CONSULTATION_REQUEST,
     ADD_CONSULTATION_SUCCESS,
     ADD_CONSULTATION_FAILURE,
@@ -6,7 +6,7 @@ import {
     GET_CONSULTATION_SUCCESS,
     GET_CONSULTATION_FAILURE,
     SET_CURRENT_CONSULTATION
- } from "../common/constants/ActionConstants";  
+} from "../common/constants/ActionConstants";
 
 const consultationState = {
     consultation: {
@@ -24,17 +24,18 @@ const consultationState = {
         referral: "",
         moveToIP: "",
         reviewSos: "",
-        medicines: []
+        medicines: [],
+        responses: []
     },
     errMessage: "",
-    consultationLoading: false, 
+    consultationLoading: false,
     consultationAdding: false,
     consultations: []
 }
 
 export const ConsultationReducer = (state = consultationState, action) => {
     switch (action.type) {
-        case GET_CONSULTATION_SUCCESS : 
+        case GET_CONSULTATION_SUCCESS:
             return {
                 ...state,
                 consultations: action.consultations,
@@ -42,11 +43,11 @@ export const ConsultationReducer = (state = consultationState, action) => {
             };
         case GET_CONSULTATION_FAILURE:
             return {
-                ...state, 
+                ...state,
                 consultationLoading: false,
-                errMessage: action.err 
+                errMessage: action.err
             }
-        
+
         case GET_CONSULTATION_REQUEST:
             return {
                 ...state,
@@ -57,8 +58,8 @@ export const ConsultationReducer = (state = consultationState, action) => {
                 ...state,
                 consultationAdding: true
             }
-        
-        case ADD_CONSULTATION_SUCCESS: 
+
+        case ADD_CONSULTATION_SUCCESS:
             return {
                 ...state,
                 consultationAdding: false,
@@ -74,7 +75,7 @@ export const ConsultationReducer = (state = consultationState, action) => {
                 consultation: action.consultation
             }
         default:
-            return {...state};
-          
+            return { ...state };
+
     }
 }

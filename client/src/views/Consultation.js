@@ -55,6 +55,7 @@ const Consultation = (props) => {
         duration: "",
       },
     ],
+    responses: []
     // Consultation_List (List of Prior Consultation Ids)
   };
   const [errors, setErrors] = useState({
@@ -99,16 +100,16 @@ const Consultation = (props) => {
     props.view ? setFormValues(props.values) : setFormValues(formValues);
     props.view
       ? props.values.responses.map((r, i) => {
-          // console.log(r.questionnaire.name,i)
-          if (!questionnaireNames.includes(r.questionnaire.name)) {
-            console.log(r.questionnaire.name, i);
+        // console.log(r.questionnaire.name,i)
+        if (!questionnaireNames.includes(r.questionnaire.name)) {
+          console.log(r.questionnaire.name, i);
 
-            setQuestionnaireNames([
-              ...questionnaireNames,
-              r.questionnaire.name,
-            ]);
-          }
-        })
+          setQuestionnaireNames([
+            ...questionnaireNames,
+            r.questionnaire.name,
+          ]);
+        }
+      })
       : setQuestionnaireNames(questionnaireNames);
   }, [props.view, props.values]);
 
@@ -167,7 +168,7 @@ const Consultation = (props) => {
   const handleOpen = () => {
     console.log("!!!!!!!!!!!!!!!!!!");
     setOpen(true);
-    }
+  }
   return (
     <>
       <NavBar></NavBar>
@@ -212,17 +213,17 @@ const Consultation = (props) => {
                   console.log(id, name, questionnaireNames);
                   let currentQuestionnaire = props.questionnaire
                     ? props.questionnaire.filter((element) => {
-                        return element.name === name;
-                      })
+                      return element.name === name;
+                    })
                     : [];
                   console.log(currentQuestionnaire);
                   let currentQuestionnaireAnswers = {};
                   currentQuestionnaire.length !== 0
                     ? Object.entries(currentQuestionnaire[0].questions).map(
-                        ([key, data]) =>
-                          (currentQuestionnaireAnswers[key] =
-                            data.question === "Age" ? props.patient.age : "NA")
-                      )
+                      ([key, data]) =>
+                      (currentQuestionnaireAnswers[key] =
+                        data.question === "Age" ? props.patient.age : "NA")
+                    )
                     : console.log("empty");
                   console.log(currentQuestionnaireAnswers);
                   return (
@@ -240,8 +241,8 @@ const Consultation = (props) => {
                         props.view
                           ? props.values.responses[id].answers
                           : responseList[id]
-                          ? responseList[id].answers
-                          : currentQuestionnaireAnswers
+                            ? responseList[id].answers
+                            : currentQuestionnaireAnswers
                       }
                       questionnaireNames={questionnaireNames}
                       patient={props.patient}
@@ -320,7 +321,7 @@ const Consultation = (props) => {
           </Grid>
         </Paper>
       )}
-    <PrintContainer shouldOpen={open} handleClose={handleClose} ></PrintContainer>
+      <PrintContainer shouldOpen={open} handleClose={handleClose} ></PrintContainer>
     </>
   );
 };

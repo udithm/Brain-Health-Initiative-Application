@@ -9,7 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import "react-phone-input-2/lib/style.css";
 
 const ConsultationForm = (props) => {
-  
+
 
   const handleButton = (e, index) => {
     const { name, value } = e.target;
@@ -47,19 +47,21 @@ const ConsultationForm = (props) => {
     });
   };
   const handleRadioChange = (event) => {
-    if(!props.view){console.log(event.target.value, event.target.value === "moveToIP");
-    props.setRadioValue(event.target.value);
-    props.setFormValues({
-      ...props.formValues,
-      moveToIp: event.target.value === "moveToIP",
-      reviewSos: event.target.value === "reviewSOS",
-      followUpDate:
-        event.target.value !== "followUpDate"
-          ? ""
-          : props.formValues.followUpDate,
-      referral:
-        event.target.value !== "referral" ? "" : props.formValues.referral,
-    });}
+    if (!props.view) {
+      console.log(event.target.value, event.target.value === "moveToIP");
+      props.setRadioValue(event.target.value);
+      props.setFormValues({
+        ...props.formValues,
+        moveToIp: event.target.value === "moveToIP",
+        reviewSos: event.target.value === "reviewSOS",
+        followUpDate:
+          event.target.value !== "followUpDate"
+            ? ""
+            : props.formValues.followUpDate,
+        referral:
+          event.target.value !== "referral" ? "" : props.formValues.referral,
+      });
+    }
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -77,12 +79,12 @@ const ConsultationForm = (props) => {
     console.log(props.formValues.reviewSos, props.formValues);
     props.view
       ? props.setRadioValue(
-          props.formValues.reviewSos
-            ? "reviewSOS"
-            : props.formValues.moveToIp
+        props.formValues.reviewSos
+          ? "reviewSOS"
+          : props.formValues.moveToIp
             ? "moveToIP"
             : ""
-        )
+      )
       : console.log("");
   }, [props.view, props.formValues.reviewSos, props.formValues.moveToIp]);
 
@@ -103,18 +105,20 @@ const ConsultationForm = (props) => {
           paddingRight: "20px",
         }}
       >
-        <Grid item xs={12} sm={12} md={12} xl={12} direction="column">
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={() => {
-              props.setQuestionnaireInUse(true);
-              // setResponseList(questions);
-            }}
-          >
-            Questionnaire
-          </Button>
-        </Grid>
+        {console.log(props.formValues)}
+        {props.formValues.responses.length !== 0 ?
+          <Grid item xs={12} sm={12} md={12} xl={12} direction="column">
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={() => {
+                props.setQuestionnaireInUse(true);
+                // setResponseList(questions);
+              }}
+            >
+              Questionnaire
+            </Button>
+          </Grid> : <></>}
       </Grid>
       <fieldset style={{ border: "none" }} disabled={props.view}>
         <h2
@@ -320,7 +324,7 @@ const ConsultationForm = (props) => {
                       style={{ width: "30px" }}
                       variant="contained"
                       color="primary"
-                      // type="submit"x
+                    // type="submit"x
                     >
                       Add
                     </Button>
@@ -413,10 +417,10 @@ const ConsultationForm = (props) => {
                           ) : (
                             <Button
                               onClick={() => handleRemoveClick(i)}
-                              style={props.view ? {display: "none"}:{ width: "100px" }}
+                              style={props.view ? { display: "none" } : { width: "100px" }}
                               variant="contained"
                               color="primary"
-                              // type="submit"
+                            // type="submit"
                             >
                               Remove
                             </Button>
