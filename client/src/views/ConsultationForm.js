@@ -9,8 +9,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import "react-phone-input-2/lib/style.css";
 
 const ConsultationForm = (props) => {
-
-
   const handleButton = (e, index) => {
     const { name, value } = e.target;
     const list = [...props.formValues.medicines];
@@ -79,12 +77,12 @@ const ConsultationForm = (props) => {
     console.log(props.formValues.reviewSos, props.formValues);
     props.view
       ? props.setRadioValue(
-        props.formValues.reviewSos
-          ? "reviewSOS"
-          : props.formValues.moveToIp
+          props.formValues.reviewSos
+            ? "reviewSOS"
+            : props.formValues.moveToIp
             ? "moveToIP"
             : ""
-      )
+        )
       : console.log("");
   }, [props.view, props.formValues.reviewSos, props.formValues.moveToIp]);
 
@@ -106,7 +104,9 @@ const ConsultationForm = (props) => {
         }}
       >
         {console.log(props.formValues)}
-        {props.formValues.responses.length !== 0 ?
+        {props.formValues.responses.length === 0 && props.view ? (
+          <></>
+        ) : (
           <Grid item xs={12} sm={12} md={12} xl={12} direction="column">
             <Button
               variant="outlined"
@@ -118,7 +118,8 @@ const ConsultationForm = (props) => {
             >
               Questionnaire
             </Button>
-          </Grid> : <></>}
+          </Grid>
+        )}
       </Grid>
       <fieldset style={{ border: "none" }} disabled={props.view}>
         <h2
@@ -324,7 +325,7 @@ const ConsultationForm = (props) => {
                       style={{ width: "30px" }}
                       variant="contained"
                       color="primary"
-                    // type="submit"x
+                      // type="submit"x
                     >
                       Add
                     </Button>
@@ -417,10 +418,14 @@ const ConsultationForm = (props) => {
                           ) : (
                             <Button
                               onClick={() => handleRemoveClick(i)}
-                              style={props.view ? { display: "none" } : { width: "100px" }}
+                              style={
+                                props.view
+                                  ? { display: "none" }
+                                  : { width: "100px" }
+                              }
                               variant="contained"
                               color="primary"
-                            // type="submit"
+                              // type="submit"
                             >
                               Remove
                             </Button>
