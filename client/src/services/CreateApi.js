@@ -74,6 +74,7 @@ export const addHospital = (email,role,hospitalName,phoneNumber,stateName,distri
 }
 
 export const getAllHospitals = () => {
+    console.log("asyidugfgiuasdf");
     axios
         .get("/getallHospitals")
         .then ((res) => {
