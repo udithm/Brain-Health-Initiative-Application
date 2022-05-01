@@ -38,8 +38,8 @@ export const PrintView = ({dName,dRole,Hospital,patient,consultation,shouldOpen,
     // Object.keys(consultation.medicine).forEach(function(key) {
     //    rowArr.push(consultation.medicine[key])
     // })
-    // var temp = [consultation.medicine];
-
+    // var temp = consultation.medicine;
+    console.log("ad234321sfasdf",consultation.medicines);
     return (
         <>
         <Dialog
@@ -105,17 +105,18 @@ export const PrintView = ({dName,dRole,Hospital,patient,consultation,shouldOpen,
                     <li> Referral : <span> {consultation.referral} </span> </li>
                     <li> Move To IP : <span> {consultation.moveToIP} </span> </li>
                     <li> Review SOS : <span> {consultation.reviewSos} </span> </li>
-                    {/* <ul>
+                    <li>Medicines</li>
+                    <ul>
                             { 
-                                temp.map((items, i) => {      
-                                return <div>{ 
-                                    items.map((item, i) => {
-                                    return <li key={i}>{item.medicineName+",  "+ item.dosage+",  "+ item.dosingTime+",  "+ item.duration}</li>
-                                    })  }                               
+                                consultation.medicines.map((item, i) => {      
+                                return <div>
+                                    {/* // item.map((item, i) => { */}
+                                    <li key={i}>{ "Name: "+item.medicineName+", Dosage: "+ item.dosage+", Dosage time: "+ item.dosingTime+", Duration: "+ item.duration}</li>
+                                    {/* // })  }                            */}
                                     </div>
                                 })
                             }
-                        </ul> */}
+                        </ul>
                         
                         {/* <table>
         {rowArr.map(row => (
