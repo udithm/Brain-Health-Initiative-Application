@@ -47,3 +47,5 @@ export const GET_CONSULTATION_SUCCESS = "getConsultationSuccess";
 export const GET_CONSULTATION_FAILURE = "getConsultationFailure";
 
 export const SET_CURRENT_CONSULTATION = "setConsultation";
+
+export const GET_HOSPITALS_FOR_REFERAL_SUCCESS = "getHospitalsforReferral";
