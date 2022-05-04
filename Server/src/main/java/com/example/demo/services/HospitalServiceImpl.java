@@ -66,4 +66,17 @@ public class HospitalServiceImpl implements HospitalService{
 	public void deleteHospitalById(long id) {
 		this.hospitalRepository.deleteById(id);
 	}
+
+	@Override
+	public List<String> getallIdHospitalsByType(String type) {
+		List<Hospital> hosps = new ArrayList<Hospital>();
+		hospitalRepository.findByType(type).forEach(hosps::add);
+		
+		List<String> listHospitals = new ArrayList<String>();
+        for(Hospital h:hosps) {
+        String str = h.getId() + ". " + h.getName() + ", " + h.getCity() + ", " + h.getPincode();
+        listHospitals.add(str);
+        }
+		return listHospitals;
+	}
 }

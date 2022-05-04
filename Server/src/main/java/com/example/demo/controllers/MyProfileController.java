@@ -15,11 +15,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.models.ConsultationRecord;
 import com.example.demo.models.Doctor;
 import com.example.demo.models.Hospital;
 import com.example.demo.models.User;
@@ -30,6 +32,7 @@ import com.example.demo.request.MyProfileRequest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.example.demo.services.ConsultationRecordService;
 import com.example.demo.services.DoctorServiceImpl;
 //import com.example.demo.request.MyProfileRequest;
 import com.example.demo.services.UserDetailsImpl;
@@ -45,6 +48,8 @@ public class MyProfileController {
 	RoleRepository roleRepository;
 	@Autowired
 	DoctorServiceImpl doctorServiceimpl;
+	@Autowired
+	ConsultationRecordService consultationRecordService;
 	
 	public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username)
@@ -77,4 +82,10 @@ public class MyProfileController {
 	    objectNode.set("Hospital", hospnode);
 	    return objectNode;
 	}
+	
+	@GetMapping(path = "/myConsultations/{Did}")
+    public  List<ConsultationRecord> getAllConsultations(@PathVariable(value="Did", required = true) long doctorId) {
+    List<ConsultationRecord> listConsultations = consultationRecordService.getAllConsultationRecordsByDoctorId(doctorId);
+     return listConsultations;
+    } 
 }

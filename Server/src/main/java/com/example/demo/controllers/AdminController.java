@@ -132,6 +132,7 @@ public class AdminController {
 				 doctorRequest.getContactNumber());
 		
 		doctor.setHospital(hospitalService.getHospitalByname(doctorRequest.getHospitalName()));
+
 		doctorRepository.save(doctor);
 		
 		User user = new User(doctorRequest.getFname(),

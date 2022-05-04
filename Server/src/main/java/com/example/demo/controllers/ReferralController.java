@@ -159,7 +159,7 @@ public class ReferralController {
 		List<Hospital> listHospitals = hospitalRepository.findAll();
 		Map<String, List<String>> hospmap = new HashMap<>();
 		for(Hospital h:listHospitals) {
-        	 hospmap.put(h.getType(), hospitalServiceimpl.getallHospitalsByType(h.getType())); 
+        	 hospmap.put(h.getType(), hospitalServiceimpl.getallIdHospitalsByType(h.getType())); 
          }
 		return hospmap;
 }
