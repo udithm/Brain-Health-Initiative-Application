@@ -22,7 +22,7 @@ public class Hospital {
 	private String city;
 	@Column(length = 25)
 	private String state;
-	@Column(length = 25)
+	@Column(length = 50)
 	private String district;
 	@Column(length = 50)
 	private String type;
