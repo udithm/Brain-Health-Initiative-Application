@@ -71,15 +71,18 @@ const validationSchema = yup.object({
     //   }, [hoslist]);
     const getHospitalList = () => {
         const hospitalData = JSON.parse(localStorage.getItem("hosList"))
+
         console.log(hospitalData)
-        let hospitalList = [];
+    //     const hospitalList = localStorage.getItem("hosList");
 
-       // hospitalList = hospitalData.((stateInfo) => stateInfo.state === stateName)[0].districts;
+    //    // hospitalList = hospitalData.((stateInfo) => stateInfo.state === stateName)[0].districts;
+    //    console.log(hospitalList);
+    //    console.log(rolesList);
 
-        return hospitalList;
+        return hospitalData;
     }
 
-    const add = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber) => addDoctor(fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,history)(dispatch);
+    const add = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,hospitalId) => addDoctor(fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,hospitalId,history)(dispatch);
     
     const formik = useFormik({
       initialValues: {
@@ -92,11 +95,21 @@ const validationSchema = yup.object({
         gender: '',
         hospitalName: '',
         phoneNumber: '',
+        hospitalId: '',
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-          console.log("^^^^^^^^^^^^^^^^^ add doctor submit = ", values)
-        add(values.fname,values.lname,values.email,values.confirmPassword,values.role,values.gender,values.hospitalName,values.phoneNumber);
+        console.log("^^^^^^^^^^^^^^^^^ add doctor submit = ", values)
+        var w = values.hospitalName;
+        var nameArr = w.split(',');
+        console.log(nameArr);
+        var i = nameArr[0];
+        var idArr = i.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
+        idArr[0]=idArr[0].slice(0, -1);
+        console.log(idArr);
+        console.log(parseInt(idArr[0]));
+        console.log(idArr[1]);
+        add(values.fname,values.lname,values.email,values.confirmPassword,values.role,values.gender,idArr[1],values.phoneNumber,parseInt(idArr[0]));
       },
     });
     const [role, setRole] = useState(rolesList[0]);
