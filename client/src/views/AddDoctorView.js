@@ -72,7 +72,7 @@ const validationSchema = yup.object({
     const getHospitalList = () => {
         const hospitalData = JSON.parse(localStorage.getItem("hosList"))
 
-        console.log(hospitalData)
+        // console.log(hospitalData)
     //     const hospitalList = localStorage.getItem("hosList");
 
     //    // hospitalList = hospitalData.((stateInfo) => stateInfo.state === stateName)[0].districts;
@@ -102,13 +102,13 @@ const validationSchema = yup.object({
         console.log("^^^^^^^^^^^^^^^^^ add doctor submit = ", values)
         var w = values.hospitalName;
         var nameArr = w.split(',');
-        console.log(nameArr);
+        // console.log(nameArr);
         var i = nameArr[0];
         var idArr = i.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
         idArr[0]=idArr[0].slice(0, -1);
-        console.log(idArr);
-        console.log(parseInt(idArr[0]));
-        console.log(idArr[1]);
+        // console.log(idArr);
+        // console.log(parseInt(idArr[0]));
+        // console.log(idArr[1]);
         add(values.fname,values.lname,values.email,values.confirmPassword,values.role,values.gender,idArr[1],values.phoneNumber,parseInt(idArr[0]));
       },
     });

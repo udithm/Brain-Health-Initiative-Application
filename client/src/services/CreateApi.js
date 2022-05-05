@@ -80,7 +80,7 @@ export const getAllHospitals = () => {
         .get("/getAllHospitals")
         .then ((res) => {
 
-            console.log("adsfasdfasdf",res);
+            // console.log("adsfasdfasdf",res);
             localStorage.setItem("hosList",JSON.stringify(res.data));
 
         })

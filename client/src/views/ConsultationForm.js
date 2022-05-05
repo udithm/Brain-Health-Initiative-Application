@@ -140,7 +140,7 @@ const ConsultationForm = (props) => {
        return hos;
     }
 
-    console.log(gethospitalsList());
+    // console.log(gethospitalsList());
     const changeReferedHospital = (event,value) => {
         props.formValues.referedHospital = value;
         setReferedHospital(value);
@@ -582,7 +582,7 @@ const ConsultationForm = (props) => {
               )}
               {props.radioValue === "referral" && (
                 <>
-                <Grid item xs={0} sm={6} md={6} xl={4}>
+                <Grid item xs={12} sm={6} md={6} xl={4}>
                     <Autocomplete
                         disablePortal
                         id="hospitalType"
@@ -604,7 +604,7 @@ const ConsultationForm = (props) => {
                         autoHighlight
                         onChange={changeReferedHospital}
                         renderInput={(params) => <TextField {...params} required value={props.formValues.referedHospital}
-                        label="Hospital Type" variant="outlined"/>}
+                        label="Refered Hospita lName" variant="outlined"/>}
                     />
                 </Grid>
 

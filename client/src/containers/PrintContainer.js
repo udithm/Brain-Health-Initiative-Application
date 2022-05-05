@@ -7,7 +7,7 @@ const PrintContainer = (shouldOpen, handleClose) => {
     const authState = useSelector(state => state.AuthReducer);
     const consultState = useSelector(state => state.ConsultationReducer);
     const paState = useSelector(state => state.PatientReducer);
-    console.log(authState.name);
+    // console.log(authState.name);
     // console.log(shouldOpen,handleClose)
     return (
         <PrintView
