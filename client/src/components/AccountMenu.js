@@ -107,7 +107,7 @@ export default function AccountMenu() {
         <IconButton
             onClick= {() =>
                 {mypro(uId);
-                console.log("gasfyu");
+                // console.log("gasfyu");
                 }}
             size="small"
             sx={{ ml: 2 }}

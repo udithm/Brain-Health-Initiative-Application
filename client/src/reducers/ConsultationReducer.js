@@ -25,7 +25,9 @@ const consultationState = {
         moveToIP: "",
         reviewSos: "",
         medicines: [],
-        responses: []
+        responses: [],
+        referedHospitalType: "",
+        referedHospital: ""
     },
     errMessage: "",
     consultationLoading: false,
