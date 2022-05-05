@@ -130,6 +130,7 @@ const Consultation = (props) => {
         props.add({
           ...formValues,
           responses: responseList,
+          referedHospitalId: parseInt(formValues.referedHospital.split('.')[0]),
           suggestedDiagnosis: diagnosis,
           doctor: {
             contactNumber: "string",

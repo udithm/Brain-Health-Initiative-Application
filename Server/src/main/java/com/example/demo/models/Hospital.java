@@ -9,6 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "hospital")
 public class Hospital {
@@ -22,7 +24,8 @@ public class Hospital {
 	private String city;
 	@Column(length = 25)
 	private String state;
-	@Column(length = 50)
+	@Column(columnDefinition="TEXT")
+//	@Type(type="text")
 	private String district;
 	@Column(length = 50)
 	private String type;
