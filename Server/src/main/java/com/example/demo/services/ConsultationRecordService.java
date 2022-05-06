@@ -94,4 +94,14 @@ public class ConsultationRecordService {
 		}
 		return records;
 	}
+	
+	public List<ConsultationRecord> getAllConsultationRecordsByReferedHospitalId(long Hospital_id) {
+		List<ConsultationRecord> records = new ArrayList<ConsultationRecord>();
+		consultationRecordRepository.findByReferedHospitalId(Hospital_id).forEach(records::add);
+		for(ConsultationRecord e:records) {
+			System.out.println("get by referred hospital" + e.toString());
+		}
+		return records;
+	}
+	
 }
