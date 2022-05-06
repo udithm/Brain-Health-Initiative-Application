@@ -159,8 +159,17 @@ public class ReferralController {
 		List<Hospital> listHospitals = hospitalRepository.findAll();
 		Map<String, List<String>> hospmap = new HashMap<>();
 		for(Hospital h:listHospitals) {
-        	 hospmap.put(h.getType(), hospitalServiceimpl.getallHospitalsByType(h.getType())); 
+        	 hospmap.put(h.getType(), hospitalServiceimpl.getallIdHospitalsByType(h.getType())); 
          }
 		return hospmap;
-}
+	}
+	
+	@GetMapping("getMyHospitalReferrals/{hid}")
+	
+	public List<ConsultationRecord> getHospitalReferrals(@PathVariable(value = "hid", required = true) long referedhospitalId){
+		List<ConsultationRecord> listConsultations = consultationRecordService.getAllConsultationRecordsByReferedHospitalId(referedhospitalId);
+		
+		return listConsultations;
+		
+	}
 }

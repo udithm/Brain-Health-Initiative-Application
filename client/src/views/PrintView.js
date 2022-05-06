@@ -28,18 +28,27 @@ const style = {
   };
 
 export const PrintView = ({dName,dRole,Hospital,patient,consultation,shouldOpen, handleClose}) => {
-    console.log("asdfhgasbjdf");
-    console.log(shouldOpen)
+    // console.log("asdfhgasbjdf");
+    // console.log(shouldOpen)
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
       content: () => componentRef.current,
     });
+    console.log("This is print view@@@@@" , consultation);
+    var w = consultation.referedHospital;
+    var nameArr = w.split('.');
+    // console.log(nameArr);
+    var i = nameArr[1];
+    console.log("referereerere",i);
+    // var idArr = i.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
+    // idArr[0]=idArr[0].slice(0, -1);
+
     // let rowArr = [];
     // Object.keys(consultation.medicine).forEach(function(key) {
     //    rowArr.push(consultation.medicine[key])
     // })
-    // var temp = [consultation.medicine];
-
+    // var temp = consultation.medicine;
+    // console.log("ad234321sfasdf",consultation.medicines);
     return (
         <>
         <Dialog
@@ -99,24 +108,28 @@ export const PrintView = ({dName,dRole,Hospital,patient,consultation,shouldOpen,
                     <li> ICD Description : <span> {consultation.icdDescription} </span> </li>
                     <li> ICD10 Code : <span> {consultation.icd10Code} </span> </li>
                     <li> Improvement Status : <span> {consultation.improvementStatus} </span> </li>
+                    <li>Medicines</li>
+                    <ul>
+                        { 
+                            consultation.medicines.map((item, i) => {      
+                            return <div>
+                                {/* // item.map((item, i) => { */}
+                                <li key={i}>{ "Name: "+item.medicineName+", Dosage: "+ item.dosage+", Dosage time: "+ item.dosingTime+", Duration: "+ item.duration}</li>
+                                {/* // })  }                            */}
+                                </div>
+                            })
+                        }
+                    </ul>
                     <li> Treatment Instructions : <span> {consultation.treatmentInstructions} </span> </li>
                     <li> Remarks : <span> {consultation.remarks} </span> </li>
-                    <li> Follow Up : <span> {consultation.followUp} </span> </li>
-                    <li> Referral : <span> {consultation.referral} </span> </li>
-                    <li> Move To IP : <span> {consultation.moveToIP} </span> </li>
-                    <li> Review SOS : <span> {consultation.reviewSos} </span> </li>
-                    {/* <ul>
-                            { 
-                                temp.map((items, i) => {      
-                                return <div>{ 
-                                    items.map((item, i) => {
-                                    return <li key={i}>{item.medicineName+",  "+ item.dosage+",  "+ item.dosingTime+",  "+ item.duration}</li>
-                                    })  }                               
-                                    </div>
-                                })
-                            }
-                        </ul> */}
-                        
+                    {/* {consultation.followUp.length >0 ? (<></>) : (<li> Follow Up : <span> {consultation.followUp} </span> </li>)} */}
+                    {consultation.followUpDate ? (<li> Follow Up Date: <span> {consultation.followUpDate} </span> </li>):(<></>)}
+                    {consultation.moveToIp ?( <li> Move To IP : <span> yes</span> </li>): (<></>) }
+                    {consultation.reviewSos? (<li> Review SOS : <span> yes </span> </li> ): (<></>)}
+                    {consultation.referedHospitalType? (<li> Refered Hospital Type : <span> {consultation.referedHospitalType} </span> </li>): (<></>)}
+                    {i? (<li> Refered Hospital Name and address : <span> {i} </span> </li>): (<></>)}
+
+                    
                         {/* <table>
         {rowArr.map(row => (
             <tr key={row}>

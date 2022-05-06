@@ -13,7 +13,9 @@ public class DoctorRequest {
 				@JsonProperty("role") @NotBlank String role,
 				@JsonProperty("gender") @NotBlank String gender,
 				@JsonProperty("hospitalName") @NotBlank String hospitalName,
-				@JsonProperty("phoneNumber") @NotBlank String contactNumber) {
+				@JsonProperty("phoneNumber") @NotBlank String contactNumber,
+				@JsonProperty("hospitalId") @NotBlank Long hospitalId
+				) {
 			super();
 			this.fname = fname;
 			this.lname = lname;
@@ -23,6 +25,7 @@ public class DoctorRequest {
 			this.gender = gender;
 			this.hospitalName = hospitalName;
 			this.contactNumber = contactNumber;
+			this.hospitalId = hospitalId;
 		}
 
 	  @NotBlank
@@ -52,6 +55,17 @@ public class DoctorRequest {
 
 	  @NotBlank
 	  private String contactNumber;
+	  
+	  @NotBlank
+	  private Long hospitalId;
+
+	public Long getHospitalId() {
+		return hospitalId;
+	}
+
+	public void setHospitalId(Long hospitalId) {
+		this.hospitalId = hospitalId;
+	}
 
 	public String getFname() {
 		return fname;

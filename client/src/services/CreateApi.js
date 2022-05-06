@@ -19,10 +19,11 @@ export const addAdmin = (fname, lname, email, hashedPassword, role, gender,orgNa
     }
 }
 
-export const addDoctor = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,history) => {
+export const addDoctor = (fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,hospitalId,history) => {
+    console.log(fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,hospitalId);
     return(dispatch) => {
         axios
-            .post("/addDoctor",{fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber})
+            .post("/addDoctor",{fname, lname, email, hashedPassword, role, gender,hospitalName,phoneNumber,hospitalId})
             .then ( (res) => {
                 console.log("-------this is then------- ", res);
                 dispatch(alertSuccess("Doctor add sucessful"));
@@ -74,11 +75,12 @@ export const addHospital = (email,role,hospitalName,phoneNumber,stateName,distri
 }
 
 export const getAllHospitals = () => {
+    // console.log("asyidugfgiuasdf");
     axios
-        .get("/getallHospitals")
+        .get("/getAllHospitals")
         .then ((res) => {
 
-            console.log("adsfasdfasdf",res);
+            // console.log("adsfasdfasdf",res);
             localStorage.setItem("hosList",JSON.stringify(res.data));
 
         })

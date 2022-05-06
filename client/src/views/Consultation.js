@@ -43,7 +43,8 @@ const Consultation = (props) => {
     treatmentInstructions: "",
     remarks: "",
     followUpDate: "",
-    referral: "",
+    referedHospitalType: "",
+    referedHospital: "",
     patient: props.patient,
     moveToIP: false,
     reviewSos: false,
@@ -129,6 +130,7 @@ const Consultation = (props) => {
         props.add({
           ...formValues,
           responses: responseList,
+          referedHospitalId: parseInt(formValues.referedHospital.split('.')[0]),
           suggestedDiagnosis: diagnosis,
           doctor: {
             contactNumber: "string",

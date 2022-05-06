@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {userLogout} from "../services/AuthApi";
 import { myProfile } from '../services/MyProfileApi';
-
+import { getHospitalsforReferral } from '../services/patientAPI';
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,6 +35,8 @@ export default function AccountMenu() {
       if (jwt && uId && !authState.name) {
           myProfile(uId)(dispatch);
       }
+      getHospitalsforReferral();
+
   }
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -105,7 +107,7 @@ export default function AccountMenu() {
         <IconButton
             onClick= {() =>
                 {mypro(uId);
-                console.log("gasfyu");
+                // console.log("gasfyu");
                 }}
             size="small"
             sx={{ ml: 2 }}

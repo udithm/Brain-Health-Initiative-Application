@@ -29,7 +29,7 @@ public class ConsultationRecord {
 			@NotNull(groups = New.class) String complaint, @NotNull(groups = New.class) String examination,
 			@NotNull(groups = New.class) String illnessSummary, @NotNull(groups = New.class) String diagnosisType,
 			@NotNull(groups = New.class) String icdDescription, @NotNull(groups = New.class) String icd10Code,
-			@NotNull(groups = New.class) String improvementStatus,
+			@NotNull(groups = New.class) String improvementStatus, String referedHospitalType, String referedHospital, long referedHospitalId,
 			@NotNull(groups = New.class) String treatmentInstructions, String remarks, LocalDate followUpDate,
 			boolean moveToIp, boolean reviewSos,String suggestedDiagnosis) {
 		super();
@@ -47,8 +47,27 @@ public class ConsultationRecord {
 		this.remarks = remarks;
 		this.followUpDate = followUpDate;
 		this.moveToIp = moveToIp;
+		this.referedHospitalType= referedHospitalType;
+		this.referedHospital = referedHospital;
+		this.referedHospitalId = referedHospitalId;
 		this.reviewSos = reviewSos;
 		this.suggestedDiagnosis=suggestedDiagnosis;
+	}
+
+	public String getReferedHospitalType() {
+		return referedHospitalType;
+	}
+
+	public void setReferedHospitalType(String referedHospitalType) {
+		this.referedHospitalType = referedHospitalType;
+	}
+
+	public long getReferedHospitalId() {
+		return referedHospitalId;
+	}
+
+	public void setReferedHospitalId(long referedHospitalId) {
+		this.referedHospitalId = referedHospitalId;
 	}
 
 	public ConsultationRecord() {
@@ -132,9 +151,27 @@ public class ConsultationRecord {
 	@NotNull(groups = New.class)
 	private String treatmentInstructions;
 
+	
 	@Column(name = "remarks")
 	private String remarks;
 
+	@Column(name = "referedHospitalType")
+	private String referedHospitalType;
+	
+	public String getReferedHospital() {
+		return referedHospital;
+	}
+
+	public void setReferedHospital(String referedHospital) {
+		this.referedHospital = referedHospital;
+	}
+
+	@Column(name = "referedHospitalId")
+	private long referedHospitalId;
+	
+	@Column(name = "referedHospital")
+	private String referedHospital;
+	
 	@Column(name = "followUpDate")
 	private LocalDate followUpDate;
 
