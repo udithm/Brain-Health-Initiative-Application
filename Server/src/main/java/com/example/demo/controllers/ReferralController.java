@@ -162,5 +162,14 @@ public class ReferralController {
         	 hospmap.put(h.getType(), hospitalServiceimpl.getallIdHospitalsByType(h.getType())); 
          }
 		return hospmap;
-}
+	}
+	
+	@GetMapping("getMyHospitalReferrals/{hid}")
+	
+	public List<ConsultationRecord> getHospitalReferrals(@PathVariable(value = "hid", required = true) long referedhospitalId){
+		List<ConsultationRecord> listConsultations = consultationRecordService.getAllConsultationRecordsByReferedHospitalId(referedhospitalId);
+		
+		return listConsultations;
+		
+	}
 }
