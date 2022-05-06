@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { MenuItem } from "@mui/material";
@@ -102,73 +102,76 @@ const ConsultationForm = (props) => {
     console.log(props.formValues.reviewSos, props.formValues);
     props.view
       ? props.setRadioValue(
-          props.formValues.reviewSos
-            ? "reviewSOS"
-            : props.formValues.moveToIp
+        props.formValues.reviewSos
+          ? "reviewSOS"
+          : props.formValues.moveToIp
             ? "moveToIP"
-            : ""
-        )
+            : props.formValues.followUpDate
+              ? "followUpDate"
+              : props.formValues.referedHospital !== ""
+                ? "referral" : ""
+      )
       : console.log("");
   }, [props.view, props.formValues.reviewSos, props.formValues.moveToIp]);
 
   const [hospitalType, setHospitalType] = useState("");
 
   const handleHospitalTypeChange = (event, value, reason) => {
-        if (reason === "selectOption") {
-            props.formValues.referedHospitalType = value;
-            setHospitalType(value);
-        }
+    if (reason === "selectOption") {
+      props.formValues.referedHospitalType = value;
+      setHospitalType(value);
     }
-    const hospitalTypeList = [ "Primary Health Centre","Secondary Health Centre", "Tertiary Health Centre"]
-    // const referalData = {
-    //     "Tertiary Health Centre": [
-    //         "4. narayna, bengaluru, 560100"
-    //     ],
-    //     "Primary Health Centre": [
-    //         "1. Apollo, vijayawada, 520007"
-    //     ],
-    //     "Secondary Health Centre": [
-    //         "2. kims, ongole, 523002",
-    //         "3. sangamithra, ongole, 523302"
-    //     ]
+  }
+  const hospitalTypeList = ["Primary Health Centre", "Secondary Health Centre", "Tertiary Health Centre"]
+  // const referalData = {
+  //     "Tertiary Health Centre": [
+  //         "4. narayna, bengaluru, 560100"
+  //     ],
+  //     "Primary Health Centre": [
+  //         "1. Apollo, vijayawada, 520007"
+  //     ],
+  //     "Secondary Health Centre": [
+  //         "2. kims, ongole, 523002",
+  //         "3. sangamithra, ongole, 523302"
+  //     ]
+  // }
+  const [referedHospital, setReferedHospital] = useState([]);
+  const gethospitalsList = () => {
+    const referalData = JSON.parse(localStorage.getItem("getHospitalsforReferral"))
+
+    let hos = [];
+    if (hospitalType) {
+      hos = referalData[hospitalType];
+    }
+
+    // if (hospitalType) 
+    // if (1){
+    //     hos = referalData.map((listHos,type) => type === hospitalType);
+    //     // hos = referalData.map((item, i) => {      
+    //     //     console.log(i,item);
+    //     //     return (item);
+    //     // })
+    //     // (listHos,i) => listHos === "Primary Health Centre");
+
+    //     // hos = referalData.map(function(type) {
+    //     //     // console.log(type);
+    //     //     // if (type === "Primary Health Centre")
+    //     //     //   return 1 ;
+    //     //     return type;    
+    //     // }
+    //     // )
     // }
-    const [referedHospital,setReferedHospital] = useState([]);
-    const gethospitalsList = () => {
-        const referalData = JSON.parse(localStorage.getItem("getHospitalsforReferral"))
-
-        let hos = [];
-        if (hospitalType){
-            hos = referalData[hospitalType];
-        }
-
-        // if (hospitalType) 
-        // if (1){
-        //     hos = referalData.map((listHos,type) => type === hospitalType);
-        //     // hos = referalData.map((item, i) => {      
-        //     //     console.log(i,item);
-        //     //     return (item);
-        //     // })
-        //     // (listHos,i) => listHos === "Primary Health Centre");
-
-        //     // hos = referalData.map(function(type) {
-        //     //     // console.log(type);
-        //     //     // if (type === "Primary Health Centre")
-        //     //     //   return 1 ;
-        //     //     return type;    
-        //     // }
-        //     // )
-        // }
 
     //    console.log("This is refeal data: ",referalData);
     //    console.log(hos); 
-       return hos;
-    }
+    return hos;
+  }
 
-    // console.log(gethospitalsList());
-    const changeReferedHospital = (event,value) => {
-        props.formValues.referedHospital = value;
-        setReferedHospital(value);
-    }
+  // console.log(gethospitalsList());
+  const changeReferedHospital = (event, value) => {
+    props.formValues.referedHospital = value;
+    setReferedHospital(value);
+  }
 
   //  useEffect(() => {
   //  }, [props.formValues.reviewSos, props.formValues.moveToIp]);
@@ -533,7 +536,7 @@ const ConsultationForm = (props) => {
                                 }
                                 variant="contained"
                                 color="primary"
-                                // type="submit"
+                              // type="submit"
                               >
                                 Remove
                               </Button>
@@ -552,7 +555,7 @@ const ConsultationForm = (props) => {
                       style={{ width: "139px", marginTop: "10px" }}
                       variant="contained"
                       color="primary"
-                      // type="submit"x
+                    // type="submit"x
                     >
                       Add medicine
                     </Button>
@@ -645,9 +648,31 @@ const ConsultationForm = (props) => {
                 </Grid>
               )}
               {props.radioValue === "referral" && (
-                <>
-                <Grid item xs={12} sm={6} md={6} xl={4}>
-                    <Autocomplete
+                props.view ? <>
+                  <Grid item xs={12} sm={6} md={6} xl={4} direction="column">
+                    <TextField
+                      variant="outlined"
+                      id="hospitalType"
+                      label="Hospital Type"
+                      type="text"
+                      style={{ width: "100%" }}
+                      value={props.formValues.referedHospitalType}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={6} xl={4} direction="column">
+                    <TextField
+                      variant="outlined"
+                      id="hospitalType"
+                      label="Referred Hospital Name"
+                      type="text"
+                      style={{ width: "100%" }}
+                      value={props.formValues.referedHospital}
+                    />
+                  </Grid>
+                </> :
+                  <>
+                    <Grid item xs={12} sm={6} md={6} xl={4}>
+                      <Autocomplete
                         disablePortal
                         id="hospitalType"
                         options={hospitalTypeList}
@@ -655,12 +680,12 @@ const ConsultationForm = (props) => {
                         autoHighlight
                         onChange={handleHospitalTypeChange}
                         renderInput={(params) => <TextField {...params} required value={props.formValues.referedHospitalType}
-                        label="Hospital Type" variant="outlined"/>}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={6} xl={4}>
+                          label="Hospital Type" variant="outlined" />}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={6} xl={4}>
 
-                    <Autocomplete
+                      <Autocomplete
                         disablePortal
                         id="referedHospitalName"
                         options={gethospitalsList()}
@@ -668,11 +693,11 @@ const ConsultationForm = (props) => {
                         autoHighlight
                         onChange={changeReferedHospital}
                         renderInput={(params) => <TextField {...params} required value={props.formValues.referedHospital}
-                        label="Refered Hospita lName" variant="outlined"/>}
-                    />
-                </Grid>
+                          label="Referred Hospital Name" variant="outlined" />}
+                      />
+                    </Grid>
 
-                  {/* <TextField
+                    {/* <TextField
                     variant="outlined"
                     id="referral"
                     name="referral"
@@ -685,7 +710,7 @@ const ConsultationForm = (props) => {
                       props.errors.referral ? "Referral is required" : ""
                     }
                   ></TextField> */}
-                </>
+                  </>
               )}
             </Grid>
 

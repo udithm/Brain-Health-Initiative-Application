@@ -97,6 +97,7 @@ const AllConsultations = (props) => {
     selectableRows: "none",
   };
   const goBack = () => {
+    setResult([])
     return history.goBack()
   }
   const addConsultation = (result) => {
