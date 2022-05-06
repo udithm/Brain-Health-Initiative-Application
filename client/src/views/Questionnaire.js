@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { MenuItem } from "@mui/material";
@@ -12,6 +12,8 @@ import Dialog from "@mui/material/Dialog";
 import axios from "../common/config/AxiosConfig";
 
 const Questionnaire = (props) => {
+  const scrollRef = useRef(null);
+  const executeScroll = () => scrollRef.current.scrollIntoView();
   const [response, setResponse] = useState(props.currentQuestionnaireAnswers);
   const [isSubmitted, setIsSubmitted] = useState(false || props.isSubmitted);
   const [open, setOpen] = useState(false);
@@ -25,6 +27,7 @@ const Questionnaire = (props) => {
   };
 
   useEffect(() => {
+    if (!isSubmitted) executeScroll();
     setResponse(props.currentQuestionnaireAnswers);
   }, [props.currentQuestionnaireAnswers]);
 
@@ -44,12 +47,12 @@ const Questionnaire = (props) => {
       .post("/v1/response/", responses)
       .then((res) => {
         console.log(res.data);
-        if (res.data.nextQuestionnaire !== "none")
+        if (res.data.nextQuestionnaire !== "none") {
           props.setQuestionnaireNames([
             ...props.questionnaireNames,
             res.data.nextQuestionnaire,
           ]);
-        else if (res.data.Diagnosis !== "none") {
+        } else if (res.data.Diagnosis !== "none") {
           props.setDiagnosis(res.data.Diagnosis);
           setDiagnosis(res.data.Diagnosis);
           setOpen(true);
@@ -103,7 +106,7 @@ const Questionnaire = (props) => {
           aria-describedby="scroll-dialog-description"
           maxWidth="m"
         >
-          <div style={{margin: "20px"}}>
+          <div style={{ margin: "20px" }}>
             <h2 style={{ textAlign: "center", marginTop: "5px" }}>
               {diagnosis !== "" ? "Diagnosis: " + diagnosis : ""}{" "}
             </h2>
@@ -122,54 +125,47 @@ const Questionnaire = (props) => {
         </Dialog>
       </>
       <h1
+        ref={scrollRef}
+        id={props.name}
         style={{ textAlign: "center", marginTop: "10px" }}
         className="heading"
       >
         {props.name + " Questionnaire"}
       </h1>
       <div style={{ maxWidth: "100%", margin: "auto" }}>
-        <Grid
-          container
-          spacing={3}
-          // direction="column"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Grid container alignItems="center" justifyContent="center">
           {props.currentQuestionnaire.map((data, key) => {
             console.log(data);
             return (
-              <fieldset style={{ border: "none" }} disabled={props.view}>
+              <fieldset
+                style={{ border: "none" }}
+                disabled={props.view || props.isSubmitted}
+              >
                 <form>
                   {/* onSubmit={func} */}
                   <div style={{ maxWidth: "80%", margin: "auto" }}>
-                    <Grid
-                      container
-                      spacing={3}
-                      // direction="column"
-                      alignItems="center"
-                      justifyContent="center"
-                    >
+                    <Grid container alignItems="center" justifyContent="center">
                       {Object.entries(
                         props.currentQuestionnaire[0].questions
                       ).map(([key, data]) => {
                         if (data.options.length === 0) {
                           return (
-                            <>
-                              <Grid item xs={9} sm={9} md={9} xl={9}>
+                            <Grid container spacing={15}>
+                              <Grid item xs={9} sm={9} md={9} xl={9.1}>
                                 <h3>{data.question}</h3>
                               </Grid>
-                              <Grid>
+                              <Grid item>
                                 <TextField
                                   variant="outlined"
                                   id="age"
                                   name="age"
                                   label="Age"
                                   type="text"
-                                  style={{ width: "100%" }}
+                                  style={{ width: "130px" }}
                                   value={props.patient.age}
                                 />
                               </Grid>
-                            </>
+                            </Grid>
                           );
                         }
                         if (data.options.length <= 3) {
@@ -177,11 +173,11 @@ const Questionnaire = (props) => {
                             console.log(response[key]);
                           }
                           return (
-                            <>
+                            <Grid container spacing={15}>
                               <Grid item xs={9} sm={9} md={9} xl={9}>
                                 <h3>{data.question}</h3>
                               </Grid>
-                              <Grid>
+                              <Grid item>
                                 <FormControl>
                                   <RadioGroup
                                     row
@@ -201,7 +197,7 @@ const Questionnaire = (props) => {
                                               value={option}
                                               control={<Radio />}
                                               label={option}
-                                              labelPlacement="top"
+                                              labelPlacement="start"
                                             />
                                           </>
                                         );
@@ -209,18 +205,18 @@ const Questionnaire = (props) => {
                                   </RadioGroup>
                                 </FormControl>
                               </Grid>
-                            </>
+                            </Grid>
                           );
                         }
 
                         return (
-                          <>
+                          <Grid container spacing={15}>
                             <Grid item xs={9} sm={9} md={9} xl={9}>
                               <h3>{data.question}</h3>
                             </Grid>
-                            <Grid>
+                            <Grid item>
                               <TextField
-                                variant="outlined"
+                                variant="standard"
                                 name="selectOption"
                                 label="select option"
                                 value={response ? response[key] : "NA"}
@@ -237,7 +233,7 @@ const Questionnaire = (props) => {
                                 })}
                               </TextField>
                             </Grid>
-                          </>
+                          </Grid>
                         );
                       })}
                     </Grid>

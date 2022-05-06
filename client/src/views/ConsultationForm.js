@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import { MenuItem, Paper } from "@mui/material";
+import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import "react-phone-input-2/lib/style.css";
+import calculatorData from "/home/keshav/Health/client/src/icd10_f.json";
+import { Autocomplete } from "@mui/material";
 
 const ConsultationForm = (props) => {
+  const defaultProps = {
+    options: calculatorData,
+  };
+
   const handleButton = (e, index) => {
     const { name, value } = e.target;
     const list = [...props.formValues.medicines];
@@ -73,6 +79,25 @@ const ConsultationForm = (props) => {
     });
   };
 
+  const handleICDcode = (e) => {
+    const selected =
+      calculatorData.find((product) => product.CODE === e.target.textContent) ||
+      calculatorData.find(
+        (product) => product.icdDescription === e.target.textContent
+      );
+    props.setErrors({
+      ...props.errors,
+      icd10Code: false,
+      icdDescription: false,
+    });
+
+    props.setFormValues({
+      ...props.formValues,
+      icd10Code: selected.CODE,
+      icdDescription: selected.icdDescription,
+    });
+  };
+
   useEffect(() => {
     console.log(props.formValues.reviewSos, props.formValues);
     props.view
@@ -103,7 +128,6 @@ const ConsultationForm = (props) => {
           paddingRight: "20px",
         }}
       >
-        {console.log(props.formValues)}
         {props.formValues.responses.length === 0 && props.view ? (
           <></>
         ) : (
@@ -237,7 +261,30 @@ const ConsultationForm = (props) => {
                 </TextField>
               </Grid>
               <Grid item xs={12} sm={6} md={6} xl={4} direction="column">
-                <TextField
+                <Autocomplete
+                  {...defaultProps}
+                  id="icdDescription"
+                  value={props.formValues.icdDescription}
+                  onChange={handleICDcode}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      variant="outlined"
+                      name="icdDescription"
+                      label="ICD Description"
+                      error={props.errors.icdDescription}
+                      helperText={
+                        props.errors.icdDescription
+                          ? "ICD Description is required"
+                          : ""
+                      }
+                    />
+                  )}
+                  getOptionLabel={(option) =>
+                    option.icdDescription || props.formValues.icdDescription
+                  }
+                />
+                {/* <TextField
                   variant="outlined"
                   id="icdDescription"
                   name="icdDescription"
@@ -252,21 +299,28 @@ const ConsultationForm = (props) => {
                       ? "ICD Description is required"
                       : ""
                   }
-                />
+                /> */}
               </Grid>
               <Grid item xs={12} sm={6} md={6} xl={4} direction="column">
-                <TextField
-                  variant="outlined"
+                <Autocomplete
+                  {...defaultProps}
                   id="icd10Code"
-                  name="icd10Code"
-                  label="ICD 10 Code"
-                  type="text"
-                  style={{ width: "100%" }}
                   value={props.formValues.icd10Code}
-                  onChange={handleInputChange}
-                  error={props.errors.icd10Code}
-                  helperText={
-                    props.errors.icd10Code ? "ICD 10 Code is required" : ""
+                  onChange={handleICDcode}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      variant="outlined"
+                      name="icd10Code"
+                      label="ICD 10 Code"
+                      error={props.errors.icd10Code}
+                      helperText={
+                        props.errors.icd10Code ? "ICD 10 Code is required" : ""
+                      }
+                    />
+                  )}
+                  getOptionLabel={(option) =>
+                    option.CODE || props.formValues.icd10Code
                   }
                 />
               </Grid>
@@ -317,19 +371,6 @@ const ConsultationForm = (props) => {
                   >
                     Medicines
                   </h3>
-                  {props.view ? (
-                    <></>
-                  ) : (
-                    <Button
-                      onClick={handleAddClick}
-                      style={{ width: "30px" }}
-                      variant="contained"
-                      color="primary"
-                      // type="submit"x
-                    >
-                      Add
-                    </Button>
-                  )}
                 </div>
                 {props.formValues.medicines.map((x, i) => {
                   return (
@@ -343,9 +384,9 @@ const ConsultationForm = (props) => {
                       <Grid
                         item
                         xs={12}
-                        sm={6}
+                        sm={4}
                         md={6}
-                        xl={3}
+                        xl={2.5}
                         direction="column"
                       >
                         <TextField
@@ -361,7 +402,7 @@ const ConsultationForm = (props) => {
                         xs={12}
                         sm={6}
                         md={6}
-                        xl={3}
+                        xl={2.5}
                         direction="column"
                       >
                         <TextField
@@ -377,7 +418,7 @@ const ConsultationForm = (props) => {
                         xs={12}
                         sm={6}
                         md={6}
-                        xl={3}
+                        xl={2.5}
                         direction="column"
                       >
                         <TextField
@@ -393,7 +434,7 @@ const ConsultationForm = (props) => {
                         xs={12}
                         sm={6}
                         md={6}
-                        xl={3}
+                        xl={2.5}
                         direction="column"
                       >
                         <TextField
@@ -404,36 +445,60 @@ const ConsultationForm = (props) => {
                           onChange={(e) => handleButton(e, i)}
                         />
                       </Grid>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          margin: "20px 0px 20px 20px",
-                        }}
+                      <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        md={6}
+                        xl={2}
+                        direction="column"
                       >
-                        {props.formValues.medicines.length !== 1 &&
-                          (props.view ? (
-                            <></>
-                          ) : (
-                            <Button
-                              onClick={() => handleRemoveClick(i)}
-                              style={
-                                props.view
-                                  ? { display: "none" }
-                                  : { width: "100px" }
-                              }
-                              variant="contained"
-                              color="primary"
-                              // type="submit"
-                            >
-                              Remove
-                            </Button>
-                          ))}
-                      </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "right",
+                            margin: "20px 0px 20px 0px",
+                          }}
+                        >
+                          {props.formValues.medicines.length !== 1 &&
+                            (props.view ? (
+                              <></>
+                            ) : (
+                              <Button
+                                onClick={() => handleRemoveClick(i)}
+                                style={
+                                  props.view
+                                    ? { display: "none" }
+                                    : { width: "100px" }
+                                }
+                                variant="contained"
+                                color="primary"
+                                // type="submit"
+                              >
+                                Remove
+                              </Button>
+                            ))}
+                        </div>
+                      </Grid>
                     </Grid>
                   );
                 })}
+                <Grid item>
+                  {props.view ? (
+                    <></>
+                  ) : (
+                    <Button
+                      onClick={handleAddClick}
+                      style={{ width: "139px", marginTop: "10px" }}
+                      variant="contained"
+                      color="primary"
+                      // type="submit"x
+                    >
+                      Add medicine
+                    </Button>
+                  )}
+                </Grid>
               </Grid>
               <Grid item xs={12} sm={6} md={6} xl={4} direction="column">
                 <TextField

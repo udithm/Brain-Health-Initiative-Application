@@ -1,0 +1,3014 @@
+[
+  {
+    "CODE": "",
+    "icdDescription": ""
+  },
+  {
+    "CODE": "F0150",
+    "icdDescription": "Vascular dementia without behavioral disturbance"
+  },
+  {
+    "CODE": "F0151",
+    "icdDescription": "Vascular dementia with behavioral disturbance"
+  },
+  {
+    "CODE": "F0280",
+    "icdDescription": "Dementia in other diseases classified elsewhere without behavioral disturbance"
+  },
+  {
+    "CODE": "F0281",
+    "icdDescription": "Dementia in other diseases classified elsewhere with behavioral disturbance"
+  },
+  {
+    "CODE": "F0390",
+    "icdDescription": "Unspecified dementia without behavioral disturbance"
+  },
+  {
+    "CODE": "F0391",
+    "icdDescription": "Unspecified dementia with behavioral disturbance"
+  },
+  {
+    "CODE": "F04",
+    "icdDescription": "Amnestic disorder due to known physiological condition"
+  },
+  {
+    "CODE": "F05",
+    "icdDescription": "Delirium due to known physiological condition"
+  },
+  {
+    "CODE": "F060",
+    "icdDescription": "Psychotic disorder with hallucinations due to known physiological condition"
+  },
+  {
+    "CODE": "F061",
+    "icdDescription": "Catatonic disorder due to known physiological condition"
+  },
+  {
+    "CODE": "F062",
+    "icdDescription": "Psychotic disorder with delusions due to known physiological condition"
+  },
+  {
+    "CODE": "F0630",
+    "icdDescription": "Mood disorder due to known physiological condition, unspecified"
+  },
+  {
+    "CODE": "F0631",
+    "icdDescription": "Mood disorder due to known physiological condition with depressive features"
+  },
+  {
+    "CODE": "F0632",
+    "icdDescription": "Mood disorder due to known physiological condition with major depressive-like episode"
+  },
+  {
+    "CODE": "F0633",
+    "icdDescription": "Mood disorder due to known physiological condition with manic features"
+  },
+  {
+    "CODE": "F0634",
+    "icdDescription": "Mood disorder due to known physiological condition with mixed features"
+  },
+  {
+    "CODE": "F064",
+    "icdDescription": "Anxiety disorder due to known physiological condition"
+  },
+  {
+    "CODE": "F068",
+    "icdDescription": "Other specified mental disorders due to known physiological condition"
+  },
+  {
+    "CODE": "F070",
+    "icdDescription": "Personality change due to known physiological condition"
+  },
+  {
+    "CODE": "F0781",
+    "icdDescription": "Postconcussional syndrome"
+  },
+  {
+    "CODE": "F0789",
+    "icdDescription": "Other personality and behavioral disorders due to known physiological condition"
+  },
+  {
+    "CODE": "F079",
+    "icdDescription": "Unspecified personality and behavioral disorder due to known physiological condition"
+  },
+  {
+    "CODE": "F09",
+    "icdDescription": "Unspecified mental disorder due to known physiological condition"
+  },
+  {
+    "CODE": "F1010",
+    "icdDescription": "Alcohol abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1011",
+    "icdDescription": "Alcohol abuse, in remission"
+  },
+  {
+    "CODE": "F10120",
+    "icdDescription": "Alcohol abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F10121",
+    "icdDescription": "Alcohol abuse with intoxication delirium"
+  },
+  {
+    "CODE": "F10129",
+    "icdDescription": "Alcohol abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1014",
+    "icdDescription": "Alcohol abuse with alcohol-induced mood disorder"
+  },
+  {
+    "CODE": "F10150",
+    "icdDescription": "Alcohol abuse with alcohol-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F10151",
+    "icdDescription": "Alcohol abuse with alcohol-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F10159",
+    "icdDescription": "Alcohol abuse with alcohol-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F10180",
+    "icdDescription": "Alcohol abuse with alcohol-induced anxiety disorder"
+  },
+  {
+    "CODE": "F10181",
+    "icdDescription": "Alcohol abuse with alcohol-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F10182",
+    "icdDescription": "Alcohol abuse with alcohol-induced sleep disorder"
+  },
+  {
+    "CODE": "F10188",
+    "icdDescription": "Alcohol abuse with other alcohol-induced disorder"
+  },
+  {
+    "CODE": "F1019",
+    "icdDescription": "Alcohol abuse with unspecified alcohol-induced disorder"
+  },
+  {
+    "CODE": "F1020",
+    "icdDescription": "Alcohol dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1021",
+    "icdDescription": "Alcohol dependence, in remission"
+  },
+  {
+    "CODE": "F10220",
+    "icdDescription": "Alcohol dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F10221",
+    "icdDescription": "Alcohol dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F10229",
+    "icdDescription": "Alcohol dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F10230",
+    "icdDescription": "Alcohol dependence with withdrawal, uncomplicated"
+  },
+  {
+    "CODE": "F10231",
+    "icdDescription": "Alcohol dependence with withdrawal delirium"
+  },
+  {
+    "CODE": "F10232",
+    "icdDescription": "Alcohol dependence with withdrawal with perceptual disturbance"
+  },
+  {
+    "CODE": "F10239",
+    "icdDescription": "Alcohol dependence with withdrawal, unspecified"
+  },
+  {
+    "CODE": "F1024",
+    "icdDescription": "Alcohol dependence with alcohol-induced mood disorder"
+  },
+  {
+    "CODE": "F10250",
+    "icdDescription": "Alcohol dependence with alcohol-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F10251",
+    "icdDescription": "Alcohol dependence with alcohol-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F10259",
+    "icdDescription": "Alcohol dependence with alcohol-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1026",
+    "icdDescription": "Alcohol dependence with alcohol-induced persisting amnestic disorder"
+  },
+  {
+    "CODE": "F1027",
+    "icdDescription": "Alcohol dependence with alcohol-induced persisting dementia"
+  },
+  {
+    "CODE": "F10280",
+    "icdDescription": "Alcohol dependence with alcohol-induced anxiety disorder"
+  },
+  {
+    "CODE": "F10281",
+    "icdDescription": "Alcohol dependence with alcohol-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F10282",
+    "icdDescription": "Alcohol dependence with alcohol-induced sleep disorder"
+  },
+  {
+    "CODE": "F10288",
+    "icdDescription": "Alcohol dependence with other alcohol-induced disorder"
+  },
+  {
+    "CODE": "F1029",
+    "icdDescription": "Alcohol dependence with unspecified alcohol-induced disorder"
+  },
+  {
+    "CODE": "F10920",
+    "icdDescription": "Alcohol use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F10921",
+    "icdDescription": "Alcohol use, unspecified with intoxication delirium"
+  },
+  {
+    "CODE": "F10929",
+    "icdDescription": "Alcohol use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1094",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced mood disorder"
+  },
+  {
+    "CODE": "F10950",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F10951",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F10959",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1096",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced persisting amnestic disorder"
+  },
+  {
+    "CODE": "F1097",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced persisting dementia"
+  },
+  {
+    "CODE": "F10980",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced anxiety disorder"
+  },
+  {
+    "CODE": "F10981",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F10982",
+    "icdDescription": "Alcohol use, unspecified with alcohol-induced sleep disorder"
+  },
+  {
+    "CODE": "F10988",
+    "icdDescription": "Alcohol use, unspecified with other alcohol-induced disorder"
+  },
+  {
+    "CODE": "F1099",
+    "icdDescription": "Alcohol use, unspecified with unspecified alcohol-induced disorder"
+  },
+  {
+    "CODE": "F1110",
+    "icdDescription": "Opioid abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1111",
+    "icdDescription": "Opioid abuse, in remission"
+  },
+  {
+    "CODE": "F11120",
+    "icdDescription": "Opioid abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F11121",
+    "icdDescription": "Opioid abuse with intoxication delirium"
+  },
+  {
+    "CODE": "F11122",
+    "icdDescription": "Opioid abuse with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F11129",
+    "icdDescription": "Opioid abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1114",
+    "icdDescription": "Opioid abuse with opioid-induced mood disorder"
+  },
+  {
+    "CODE": "F11150",
+    "icdDescription": "Opioid abuse with opioid-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F11151",
+    "icdDescription": "Opioid abuse with opioid-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F11159",
+    "icdDescription": "Opioid abuse with opioid-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F11181",
+    "icdDescription": "Opioid abuse with opioid-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F11182",
+    "icdDescription": "Opioid abuse with opioid-induced sleep disorder"
+  },
+  {
+    "CODE": "F11188",
+    "icdDescription": "Opioid abuse with other opioid-induced disorder"
+  },
+  {
+    "CODE": "F1119",
+    "icdDescription": "Opioid abuse with unspecified opioid-induced disorder"
+  },
+  {
+    "CODE": "F1120",
+    "icdDescription": "Opioid dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1121",
+    "icdDescription": "Opioid dependence, in remission"
+  },
+  {
+    "CODE": "F11220",
+    "icdDescription": "Opioid dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F11221",
+    "icdDescription": "Opioid dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F11222",
+    "icdDescription": "Opioid dependence with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F11229",
+    "icdDescription": "Opioid dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1123",
+    "icdDescription": "Opioid dependence with withdrawal"
+  },
+  {
+    "CODE": "F1124",
+    "icdDescription": "Opioid dependence with opioid-induced mood disorder"
+  },
+  {
+    "CODE": "F11250",
+    "icdDescription": "Opioid dependence with opioid-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F11251",
+    "icdDescription": "Opioid dependence with opioid-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F11259",
+    "icdDescription": "Opioid dependence with opioid-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F11281",
+    "icdDescription": "Opioid dependence with opioid-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F11282",
+    "icdDescription": "Opioid dependence with opioid-induced sleep disorder"
+  },
+  {
+    "CODE": "F11288",
+    "icdDescription": "Opioid dependence with other opioid-induced disorder"
+  },
+  {
+    "CODE": "F1129",
+    "icdDescription": "Opioid dependence with unspecified opioid-induced disorder"
+  },
+  {
+    "CODE": "F1190",
+    "icdDescription": "Opioid use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F11920",
+    "icdDescription": "Opioid use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F11921",
+    "icdDescription": "Opioid use, unspecified with intoxication delirium"
+  },
+  {
+    "CODE": "F11922",
+    "icdDescription": "Opioid use, unspecified with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F11929",
+    "icdDescription": "Opioid use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1193",
+    "icdDescription": "Opioid use, unspecified with withdrawal"
+  },
+  {
+    "CODE": "F1194",
+    "icdDescription": "Opioid use, unspecified with opioid-induced mood disorder"
+  },
+  {
+    "CODE": "F11950",
+    "icdDescription": "Opioid use, unspecified with opioid-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F11951",
+    "icdDescription": "Opioid use, unspecified with opioid-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F11959",
+    "icdDescription": "Opioid use, unspecified with opioid-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F11981",
+    "icdDescription": "Opioid use, unspecified with opioid-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F11982",
+    "icdDescription": "Opioid use, unspecified with opioid-induced sleep disorder"
+  },
+  {
+    "CODE": "F11988",
+    "icdDescription": "Opioid use, unspecified with other opioid-induced disorder"
+  },
+  {
+    "CODE": "F1199",
+    "icdDescription": "Opioid use, unspecified with unspecified opioid-induced disorder"
+  },
+  {
+    "CODE": "F1210",
+    "icdDescription": "Cannabis abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1211",
+    "icdDescription": "Cannabis abuse, in remission"
+  },
+  {
+    "CODE": "F12120",
+    "icdDescription": "Cannabis abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F12121",
+    "icdDescription": "Cannabis abuse with intoxication delirium"
+  },
+  {
+    "CODE": "F12122",
+    "icdDescription": "Cannabis abuse with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F12129",
+    "icdDescription": "Cannabis abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F12150",
+    "icdDescription": "Cannabis abuse with psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F12151",
+    "icdDescription": "Cannabis abuse with psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F12159",
+    "icdDescription": "Cannabis abuse with psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F12180",
+    "icdDescription": "Cannabis abuse with cannabis-induced anxiety disorder"
+  },
+  {
+    "CODE": "F12188",
+    "icdDescription": "Cannabis abuse with other cannabis-induced disorder"
+  },
+  {
+    "CODE": "F1219",
+    "icdDescription": "Cannabis abuse with unspecified cannabis-induced disorder"
+  },
+  {
+    "CODE": "F1220",
+    "icdDescription": "Cannabis dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1221",
+    "icdDescription": "Cannabis dependence, in remission"
+  },
+  {
+    "CODE": "F12220",
+    "icdDescription": "Cannabis dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F12221",
+    "icdDescription": "Cannabis dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F12222",
+    "icdDescription": "Cannabis dependence with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F12229",
+    "icdDescription": "Cannabis dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1223",
+    "icdDescription": "Cannabis dependence with withdrawal"
+  },
+  {
+    "CODE": "F12250",
+    "icdDescription": "Cannabis dependence with psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F12251",
+    "icdDescription": "Cannabis dependence with psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F12259",
+    "icdDescription": "Cannabis dependence with psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F12280",
+    "icdDescription": "Cannabis dependence with cannabis-induced anxiety disorder"
+  },
+  {
+    "CODE": "F12288",
+    "icdDescription": "Cannabis dependence with other cannabis-induced disorder"
+  },
+  {
+    "CODE": "F1229",
+    "icdDescription": "Cannabis dependence with unspecified cannabis-induced disorder"
+  },
+  {
+    "CODE": "F1290",
+    "icdDescription": "Cannabis use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F12920",
+    "icdDescription": "Cannabis use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F12921",
+    "icdDescription": "Cannabis use, unspecified with intoxication delirium"
+  },
+  {
+    "CODE": "F12922",
+    "icdDescription": "Cannabis use, unspecified with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F12929",
+    "icdDescription": "Cannabis use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1293",
+    "icdDescription": "Cannabis use, unspecified with withdrawal"
+  },
+  {
+    "CODE": "F12950",
+    "icdDescription": "Cannabis use, unspecified with psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F12951",
+    "icdDescription": "Cannabis use, unspecified with psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F12959",
+    "icdDescription": "Cannabis use, unspecified with psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F12980",
+    "icdDescription": "Cannabis use, unspecified with anxiety disorder"
+  },
+  {
+    "CODE": "F12988",
+    "icdDescription": "Cannabis use, unspecified with other cannabis-induced disorder"
+  },
+  {
+    "CODE": "F1299",
+    "icdDescription": "Cannabis use, unspecified with unspecified cannabis-induced disorder"
+  },
+  {
+    "CODE": "F1310",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1311",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse, in remission"
+  },
+  {
+    "CODE": "F13120",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F13121",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with intoxication delirium"
+  },
+  {
+    "CODE": "F13129",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1314",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with sedative, hypnotic or anxiolytic-induced mood disorder"
+  },
+  {
+    "CODE": "F13150",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with sedative, hypnotic or anxiolytic-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F13151",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with sedative, hypnotic or anxiolytic-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F13159",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with sedative, hypnotic or anxiolytic-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F13180",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with sedative, hypnotic or anxiolytic-induced anxiety disorder"
+  },
+  {
+    "CODE": "F13181",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with sedative, hypnotic or anxiolytic-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F13182",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with sedative, hypnotic or anxiolytic-induced sleep disorder"
+  },
+  {
+    "CODE": "F13188",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with other sedative, hypnotic or anxiolytic-induced disorder"
+  },
+  {
+    "CODE": "F1319",
+    "icdDescription": "Sedative, hypnotic or anxiolytic abuse with unspecified sedative, hypnotic or anxiolytic-induced disorder"
+  },
+  {
+    "CODE": "F1320",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1321",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence, in remission"
+  },
+  {
+    "CODE": "F13220",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F13221",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F13229",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F13230",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with withdrawal, uncomplicated"
+  },
+  {
+    "CODE": "F13231",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with withdrawal delirium"
+  },
+  {
+    "CODE": "F13232",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with withdrawal with perceptual disturbance"
+  },
+  {
+    "CODE": "F13239",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with withdrawal, unspecified"
+  },
+  {
+    "CODE": "F1324",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced mood disorder"
+  },
+  {
+    "CODE": "F13250",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F13251",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F13259",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1326",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced persisting amnestic disorder"
+  },
+  {
+    "CODE": "F1327",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced persisting dementia"
+  },
+  {
+    "CODE": "F13280",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced anxiety disorder"
+  },
+  {
+    "CODE": "F13281",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F13282",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with sedative, hypnotic or anxiolytic-induced sleep disorder"
+  },
+  {
+    "CODE": "F13288",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with other sedative, hypnotic or anxiolytic-induced disorder"
+  },
+  {
+    "CODE": "F1329",
+    "icdDescription": "Sedative, hypnotic or anxiolytic dependence with unspecified sedative, hypnotic or anxiolytic-induced disorder"
+  },
+  {
+    "CODE": "F1390",
+    "icdDescription": "Sedative, hypnotic, or anxiolytic use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F13920",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F13921",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with intoxication delirium"
+  },
+  {
+    "CODE": "F13929",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F13930",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with withdrawal, uncomplicated"
+  },
+  {
+    "CODE": "F13931",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with withdrawal delirium"
+  },
+  {
+    "CODE": "F13932",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with withdrawal with perceptual disturbances"
+  },
+  {
+    "CODE": "F13939",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with withdrawal, unspecified"
+  },
+  {
+    "CODE": "F1394",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced mood disorder"
+  },
+  {
+    "CODE": "F13950",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F13951",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F13959",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1396",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced persisting amnestic disorder"
+  },
+  {
+    "CODE": "F1397",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced persisting dementia"
+  },
+  {
+    "CODE": "F13980",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced anxiety disorder"
+  },
+  {
+    "CODE": "F13981",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F13982",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with sedative, hypnotic or anxiolytic-induced sleep disorder"
+  },
+  {
+    "CODE": "F13988",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with other sedative, hypnotic or anxiolytic-induced disorder"
+  },
+  {
+    "CODE": "F1399",
+    "icdDescription": "Sedative, hypnotic or anxiolytic use, unspecified with unspecified sedative, hypnotic or anxiolytic-induced disorder"
+  },
+  {
+    "CODE": "F1410",
+    "icdDescription": "Cocaine abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1411",
+    "icdDescription": "Cocaine abuse, in remission"
+  },
+  {
+    "CODE": "F14120",
+    "icdDescription": "Cocaine abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F14121",
+    "icdDescription": "Cocaine abuse with intoxication with delirium"
+  },
+  {
+    "CODE": "F14122",
+    "icdDescription": "Cocaine abuse with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F14129",
+    "icdDescription": "Cocaine abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1414",
+    "icdDescription": "Cocaine abuse with cocaine-induced mood disorder"
+  },
+  {
+    "CODE": "F14150",
+    "icdDescription": "Cocaine abuse with cocaine-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F14151",
+    "icdDescription": "Cocaine abuse with cocaine-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F14159",
+    "icdDescription": "Cocaine abuse with cocaine-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F14180",
+    "icdDescription": "Cocaine abuse with cocaine-induced anxiety disorder"
+  },
+  {
+    "CODE": "F14181",
+    "icdDescription": "Cocaine abuse with cocaine-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F14182",
+    "icdDescription": "Cocaine abuse with cocaine-induced sleep disorder"
+  },
+  {
+    "CODE": "F14188",
+    "icdDescription": "Cocaine abuse with other cocaine-induced disorder"
+  },
+  {
+    "CODE": "F1419",
+    "icdDescription": "Cocaine abuse with unspecified cocaine-induced disorder"
+  },
+  {
+    "CODE": "F1420",
+    "icdDescription": "Cocaine dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1421",
+    "icdDescription": "Cocaine dependence, in remission"
+  },
+  {
+    "CODE": "F14220",
+    "icdDescription": "Cocaine dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F14221",
+    "icdDescription": "Cocaine dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F14222",
+    "icdDescription": "Cocaine dependence with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F14229",
+    "icdDescription": "Cocaine dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1423",
+    "icdDescription": "Cocaine dependence with withdrawal"
+  },
+  {
+    "CODE": "F1424",
+    "icdDescription": "Cocaine dependence with cocaine-induced mood disorder"
+  },
+  {
+    "CODE": "F14250",
+    "icdDescription": "Cocaine dependence with cocaine-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F14251",
+    "icdDescription": "Cocaine dependence with cocaine-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F14259",
+    "icdDescription": "Cocaine dependence with cocaine-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F14280",
+    "icdDescription": "Cocaine dependence with cocaine-induced anxiety disorder"
+  },
+  {
+    "CODE": "F14281",
+    "icdDescription": "Cocaine dependence with cocaine-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F14282",
+    "icdDescription": "Cocaine dependence with cocaine-induced sleep disorder"
+  },
+  {
+    "CODE": "F14288",
+    "icdDescription": "Cocaine dependence with other cocaine-induced disorder"
+  },
+  {
+    "CODE": "F1429",
+    "icdDescription": "Cocaine dependence with unspecified cocaine-induced disorder"
+  },
+  {
+    "CODE": "F1490",
+    "icdDescription": "Cocaine use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F14920",
+    "icdDescription": "Cocaine use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F14921",
+    "icdDescription": "Cocaine use, unspecified with intoxication delirium"
+  },
+  {
+    "CODE": "F14922",
+    "icdDescription": "Cocaine use, unspecified with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F14929",
+    "icdDescription": "Cocaine use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1494",
+    "icdDescription": "Cocaine use, unspecified with cocaine-induced mood disorder"
+  },
+  {
+    "CODE": "F14950",
+    "icdDescription": "Cocaine use, unspecified with cocaine-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F14951",
+    "icdDescription": "Cocaine use, unspecified with cocaine-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F14959",
+    "icdDescription": "Cocaine use, unspecified with cocaine-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F14980",
+    "icdDescription": "Cocaine use, unspecified with cocaine-induced anxiety disorder"
+  },
+  {
+    "CODE": "F14981",
+    "icdDescription": "Cocaine use, unspecified with cocaine-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F14982",
+    "icdDescription": "Cocaine use, unspecified with cocaine-induced sleep disorder"
+  },
+  {
+    "CODE": "F14988",
+    "icdDescription": "Cocaine use, unspecified with other cocaine-induced disorder"
+  },
+  {
+    "CODE": "F1499",
+    "icdDescription": "Cocaine use, unspecified with unspecified cocaine-induced disorder"
+  },
+  {
+    "CODE": "F1510",
+    "icdDescription": "Other stimulant abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1511",
+    "icdDescription": "Other stimulant abuse, in remission"
+  },
+  {
+    "CODE": "F15120",
+    "icdDescription": "Other stimulant abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F15121",
+    "icdDescription": "Other stimulant abuse with intoxication delirium"
+  },
+  {
+    "CODE": "F15122",
+    "icdDescription": "Other stimulant abuse with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F15129",
+    "icdDescription": "Other stimulant abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1514",
+    "icdDescription": "Other stimulant abuse with stimulant-induced mood disorder"
+  },
+  {
+    "CODE": "F15150",
+    "icdDescription": "Other stimulant abuse with stimulant-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F15151",
+    "icdDescription": "Other stimulant abuse with stimulant-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F15159",
+    "icdDescription": "Other stimulant abuse with stimulant-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F15180",
+    "icdDescription": "Other stimulant abuse with stimulant-induced anxiety disorder"
+  },
+  {
+    "CODE": "F15181",
+    "icdDescription": "Other stimulant abuse with stimulant-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F15182",
+    "icdDescription": "Other stimulant abuse with stimulant-induced sleep disorder"
+  },
+  {
+    "CODE": "F15188",
+    "icdDescription": "Other stimulant abuse with other stimulant-induced disorder"
+  },
+  {
+    "CODE": "F1519",
+    "icdDescription": "Other stimulant abuse with unspecified stimulant-induced disorder"
+  },
+  {
+    "CODE": "F1520",
+    "icdDescription": "Other stimulant dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1521",
+    "icdDescription": "Other stimulant dependence, in remission"
+  },
+  {
+    "CODE": "F15220",
+    "icdDescription": "Other stimulant dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F15221",
+    "icdDescription": "Other stimulant dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F15222",
+    "icdDescription": "Other stimulant dependence with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F15229",
+    "icdDescription": "Other stimulant dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1523",
+    "icdDescription": "Other stimulant dependence with withdrawal"
+  },
+  {
+    "CODE": "F1524",
+    "icdDescription": "Other stimulant dependence with stimulant-induced mood disorder"
+  },
+  {
+    "CODE": "F15250",
+    "icdDescription": "Other stimulant dependence with stimulant-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F15251",
+    "icdDescription": "Other stimulant dependence with stimulant-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F15259",
+    "icdDescription": "Other stimulant dependence with stimulant-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F15280",
+    "icdDescription": "Other stimulant dependence with stimulant-induced anxiety disorder"
+  },
+  {
+    "CODE": "F15281",
+    "icdDescription": "Other stimulant dependence with stimulant-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F15282",
+    "icdDescription": "Other stimulant dependence with stimulant-induced sleep disorder"
+  },
+  {
+    "CODE": "F15288",
+    "icdDescription": "Other stimulant dependence with other stimulant-induced disorder"
+  },
+  {
+    "CODE": "F1529",
+    "icdDescription": "Other stimulant dependence with unspecified stimulant-induced disorder"
+  },
+  {
+    "CODE": "F1590",
+    "icdDescription": "Other stimulant use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F15920",
+    "icdDescription": "Other stimulant use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F15921",
+    "icdDescription": "Other stimulant use, unspecified with intoxication delirium"
+  },
+  {
+    "CODE": "F15922",
+    "icdDescription": "Other stimulant use, unspecified with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F15929",
+    "icdDescription": "Other stimulant use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1593",
+    "icdDescription": "Other stimulant use, unspecified with withdrawal"
+  },
+  {
+    "CODE": "F1594",
+    "icdDescription": "Other stimulant use, unspecified with stimulant-induced mood disorder"
+  },
+  {
+    "CODE": "F15950",
+    "icdDescription": "Other stimulant use, unspecified with stimulant-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F15951",
+    "icdDescription": "Other stimulant use, unspecified with stimulant-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F15959",
+    "icdDescription": "Other stimulant use, unspecified with stimulant-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F15980",
+    "icdDescription": "Other stimulant use, unspecified with stimulant-induced anxiety disorder"
+  },
+  {
+    "CODE": "F15981",
+    "icdDescription": "Other stimulant use, unspecified with stimulant-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F15982",
+    "icdDescription": "Other stimulant use, unspecified with stimulant-induced sleep disorder"
+  },
+  {
+    "CODE": "F15988",
+    "icdDescription": "Other stimulant use, unspecified with other stimulant-induced disorder"
+  },
+  {
+    "CODE": "F1599",
+    "icdDescription": "Other stimulant use, unspecified with unspecified stimulant-induced disorder"
+  },
+  {
+    "CODE": "F1610",
+    "icdDescription": "Hallucinogen abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1611",
+    "icdDescription": "Hallucinogen abuse, in remission"
+  },
+  {
+    "CODE": "F16120",
+    "icdDescription": "Hallucinogen abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F16121",
+    "icdDescription": "Hallucinogen abuse with intoxication with delirium"
+  },
+  {
+    "CODE": "F16122",
+    "icdDescription": "Hallucinogen abuse with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F16129",
+    "icdDescription": "Hallucinogen abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1614",
+    "icdDescription": "Hallucinogen abuse with hallucinogen-induced mood disorder"
+  },
+  {
+    "CODE": "F16150",
+    "icdDescription": "Hallucinogen abuse with hallucinogen-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F16151",
+    "icdDescription": "Hallucinogen abuse with hallucinogen-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F16159",
+    "icdDescription": "Hallucinogen abuse with hallucinogen-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F16180",
+    "icdDescription": "Hallucinogen abuse with hallucinogen-induced anxiety disorder"
+  },
+  {
+    "CODE": "F16183",
+    "icdDescription": "Hallucinogen abuse with hallucinogen persisting perception disorder (flashbacks)"
+  },
+  {
+    "CODE": "F16188",
+    "icdDescription": "Hallucinogen abuse with other hallucinogen-induced disorder"
+  },
+  {
+    "CODE": "F1619",
+    "icdDescription": "Hallucinogen abuse with unspecified hallucinogen-induced disorder"
+  },
+  {
+    "CODE": "F1620",
+    "icdDescription": "Hallucinogen dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1621",
+    "icdDescription": "Hallucinogen dependence, in remission"
+  },
+  {
+    "CODE": "F16220",
+    "icdDescription": "Hallucinogen dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F16221",
+    "icdDescription": "Hallucinogen dependence with intoxication with delirium"
+  },
+  {
+    "CODE": "F16229",
+    "icdDescription": "Hallucinogen dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1624",
+    "icdDescription": "Hallucinogen dependence with hallucinogen-induced mood disorder"
+  },
+  {
+    "CODE": "F16250",
+    "icdDescription": "Hallucinogen dependence with hallucinogen-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F16251",
+    "icdDescription": "Hallucinogen dependence with hallucinogen-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F16259",
+    "icdDescription": "Hallucinogen dependence with hallucinogen-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F16280",
+    "icdDescription": "Hallucinogen dependence with hallucinogen-induced anxiety disorder"
+  },
+  {
+    "CODE": "F16283",
+    "icdDescription": "Hallucinogen dependence with hallucinogen persisting perception disorder (flashbacks)"
+  },
+  {
+    "CODE": "F16288",
+    "icdDescription": "Hallucinogen dependence with other hallucinogen-induced disorder"
+  },
+  {
+    "CODE": "F1629",
+    "icdDescription": "Hallucinogen dependence with unspecified hallucinogen-induced disorder"
+  },
+  {
+    "CODE": "F1690",
+    "icdDescription": "Hallucinogen use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F16920",
+    "icdDescription": "Hallucinogen use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F16921",
+    "icdDescription": "Hallucinogen use, unspecified with intoxication with delirium"
+  },
+  {
+    "CODE": "F16929",
+    "icdDescription": "Hallucinogen use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1694",
+    "icdDescription": "Hallucinogen use, unspecified with hallucinogen-induced mood disorder"
+  },
+  {
+    "CODE": "F16950",
+    "icdDescription": "Hallucinogen use, unspecified with hallucinogen-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F16951",
+    "icdDescription": "Hallucinogen use, unspecified with hallucinogen-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F16959",
+    "icdDescription": "Hallucinogen use, unspecified with hallucinogen-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F16980",
+    "icdDescription": "Hallucinogen use, unspecified with hallucinogen-induced anxiety disorder"
+  },
+  {
+    "CODE": "F16983",
+    "icdDescription": "Hallucinogen use, unspecified with hallucinogen persisting perception disorder (flashbacks)"
+  },
+  {
+    "CODE": "F16988",
+    "icdDescription": "Hallucinogen use, unspecified with other hallucinogen-induced disorder"
+  },
+  {
+    "CODE": "F1699",
+    "icdDescription": "Hallucinogen use, unspecified with unspecified hallucinogen-induced disorder"
+  },
+  {
+    "CODE": "F17200",
+    "icdDescription": "Nicotine dependence, unspecified, uncomplicated  "
+  },
+  {
+    "CODE": "F17201",
+    "icdDescription": "Nicotine dependence, unspecified, in remission "
+  },
+  {
+    "CODE": "F17203",
+    "icdDescription": "Nicotine dependence unspecified, with withdrawal"
+  },
+  {
+    "CODE": "F17208",
+    "icdDescription": "Nicotine dependence, unspecified, with other nicotine-induced disorders"
+  },
+  {
+    "CODE": "F17209",
+    "icdDescription": "Nicotine dependence, unspecified, with unspecified nicotine-induced disorders"
+  },
+  {
+    "CODE": "F17210",
+    "icdDescription": "Nicotine dependence, cigarettes, uncomplicated   "
+  },
+  {
+    "CODE": "F17211",
+    "icdDescription": "Nicotine dependence, cigarettes, in remission    "
+  },
+  {
+    "CODE": "F17213",
+    "icdDescription": "Nicotine dependence, cigarettes, with withdrawal"
+  },
+  {
+    "CODE": "F17218",
+    "icdDescription": "Nicotine dependence, cigarettes, with other nicotine-induced disorders"
+  },
+  {
+    "CODE": "F17219",
+    "icdDescription": "Nicotine dependence, cigarettes, with unspecified nicotine-induced disorders"
+  },
+  {
+    "CODE": "F17220",
+    "icdDescription": "Nicotine dependence, chewing tobacco, uncomplicated   "
+  },
+  {
+    "CODE": "F17221",
+    "icdDescription": "Nicotine dependence, chewing tobacco, in remission  "
+  },
+  {
+    "CODE": "F17223",
+    "icdDescription": "Nicotine dependence, chewing tobacco, with withdrawal"
+  },
+  {
+    "CODE": "F17228",
+    "icdDescription": "Nicotine dependence, chewing tobacco, with other nicotine-induced disorders"
+  },
+  {
+    "CODE": "F17229",
+    "icdDescription": "Nicotine dependence, chewing tobacco, with unspecified nicotine-induced disorders"
+  },
+  {
+    "CODE": "F17290",
+    "icdDescription": "Nicotine dependence, other tobacco product, uncomplicated   "
+  },
+  {
+    "CODE": "F17291",
+    "icdDescription": "Nicotine dependence, other tobacco product, in remission   "
+  },
+  {
+    "CODE": "F17293",
+    "icdDescription": "Nicotine dependence, other tobacco product, with withdrawal"
+  },
+  {
+    "CODE": "F17298",
+    "icdDescription": "Nicotine dependence, other tobacco product, with other nicotine-induced disorders"
+  },
+  {
+    "CODE": "F17299",
+    "icdDescription": "Nicotine dependence, other tobacco product, with unspecified nicotine-induced disorders"
+  },
+  {
+    "CODE": "F1810",
+    "icdDescription": "Inhalant abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1811",
+    "icdDescription": "Inhalant abuse, in remission"
+  },
+  {
+    "CODE": "F18120",
+    "icdDescription": "Inhalant abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F18121",
+    "icdDescription": "Inhalant abuse with intoxication delirium"
+  },
+  {
+    "CODE": "F18129",
+    "icdDescription": "Inhalant abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1814",
+    "icdDescription": "Inhalant abuse with inhalant-induced mood disorder"
+  },
+  {
+    "CODE": "F18150",
+    "icdDescription": "Inhalant abuse with inhalant-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F18151",
+    "icdDescription": "Inhalant abuse with inhalant-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F18159",
+    "icdDescription": "Inhalant abuse with inhalant-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1817",
+    "icdDescription": "Inhalant abuse with inhalant-induced dementia"
+  },
+  {
+    "CODE": "F18180",
+    "icdDescription": "Inhalant abuse with inhalant-induced anxiety disorder"
+  },
+  {
+    "CODE": "F18188",
+    "icdDescription": "Inhalant abuse with other inhalant-induced disorder"
+  },
+  {
+    "CODE": "F1819",
+    "icdDescription": "Inhalant abuse with unspecified inhalant-induced disorder"
+  },
+  {
+    "CODE": "F1820",
+    "icdDescription": "Inhalant dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1821",
+    "icdDescription": "Inhalant dependence, in remission"
+  },
+  {
+    "CODE": "F18220",
+    "icdDescription": "Inhalant dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F18221",
+    "icdDescription": "Inhalant dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F18229",
+    "icdDescription": "Inhalant dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1824",
+    "icdDescription": "Inhalant dependence with inhalant-induced mood disorder"
+  },
+  {
+    "CODE": "F18250",
+    "icdDescription": "Inhalant dependence with inhalant-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F18251",
+    "icdDescription": "Inhalant dependence with inhalant-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F18259",
+    "icdDescription": "Inhalant dependence with inhalant-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1827",
+    "icdDescription": "Inhalant dependence with inhalant-induced dementia"
+  },
+  {
+    "CODE": "F18280",
+    "icdDescription": "Inhalant dependence with inhalant-induced anxiety disorder"
+  },
+  {
+    "CODE": "F18288",
+    "icdDescription": "Inhalant dependence with other inhalant-induced disorder"
+  },
+  {
+    "CODE": "F1829",
+    "icdDescription": "Inhalant dependence with unspecified inhalant-induced disorder"
+  },
+  {
+    "CODE": "F1890",
+    "icdDescription": "Inhalant use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F18920",
+    "icdDescription": "Inhalant use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F18921",
+    "icdDescription": "Inhalant use, unspecified with intoxication with delirium"
+  },
+  {
+    "CODE": "F18929",
+    "icdDescription": "Inhalant use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1894",
+    "icdDescription": "Inhalant use, unspecified with inhalant-induced mood disorder"
+  },
+  {
+    "CODE": "F18950",
+    "icdDescription": "Inhalant use, unspecified with inhalant-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F18951",
+    "icdDescription": "Inhalant use, unspecified with inhalant-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F18959",
+    "icdDescription": "Inhalant use, unspecified with inhalant-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1897",
+    "icdDescription": "Inhalant use, unspecified with inhalant-induced persisting dementia"
+  },
+  {
+    "CODE": "F18980",
+    "icdDescription": "Inhalant use, unspecified with inhalant-induced anxiety disorder"
+  },
+  {
+    "CODE": "F18988",
+    "icdDescription": "Inhalant use, unspecified with other inhalant-induced disorder"
+  },
+  {
+    "CODE": "F1899",
+    "icdDescription": "Inhalant use, unspecified with unspecified inhalant-induced disorder"
+  },
+  {
+    "CODE": "F1910",
+    "icdDescription": "Other psychoactive substance abuse, uncomplicated"
+  },
+  {
+    "CODE": "F1911",
+    "icdDescription": "Other psychoactive substance abuse, in remission"
+  },
+  {
+    "CODE": "F19120",
+    "icdDescription": "Other psychoactive substance abuse with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F19121",
+    "icdDescription": "Other psychoactive substance abuse with intoxication delirium"
+  },
+  {
+    "CODE": "F19122",
+    "icdDescription": "Other psychoactive substance abuse with intoxication with perceptual disturbances"
+  },
+  {
+    "CODE": "F19129",
+    "icdDescription": "Other psychoactive substance abuse with intoxication, unspecified"
+  },
+  {
+    "CODE": "F1914",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced mood disorder"
+  },
+  {
+    "CODE": "F19150",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F19151",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F19159",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1916",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced persisting amnestic disorder"
+  },
+  {
+    "CODE": "F1917",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced persisting dementia"
+  },
+  {
+    "CODE": "F19180",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced anxiety disorder"
+  },
+  {
+    "CODE": "F19181",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F19182",
+    "icdDescription": "Other psychoactive substance abuse with psychoactive substance-induced sleep disorder"
+  },
+  {
+    "CODE": "F19188",
+    "icdDescription": "Other psychoactive substance abuse with other psychoactive substance-induced disorder"
+  },
+  {
+    "CODE": "F1919",
+    "icdDescription": "Other psychoactive substance abuse with unspecified psychoactive substance-induced disorder"
+  },
+  {
+    "CODE": "F1920",
+    "icdDescription": "Other psychoactive substance dependence, uncomplicated"
+  },
+  {
+    "CODE": "F1921",
+    "icdDescription": "Other psychoactive substance dependence, in remission"
+  },
+  {
+    "CODE": "F19220",
+    "icdDescription": "Other psychoactive substance dependence with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F19221",
+    "icdDescription": "Other psychoactive substance dependence with intoxication delirium"
+  },
+  {
+    "CODE": "F19222",
+    "icdDescription": "Other psychoactive substance dependence with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F19229",
+    "icdDescription": "Other psychoactive substance dependence with intoxication, unspecified"
+  },
+  {
+    "CODE": "F19230",
+    "icdDescription": "Other psychoactive substance dependence with withdrawal, uncomplicated"
+  },
+  {
+    "CODE": "F19231",
+    "icdDescription": "Other psychoactive substance dependence with withdrawal delirium"
+  },
+  {
+    "CODE": "F19232",
+    "icdDescription": "Other psychoactive substance dependence with withdrawal with perceptual disturbance"
+  },
+  {
+    "CODE": "F19239",
+    "icdDescription": "Other psychoactive substance dependence with withdrawal, unspecified"
+  },
+  {
+    "CODE": "F1924",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced mood disorder"
+  },
+  {
+    "CODE": "F19250",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F19251",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F19259",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1926",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced persisting amnestic disorder"
+  },
+  {
+    "CODE": "F1927",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced persisting dementia"
+  },
+  {
+    "CODE": "F19280",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced anxiety disorder"
+  },
+  {
+    "CODE": "F19281",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F19282",
+    "icdDescription": "Other psychoactive substance dependence with psychoactive substance-induced sleep disorder"
+  },
+  {
+    "CODE": "F19288",
+    "icdDescription": "Other psychoactive substance dependence with other psychoactive substance-induced disorder"
+  },
+  {
+    "CODE": "F1929",
+    "icdDescription": "Other psychoactive substance dependence with unspecified psychoactive substance-induced disorder"
+  },
+  {
+    "CODE": "F1990",
+    "icdDescription": "Other psychoactive substance use, unspecified, uncomplicated"
+  },
+  {
+    "CODE": "F19920",
+    "icdDescription": "Other psychoactive substance use, unspecified with intoxication, uncomplicated"
+  },
+  {
+    "CODE": "F19921",
+    "icdDescription": "Other psychoactive substance use, unspecified with intoxication with delirium"
+  },
+  {
+    "CODE": "F19922",
+    "icdDescription": "Other psychoactive substance use, unspecified with intoxication with perceptual disturbance"
+  },
+  {
+    "CODE": "F19929",
+    "icdDescription": "Other psychoactive substance use, unspecified with intoxication, unspecified"
+  },
+  {
+    "CODE": "F19930",
+    "icdDescription": "Other psychoactive substance use, unspecified with withdrawal, uncomplicated"
+  },
+  {
+    "CODE": "F19931",
+    "icdDescription": "Other psychoactive substance use, unspecified with withdrawal delirium"
+  },
+  {
+    "CODE": "F19932",
+    "icdDescription": "Other psychoactive substance use, unspecified with withdrawal with perceptual disturbance"
+  },
+  {
+    "CODE": "F19939",
+    "icdDescription": "Other psychoactive substance use, unspecified with withdrawal, unspecified"
+  },
+  {
+    "CODE": "F1994",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced mood disorder"
+  },
+  {
+    "CODE": "F19950",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced psychotic disorder with delusions"
+  },
+  {
+    "CODE": "F19951",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced psychotic disorder with hallucinations"
+  },
+  {
+    "CODE": "F19959",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced psychotic disorder, unspecified"
+  },
+  {
+    "CODE": "F1996",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced persisting amnestic disorder"
+  },
+  {
+    "CODE": "F1997",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced persisting dementia"
+  },
+  {
+    "CODE": "F19980",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced anxiety disorder"
+  },
+  {
+    "CODE": "F19981",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced sexual dysfunction"
+  },
+  {
+    "CODE": "F19982",
+    "icdDescription": "Other psychoactive substance use, unspecified with psychoactive substance-induced sleep disorder"
+  },
+  {
+    "CODE": "F19988",
+    "icdDescription": "Other psychoactive substance use, unspecified with other psychoactive substance-induced disorder"
+  },
+  {
+    "CODE": "F1999",
+    "icdDescription": "Other psychoactive substance use, unspecified with unspecified psychoactive substance-induced disorder"
+  },
+  {
+    "CODE": "F200",
+    "icdDescription": "Paranoid schizophrenia"
+  },
+  {
+    "CODE": "F201",
+    "icdDescription": "Disorganized schizophrenia"
+  },
+  {
+    "CODE": "F202",
+    "icdDescription": "Catatonic schizophrenia"
+  },
+  {
+    "CODE": "F203",
+    "icdDescription": "Undifferentiated schizophrenia"
+  },
+  {
+    "CODE": "F205",
+    "icdDescription": "Residual schizophrenia"
+  },
+  {
+    "CODE": "F2081",
+    "icdDescription": "Schizophreniform disorder"
+  },
+  {
+    "CODE": "F2089",
+    "icdDescription": "Other schizophrenia"
+  },
+  {
+    "CODE": "F209",
+    "icdDescription": "Schizophrenia, unspecified"
+  },
+  {
+    "CODE": "F21",
+    "icdDescription": "Schizotypal disorder"
+  },
+  {
+    "CODE": "F22",
+    "icdDescription": "Delusional disorders"
+  },
+  {
+    "CODE": "F23",
+    "icdDescription": "Brief psychotic disorder"
+  },
+  {
+    "CODE": "F24",
+    "icdDescription": "Shared psychotic disorder"
+  },
+  {
+    "CODE": "F250",
+    "icdDescription": "Schizoaffective disorder, bipolar type"
+  },
+  {
+    "CODE": "F251",
+    "icdDescription": "Schizoaffective disorder, depressive type"
+  },
+  {
+    "CODE": "F258",
+    "icdDescription": "Other schizoaffective disorders"
+  },
+  {
+    "CODE": "F259",
+    "icdDescription": "Schizoaffective disorder, unspecified"
+  },
+  {
+    "CODE": "F28",
+    "icdDescription": "Other psychotic disorder not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F29",
+    "icdDescription": "Unspecified psychosis not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F3010",
+    "icdDescription": "Manic episode without psychotic symptoms, unspecified"
+  },
+  {
+    "CODE": "F3011",
+    "icdDescription": "Manic episode without psychotic symptoms, mild"
+  },
+  {
+    "CODE": "F3012",
+    "icdDescription": "Manic episode without psychotic symptoms, moderate"
+  },
+  {
+    "CODE": "F3013",
+    "icdDescription": "Manic episode, severe, without psychotic symptoms"
+  },
+  {
+    "CODE": "F302",
+    "icdDescription": "Manic episode, severe with psychotic symptoms"
+  },
+  {
+    "CODE": "F303",
+    "icdDescription": "Manic episode in partial remission"
+  },
+  {
+    "CODE": "F304",
+    "icdDescription": "Manic episode in full remission"
+  },
+  {
+    "CODE": "F308",
+    "icdDescription": "Other manic episodes"
+  },
+  {
+    "CODE": "F309",
+    "icdDescription": "Manic episode, unspecified"
+  },
+  {
+    "CODE": "F310",
+    "icdDescription": "Bipolar disorder, current episode hypomanic"
+  },
+  {
+    "CODE": "F3110",
+    "icdDescription": "Bipolar disorder, current episode manic without psychotic features, unspecified"
+  },
+  {
+    "CODE": "F3111",
+    "icdDescription": "Bipolar disorder, current episode manic without psychotic features, mild"
+  },
+  {
+    "CODE": "F3112",
+    "icdDescription": "Bipolar disorder, current episode manic without psychotic features, moderate"
+  },
+  {
+    "CODE": "F3113",
+    "icdDescription": "Bipolar disorder, current episode manic without psychotic features, severe"
+  },
+  {
+    "CODE": "F312",
+    "icdDescription": "Bipolar disorder, current episode manic severe with psychotic features"
+  },
+  {
+    "CODE": "F3130",
+    "icdDescription": "Bipolar disorder, current episode depressed, mild or moderate severity, unspecified"
+  },
+  {
+    "CODE": "F3131",
+    "icdDescription": "Bipolar disorder, current episode depressed, mild"
+  },
+  {
+    "CODE": "F3132",
+    "icdDescription": "Bipolar disorder, current episode depressed, moderate"
+  },
+  {
+    "CODE": "F314",
+    "icdDescription": "Bipolar disorder, current episode depressed, severe, without psychotic features"
+  },
+  {
+    "CODE": "F315",
+    "icdDescription": "Bipolar disorder, current episode depressed, severe, with psychotic features"
+  },
+  {
+    "CODE": "F3160",
+    "icdDescription": "Bipolar disorder, current episode mixed, unspecified"
+  },
+  {
+    "CODE": "F3161",
+    "icdDescription": "Bipolar disorder, current episode mixed, mild"
+  },
+  {
+    "CODE": "F3162",
+    "icdDescription": "Bipolar disorder, current episode mixed, moderate"
+  },
+  {
+    "CODE": "F3163",
+    "icdDescription": "Bipolar disorder, current episode mixed, severe, without psychotic features"
+  },
+  {
+    "CODE": "F3164",
+    "icdDescription": "Bipolar disorder, current episode mixed, severe, with psychotic features"
+  },
+  {
+    "CODE": "F3170",
+    "icdDescription": "Bipolar disorder, currently in remission, most recent episode unspecified"
+  },
+  {
+    "CODE": "F3171",
+    "icdDescription": "Bipolar disorder, in partial remission, most recent episode hypomanic"
+  },
+  {
+    "CODE": "F3172",
+    "icdDescription": "Bipolar disorder, in full remission, most recent episode hypomanic"
+  },
+  {
+    "CODE": "F3173",
+    "icdDescription": "Bipolar disorder, in partial remission, most recent episode manic"
+  },
+  {
+    "CODE": "F3174",
+    "icdDescription": "Bipolar disorder, in full remission, most recent episode manic"
+  },
+  {
+    "CODE": "F3175",
+    "icdDescription": "Bipolar disorder, in partial remission, most recent episode depressed"
+  },
+  {
+    "CODE": "F3176",
+    "icdDescription": "Bipolar disorder, in full remission, most recent episode depressed"
+  },
+  {
+    "CODE": "F3177",
+    "icdDescription": "Bipolar disorder, in partial remission, most recent episode mixed"
+  },
+  {
+    "CODE": "F3178",
+    "icdDescription": "Bipolar disorder, in full remission, most recent episode mixed"
+  },
+  {
+    "CODE": "F3181",
+    "icdDescription": "Bipolar II disorder"
+  },
+  {
+    "CODE": "F3189",
+    "icdDescription": "Other bipolar disorder"
+  },
+  {
+    "CODE": "F319",
+    "icdDescription": "Bipolar disorder, unspecified"
+  },
+  {
+    "CODE": "F320",
+    "icdDescription": "Major depressive disorder, single episode, mild"
+  },
+  {
+    "CODE": "F321",
+    "icdDescription": "Major depressive disorder, single episode, moderate"
+  },
+  {
+    "CODE": "F322",
+    "icdDescription": "Major depressive disorder, single episode, severe without psychotic features"
+  },
+  {
+    "CODE": "F323",
+    "icdDescription": "Major depressive disorder, single episode, severe with psychotic features"
+  },
+  {
+    "CODE": "F324",
+    "icdDescription": "Major depressive disorder, single episode, in partial remission"
+  },
+  {
+    "CODE": "F325",
+    "icdDescription": "Major depressive disorder, single episode, in full remission"
+  },
+  {
+    "CODE": "F328",
+    "icdDescription": "Other depressive episodes"
+  },
+  {
+    "CODE": "F3281",
+    "icdDescription": "Premenstrual dysphoric disorder"
+  },
+  {
+    "CODE": "F3289",
+    "icdDescription": "Other specified depressive episodes"
+  },
+  {
+    "CODE": "F329",
+    "icdDescription": "Major depressive disorder, single episode, unspecified"
+  },
+  {
+    "CODE": "F330",
+    "icdDescription": "Major depressive disorder, recurrent, mild"
+  },
+  {
+    "CODE": "F331",
+    "icdDescription": "Major depressive disorder, recurrent, moderate"
+  },
+  {
+    "CODE": "F332",
+    "icdDescription": "Major depressive disorder, recurrent severe without psychotic features"
+  },
+  {
+    "CODE": "F333",
+    "icdDescription": "Major depressive disorder, recurrent, severe with psychotic symptoms"
+  },
+  {
+    "CODE": "F3340",
+    "icdDescription": "Major depressive disorder, recurrent, in remission, unspecified"
+  },
+  {
+    "CODE": "F3341",
+    "icdDescription": "Major depressive disorder, recurrent, in partial remission"
+  },
+  {
+    "CODE": "F3342",
+    "icdDescription": "Major depressive disorder, recurrent, in full remission"
+  },
+  {
+    "CODE": "F338",
+    "icdDescription": "Other recurrent depressive disorders"
+  },
+  {
+    "CODE": "F339",
+    "icdDescription": "Major depressive disorder, recurrent, unspecified"
+  },
+  {
+    "CODE": "F340",
+    "icdDescription": "Cyclothymic disorder"
+  },
+  {
+    "CODE": "F341",
+    "icdDescription": "Dysthymic disorder                                                                                                                                                                                                                                              Y"
+  },
+  {
+    "CODE": "F348",
+    "icdDescription": "Other persistent mood [affective] disorders"
+  },
+  {
+    "CODE": "F3481",
+    "icdDescription": "Disruptive mood dysregulation disorder"
+  },
+  {
+    "CODE": "F3489",
+    "icdDescription": "Other specified persistent mood disorders"
+  },
+  {
+    "CODE": "F349",
+    "icdDescription": "Persistent mood [affective] disorder, unspecified"
+  },
+  {
+    "CODE": "F39",
+    "icdDescription": "Unspecified mood [affective] disorder"
+  },
+  {
+    "CODE": "F4000",
+    "icdDescription": "Agoraphobia, unspecified  "
+  },
+  {
+    "CODE": "F4001",
+    "icdDescription": "Agoraphobia with panic disorder   "
+  },
+  {
+    "CODE": "F4002",
+    "icdDescription": "Agoraphobia without panic disorder "
+  },
+  {
+    "CODE": "F4010",
+    "icdDescription": "Social phobia, unspecified "
+  },
+  {
+    "CODE": "F4011",
+    "icdDescription": "Social phobia, generalized "
+  },
+  {
+    "CODE": "F40210",
+    "icdDescription": "Arachnophobia "
+  },
+  {
+    "CODE": "F40218",
+    "icdDescription": "Other animal type phobia "
+  },
+  {
+    "CODE": "F40220",
+    "icdDescription": "Fear of thunderstorms  "
+  },
+  {
+    "CODE": "F40228",
+    "icdDescription": "Other natural environment type phobia   "
+  },
+  {
+    "CODE": "F40230",
+    "icdDescription": "Fear of blood    "
+  },
+  {
+    "CODE": "F40231",
+    "icdDescription": "Fear of injections and transfusions "
+  },
+  {
+    "CODE": "F40232",
+    "icdDescription": "Fear of other medical care "
+  },
+  {
+    "CODE": "F40233",
+    "icdDescription": "Fear of injury  "
+  },
+  {
+    "CODE": "F40240",
+    "icdDescription": "Claustrophobia  "
+  },
+  {
+    "CODE": "F40241",
+    "icdDescription": "Acrophobia"
+  },
+  {
+    "CODE": "F40242",
+    "icdDescription": "Fear of bridges  "
+  },
+  {
+    "CODE": "F40243",
+    "icdDescription": "Fear of flying "
+  },
+  {
+    "CODE": "F40248",
+    "icdDescription": "Other situational type phobia   "
+  },
+  {
+    "CODE": "F40290",
+    "icdDescription": "Androphobia "
+  },
+  {
+    "CODE": "F40291",
+    "icdDescription": "Gynephobia  "
+  },
+  {
+    "CODE": "F40298",
+    "icdDescription": "Other specified phobia "
+  },
+  {
+    "CODE": "F408",
+    "icdDescription": "Other phobic anxiety disorders "
+  },
+  {
+    "CODE": "F409",
+    "icdDescription": "Phobic anxiety disorder, unspecified  "
+  },
+  {
+    "CODE": "F410",
+    "icdDescription": "Panic disorder [episodic paroxysmal anxiety] "
+  },
+  {
+    "CODE": "F411",
+    "icdDescription": "Generalized anxiety disorder "
+  },
+  {
+    "CODE": "F413",
+    "icdDescription": "Other mixed anxiety disorders   "
+  },
+  {
+    "CODE": "F418",
+    "icdDescription": "Other specified anxiety disorders "
+  },
+  {
+    "CODE": "F419",
+    "icdDescription": "Anxiety disorder, unspecified "
+  },
+  {
+    "CODE": "F42",
+    "icdDescription": "Obsessive-compulsive disorder"
+  },
+  {
+    "CODE": "F422",
+    "icdDescription": "Mixed obsessional thoughts and acts"
+  },
+  {
+    "CODE": "F423",
+    "icdDescription": "Hoarding disorder"
+  },
+  {
+    "CODE": "F424",
+    "icdDescription": "Excoriation (skin-picking) disorder"
+  },
+  {
+    "CODE": "F428",
+    "icdDescription": "Other obsessive-compulsive disorder"
+  },
+  {
+    "CODE": "F429",
+    "icdDescription": "Obsessive-compulsive disorder, unspecified"
+  },
+  {
+    "CODE": "F430",
+    "icdDescription": "Acute stress reaction"
+  },
+  {
+    "CODE": "F4310",
+    "icdDescription": "Post-traumatic stress disorder, unspecified"
+  },
+  {
+    "CODE": "F4311",
+    "icdDescription": "Post-traumatic stress disorder, acute"
+  },
+  {
+    "CODE": "F4312",
+    "icdDescription": "Post-traumatic stress disorder, chronic"
+  },
+  {
+    "CODE": "F4320",
+    "icdDescription": "Adjustment disorder, unspecified"
+  },
+  {
+    "CODE": "F4321",
+    "icdDescription": "Adjustment disorder with depressed mood"
+  },
+  {
+    "CODE": "F4322",
+    "icdDescription": "Adjustment disorder with anxiety"
+  },
+  {
+    "CODE": "F4323",
+    "icdDescription": "Adjustment disorder with mixed anxiety and depressed mood"
+  },
+  {
+    "CODE": "F4324",
+    "icdDescription": "Adjustment disorder with disturbance of conduct"
+  },
+  {
+    "CODE": "F4325",
+    "icdDescription": "Adjustment disorder with mixed disturbance of emotions and conduct"
+  },
+  {
+    "CODE": "F4329",
+    "icdDescription": "Adjustment disorder with other symptoms"
+  },
+  {
+    "CODE": "F438",
+    "icdDescription": "Other reactions to severe stress"
+  },
+  {
+    "CODE": "F439",
+    "icdDescription": "Reaction to severe stress, unspecified"
+  },
+  {
+    "CODE": "F440",
+    "icdDescription": "Dissociative amnesia  "
+  },
+  {
+    "CODE": "F441",
+    "icdDescription": "Dissociative fugue   "
+  },
+  {
+    "CODE": "F442",
+    "icdDescription": "Dissociative stupor  "
+  },
+  {
+    "CODE": "F444",
+    "icdDescription": "Conversion disorder with motor symptom or deficit "
+  },
+  {
+    "CODE": "F445",
+    "icdDescription": "Conversion disorder with seizures or convulsions "
+  },
+  {
+    "CODE": "F446",
+    "icdDescription": "Conversion disorder with sensory symptom or deficit  "
+  },
+  {
+    "CODE": "F447",
+    "icdDescription": "Conversion disorder with mixed symptom presentation"
+  },
+  {
+    "CODE": "F4481",
+    "icdDescription": "Dissociative identity disorder  "
+  },
+  {
+    "CODE": "F4489",
+    "icdDescription": "Other dissociative and conversion disorders  "
+  },
+  {
+    "CODE": "F449",
+    "icdDescription": "Dissociative and conversion disorder, unspecified "
+  },
+  {
+    "CODE": "F450",
+    "icdDescription": "Somatization disorder"
+  },
+  {
+    "CODE": "F451",
+    "icdDescription": "Undifferentiated somatoform disorder   "
+  },
+  {
+    "CODE": "F4520",
+    "icdDescription": "Hypochondriacal disorder, unspecified"
+  },
+  {
+    "CODE": "F4521",
+    "icdDescription": "Hypochondriasis  "
+  },
+  {
+    "CODE": "F4522",
+    "icdDescription": "Body dysmorphic disorder "
+  },
+  {
+    "CODE": "F4529",
+    "icdDescription": "Other hypochondriacal disorders "
+  },
+  {
+    "CODE": "F4541",
+    "icdDescription": "Pain disorder exclusively related to psychological factors"
+  },
+  {
+    "CODE": "F4542",
+    "icdDescription": "Pain disorder with related psychological factors"
+  },
+  {
+    "CODE": "F458",
+    "icdDescription": "Other somatoform disorders   "
+  },
+  {
+    "CODE": "F459",
+    "icdDescription": "Somatoform disorder, unspecified  "
+  },
+  {
+    "CODE": "F481",
+    "icdDescription": "Depersonalization-derealization syndrome"
+  },
+  {
+    "CODE": "F482",
+    "icdDescription": "Pseudobulbar affect"
+  },
+  {
+    "CODE": "F488",
+    "icdDescription": "Other specified nonpsychotic mental disorders "
+  },
+  {
+    "CODE": "F489",
+    "icdDescription": "Nonpsychotic mental disorder, unspecified    "
+  },
+  {
+    "CODE": "F5000",
+    "icdDescription": "Anorexia nervosa, unspecified"
+  },
+  {
+    "CODE": "F5001",
+    "icdDescription": "Anorexia nervosa, restricting type"
+  },
+  {
+    "CODE": "F5002",
+    "icdDescription": "Anorexia nervosa, binge eating/purging type"
+  },
+  {
+    "CODE": "F502",
+    "icdDescription": "Bulimia nervosa"
+  },
+  {
+    "CODE": "F508",
+    "icdDescription": "Other eating disorders"
+  },
+  {
+    "CODE": "F5081",
+    "icdDescription": "Binge eating disorder"
+  },
+  {
+    "CODE": "F5082",
+    "icdDescription": "Avoidant/restrictive food intake disorder"
+  },
+  {
+    "CODE": "F5089",
+    "icdDescription": "Other specified eating disorder"
+  },
+  {
+    "CODE": "F509",
+    "icdDescription": "Eating disorder, unspecified"
+  },
+  {
+    "CODE": "F5101",
+    "icdDescription": "Primary insomnia"
+  },
+  {
+    "CODE": "F5102",
+    "icdDescription": "Adjustment insomnia"
+  },
+  {
+    "CODE": "F5103",
+    "icdDescription": "Paradoxical insomnia"
+  },
+  {
+    "CODE": "F5104",
+    "icdDescription": "Psychophysiologic insomnia"
+  },
+  {
+    "CODE": "F5105",
+    "icdDescription": "Insomnia due to other mental disorder"
+  },
+  {
+    "CODE": "F5109",
+    "icdDescription": "Other insomnia not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F5111",
+    "icdDescription": "Primary hypersomnia"
+  },
+  {
+    "CODE": "F5112",
+    "icdDescription": "Insufficient sleep syndrome"
+  },
+  {
+    "CODE": "F5113",
+    "icdDescription": "Hypersomnia due to other mental disorder"
+  },
+  {
+    "CODE": "F5119",
+    "icdDescription": "Other hypersomnia not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F513",
+    "icdDescription": "Sleepwalking [somnambulism]"
+  },
+  {
+    "CODE": "F514",
+    "icdDescription": "Sleep terrors [night terrors]"
+  },
+  {
+    "CODE": "F515",
+    "icdDescription": "Nightmare disorder"
+  },
+  {
+    "CODE": "F518",
+    "icdDescription": "Other sleep disorders not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F519",
+    "icdDescription": "Sleep disorder not due to a substance or known physiological condition, unspecified"
+  },
+  {
+    "CODE": "F520",
+    "icdDescription": "Hypoactive sexual desire disorder"
+  },
+  {
+    "CODE": "F521",
+    "icdDescription": "Sexual aversion disorder"
+  },
+  {
+    "CODE": "F5221",
+    "icdDescription": "Male erectile disorder"
+  },
+  {
+    "CODE": "F5222",
+    "icdDescription": "Female sexual arousal disorder"
+  },
+  {
+    "CODE": "F5231",
+    "icdDescription": "Female orgasmic disorder"
+  },
+  {
+    "CODE": "F5232",
+    "icdDescription": "Male orgasmic disorder"
+  },
+  {
+    "CODE": "F524",
+    "icdDescription": "Premature ejaculation"
+  },
+  {
+    "CODE": "F525",
+    "icdDescription": "Vaginismus not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F526",
+    "icdDescription": "Dyspareunia not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F528",
+    "icdDescription": "Other sexual dysfunction not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F529",
+    "icdDescription": "Unspecified sexual dysfunction not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F53",
+    "icdDescription": "Puerperal psychosis"
+  },
+  {
+    "CODE": "F530",
+    "icdDescription": "Postpartum depression"
+  },
+  {
+    "CODE": "F531",
+    "icdDescription": "Puerperal psychosis"
+  },
+  {
+    "CODE": "F54",
+    "icdDescription": "Psychological and behavioral factors associated with disorders or diseases classified elsewhere"
+  },
+  {
+    "CODE": "F550",
+    "icdDescription": "Abuse of antacids"
+  },
+  {
+    "CODE": "F551",
+    "icdDescription": "Abuse of herbal or folk remedies"
+  },
+  {
+    "CODE": "F552",
+    "icdDescription": "Abuse of laxatives"
+  },
+  {
+    "CODE": "F553",
+    "icdDescription": "Abuse of steroids or hormones"
+  },
+  {
+    "CODE": "F554",
+    "icdDescription": "Abuse of vitamins"
+  },
+  {
+    "CODE": "F558",
+    "icdDescription": "Abuse of other non-psychoactive substances"
+  },
+  {
+    "CODE": "F59",
+    "icdDescription": "Unspecified behavioral syndromes associated with physiological disturbances and physical factors"
+  },
+  {
+    "CODE": "F600",
+    "icdDescription": "Paranoid personality disorder"
+  },
+  {
+    "CODE": "F601",
+    "icdDescription": "Schizoid personality disorder"
+  },
+  {
+    "CODE": "F602",
+    "icdDescription": "Antisocial personality disorder"
+  },
+  {
+    "CODE": "F603",
+    "icdDescription": "Borderline personality disorder"
+  },
+  {
+    "CODE": "F604",
+    "icdDescription": "Histrionic personality disorder"
+  },
+  {
+    "CODE": "F605",
+    "icdDescription": "Obsessive-compulsive personality disorder"
+  },
+  {
+    "CODE": "F606",
+    "icdDescription": "Avoidant personality disorder"
+  },
+  {
+    "CODE": "F607",
+    "icdDescription": "Dependent personality disorder"
+  },
+  {
+    "CODE": "F6081",
+    "icdDescription": "Narcissistic personality disorder"
+  },
+  {
+    "CODE": "F6089",
+    "icdDescription": "Other specific personality disorders"
+  },
+  {
+    "CODE": "F609",
+    "icdDescription": "Personality disorder, unspecified"
+  },
+  {
+    "CODE": "F630",
+    "icdDescription": "Pathological gambling"
+  },
+  {
+    "CODE": "F631",
+    "icdDescription": "Pyromania"
+  },
+  {
+    "CODE": "F632",
+    "icdDescription": "Kleptomania"
+  },
+  {
+    "CODE": "F633",
+    "icdDescription": "Trichotillomania"
+  },
+  {
+    "CODE": "F6381",
+    "icdDescription": "Intermittent explosive disorder"
+  },
+  {
+    "CODE": "F6389",
+    "icdDescription": "Other impulse disorders"
+  },
+  {
+    "CODE": "F639",
+    "icdDescription": "Impulse disorder, unspecified"
+  },
+  {
+    "CODE": "F640",
+    "icdDescription": "Transsexualism"
+  },
+  {
+    "CODE": "F641",
+    "icdDescription": "Dual role transvestism"
+  },
+  {
+    "CODE": "F642",
+    "icdDescription": "Gender identity disorder of childhood"
+  },
+  {
+    "CODE": "F648",
+    "icdDescription": "Other gender identity disorders"
+  },
+  {
+    "CODE": "F649",
+    "icdDescription": "Gender identity disorder, unspecified"
+  },
+  {
+    "CODE": "F650",
+    "icdDescription": "Fetishism"
+  },
+  {
+    "CODE": "F651",
+    "icdDescription": "Transvestic fetishism"
+  },
+  {
+    "CODE": "F652",
+    "icdDescription": "Exhibitionism"
+  },
+  {
+    "CODE": "F653",
+    "icdDescription": "Voyeurism"
+  },
+  {
+    "CODE": "F654",
+    "icdDescription": "Pedophilia"
+  },
+  {
+    "CODE": "F6550",
+    "icdDescription": "Sadomasochism, unspecified"
+  },
+  {
+    "CODE": "F6551",
+    "icdDescription": "Sexual masochism"
+  },
+  {
+    "CODE": "F6552",
+    "icdDescription": "Sexual sadism"
+  },
+  {
+    "CODE": "F6581",
+    "icdDescription": "Frotteurism"
+  },
+  {
+    "CODE": "F6589",
+    "icdDescription": "Other paraphilias"
+  },
+  {
+    "CODE": "F659",
+    "icdDescription": "Paraphilia, unspecified"
+  },
+  {
+    "CODE": "F66",
+    "icdDescription": "Other sexual disorders"
+  },
+  {
+    "CODE": "F6810",
+    "icdDescription": "Factitious disorder imposed on self, unspecified"
+  },
+  {
+    "CODE": "F6811",
+    "icdDescription": "Factitious disorder imposed on self, with predominantly psychological signs and symptoms"
+  },
+  {
+    "CODE": "F6812",
+    "icdDescription": "Factitious disorder imposed on self, with predominantly physical signs and symptoms"
+  },
+  {
+    "CODE": "F6813",
+    "icdDescription": "Factitious disorder imposed on self, with combined psychological and physical signs and symptoms"
+  },
+  {
+    "CODE": "F688",
+    "icdDescription": "Other specified disorders of adult personality and behavior  "
+  },
+  {
+    "CODE": "F68A",
+    "icdDescription": "Factitious disorder imposed on another"
+  },
+  {
+    "CODE": "F69",
+    "icdDescription": "Unspecified disorder of adult personality and behavior"
+  },
+  {
+    "CODE": "F70",
+    "icdDescription": "Mild intellectual disabilities"
+  },
+  {
+    "CODE": "F71",
+    "icdDescription": "Moderate intellectual disabilities"
+  },
+  {
+    "CODE": "F72",
+    "icdDescription": "Severe intellectual disabilities"
+  },
+  {
+    "CODE": "F73",
+    "icdDescription": "Profound intellectual disabilities"
+  },
+  {
+    "CODE": "F78",
+    "icdDescription": "Other intellectual disabilities"
+  },
+  {
+    "CODE": "F79",
+    "icdDescription": "Unspecified intellectual disabilities"
+  },
+  {
+    "CODE": "F800",
+    "icdDescription": "Phonological disorder"
+  },
+  {
+    "CODE": "F801",
+    "icdDescription": "Expressive language disorder"
+  },
+  {
+    "CODE": "F802",
+    "icdDescription": "Mixed receptive-expressive language disorder"
+  },
+  {
+    "CODE": "F804",
+    "icdDescription": "Speech and language development delay due to hearing loss"
+  },
+  {
+    "CODE": "F8081",
+    "icdDescription": "Childhood onset fluency disorder"
+  },
+  {
+    "CODE": "F8082",
+    "icdDescription": "Social pragmatic communication disorder"
+  },
+  {
+    "CODE": "F8089",
+    "icdDescription": "Other developmental disorders of speech and language"
+  },
+  {
+    "CODE": "F809",
+    "icdDescription": "Developmental disorder of speech and language, unspecified"
+  },
+  {
+    "CODE": "F810",
+    "icdDescription": "Specific reading disorder"
+  },
+  {
+    "CODE": "F812",
+    "icdDescription": "Mathematics disorder"
+  },
+  {
+    "CODE": "F8181",
+    "icdDescription": "Disorder of written expression"
+  },
+  {
+    "CODE": "F8189",
+    "icdDescription": "Other developmental disorders of scholastic skills"
+  },
+  {
+    "CODE": "F819",
+    "icdDescription": "Developmental disorder of scholastic skills, unspecified"
+  },
+  {
+    "CODE": "F82",
+    "icdDescription": "Specific developmental disorder of motor function"
+  },
+  {
+    "CODE": "F840",
+    "icdDescription": "Autistic disorder"
+  },
+  {
+    "CODE": "F842",
+    "icdDescription": "Rett's syndrome"
+  },
+  {
+    "CODE": "F843",
+    "icdDescription": "Other childhood disintegrative disorder"
+  },
+  {
+    "CODE": "F845",
+    "icdDescription": "Asperger's syndrome"
+  },
+  {
+    "CODE": "F848",
+    "icdDescription": "Other pervasive developmental disorders"
+  },
+  {
+    "CODE": "F849",
+    "icdDescription": "Pervasive developmental disorder, unspecified"
+  },
+  {
+    "CODE": "F88",
+    "icdDescription": "Other disorders of psychological development"
+  },
+  {
+    "CODE": "F89",
+    "icdDescription": "Unspecified disorder of psychological development"
+  },
+  {
+    "CODE": "F900",
+    "icdDescription": "Attention-deficit hyperactivity disorder, predominantly inattentive type"
+  },
+  {
+    "CODE": "F901",
+    "icdDescription": "Attention-deficit hyperactivity disorder, predominantly hyperactive type"
+  },
+  {
+    "CODE": "F902",
+    "icdDescription": "Attention-deficit hyperactivity disorder, combined type"
+  },
+  {
+    "CODE": "F908",
+    "icdDescription": "Attention-deficit hyperactivity disorder, other type"
+  },
+  {
+    "CODE": "F909",
+    "icdDescription": "Attention-deficit hyperactivity disorder, unspecified type"
+  },
+  {
+    "CODE": "F910",
+    "icdDescription": "Conduct disorder confined to family context"
+  },
+  {
+    "CODE": "F911",
+    "icdDescription": "Conduct disorder, childhood-onset type"
+  },
+  {
+    "CODE": "F912",
+    "icdDescription": "Conduct disorder, adolescent-onset type"
+  },
+  {
+    "CODE": "F913",
+    "icdDescription": "Oppositional defiant disorder"
+  },
+  {
+    "CODE": "F918",
+    "icdDescription": "Other conduct disorders"
+  },
+  {
+    "CODE": "F919",
+    "icdDescription": "Conduct disorder, unspecified"
+  },
+  {
+    "CODE": "F930",
+    "icdDescription": "Separation anxiety disorder of childhood"
+  },
+  {
+    "CODE": "F938",
+    "icdDescription": "Other childhood emotional disorders"
+  },
+  {
+    "CODE": "F939",
+    "icdDescription": "Childhood emotional disorder, unspecified"
+  },
+  {
+    "CODE": "F940",
+    "icdDescription": "Selective mutism"
+  },
+  {
+    "CODE": "F941",
+    "icdDescription": "Reactive attachment disorder of childhood"
+  },
+  {
+    "CODE": "F942",
+    "icdDescription": "Disinhibited attachment disorder of childhood"
+  },
+  {
+    "CODE": "F948",
+    "icdDescription": "Other childhood disorders of social functioning"
+  },
+  {
+    "CODE": "F949",
+    "icdDescription": "Childhood disorder of social functioning, unspecified"
+  },
+  {
+    "CODE": "F950",
+    "icdDescription": "Transient tic disorder"
+  },
+  {
+    "CODE": "F951",
+    "icdDescription": "Chronic motor or vocal tic disorder"
+  },
+  {
+    "CODE": "F952",
+    "icdDescription": "Tourette's disorder"
+  },
+  {
+    "CODE": "F958",
+    "icdDescription": "Other tic disorders"
+  },
+  {
+    "CODE": "F959",
+    "icdDescription": "Tic disorder, unspecified"
+  },
+  {
+    "CODE": "F980",
+    "icdDescription": "Enuresis not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F981",
+    "icdDescription": "Encopresis not due to a substance or known physiological condition"
+  },
+  {
+    "CODE": "F9821",
+    "icdDescription": "Rumination disorder of infancy"
+  },
+  {
+    "CODE": "F9829",
+    "icdDescription": "Other feeding disorders of infancy and early childhood"
+  },
+  {
+    "CODE": "F983",
+    "icdDescription": "Pica of infancy and childhood"
+  },
+  {
+    "CODE": "F984",
+    "icdDescription": "Stereotyped movement disorders"
+  },
+  {
+    "CODE": "F985",
+    "icdDescription": "Adult onset fluency disorder"
+  },
+  {
+    "CODE": "F988",
+    "icdDescription": "Other specified behavioral and emotional disorders with onset usually occurring in childhood and adolescence"
+  },
+  {
+    "CODE": "F989",
+    "icdDescription": "Unspecified behavioral and emotional disorders with onset usually occurring in childhood and adolescence"
+  },
+  {
+    "CODE": "F99",
+    "icdDescription": "Mental disorder, not otherwise specified                                                                                                                                                                                                                        Y"
+  }
+]
