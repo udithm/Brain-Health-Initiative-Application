@@ -51,17 +51,24 @@ public class ConsultationRecordController {
 	}
 	
 	//API to Get all Consultation records for a particular patient in the database
-		@GetMapping(path = "/patientId/{id}")
-		public List<ConsultationRecord> getAllConsultationRecordsByPatientId(@PathVariable(value = "id", required = true) long patientId) {
-			List<ConsultationRecord> records = consultationRecordService.getAllConsultationRecordsByPatientId(patientId);
-			return records;
-		}
+	@GetMapping(path = "/patientId/{id}")
+	public List<ConsultationRecord> getAllConsultationRecordsByPatientId(@PathVariable(value = "id", required = true) long patientId) {
+		List<ConsultationRecord> records = consultationRecordService.getAllConsultationRecordsByPatientId(patientId);
+		return records;
+	}
 		
-		//API to Get all Consultation records for a particular patient in the database
-				@GetMapping(path = "/patientAndHospital/{pid}/{hid}")
-				public List<ConsultationRecord> getHospitalConsultationRecordsByPatientId(@PathVariable(value = "pid", required = true) long patientId, @PathVariable(value = "hid", required = true) long referedhospitalId) {
-					List<ConsultationRecord> records = consultationRecordService.getHospitalConsultationRecordsByPatientId(patientId, referedhospitalId);
-					return records;
-				}
+	//API to Get all Consultation records for a particular patient in the database
+	@GetMapping(path = "/patientAndHospital/{pid}/{hid}")
+	public List<ConsultationRecord> getHospitalConsultationRecordsByPatientId(@PathVariable(value = "pid", required = true) long patientId, @PathVariable(value = "hid", required = true) long referedhospitalId) {
+		List<ConsultationRecord> records = consultationRecordService.getHospitalConsultationRecordsByPatientId(patientId, referedhospitalId);
+		return records;
+	}
+	
+	//API to get all consultation records by Doctor in the database
+	@GetMapping(path = "/doctor/{id}")
+	public List<ConsultationRecord> getConsultationRecordsByDoctorId(@PathVariable(value = "id", required = true) long doctorId) {
+		List<ConsultationRecord> records = consultationRecordService.getAllConsultationRecordsByDoctorId(doctorId);
+		return records;
+	}
 
 }
