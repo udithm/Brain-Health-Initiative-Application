@@ -78,7 +78,6 @@ public class ConsultationRecord {
 	@Column(name = "id", nullable = false, updatable = false)
 	private long id;
 
-	// Foreign key to doctor many to one relationship needs to be added
 	@ManyToOne
 	@JoinColumn(name = "patientId")
 	private PatientDemographics patient;

@@ -28,7 +28,18 @@ const AllConsultations = (props) => {
       options: {
         filterOptions: { fullWidth: false },
         customBodyRenderLite: (dataIndex) => {
-          let val = results[dataIndex].doctor.name;
+          let val = results[dataIndex].doctor.fname;
+          return val;
+        },
+      },
+    },
+    {
+      label: "Hospital",
+      name: "hospital",
+      options: {
+        filterOptions: { fullWidth: false },
+        customBodyRenderLite: (dataIndex) => {
+          let val = results[dataIndex].doctor.hospitalName;
           return val;
         },
       },
