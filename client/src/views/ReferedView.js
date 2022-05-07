@@ -29,8 +29,11 @@ export const ReferedView = ({shouldOpen, data, handleClose})  => {
     //   React.useEffect(() => {
     //     setOpen(shouldOpen)
     //   }, [data, shouldOpen]);
+    console.log("Adfaf");
     console.log(data);
-    if (!data){
+    if (JSON.stringify(data) === JSON.stringify({})){
+        console.log("data");
+
         data={
             "id": 1000,
             "patient": {
@@ -52,7 +55,46 @@ export const ReferedView = ({shouldOpen, data, handleClose})  => {
                 "careGiverName": "string",
                 "relationshipWithPatient": "string",
                 "bloodGroup": "string"
-            }
+            },
+
+            "doctor": {
+                "id": 1,
+                "fname": "string",
+                "lname": "string",
+                "password": "string",
+                "gender": "string",
+                "role": "string",
+                "email": "string",
+                "hospitalName": "string",
+                "contactNumber": "string"
+            },
+            "consultationDate": "string",
+            "complaint": "string",
+            "examination": "string",
+            "illnessSummary": "string",
+            "diagnosisType": "string",
+            "icdDescription": "string",
+            "icd10Code": "string",
+            "improvementStatus": "string",
+            "medicines": [
+                {
+                    "id": 1,
+                    "medicineName": "string",
+                    "dosage": "string",
+                    "dosingTime": "string",
+                    "duration":"string"
+                }
+            ],
+            "responses": [],
+            "treatmentInstructions": "string",
+            "remarks": "string",
+            "referedHospitalType":"string",
+            "referedHospitalId": 4,
+            "referedHospital": "string",
+            "followUpDate": null,
+            "moveToIp": false,
+            "reviewSos": false,
+            "suggestedDiagnosis": "string"
     }
 }
 var i = "";
