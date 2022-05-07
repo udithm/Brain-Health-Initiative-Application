@@ -44,6 +44,23 @@ export const getConsultations = (id) => {
     }
 }
 
+export const getConsulationByDoctorId = (id) => {
+  return (dispatch) => {
+    console.log("f2");
+    dispatch(getConsultationRequest());
+    axios
+      .get("/v1/consultationrecords/")
+      .then((res) => {
+          console.log("dataaaaaaaaaaaaaaaa",res.data)
+        dispatch(getConsultationSuccess(res.data));
+      })
+      .catch((err) => {
+        dispatch(getConsultationFailure(err.message));
+        console.log("-----this is catch------", err);
+      });
+  };
+};
+
 export const getPatientConsultationsInHospital = (pid, hid) => {
     return (dispatch) => {
         console.log("f2");

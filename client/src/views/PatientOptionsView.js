@@ -19,47 +19,74 @@ export const PatientOptionsView = () => {
       const paperStyle={padding :50, margin:"4.8vw"};
         
     return (
-        <>
+      <>
         <NavBar></NavBar>
-         <Paper elevation={5} style={paperStyle}>
-            <Grid container spacing={2}>
-                <Grid item xs={3} sm={3}>
-                    <Link href="/addPatient">
-                    <Card variant="outlined" className={classes.root}>
-                        <CardActionArea >
-                            <CardContent>
-                                <div style={{height: "29vh", width: "240px", padding: "10px"}}>
-                                    <AddPatientIcon></AddPatientIcon>
-                                </div>
-                                <Typography align="center">
-                                    Add Patient
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                    </Link>
-             
-                </Grid>
-
-                <Grid item xs={3} sm={3}>
-                    <Link href="/searchPatient">
-                        <Card className={classes.root}>
-                            <CardActionArea>
-                                <CardContent>
-                                    <div style={{height: "29vh", width: "240px", padding: "10px"}}>
-                                        <SearchIcon/>
-                                    </div>
-                                    <Typography align="center">
-                                        search a patient
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                    </Link>
-                </Grid>
-
+        <Paper elevation={5} style={paperStyle}>
+          <Grid container spacing={2}>
+            <Grid item xs={3} sm={3}>
+              <Link href="/addPatient">
+                <Card variant="outlined" className={classes.root}>
+                  <CardActionArea>
+                    <CardContent>
+                      <div
+                        style={{
+                          height: "29vh",
+                          width: "240px",
+                          padding: "10px",
+                        }}
+                      >
+                        <AddPatientIcon></AddPatientIcon>
+                      </div>
+                      <Typography align="center">Add Patient</Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
             </Grid>
-         </Paper>
-        </>
-    )
+
+            <Grid item xs={3} sm={3}>
+              <Link href="/searchPatient">
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardContent>
+                      <div
+                        style={{
+                          height: "29vh",
+                          width: "240px",
+                          padding: "10px",
+                        }}
+                      >
+                        <SearchIcon />
+                      </div>
+                      <Typography align="center">search a patient</Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
+            </Grid>
+
+            <Grid item xs={3} sm={3}>
+              <Link href="/doctorConsultations">
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardContent>
+                      <div
+                        style={{
+                          height: "29vh",
+                          width: "240px",
+                          padding: "10px",
+                        }}
+                      >
+                        <SearchIcon />
+                      </div>
+                      <Typography align="center">My consultations</Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
+            </Grid>
+          </Grid>
+        </Paper>
+      </>
+    );
 }
