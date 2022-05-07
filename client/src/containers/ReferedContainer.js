@@ -37,7 +37,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "edfsa",
@@ -98,7 +109,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "edfsa",
@@ -159,7 +181,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "edfsa",
@@ -220,7 +253,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "edfsa",
@@ -281,7 +325,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "afdaghv",
@@ -342,7 +397,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "afdaghv",
@@ -403,7 +469,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "afdaghv",
@@ -464,7 +541,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "afdaghv",
@@ -525,7 +613,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "afdaghv",
@@ -586,7 +685,18 @@ export const ReferedContainer = () => {
                 "role": "Primary Doctor",
                 "email": "anvitha@gmail.com",
                 "hospitalName": "ecity",
-                "contactNumber": "+919876543210"
+                "contactNumber": "+919876543210",
+                "hospital": {
+                    "id": 1,
+                    "name": "ecity",
+                    "city": "vijayawada",
+                    "state": "Andhra Pradesh",
+                    "district": "prakasham",
+                    "type": "Primary Health Centre",
+                    "email": "ecity@gmail.com",
+                    "pincode": "520007",
+                    "contactNumber": "1234567890"
+                }
             },
             "consultationDate": "2022-05-06",
             "complaint": "afdaghv",

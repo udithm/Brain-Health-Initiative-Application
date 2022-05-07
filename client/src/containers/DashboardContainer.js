@@ -12,6 +12,7 @@ const DashboardContainer = () => {
         <>
             <DashboardView userName={authState.userName}
                 name={authState.name}
+                role={authState.role}
             />
         </>
     );

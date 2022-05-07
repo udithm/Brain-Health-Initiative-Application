@@ -3,6 +3,9 @@ import MUIDataTable from "mui-datatables";
 import Button from "@mui/material/Button";
 import { ReferedView } from "./ReferedView";
 import { NavBar } from "../components/NavBar";
+import axios from "../common/config/AxiosConfig";
+import { useDispatch } from "react-redux";
+import { alertError, alertSuccess } from "../actionCreators/AlertActions";
 
 export const ReferedListView = ({apiData}) => {
     const [open, setOpen] = useState(false);
@@ -12,6 +15,28 @@ export const ReferedListView = ({apiData}) => {
     //   "Devi Super Speciality  Hospital","D G Hospital","Dr Zamindars Hospital","Gayathri Hospital","Hosmat Hospital" ,"Karthik Netralaya Institute Of Ophthalmology" ,"Koshys Hospital"
     //   ,"M S Ramaiah Hospitals",
     //    "Mallya Hospital"];
+    const dispatch = useDispatch();
+
+    const takeUpApi = (cid,dataIndex) => {
+        console.log(cid);
+        apiData[dataIndex].improvementStatus="false"
+        return(dispatch) => {
+            axios
+                .post("/takeUp",{cid})
+                .then ( (res) => {
+                    console.log("-------this is then------- ", res);
+                    dispatch(alertSuccess("Taken sucessful"));
+                }
+                )
+                .catch ((err) => { // checking not done
+                    dispatch(alertError(err.message));
+                    console.log("eroorrr", err);
+                }
+                )
+        }
+    }
+
+    const takeUp = (cid,dataIndex) => takeUpApi(cid,dataIndex)(dispatch);
 
     const handleOpen = (tableMeta) => {
         console.log("!!!!!!!!!!!!!!!!!!", tableMeta);
@@ -40,6 +65,11 @@ export const ReferedListView = ({apiData}) => {
             let val = apiData[dataIndex].doctor.fname + apiData[dataIndex].doctor.lname  ;
             return val;
           } } },
+        {label:"Previous Hospital Name ",name:"previousHospitalName",options: { filterOptions: { fullWidth: true } ,
+          customBodyRenderLite: (dataIndex) => {
+              let val = apiData[dataIndex].doctor.hospital.name;
+              return val;
+            } } },
         {name:"patientPhoneNo",label:" Patient Phone Number",        
         options: { filterOptions: { fullWidth: true } ,
         customBodyRenderLite: (dataIndex) => {
@@ -78,8 +108,12 @@ export const ReferedListView = ({apiData}) => {
         options: { filterOptions: { fullWidth: true } ,
         customBodyRenderLite: (dataIndex) => {
             let val = apiData[dataIndex].firstLogin;
+            let cid = apiData[dataIndex].id;
               return (<>
-                <Button size="small" variant="contained" disabled={val}>Take up consulatation</Button>
+                <Button size="small" variant="contained"    onClick={() => {
+                    takeUp(cid,dataIndex);
+                        val=false;
+                }} disabled={val}>Take up consulatation</Button>
             </>
             )
           } } 
