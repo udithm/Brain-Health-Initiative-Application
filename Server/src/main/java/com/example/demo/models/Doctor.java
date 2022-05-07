@@ -46,7 +46,7 @@ public class Doctor {
 	private String contactNumber;
 	@ManyToOne
 	@JoinColumn(name="hospitalId")
-	@JsonIgnore
+//	@JsonIgnore
 	private Hospital hospital;
 	
 	public Hospital getHospital() {
