@@ -20,6 +20,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name = "consultationRecords")
@@ -31,7 +32,7 @@ public class ConsultationRecord {
 			@NotNull(groups = New.class) String icdDescription, @NotNull(groups = New.class) String icd10Code,
 			@NotNull(groups = New.class) String improvementStatus, String referedHospitalType, String referedHospital, long referedHospitalId,
 			@NotNull(groups = New.class) String treatmentInstructions, String remarks, LocalDate followUpDate,
-			boolean moveToIp, boolean reviewSos,String suggestedDiagnosis) {
+			boolean moveToIp, boolean reviewSos,String suggestedDiagnosis, boolean referralStatus) {
 		super();
 		this.patient = patient;
 		this.doctor=doctor;
@@ -52,6 +53,7 @@ public class ConsultationRecord {
 		this.referedHospitalId = referedHospitalId;
 		this.reviewSos = reviewSos;
 		this.suggestedDiagnosis=suggestedDiagnosis;
+		this.referralStatus = referralStatus;
 	}
 
 	public String getReferedHospitalType() {
@@ -173,6 +175,10 @@ public class ConsultationRecord {
 	
 	@Column(name = "followUpDate")
 	private LocalDate followUpDate;
+
+	@Column(name = "referralStatus")
+	@Value("${some.key:false}")
+	private boolean referralStatus;
 
 	@Column(name = "moveToIp"
 
@@ -298,6 +304,14 @@ public class ConsultationRecord {
 //	public void setResponses(List<QuestionResponse> responses) {
 //		this.responses = responses;
 //	}
+	
+	public boolean isReferralStatus() {
+		return referralStatus;
+	}
+
+	public void setReferralStatus(boolean referralStatus) {
+		this.referralStatus = referralStatus;
+	}
 
 	public String getTreatmentInstructions() {
 		return treatmentInstructions;
@@ -341,13 +355,18 @@ public class ConsultationRecord {
 
 	@Override
 	public String toString() {
-		return "ConsultationRecord [id=" + id + ", patient=" + patient + ", consultationDate=" + consultationDate
-				+ ", complaint=" + complaint + ", examination=" + examination + ", illnessSummary=" + illnessSummary
-				+ ", diagnosisType=" + diagnosisType + ", icdDescription=" + icdDescription + ", icd10Code=" + icd10Code
-				+ ", improvementStatus=" + improvementStatus + ", medicines=" + medicines + ", treatmentInstructions="
-				+ treatmentInstructions + ", remarks=" + remarks + ", followUpDate=" + followUpDate + ", moveToIp="
-				+ moveToIp + ", reviewSos=" + reviewSos + "]";
+		return "ConsultationRecord [id=" + id + ", patient=" + patient + ", doctor=" + doctor + ", consultationDate="
+				+ consultationDate + ", complaint=" + complaint + ", examination=" + examination + ", illnessSummary="
+				+ illnessSummary + ", diagnosisType=" + diagnosisType + ", icdDescription=" + icdDescription
+				+ ", icd10Code=" + icd10Code + ", improvementStatus=" + improvementStatus + ", medicines=" + medicines
+				+ ", responses=" + responses + ", treatmentInstructions=" + treatmentInstructions + ", remarks="
+				+ remarks + ", referedHospitalType=" + referedHospitalType + ", referedHospitalId=" + referedHospitalId
+				+ ", referedHospital=" + referedHospital + ", followUpDate=" + followUpDate + ", referralStatus="
+				+ referralStatus + ", moveToIp=" + moveToIp + ", reviewSos=" + reviewSos + ", suggestedDiagnosis="
+				+ suggestedDiagnosis + "]";
 	}
+
+
 
 	public interface New {
 	}

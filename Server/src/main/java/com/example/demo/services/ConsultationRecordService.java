@@ -38,7 +38,8 @@ public class ConsultationRecordService {
 				consultationRecord.getFollowUpDate(),
 				consultationRecord.isMoveToIp(),
 				consultationRecord.isReviewSos(),
-				consultationRecord.getSuggestedDiagnosis());
+				consultationRecord.getSuggestedDiagnosis(),
+				consultationRecord.isReferralStatus());
 		ArrayList < Medicine > medicineList = new ArrayList<>();
 		for (Medicine m : consultationRecord.getMedicines()) {
 		     medicineList.add(new Medicine(m.getMedicineName(),m.getDosage(),m.getDosingTime(),m.getDuration()));
@@ -102,6 +103,12 @@ public class ConsultationRecordService {
 			System.out.println("get by referred hospital" + e.toString());
 		}
 		return records;
+	}
+
+	public ConsultationRecord updateConsultationRecord(long consultationRecordId, ConsultationRecord newRecord) {
+		ConsultationRecord oldRecord = consultationRecordRepository.findById(consultationRecordId);
+		oldRecord = newRecord;
+		return consultationRecordRepository.save(oldRecord);
 	}
 	
 }
