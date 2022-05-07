@@ -66,7 +66,18 @@ export const ReferedView = ({shouldOpen, data, handleClose})  => {
                 "role": "string",
                 "email": "string",
                 "hospitalName": "string",
-                "contactNumber": "string"
+                "contactNumber": "string",
+                "hospital": {
+                    "id": 1,
+                    "name": "string",
+                    "city": "string",
+                    "state": "string",
+                    "district": "string",
+                    "type": "string",
+                    "email": "string",
+                    "pincode": "string",
+                    "contactNumber": "string"
+                }
             },
             "consultationDate": "string",
             "complaint": "string",
@@ -107,13 +118,13 @@ var i = "";
         aria-describedby="modal-modal-description"
       >
 
-<div id ="toView" >
+<div sx={style} id ="toView" >
             <div align="center">
-            {/* <DialogTitle id="scroll-dialog-title">  */}
-                {/* <h1>{data.Hospital.name}</h1>
-                <h2>{data.Hospital.city},{data.Hospital.district},{data.Hospital.state},{data.Hospital.pincode}</h2>
-                <h3>Phone number: {data.Hospital.contactNumber}</h3> */}
-            {/* </DialogTitle> */}
+             <DialogTitle id="scroll-dialog-title">  
+                 <h1>{data.doctor.hospital.name}</h1>
+                <h2>{data.doctor.hospital.city},{data.doctor.hospital.district},{data.doctor.hospital.state},{data.doctor.hospital.pincode}</h2>
+                <h3>Phone number: {data.doctor.hospital.contactNumber}</h3> 
+            </DialogTitle> 
             </div>
             <hr />
             <DialogContent dividers={false}>
@@ -138,6 +149,8 @@ var i = "";
                     <li> Pin Code : <span> {data.patient.pincode}</span> </li>
 
                     <h3>Consultation details </h3>
+                    <li> Consultation id : <span> {data.id} </span> </li>
+
                     <li> Consultation Date : <span> {data.consultationDate} </span> </li>
                     <li> Complaint : <span> {data.complaint} </span> </li>
                     <li> Examination : <span> {data.examination} </span> </li>
