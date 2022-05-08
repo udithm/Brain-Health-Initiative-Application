@@ -137,11 +137,11 @@ const ConsultationForm = (props) => {
   // }
   const [referedHospital, setReferedHospital] = useState([]);
   const gethospitalsList = () => {
-    const referalData = JSON.parse(localStorage.getItem("getHospitalsforReferral"))
+    // const referalData = JSON.parse(localStorage.getItem("getHospitalsforReferral"))
 
     let hos = [];
     if (hospitalType) {
-      hos = referalData[hospitalType];
+      hos = props.getHoRef[hospitalType];
     }
 
     // if (hospitalType) 

@@ -45,10 +45,9 @@ public class Doctor {
 	@Column(length = 20)
 	private String contactNumber;
 	@ManyToOne
-	@JoinColumn(name="hospitalId")
-	@JsonIgnore
+	@JoinColumn(name = "hospitalId")
 	private Hospital hospital;
-	
+
 	public Hospital getHospital() {
 		return hospital;
 	}
@@ -60,13 +59,14 @@ public class Doctor {
 	public Doctor() {
 		super();
 	}
-	
-//	@Autowired
-//	HospitalRepository hospitalrepository;
+
+	// @Autowired
+	// HospitalRepository hospitalrepository;
 	@Autowired
-//	private HospitalService hospitalService;
-	
-	public Doctor(String fname, String lname, String email, String password, String role, String gender, String hospitalName, String contactNumber) {
+	// private HospitalService hospitalService;
+
+	public Doctor(String fname, String lname, String email, String password, String role, String gender,
+			String hospitalName, String contactNumber) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -76,10 +76,10 @@ public class Doctor {
 		this.email = email;
 		this.hospitalName = hospitalName;
 		this.contactNumber = contactNumber;
-//		this.hospital = hospitalService.getHospitalByname(hospitalName);
-		
+		// this.hospital = hospitalService.getHospitalByname(hospitalName);
+
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -91,50 +91,63 @@ public class Doctor {
 	public String getFname() {
 		return fname;
 	}
+
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
+
 	public String getLname() {
 		return lname;
 	}
+
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
 	public String getRole() {
 		return role;
 	}
+
 	public void setRole(String role) {
 		this.role = role;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getHospitalName() {
 		return hospitalName;
 	}
+
 	public void setHospitalName(String hospitalName) {
 		this.hospitalName = hospitalName;
 	}
-	
+
 	public String getContactNumber() {
 		return contactNumber;
 	}
+
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}

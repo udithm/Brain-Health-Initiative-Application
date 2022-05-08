@@ -131,7 +131,7 @@ public class AdminController {
 				 doctorRequest.getHospitalName(),
 				 doctorRequest.getContactNumber());
 		
-		doctor.setHospital(hospitalService.getHospitalByname(doctorRequest.getHospitalName()));
+		doctor.setHospital(hospitalService.getHospitalById(doctorRequest.getHospitalId()));
 
 		doctorRepository.save(doctor);
 		

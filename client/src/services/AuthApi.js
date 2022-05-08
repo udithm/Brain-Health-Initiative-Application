@@ -7,7 +7,7 @@ import {
     logoutRequest,
     logoutSuccess
 } from "../actionCreators/AuthActions";
-import { getAllHospitals } from "./CreateApi";
+// import { getAllHospitals } from "./CreateApi";
 
 import { changePasswordFailure, changePasswordRequest, changePasswordSuccess } from "../actionCreators/ChangePasswordActions";
 import { alertError, alertSuccess } from "../actionCreators/AlertActions";
@@ -24,13 +24,15 @@ export const userLogin = (userName, password, history) => {
                 if (!res.data) { throw new Error("Username or password is incorrect."); } // this is added so mock server can be used(jugad)
                 dispatch(loginSuccess(res.data));
                 localStorage.setItem("jwt", res.data.accessToken);
-                console.log("-------this is then------- ", res);
+                console.log("-------this is then loginnn------- ", res);
                 dispatch(alertSuccess("Login Successful!"));
                 localStorage.setItem("userId", res.data.id);
+                localStorage.setItem("hid",res.data.hospitalId);
+
                 // if (res.data.users[0].firstLogin)
                 //     history.push("/changePassword");
-                // else
-                getAllHospitals();
+                // else//
+                // getAllHospitals();
                 history.push(`/dashboard/`);//${res.data.users[0].userId} `); // discards existing route completly and adds the "/dashboard" after localhost:3000
             })
             .catch((err) => {
@@ -48,6 +50,7 @@ export const userLogout = (userName, history) => {
         dispatch(logoutRequest());
         localStorage.removeItem("jwt");
         localStorage.removeItem("userId");
+        localStorage.removeItem("hid");
         history.push("/login");
 
         // axios

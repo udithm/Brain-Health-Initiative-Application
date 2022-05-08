@@ -70,5 +70,11 @@ public class ConsultationRecordController {
 		List<ConsultationRecord> records = consultationRecordService.getAllConsultationRecordsByDoctorId(doctorId);
 		return records;
 	}
+	
+	//API to update a Consultation given the Id
+	@PostMapping(path = "/update/{id}")
+	public ConsultationRecord updateConsultationById(@PathVariable(value = "id", required = true) long id,@RequestBody ConsultationRecord record) {
+		return consultationRecordService.updateConsultationRecord(id, record);
+	}
 
 }

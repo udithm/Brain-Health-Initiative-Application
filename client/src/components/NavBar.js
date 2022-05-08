@@ -24,10 +24,17 @@ export const NavBar = () => {
     >
         <MenuIcon /> */}
                     {/* </IconButton> */}
-                    <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+
+                    <Typography variant="h5" component="div" sx={ {flexGrow: 1}} >
                         Brain Health Initiative
                     </Typography>
+                    <Link href="/dashboard" underline="none">
+                                <Button sx={{color: "#fff"}} >
+Dashboard
+                                </Button>
+                    </Link>
                     {/* <div> */}
+
                     {authState.role ? (authState.role === "ADMIN" ? (
                         <>
                             <Link href="/create" underline="none">
@@ -43,9 +50,19 @@ export const NavBar = () => {
                         </>
                     ) : (
                         <>
-                            <Link href="/patientOptions" underline="none">
+                            <Link href="/addPatient" underline="none">
                                 <Button sx={{ color: "#fff" }} >
-                                    Patient Options
+                                    Add Patient
+                                </Button>
+                            </Link>
+                            <Link href="/searchPatient" underline="none">
+                                <Button sx={{ color: "#fff" }} >
+                                    Search Patient 
+                                </Button>
+                            </Link>
+                            <Link href="/doctorConsultations" underline="none">
+                                <Button sx={{ color: "#fff" }} >
+                                    My consulatations 
                                 </Button>
                             </Link>
                             <Link href="/refered" underline="none">

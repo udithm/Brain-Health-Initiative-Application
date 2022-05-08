@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Questionnaire from "../views/Questionnaire";
-import { getHospitalsforReferral } from "../services/patientAPI";
+// import { getHospitalsforReferral } from "../services/patientAPI";
 const ViewConsultationContainer = () => {
   const dispatch = useDispatch();
   const consultationState = useSelector((state) => state.ConsultationReducer);
@@ -19,7 +19,7 @@ const ViewConsultationContainer = () => {
   useEffect(() => {
     setPatientByID(pid);
     setConsultationByID(cid);
-    getHospitalsforReferral();
+    // getHospitalsforReferral();
   }, [pid, cid]);
   useEffect(() => {
     consultationState.consultation.responses &&

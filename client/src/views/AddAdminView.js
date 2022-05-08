@@ -61,7 +61,7 @@ const validationSchema = yup.object({
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-          add(values.fname,values.lname,values.email,sha256(values.confirmPassword),values.role,values.gender,values.orgName,values.phoneNumber);
+          add(values.fname,values.lname,values.email,(values.confirmPassword),values.role,values.gender,values.orgName,values.phoneNumber);
       },
     });
     const [role, setRole] = useState(rolesList[0]);

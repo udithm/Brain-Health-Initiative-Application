@@ -75,16 +75,19 @@ export const addHospital = (email,role,hospitalName,phoneNumber,stateName,distri
 }
 
 export const getAllHospitals = () => {
-    // console.log("asyidugfgiuasdf");
+    console.log("*******get all hos req****");
     axios
         .get("/getAllHospitals")
         .then ((res) => {
+            console.log("*******get all hos sucess****",res);
 
             // console.log("adsfasdfasdf",res);
             localStorage.setItem("hosList",JSON.stringify(res.data));
 
         })
         .catch((err) => {
+            console.log("*******get all hos failure****");
+
             // dispatch(alertError(err.message));
             console.log("error fetching hospitals list");
         })
