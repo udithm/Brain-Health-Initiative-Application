@@ -723,14 +723,15 @@ const ConsultationForm = (props) => {
                 margin: "20px auto",
               }}
             >
-              <Button
+              {
+                !props.isSubmitted && <Button
                 style={props.view ? { display: "none" } : { width: "200px" }}
                 variant="contained"
                 color="primary"
                 type="submit"
               >
                 Submit
-              </Button>
+              </Button>}
             </div>
           </div>
         </form>

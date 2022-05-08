@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
-import { MenuItem, Paper } from "@mui/material";
+import { MenuItem, Paper, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import update from "immutability-helper";
 import "react-phone-input-2/lib/style.css";
@@ -82,6 +82,7 @@ const Consultation = (props) => {
   const [referTo, setReferTo] = useState("");
   const [radioValue, setRadioValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   useEffect(() => {
     setFormValues({
@@ -149,6 +150,7 @@ const Consultation = (props) => {
           responses: responseList,
           suggestedDiagnosis: diagnosis,
         });
+        setIsFormSubmitted(true);
       } else {
         formSchema.validate(formValues, { abortEarly: false }).catch((err) => {
           const errors = err.inner.reduce((acc, error) => {
@@ -189,9 +191,9 @@ const Consultation = (props) => {
   return (
     <>
       <NavBar></NavBar>
-      <Button variant="outlined" onClick={() => handleOpen()}>
+      {/* <Button variant="outlined" onClick={() => handleOpen()}>
         Print
-      </Button>
+      </Button> */}
 
       {questionnaireInUse ? (
         props.questionnaire && (
@@ -241,17 +243,17 @@ const Consultation = (props) => {
                   console.log(id, name, questionnaireNames);
                   let currentQuestionnaire = props.questionnaire
                     ? props.questionnaire.filter((element) => {
-                      return element.name === name;
-                    })
+                        return element.name === name;
+                      })
                     : [];
                   console.log(currentQuestionnaire);
                   let currentQuestionnaireAnswers = {};
                   currentQuestionnaire.length !== 0
                     ? Object.entries(currentQuestionnaire[0].questions).map(
-                      ([key, data]) =>
-                      (currentQuestionnaireAnswers[key] =
-                        data.question === "Age" ? props.patient.age : "NA")
-                    )
+                        ([key, data]) =>
+                          (currentQuestionnaireAnswers[key] =
+                            data.question === "Age" ? props.patient.age : "NA")
+                      )
                     : console.log("empty");
                   console.log(currentQuestionnaireAnswers);
                   return (
@@ -269,8 +271,8 @@ const Consultation = (props) => {
                         props.view
                           ? props.values.responses[id].answers
                           : responseList[id]
-                            ? responseList[id].answers
-                            : currentQuestionnaireAnswers
+                          ? responseList[id].answers
+                          : currentQuestionnaireAnswers
                       }
                       questionnaireNames={questionnaireNames}
                       patient={props.patient}
@@ -299,12 +301,47 @@ const Consultation = (props) => {
             formValues={formValues}
             setFormValues={setFormValues}
             handleSubmit={handleSubmit}
+            isSubmitted={isFormSubmitted}
             radioValue={radioValue}
             setRadioValue={setRadioValue}
             errors={errors}
             setErrors={setErrors}
             setQuestionnaireInUse={setQuestionnaireInUse}
           />
+          {diagnosis !== "" && (
+            <>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  marginTop: "-10px",
+                  marginBottom: "10px",
+                }}
+                variant="h5"
+              >
+                Diagnosis {": " + diagnosis}
+              </Typography>
+            </>
+          )}
+          {( isFormSubmitted || props.view) && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                maxWidth: "400px",
+                margin: "20px auto",
+              }}
+            >
+              <Button
+                style={{ width: "200px" }}
+                variant="contained"
+                color="primary"
+                onClick={() => handleOpen()}
+              >
+                Print
+              </Button>
+            </div>
+          )}
 
           <Grid
             container
@@ -347,6 +384,7 @@ const Consultation = (props) => {
           </Grid>
         </Paper>
       )}
+
       <PrintContainer
         shouldOpen={open}
         handleClose={handleClose}

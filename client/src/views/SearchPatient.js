@@ -100,15 +100,19 @@ const SearchPatient = (props) => {
     ];
 
     const options = {
-        search: true,
-        download: false,
-        print: false,
-        viewColumns: true,
-        filter: true,
-        filterType: "dropdown",
-        responsive:"standard",
-        selectableRows:"none",
-      };
+      search: true,
+      download: false,
+      print: false,
+      viewColumns: true,
+      filter: true,
+      filterType: "dropdown",
+      responsive: "standard",
+      selectableRows: "none",
+      onRowClick: (rowData, rowState) => {
+        console.log(results[rowState.dataIndex]);
+        viewPatient(results[rowState.dataIndex]);
+      },
+    };
   return (
     <React.Fragment>
       <NavBar></NavBar>
