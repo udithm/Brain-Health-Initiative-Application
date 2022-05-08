@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "../common/config/AxiosConfig";
-
+import { getHospitalsforReferral } from "../services/ConsultationAPI";
 const AddConsultationContainer = () => {
   const dispatch = useDispatch();
   const setPatientByID = (id) => setPatientByAPI(id)(dispatch);
@@ -20,6 +20,7 @@ const AddConsultationContainer = () => {
 
   const patientState = useSelector((state) => state.PatientReducer);
   const doctorState = useSelector((state) => state.AuthReducer);
+  const ConsultationState = useSelector(state => state.ConsultationReducer);
   let { id } = useParams();
   const [questionnaire, setQuestionnaire] = useState([]);
   useEffect(() => {
@@ -36,6 +37,11 @@ const AddConsultationContainer = () => {
         return err.message;
       });
   }, []);
+  useEffect(() => {
+    // var hid1= localStorage.getItem("hid")
+    // console.log("this is hid",hid1);
+    getHospitalsforReferral()(dispatch);
+}, [])
   useEffect(() => {}, [patientState.patient]);
   const addConsultationDetails = (consultation) =>
     addConsultation(consultation)(dispatch);
@@ -47,6 +53,7 @@ const AddConsultationContainer = () => {
       patient={patientState.patient}
       doctor={doctorState}
       questionnaire={questionnaire}
+      getHospitalsforRef ={ConsultationState.refHosList}
     />
   );
 };

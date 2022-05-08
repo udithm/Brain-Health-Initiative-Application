@@ -48,7 +48,9 @@ export const GET_CONSULTATION_FAILURE = "getConsultationFailure";
 
 export const SET_CURRENT_CONSULTATION = "setConsultation";
 
-export const GET_HOSPITALS_FOR_REFERAL_SUCCESS = "getHospitalsforReferral";
+export const GET_HOSPITALS_FOR_REFERAL_SUCCESS = "getHospitalsforReferralSuccess";
+export const GET_HOSPITALS_FOR_REFERAL_REQUEST = "getHospitalsforReferralRequest";
+export const GET_HOSPITALS_FOR_REFERAL_FAILURE = "getHospitalsforReferralFailure";
 
 export const DISEASE_ANALYTICS_REQUEST = "DiseaseAnalyticsRequest";
 export const DISEASE_ANALYTICS_SUCCESS = "DiseaseAnalyticsSuccess";

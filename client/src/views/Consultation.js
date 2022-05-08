@@ -304,6 +304,7 @@ const Consultation = (props) => {
             errors={errors}
             setErrors={setErrors}
             setQuestionnaireInUse={setQuestionnaireInUse}
+            getHoRef = {props.getHospitalsforRef}
           />
 
           <Grid

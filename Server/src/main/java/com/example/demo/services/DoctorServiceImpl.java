@@ -70,4 +70,5 @@ public class DoctorServiceImpl implements DoctorService{
 		}
 		return docnames;
 	}
+
 }

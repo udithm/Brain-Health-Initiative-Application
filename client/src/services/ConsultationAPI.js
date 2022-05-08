@@ -8,7 +8,10 @@ import {
     setConsultation,
     getReferalsFailure,
     getReferalsRequest,
-    getReferalsSuccess
+    getReferalsSuccess,
+    getHospitalsForReferalFailure,
+    getHospitalsForReferalRequest,
+    getHospitalsForReferalSuccess
 } from "../actionCreators/ConsultationActions.js";
 import { alertError, alertSuccess } from "../actionCreators/AlertActions";
 import axios from "../common/config/AxiosConfig";
@@ -113,17 +116,54 @@ export const setConsultationSelected = (consultation) => {
 //     })
 // }
 export const getMyReferals = (hid) => {
+    console.log("referalassss11111");
+
     return (dispatch) => {
         console.log("referalassss");
         dispatch(getReferalsRequest());
         axios
-            .get("/referels/" +  + hid)
+            .get("/getMyHospitalReferrals/" +  + hid)
             .then((res) => {
+                console.log("((((((((((",res,hid);
                 dispatch(getReferalsSuccess(res.data));
+                dispatch(alertSuccess("fetch sucessful"));
+                console.log("thennnnnnn");
             })
             .catch((err) => {
                 dispatch(getReferalsFailure(err.message));
+                dispatch(alertError(err.message));
+
                 console.log("----refereals failure------", err);
             })
+    }
+}
+
+export const getHospitalsforReferral = () => {
+    return (dispatch) => {
+        dispatch(getHospitalsForReferalRequest());
+        console.log("^^^^getHoRef^^^req");
+        axios
+
+        .get("/getHospitalsforReferral")
+        .then((res) => {
+            if (!res.data) { throw new Error("No hospitals"); } // this is added so mock server can be used(jugad)
+            // dispatch(getHospitalsforReferralSuccess(res.data));
+            console.log("^^^^getHoRef^^^suc",res.data);
+
+            dispatch(getHospitalsForReferalSuccess(res.data));
+            // dispatch(alertSuccess("fetch sucessful"));
+
+            // console.log("$$$$$$$$$$$$$$$$$$$gethospiiii",res);
+            // localStorage.setItem("getHospitalsforReferral",JSON.stringify(res.data));
+
+        })
+        .catch((err) => {
+            dispatch(getHospitalsForReferalFailure(err.message));
+            console.log("^^^^getHoRef^^^fail",err);
+
+            dispatch(alertError(err.message));
+            console.log("-----this is catch------", err);
+        })
+
     }
 }

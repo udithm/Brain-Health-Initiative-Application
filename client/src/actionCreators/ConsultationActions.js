@@ -8,7 +8,10 @@ import {
     SET_CURRENT_CONSULTATION,
     GET_REFERALS_FAILURE,
     GET_REFERALS_REQUEST,
-    GET_REFERALS_SUCCESS
+    GET_REFERALS_SUCCESS,
+    GET_HOSPITALS_FOR_REFERAL_FAILURE,
+    GET_HOSPITALS_FOR_REFERAL_REQUEST,
+    GET_HOSPITALS_FOR_REFERAL_SUCCESS
  } from "../common/constants/ActionConstants"; 
 
 export const addConsultationRequest = () => ({
@@ -61,5 +64,21 @@ export const getReferalsSuccess = (referals) => {
 
 export const getReferalsFailure = (err) => ({
     type: GET_REFERALS_FAILURE,
+    err: err
+})
+
+export const getHospitalsForReferalRequest = () => ({
+    type: GET_HOSPITALS_FOR_REFERAL_REQUEST
+})
+
+export const getHospitalsForReferalSuccess = (refHosList) => {
+    return {
+        type: GET_HOSPITALS_FOR_REFERAL_SUCCESS,
+        refHosList: refHosList
+    }
+}
+
+export const getHospitalsForReferalFailure = (err) => ({
+    type: GET_HOSPITALS_FOR_REFERAL_FAILURE,
     err: err
 })

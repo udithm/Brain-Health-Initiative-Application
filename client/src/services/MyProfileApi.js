@@ -13,7 +13,7 @@ import {
     loginSuccess
 } from "../actionCreators/AuthActions"
 import { alertError } from "../actionCreators/AlertActions";
-import { getAllHospitals } from "./CreateApi";
+// import { getAllHospitals } from "./CreateApi";
 
 export const myProfile = (uId, history) => {
     const id = uId;
@@ -30,7 +30,7 @@ export const myProfile = (uId, history) => {
 
                 dispatch(myProfileSuccess(res.data));
                 console.log("-------this is then33333333333333------- ", res);
-                getAllHospitals();
+                // getAllHospitals();
                 if (history) {
                     history.push("/myProfile");
                     // dispatch(alertSuccess("Profile fetch Successful!"));
