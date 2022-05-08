@@ -31,7 +31,7 @@ export const userLogin = (userName, password, history) => {
 
                 // if (res.data.users[0].firstLogin)
                 //     history.push("/changePassword");
-                // else
+                // else//
                 // getAllHospitals();
                 history.push(`/dashboard/`);//${res.data.users[0].userId} `); // discards existing route completly and adds the "/dashboard" after localhost:3000
             })
