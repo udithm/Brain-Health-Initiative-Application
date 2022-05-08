@@ -236,5 +236,63 @@ public class AdminController {
 		 return hm;
 		
 	}
+	
+//	API for sending statistics of hospitals
+	@GetMapping("/HospitalAnalysis")
+	public Map<String, Integer> HospitalAnalysis(){
+		List<Hospital> records = hospitalRepository.findAll();
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		if(records.equals(null)) {
+			return hm;
+		}
+		int TotalHospitals = 0;
+		int NumberOfPHC = 0;
+		int NumberOfSHC = 0;
+		int NumberOfTHC = 0;
+		for(Hospital e :records) {
+			TotalHospitals+=1;
+			System.out.print(e.getType());
+			if(e.getType().equals("Primary Health Centre")) {
+				NumberOfPHC+=1;
+			}
+			else if(e.getType().equals("Secondary Health Centre")) {
+				NumberOfSHC+=1;
+			}
+			else if(e.getType().equals("Tertiary Health Centre")) {
+				NumberOfTHC+=1;
+			}
+			
+		}
+		hm.put("TotalHospitals", TotalHospitals);
+		hm.put("NumberOfPHC", NumberOfPHC);
+		hm.put("NumberOfSHC", NumberOfSHC);
+		hm.put("NumberOfTHC", NumberOfTHC);
+		
+		return hm;
+	}
+	
+//	API for sending statistics of questionnaire
+	@GetMapping("/QuestionnaireAnalysis")
+	public Map<String, Integer> QuestionnaireAnalysis(){
+		List<ConsultationRecord> records = consultationRepository.findAll();
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		if(records.equals(null)) {
+			return hm;
+		}
+		int TotalQuestionnaireUsed = 0;
+		for(ConsultationRecord e: records) {
+			System.out.print(e.getResponses());
+		}
+		
+		return hm;
+	}
 
 }
+
+
+
+
+
+
+
+

@@ -51,6 +51,10 @@ export const userLogout = (userName, history) => {
         localStorage.removeItem("jwt");
         localStorage.removeItem("userId");
         localStorage.removeItem("hid");
+        localStorage.removeItem("Value");
+        localStorage.removeItem("Field");
+        
+
         history.push("/login");
 
         // axios

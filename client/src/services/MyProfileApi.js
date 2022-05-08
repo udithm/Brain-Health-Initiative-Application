@@ -26,6 +26,8 @@ export const myProfile = (uId, history) => {
 
                 if (!res.data) { throw new Error("Profile fetch unsucessful.");} // this is added so mock server can be used(jugad)
                 localStorage.setItem("userId", id);
+                localStorage.setItem("hid", res.data.Hospital.id);
+
                 console.log("-------this is then222------- ", res.data);
 
                 dispatch(myProfileSuccess(res.data));
