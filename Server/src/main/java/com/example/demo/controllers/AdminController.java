@@ -25,12 +25,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.jwt.JwtUtils;
 import com.example.demo.models.Admin;
+import com.example.demo.models.ConsultationRecord;
 import com.example.demo.models.Doctor;
 import com.example.demo.models.ERole;
 import com.example.demo.models.Hospital;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
 import com.example.demo.repository.AdminRepository;
+import com.example.demo.repository.ConsultationRecordRepository;
 import com.example.demo.repository.DoctorRepository;
 import com.example.demo.repository.HospitalRepository;
 import com.example.demo.repository.RoleRepository;
@@ -45,6 +47,8 @@ import com.example.demo.response.MessageResponse;
 import com.example.demo.services.HospitalService;
 import com.example.demo.services.UserDetailsImpl;
 import org.springframework.ui.Model;
+import com.example.demo.services.ConsultationRecordService;
+import com.example.demo.models.ConsultationRecord;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -65,6 +69,10 @@ public class AdminController {
 	RoleRepository roleRepository;
 	@Autowired
 	PasswordEncoder encoder;
+	@Autowired
+	ConsultationRecordRepository consultationRepository;
+	
+//	private final ConsultationRecordService consultationRecordService = new ConsultationRecordService();
 	
 	@GetMapping ("/showHospitalform")
 	public String showHospitalForm(Model model) {
@@ -200,5 +208,43 @@ public class AdminController {
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("Admin registered successfully!"));
 	}
+	
+//	API for sending statistics
+	@GetMapping("/referalAnalysis")
+	public Map<String, Integer> referalsAnalysis(){
+		List<ConsultationRecord> records = consultationRepository.findAll();
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		if(records.equals(null)) {
+			return hm;
+		}
+		int TotalConsultations = 0;
+		int NumberOfReferals = 0;
+		int NumberOfReferalsTaken = 0;
+		for(ConsultationRecord e: records) {
+			TotalConsultations+=1;
+			if(e.getReferedHospitalId()!=0L) {
+				NumberOfReferals+=1;
+				if(e.isReferralStatus()) {
+					NumberOfReferalsTaken+=1;
+				}
+			}
+		}
+		int NumberOfNoReferals = TotalConsultations - NumberOfReferals;
+		int NumberOfReferalsNotTaken = NumberOfReferals - NumberOfReferalsTaken;
+		 hm.put("TotalConsultations", TotalConsultations);
+		 hm.put("NumberOfReferals", NumberOfReferals);
+		 hm.put("NumberOfReferalsTaken", NumberOfReferalsTaken);
+		 hm.put("NumberOfNoReferals", NumberOfNoReferals);
+		 hm.put("NumberOfReferalsNotTaken", NumberOfReferalsNotTaken);
+		 
+		 return hm;
+		
+	}
+	
+	
+	
+	
+	
+	
 
 }
