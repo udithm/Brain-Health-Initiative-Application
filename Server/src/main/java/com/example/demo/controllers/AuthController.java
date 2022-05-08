@@ -1,4 +1,5 @@
 package com.example.demo.controllers;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -20,12 +21,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.jwt.JwtUtils;
 import com.example.demo.models.Doctor;
+import com.example.demo.models.Admin;
 import com.example.demo.models.ERole;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
 import com.example.demo.repository.DoctorRepository;
+import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.request.AdminRequest;
 import com.example.demo.request.LoginRequest;
 import com.example.demo.request.SignupRequest;
 import com.example.demo.response.JwtResponse;
@@ -45,6 +49,8 @@ public class AuthController {
 	DoctorRepository doctorRepository;
 	@Autowired
 	RoleRepository roleRepository;
+	@Autowired
+	AdminRepository adminRepository;
 	@Autowired
 	PasswordEncoder encoder;
 	@Autowired
@@ -89,13 +95,23 @@ public class AuthController {
 							 x);
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
+		List<String> rolelist = new ArrayList<String>(strRoles);
+		Admin admin = new Admin(signUpRequest.getUsername(), 
+				signUpRequest.getUsername(),
+				signUpRequest.getEmail(),
+				signUpRequest.getPassword(), 
+				rolelist.get(0), 
+				null, "SuperAdmin", 
+				"1234567890");
 //		if (strRoles == null) {
 //			Role userRole = roleRepository.findByName(ERole.ROLE_USER)
 //					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 //			roles.add(userRole);
 //		} 
 //		else {
-			strRoles.forEach(role -> {
+			
+		adminRepository.save(admin);
+		strRoles.forEach(role -> {
 				switch (role) {
 				case "primary":
 					Role primaryRole = roleRepository.findByName(ERole.PRIMARY_DOCTOR)
