@@ -34,6 +34,7 @@ import com.example.demo.request.LoginRequest;
 import com.example.demo.request.SignupRequest;
 import com.example.demo.response.JwtResponse;
 import com.example.demo.response.MessageResponse;
+import com.example.demo.services.AdminServiceImpl;
 import com.example.demo.services.UserDetailsImpl;
 
 
@@ -52,6 +53,8 @@ public class AuthController {
 	@Autowired
 	AdminRepository adminRepository;
 	@Autowired
+	AdminServiceImpl adminServiceimpl;
+	@Autowired
 	PasswordEncoder encoder;
 	@Autowired
 	JwtUtils jwtUtils;
@@ -63,18 +66,32 @@ public class AuthController {
 		String jwt = jwtUtils.generateJwtToken(authentication);
 		
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-		Optional<Doctor> doc = doctorRepository.findById(userDetails.getId());
-		
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
-		return ResponseEntity.ok(new JwtResponse(jwt, 
-												 userDetails.getId(), 
-												 userDetails.getUsername(),
-												 doc.get().getHospital().getId(),
-												 userDetails.getEmail(), 
-												 roles));
+		
+		if(roles.get(0)!="ADMIN") {
+			Optional<Doctor> doc = doctorRepository.findById(userDetails.getId());
+			
+			return ResponseEntity.ok(new JwtResponse(jwt, 
+													 userDetails.getId(), 
+													 userDetails.getUsername(),
+													 doc.get().getHospital().getId(),
+													 userDetails.getEmail(), 
+													 roles));
+		}
+		else {
+			Admin doc = adminServiceimpl.getAdminById(userDetails.getReferenceId());
+			return ResponseEntity.ok(new JwtResponse(jwt, 
+					 userDetails.getId(), 
+					 userDetails.getUsername(),
+					 doc.getId(),
+					 userDetails.getEmail(), 
+					 roles));
+		}
+		
 	}
+	
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -88,7 +105,7 @@ public class AuthController {
 					.body(new MessageResponse("Error: Email is already in use!"));
 		}
 		// Create new user's account
-		Long x =(long) 1000;
+		Long x =(long) 1;
 		User user = new User(signUpRequest.getUsername(), 
 							 signUpRequest.getEmail(),
 							 encoder.encode(signUpRequest.getPassword()),

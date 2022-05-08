@@ -21,6 +21,12 @@ export const MyProfileView = ({ userName, userId, orgName, name, role, Hospital 
                 Role: {role}
                 <br></br>
                 <br></br>
+                {role ? (role === "ADMIN" ? (
+                        <>
+                        
+                        </>
+                    ) : (
+                        <>
                 <b>Hospital Details:</b>
                 <br></br>
                 Hospital id: {Hospital.id}
@@ -38,7 +44,12 @@ export const MyProfileView = ({ userName, userId, orgName, name, role, Hospital 
                 Hospital pincode: {Hospital.pincode}
                 <br></br>
                 Hospital contactNumber: {Hospital.contactNumber}
-                <br></br>
+                <br></br>                        </>
+                    )) : (
+                        <>
+                        </>
+                    )}
+
             </Typography>
 
         </>
