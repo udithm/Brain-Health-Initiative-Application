@@ -25,12 +25,12 @@ export const myProfile = (uId, history) => {
                 console.log("-------this is then------- ", res);
 
                 if (!res.data) { throw new Error("Profile fetch unsucessful.");} // this is added so mock server can be used(jugad)
-                console.log("iiiiiiiiiiiiidddddddddddd");
+                // console.log("iiiiiiiiiiiiidddddddddddd");
                 localStorage.setItem("userId", id);
-                console.log("hhhhhhhhhiiiiiiiiiiiiidddddddddddd");
+                // console.log("hhhhhhhhhiiiiiiiiiiiiidddddddddddd");
                 if (res.data.role!="ADMIN")
                     localStorage.setItem("hid", res.data.Hospital.id);
-                console.log("****************************")
+                // console.log("****************************")
 
                 console.log("-------this is then222------- ", res.data);
 

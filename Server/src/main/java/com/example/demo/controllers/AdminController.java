@@ -341,6 +341,41 @@ public class AdminController {
 		return hm;
 	}
 	
+	
+//	API for sending statistics of # of Doctors in each state
+	@GetMapping(path = "/StateDoctorAnalysis/{s}")
+	public Map<String, Integer> DistrictDoctorAnalysis(@PathVariable(value ="s", required = true) String s){
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		List<Doctor> records = doctorRepository.findAll();
+		if(records.equals(null)) {
+			return hm;
+		}
+		int NumberOfPD = 0;
+		int NumberOfSS = 0;
+		int NumberOfTS = 0;
+		for(Doctor d: records) {
+			Hospital hosp = d.getHospital();
+			if(hosp.getState().equals(s)) {
+//				System.out.println(d.getRole());
+				if(d.getRole().equals("Primary Doctor")){
+					NumberOfPD+=1;
+				}
+				else if(d.getRole().equals("Secondary Specalist")) {
+					NumberOfSS+=1;
+				}
+				else if(d.getRole().equals("Tertiary Specalist")) {
+					NumberOfTS+=1;
+				}
+			}
+		}
+		int TotalDoctors = NumberOfPD + NumberOfSS + NumberOfTS;
+		hm.put("TotalDoctors", TotalDoctors);
+		hm.put("NumberOfPD", NumberOfPD);
+		hm.put("NumberOfSS", NumberOfSS);
+		hm.put("NumberOfTS", NumberOfTS);
+		
+		return hm;
+	}
 
 }
 
