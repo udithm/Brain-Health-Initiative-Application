@@ -5,7 +5,10 @@ import {
     GET_CONSULTATION_REQUEST,
     GET_CONSULTATION_SUCCESS,
     GET_CONSULTATION_FAILURE,
-    SET_CURRENT_CONSULTATION
+    SET_CURRENT_CONSULTATION,
+    GET_REFERALS_FAILURE,
+    GET_REFERALS_REQUEST,
+    GET_REFERALS_SUCCESS
 } from "../common/constants/ActionConstants";
 
 const consultationState = {
@@ -32,7 +35,10 @@ const consultationState = {
     errMessage: "",
     consultationLoading: false,
     consultationAdding: false,
-    consultations: []
+    consultations: [],
+    referals:[],
+    referalsLoading: false
+
 }
 
 export const ConsultationReducer = (state = consultationState, action) => {
@@ -75,6 +81,23 @@ export const ConsultationReducer = (state = consultationState, action) => {
             return {
                 ...state,
                 consultation: action.consultation
+            }
+        case GET_REFERALS_REQUEST:
+            return {
+                ...state,
+                referalsLoading: true
+            }
+
+        case GET_REFERALS_SUCCESS:
+            return {
+                ...state,
+                referals: action.referals,
+                referalsLoading: false,
+            }
+        case GET_REFERALS_FAILURE:
+            return {
+                ...state,
+                referalsLoading: false,
             }
         default:
             return { ...state };

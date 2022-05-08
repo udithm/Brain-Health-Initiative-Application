@@ -5,7 +5,10 @@ import {
     GET_CONSULTATION_REQUEST,
     GET_CONSULTATION_SUCCESS,
     GET_CONSULTATION_FAILURE,
-    SET_CURRENT_CONSULTATION
+    SET_CURRENT_CONSULTATION,
+    GET_REFERALS_FAILURE,
+    GET_REFERALS_REQUEST,
+    GET_REFERALS_SUCCESS
  } from "../common/constants/ActionConstants"; 
 
 export const addConsultationRequest = () => ({
@@ -44,3 +47,19 @@ export const setConsultation = (consultation) => {
         consultation: consultation
     }
 }
+
+export const getReferalsRequest = () => ({
+    type: GET_REFERALS_REQUEST
+})
+
+export const getReferalsSuccess = (referals) => {
+    return {
+        type: GET_REFERALS_SUCCESS,
+        referals: referals
+    }
+}
+
+export const getReferalsFailure = (err) => ({
+    type: GET_REFERALS_FAILURE,
+    err: err
+})

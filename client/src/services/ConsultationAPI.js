@@ -5,7 +5,10 @@ import {
     getConsultationRequest,
     getConsultationSuccess,
     getConsultationFailure,
-    setConsultation
+    setConsultation,
+    getReferalsFailure,
+    getReferalsRequest,
+    getReferalsSuccess
 } from "../actionCreators/ConsultationActions.js";
 import { alertError, alertSuccess } from "../actionCreators/AlertActions";
 import axios from "../common/config/AxiosConfig";
@@ -109,3 +112,18 @@ export const setConsultationSelected = (consultation) => {
 //         return err.message;
 //     })
 // }
+export const getMyReferals = (hid) => {
+    return (dispatch) => {
+        console.log("referalassss");
+        dispatch(getReferalsRequest());
+        axios
+            .get("/referels/" +  + hid)
+            .then((res) => {
+                dispatch(getReferalsSuccess(res.data));
+            })
+            .catch((err) => {
+                dispatch(getReferalsFailure(err.message));
+                console.log("----refereals failure------", err);
+            })
+    }
+}

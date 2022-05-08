@@ -49,3 +49,15 @@ export const GET_CONSULTATION_FAILURE = "getConsultationFailure";
 export const SET_CURRENT_CONSULTATION = "setConsultation";
 
 export const GET_HOSPITALS_FOR_REFERAL_SUCCESS = "getHospitalsforReferral";
+
+export const DISEASE_ANALYTICS_REQUEST = "DiseaseAnalyticsRequest";
+export const DISEASE_ANALYTICS_SUCCESS = "DiseaseAnalyticsSuccess";
+export const DISEASE_ANALYTICS_FAILURE = "DiseaseAnalyticsFailure";
+
+export const PHC_ANALYTICS_REQUEST = "PhcAnalyticsRequest";
+export const PHC_ANALYTICS_SUCCESS = "PhcAnalyticsSuccess";
+export const PHC_ANALYTICS_FAILURE = "PhcAnalyticsFailure";
+
+export const GET_REFERALS_REQUEST = "getReferalsRequest";
+export const GET_REFERALS_SUCCESS = "getReferalsSuccess";
+export const GET_REFERALS_FAILURE = "getReferalsFailure";
