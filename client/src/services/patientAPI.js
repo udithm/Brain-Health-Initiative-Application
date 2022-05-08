@@ -62,18 +62,3 @@ export const setPatientSelected = (patientDetail) => {
         dispatch(setPatient(patientDetail));
     }
 }
-
-export const getHospitalsforReferral = () => {
-        axios
-            .get("/getHospitalsforReferral")
-            .then((res) => {
-                if (!res.data) { throw new Error("No hospitals"); } // this is added so mock server can be used(jugad)
-                // dispatch(getHospitalsforReferralSuccess(res.data));
-                console.log("$$$$$$$$$$$$$$$$$$$gethospiiii",res);
-                localStorage.setItem("getHospitalsforReferral",JSON.stringify(res.data));
-
-            })
-            .catch((err) => {
-                console.log("-----this is catch------", err);
-            })
-}

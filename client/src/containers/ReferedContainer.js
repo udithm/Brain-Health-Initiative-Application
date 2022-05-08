@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { ReferedListView } from "../views/ReferedListView";
 
 export const ReferedContainer = () => {
-    //const authState = useSelector(state => state.AuthReducer);
+    const csgo = useSelector(state => state.ConsultationReducer);
     const appiData = [
         {
             "id": 1,
@@ -727,5 +727,8 @@ export const ReferedContainer = () => {
             "suggestedDiagnosis": ""
         }
     ]
-   return  <ReferedListView apiData={appiData} ></ReferedListView>
+    console.log("scc",csgo);
+    const authState = useSelector(state => state.AuthReducer);
+    console.log(authState);
+   return  <ReferedListView apiData={csgo.referals} hid={authState.Hospital.id} ></ReferedListView>
 }

@@ -6,8 +6,86 @@ import { NavBar } from "../components/NavBar";
 import axios from "../common/config/AxiosConfig";
 import { useDispatch } from "react-redux";
 import { alertError, alertSuccess } from "../actionCreators/AlertActions";
+import { useEffect } from "react";
+import { getReferalsFailure, getReferalsRequest,getReferalsSuccess } from "../actionCreators/ConsultationActions";
+import { getMyReferals } from "../services/ConsultationAPI";
 
-export const ReferedListView = ({apiData}) => {
+export const ReferedListView = ({apiData,hid}) => {
+    if (!apiData){
+       apiData= [{
+            "id": 10000000,
+            "patient": {
+                "id": 10000000,
+                "abhaId": "string",
+                "firstName": "string",
+                "lastName": "string",
+                "dob": "string",
+                "age": 1110,
+                "gender": "string",
+                "education": "string",
+                "occupation": "string",
+                "language": "string",
+                "socioEconomicStatus": "string",
+                "address": "string",
+                "district": "string",
+                "pincode": "string",
+                "phoneNo": "string",
+                "careGiverName": "string",
+                "relationshipWithPatient": "string",
+                "bloodGroup": "string+"
+            },
+            "doctor": {
+                "id": 1,
+                "fname": "string",
+                "lname": "string",
+                "password": "string",
+                "gender": "string",
+                "role": "string",
+                "email": "string",
+                "hospitalName": "string",
+                "contactNumber": "string",
+                "hospital": {
+                    "id": 1,
+                    "name": "string",
+                    "city": "string",
+                    "state": "string",
+                    "district": "string",
+                    "type": "string",
+                    "email": "string",
+                    "pincode": "string",
+                    "contactNumber": "string"
+                }
+            },
+            "consultationDate": "string",
+            "complaint": "string",
+            "examination": "string",
+            "illnessSummary": "string",
+            "diagnosisType": "string",
+            "icdDescription": "string",
+            "icd10Code": "string",
+            "improvementStatus": "string",
+            "medicines": [
+                {
+                    "id": 100000,
+                    "medicineName": "string",
+                    "dosage": "string",
+                    "dosingTime": "string",
+                    "duration": "string"
+                }
+            ],
+            "responses": [],
+            "treatmentInstructions": "string",
+            "remarks": "string",
+            "referedHospitalType": "string",
+            "referedHospitalId": 10000,
+            "referedHospital": "string",
+            "followUpDate": null,
+            "moveToIp": false,
+            "reviewSos": false,
+            "suggestedDiagnosis": "string"
+        }
+    ]
+    }
     const [open, setOpen] = useState(false);
     const [expandedData, setExpandedData] = useState({});
     // const dates= ["12","13","15","16","01","08","03","20","25","04","19"];
@@ -19,22 +97,34 @@ export const ReferedListView = ({apiData}) => {
 
     const takeUpApi = (cid,dataIndex) => {
         console.log(cid);
-        apiData[dataIndex].improvementStatus="false"
+        console.log(dataIndex);
+        apiData[dataIndex].improvementStatus="false";
+        console.log(apiData[dataIndex]);
         return(dispatch) => {
+            // dispatch(getReferalsRequest());
+
             axios
                 .post("/takeUp",{cid})
                 .then ( (res) => {
+                    // dispatch(getReferalsSuccess(res.data));
                     console.log("-------this is then------- ", res);
                     dispatch(alertSuccess("Taken sucessful"));
                 }
                 )
                 .catch ((err) => { // checking not done
                     dispatch(alertError(err.message));
+                    // dispatch(getReferalsFailure(err.message));
                     console.log("eroorrr", err);
                 }
                 )
         }
     }
+    useEffect(() => {
+        var hid1= localStorage.getItem("hid")
+        console.log("this is hid",hid1);
+        getMyReferals(hid1)(dispatch);
+    }, [])
+    
 
     const takeUp = (cid,dataIndex) => takeUpApi(cid,dataIndex)(dispatch);
 

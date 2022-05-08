@@ -12,7 +12,8 @@ import Autocomplete from '@mui/material/Autocomplete';
 import MuiPhoneNumber from "material-ui-phone-number";
 import { NavBar } from '../components/NavBar';
 import { addDoctor } from '../services/CreateApi';
-
+import { useEffect } from "react";
+import { getAllHospitals } from '../services/CreateApi';
 // const rolesList = [
 //     {label: "Primary Docotor", value: "Primary Docotor"},
 //     {label: "Secondary Specalist", value: "Secondary Specalist"},
@@ -81,7 +82,11 @@ export const AddDoctorView = () => {
 
         return hospitalData;
     }
-
+    useEffect(() => {
+        // var hid1= localStorage.getItem("hid")
+        // console.log("this is hid",hid1);
+        getAllHospitals();
+    }, [])
     const add = (fname, lname, email, hashedPassword, role, gender, hospitalName, phoneNumber, hospitalId) => addDoctor(fname, lname, email, hashedPassword, role, gender, hospitalName, phoneNumber, hospitalId, history)(dispatch);
 
     const formik = useFormik({

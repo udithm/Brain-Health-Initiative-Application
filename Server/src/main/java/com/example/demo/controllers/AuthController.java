@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.jwt.JwtUtils;
+import com.example.demo.models.Doctor;
 import com.example.demo.models.Admin;
 import com.example.demo.models.ERole;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
+import com.example.demo.repository.DoctorRepository;
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
@@ -43,6 +46,8 @@ public class AuthController {
 	@Autowired
 	UserRepository userRepository;
 	@Autowired
+	DoctorRepository doctorRepository;
+	@Autowired
 	RoleRepository roleRepository;
 	@Autowired
 	AdminRepository adminRepository;
@@ -57,13 +62,16 @@ public class AuthController {
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
 		
-		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
+		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+		Optional<Doctor> doc = doctorRepository.findById(userDetails.getId());
+		
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 		return ResponseEntity.ok(new JwtResponse(jwt, 
 												 userDetails.getId(), 
-												 userDetails.getUsername(), 
+												 userDetails.getUsername(),
+												 doc.get().getHospital().getId(),
 												 userDetails.getEmail(), 
 												 roles));
 	}
@@ -87,7 +95,6 @@ public class AuthController {
 							 x);
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
-		
 		List<String> rolelist = new ArrayList<String>(strRoles);
 		Admin admin = new Admin(signUpRequest.getUsername(), 
 				signUpRequest.getUsername(),
@@ -102,9 +109,9 @@ public class AuthController {
 //			roles.add(userRole);
 //		} 
 //		else {
-		
+			
 		adminRepository.save(admin);
-			strRoles.forEach(role -> {
+		strRoles.forEach(role -> {
 				switch (role) {
 				case "primary":
 					Role primaryRole = roleRepository.findByName(ERole.PRIMARY_DOCTOR)
