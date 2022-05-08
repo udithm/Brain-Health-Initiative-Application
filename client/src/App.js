@@ -26,6 +26,7 @@ import ViewAllConsultationsByDoctorContainer from "./containers/ViewAllConsultat
 import {AnalyticsContainer} from "./containers/AnalyticsContainer";
 import {DiseaseAnalyticsContainer} from "./containers/DiseaseAnalyticsContainer";
 import PrintContainer from './containers/PrintContainer';
+import {ReferalAnalyticsContainer} from "./containers/ReferalAnalyticsContainer";
 function App() {
   return (
     <Router>
@@ -51,6 +52,8 @@ function App() {
         <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
         <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute>
         <ProtectedRoute path="/diseaseAnalytics" component={DiseaseAnalyticsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
+
         {/* <ProtectedRoute path="/print" component={PrintContainer}></ProtectedRoute> */}
         <Redirect from="*" to="/dashboard"></Redirect>
       </Switch>

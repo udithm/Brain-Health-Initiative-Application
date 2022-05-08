@@ -63,3 +63,7 @@ export const PHC_ANALYTICS_FAILURE = "PhcAnalyticsFailure";
 export const GET_REFERALS_REQUEST = "getReferalsRequest";
 export const GET_REFERALS_SUCCESS = "getReferalsSuccess";
 export const GET_REFERALS_FAILURE = "getReferalsFailure";
+
+export const REFERAL_ANALYITICS_REQUEST = "ReferalsAnalyticsRequest";
+export const REFERAL_ANALYITICS_SUCCESS = "ReferalsAnalyticsSuccess";
+export const REFERAL_ANALYITICS_FAILURE = "ReferalsAnalyticsFailure";
