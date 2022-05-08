@@ -69,14 +69,15 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
+		System.out.print("In Signin ******************************************************************************");
 		
 		if(roles.get(0)!="ADMIN") {
-			Optional<Doctor> doc = doctorRepository.findById(userDetails.getId());
-			
+//			Optional<Doctor> doc = doctorRepository.findById(userDetails.getId());
+//			System.out.print(doc.get().getHospital().getId());	
 			return ResponseEntity.ok(new JwtResponse(jwt, 
 													 userDetails.getId(), 
 													 userDetails.getUsername(),
-													 doc.get().getHospital().getId(),
+//													 doc.get().getHospital().getId(),
 													 userDetails.getEmail(), 
 													 roles));
 		}
@@ -85,7 +86,7 @@ public class AuthController {
 			return ResponseEntity.ok(new JwtResponse(jwt, 
 					 userDetails.getId(), 
 					 userDetails.getUsername(),
-					 doc.getId(),
+//					 doc.getId(),
 					 userDetails.getEmail(), 
 					 roles));
 		}
