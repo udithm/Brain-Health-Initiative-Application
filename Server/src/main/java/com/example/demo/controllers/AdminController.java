@@ -280,10 +280,17 @@ public class AdminController {
 			return hm;
 		}
 		int TotalQuestionnaireUsed = 0;
+		int NumberOfConsultations = 0;
 		for(ConsultationRecord e: records) {
-			System.out.println("ConsulationForm*********************************");
-			System.out.print(e.getResponses());
+			NumberOfConsultations+=1;
+//			System.out.println("ConsulationForm*********************************");
+//			System.out.print(e.getResponses());
+			if(e.getResponses().size()>0) {
+				TotalQuestionnaireUsed+=1;
+			}
 		}
+		hm.put("TotalQuestionnaireUsed", TotalQuestionnaireUsed);
+		hm.put("NumberOfConsultations", NumberOfConsultations);
 		
 		return hm;
 	}
@@ -376,6 +383,7 @@ public class AdminController {
 		
 		return hm;
 	}
+
 
 }
 
