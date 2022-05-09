@@ -281,8 +281,98 @@ public class AdminController {
 		}
 		int TotalQuestionnaireUsed = 0;
 		for(ConsultationRecord e: records) {
+			System.out.println("ConsulationForm*********************************");
 			System.out.print(e.getResponses());
 		}
+		
+		return hm;
+	}
+	
+//	API for sending statistics of questionnaire
+	@GetMapping("/ICD10CodeAnalysis")
+	public Map<String, Integer> ICD10CodeAnalysis(){
+		List<ConsultationRecord> records = consultationRepository.findAll();
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		if(records.equals(null)) {
+			return hm;
+		}
+		for(ConsultationRecord e : records) {
+			if(!hm.containsKey(e.getIcd10Code())) {
+				hm.put(e.getIcd10Code(), 1);
+			}
+			else {
+				hm.put(e.getIcd10Code(), hm.get(e.getIcd10Code())+1);
+			}
+		}
+		
+		return hm;
+	}
+	
+//	API for sending statistics of # of Hospitals in each district
+	@GetMapping(path = "/StateHospitalAnalysis/{d}")
+	public Map<String, Integer> DistrictHospitalAnalysis(@PathVariable(value ="d", required = true) String d){
+		List<Hospital> records = hospitalRepository.findAll();
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		if(records.equals(null)) {
+			return hm;
+		}
+		int NumberOfPHC = 0;
+		int NumberOfSHC = 0;
+		int NumberOfTHC = 0;
+		for(Hospital h: records) {
+			if(h.getDistrict().equals(d)) {
+				if(h.getType().equals("Primary Health Centre")){
+					NumberOfPHC+=1;
+				}
+				else if(h.getType().equals("Secondary Health Centre")) {
+					NumberOfSHC+=1;
+				}
+				else if(h.getType().equals("Tertiary Health Centre")) {
+					NumberOfTHC+=1;
+				}
+			}
+		}
+		int TotalHospitals = NumberOfPHC + NumberOfSHC + NumberOfTHC;
+		hm.put("TotalHospitals", TotalHospitals);
+		hm.put("NumberOfPHC", NumberOfPHC);
+		hm.put("NumberOfSHC", NumberOfSHC);
+		hm.put("NumberOfTHC", NumberOfTHC);
+		
+		return hm;
+	}
+	
+	
+//	API for sending statistics of # of Doctors in each state
+	@GetMapping(path = "/StateDoctorAnalysis/{s}")
+	public Map<String, Integer> DistrictDoctorAnalysis(@PathVariable(value ="s", required = true) String s){
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		List<Doctor> records = doctorRepository.findAll();
+		if(records.equals(null)) {
+			return hm;
+		}
+		int NumberOfPD = 0;
+		int NumberOfSS = 0;
+		int NumberOfTS = 0;
+		for(Doctor d: records) {
+			Hospital hosp = d.getHospital();
+			if(hosp.getState().equals(s)) {
+//				System.out.println(d.getRole());
+				if(d.getRole().equals("Primary Doctor")){
+					NumberOfPD+=1;
+				}
+				else if(d.getRole().equals("Secondary Specalist")) {
+					NumberOfSS+=1;
+				}
+				else if(d.getRole().equals("Tertiary Specalist")) {
+					NumberOfTS+=1;
+				}
+			}
+		}
+		int TotalDoctors = NumberOfPD + NumberOfSS + NumberOfTS;
+		hm.put("TotalDoctors", TotalDoctors);
+		hm.put("NumberOfPD", NumberOfPD);
+		hm.put("NumberOfSS", NumberOfSS);
+		hm.put("NumberOfTS", NumberOfTS);
 		
 		return hm;
 	}

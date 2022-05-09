@@ -98,7 +98,7 @@ public class MyProfileController {
 //			JsonNode hospnode = mapper.convertValue(hosp, JsonNode.class);
 			ObjectNode objectNode = mapper.createObjectNode();
 		    objectNode.put("userName", user.getUsername());
-		    objectNode.put("AdminId", doc.getId());
+		    objectNode.put("id", doc.getId());
 		    objectNode.put("AdminOrganizationName", doc.getOrgName());
 		    objectNode.put("AdminContactNumber", doc.getContactNumber());
 		    objectNode.put("email", user.getEmail());

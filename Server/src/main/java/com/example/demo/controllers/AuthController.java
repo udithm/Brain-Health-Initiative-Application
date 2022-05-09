@@ -69,7 +69,7 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
-		System.out.print("In Signin ******************************************************************************");
+//		System.out.print("In Signin ******************************************************************************");
 		
 		if(roles.get(0)!="ADMIN") {
 //			Optional<Doctor> doc = doctorRepository.findById(userDetails.getId());
