@@ -19,6 +19,8 @@ import {ReactComponent as PatientIcon} from '../common/Icons/patient.svg';
 import {ReactComponent as OrgIcon} from '../common/Icons/organisation.svg';
 import { ReactComponent as SearchIcon } from "../common/Icons/search.svg";
 import { ReactComponent as AddPatientIcon } from "../common/Icons/addPatient.svg";
+import { ReactComponent as MyConsultationIcon } from "../common/Icons/myConsultations.svg";
+import { ReactComponent as MyReferalIcon } from "../common/Icons/myReferal.svg";
 
 const CreateView = () => {
     const useStyles = makeStyles({
@@ -181,7 +183,7 @@ const DoctorOptionsView = () => {
                           padding: "10px",
                         }}
                       >
-                        <SearchIcon />
+                        <MyConsultationIcon />
                       </div>
                       <Typography align="center">My consultations</Typography>
                     </CardContent>
@@ -202,7 +204,7 @@ const DoctorOptionsView = () => {
                           padding: "10px",
                         }}
                       >
-                        <SearchIcon />
+                        <MyReferalIcon />
                       </div>
                       <Typography align="center">My Referals</Typography>
                     </CardContent>

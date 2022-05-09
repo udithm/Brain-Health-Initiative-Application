@@ -30,7 +30,7 @@ public class Doctor {
 	private String fname;
 	@Column(length = 30)
 	private String lname;
-	@Column(length = 30)
+	@Column(length = 30,insertable = false)
 	private String password;
 	@Column(length = 25)
 	private String gender;

@@ -9,7 +9,7 @@ import { alertError, alertSuccess } from "../actionCreators/AlertActions";
 import { useEffect } from "react";
 import { getReferalsFailure, getReferalsRequest,getReferalsSuccess } from "../actionCreators/ConsultationActions";
 import { getMyReferals } from "../services/ConsultationAPI";
-
+import { useHistory } from "react-router-dom";
 export const ReferedListView = ({apiData,hid}) => {
     if (!apiData){
        apiData= [{
@@ -88,6 +88,7 @@ export const ReferedListView = ({apiData,hid}) => {
     }
     const [open, setOpen] = useState(false);
     const [expandedData, setExpandedData] = useState({});
+    const history = useHistory();
     // const dates= ["12","13","15","16","01","08","03","20","25","04","19"];
     // const Hospitals=["Abhaya Hospital","Bangalore Hospital","Healthcare Global Enterprises","Chaitanya Hospital" ,"Chord Road Hospital","Citi Hospital",
     //   "Devi Super Speciality  Hospital","D G Hospital","Dr Zamindars Hospital","Gayathri Hospital","Hosmat Hospital" ,"Karthik Netralaya Institute Of Ophthalmology" ,"Koshys Hospital"
@@ -95,20 +96,26 @@ export const ReferedListView = ({apiData,hid}) => {
     //    "Mallya Hospital"];
     const dispatch = useDispatch();
 
-    const takeUpApi = (cid,dataIndex) => {
+    const takeUpApi = (cid,consObj) => {
         console.log(cid);
-        console.log(dataIndex);
-        apiData[dataIndex].improvementStatus="false";
-        console.log(apiData[dataIndex]);
+        // console.log(dataIndex);
+        // apiData[dataIndex].improvementStatus="false";
+        // console.log(apiData[dataIndex]);
+        consObj.referralStatus = true;
+
+        console.log("^^^^^^^^^^^^^^^^^^^consobj",consObj);
         return(dispatch) => {
             // dispatch(getReferalsRequest());
 
             axios
-                .post("/takeUp",{cid})
+                .post("/v1/consultationrecords/update/"+cid,consObj )
                 .then ( (res) => {
                     // dispatch(getReferalsSuccess(res.data));
                     console.log("-------this is then------- ", res);
                     dispatch(alertSuccess("Taken sucessful"));
+                    localStorage.setItem('Value', consObj.patient.abhaId);
+                    localStorage.setItem('Field', "abhaId");
+                    history.push("/searchPatient")
                 }
                 )
                 .catch ((err) => { // checking not done
@@ -197,12 +204,17 @@ export const ReferedListView = ({apiData,hid}) => {
         {name: "Takeup consulatation",
         options: { filterOptions: { fullWidth: true } ,
         customBodyRenderLite: (dataIndex) => {
-            let val = apiData[dataIndex].firstLogin;
+            let val = apiData[dataIndex].referralStatus;
+            console.log(val);
+
             let cid = apiData[dataIndex].id;
+            let consObj = apiData[dataIndex];
+            console.log("***********cons",consObj);
               return (<>
                 <Button size="small" variant="contained"    onClick={() => {
-                    takeUp(cid,dataIndex);
-                        val=false;
+                                console.log("***********cons in button",consObj);
+
+                    takeUp(cid,consObj);
                 }} disabled={val}>Take up consulatation</Button>
             </>
             )
