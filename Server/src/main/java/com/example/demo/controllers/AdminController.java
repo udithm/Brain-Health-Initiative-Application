@@ -139,7 +139,7 @@ public class AdminController {
 
 		doctorRepository.save(doctor);
 		
-		User user = new User(doctorRequest.getFname(),
+		User user = new User(doctorRequest.getEmail(),
 							 doctorRequest.getEmail(),
 							 encoder.encode(doctorRequest.getPassword()),
 							 doctor.getId());
@@ -188,7 +188,7 @@ public class AdminController {
 				adminRequest.getOrgName(),
 				adminRequest.getContactNumber());
 		adminRepository.save(admin);
-		User user = new User(admin.getFname(),
+		User user = new User(admin.getEmail(),
 				 admin.getEmail(),
 				 encoder.encode(admin.getPassword()),
 				 admin.getId());
@@ -280,10 +280,17 @@ public class AdminController {
 			return hm;
 		}
 		int TotalQuestionnaireUsed = 0;
+		int NumberOfConsultations = 0;
 		for(ConsultationRecord e: records) {
-			System.out.println("ConsulationForm*********************************");
-			System.out.print(e.getResponses());
+			NumberOfConsultations+=1;
+//			System.out.println("ConsulationForm*********************************");
+//			System.out.print(e.getResponses());
+			if(e.getResponses().size()>0) {
+				TotalQuestionnaireUsed+=1;
+			}
 		}
+		hm.put("TotalQuestionnaireUsed", TotalQuestionnaireUsed);
+		hm.put("NumberOfConsultations", NumberOfConsultations);
 		
 		return hm;
 	}
@@ -309,7 +316,7 @@ public class AdminController {
 	}
 	
 //	API for sending statistics of # of Hospitals in each district
-	@GetMapping(path = "/StateHospitalAnalysis/{d}")
+	@GetMapping(path = "/DistrictHospitalAnalysis/{d}")
 	public Map<String, Integer> DistrictHospitalAnalysis(@PathVariable(value ="d", required = true) String d){
 		List<Hospital> records = hospitalRepository.findAll();
 		Map<String, Integer> hm = new HashMap<String, Integer>();
@@ -344,7 +351,7 @@ public class AdminController {
 	
 //	API for sending statistics of # of Doctors in each state
 	@GetMapping(path = "/StateDoctorAnalysis/{s}")
-	public Map<String, Integer> DistrictDoctorAnalysis(@PathVariable(value ="s", required = true) String s){
+	public Map<String, Integer> StateDoctorAnalysis(@PathVariable(value ="s", required = true) String s){
 		Map<String, Integer> hm = new HashMap<String, Integer>();
 		List<Doctor> records = doctorRepository.findAll();
 		if(records.equals(null)) {
@@ -376,6 +383,7 @@ public class AdminController {
 		
 		return hm;
 	}
+
 
 }
 

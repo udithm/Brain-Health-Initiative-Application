@@ -20,6 +20,7 @@ import ViewPatientDetailsContainer from './containers/ViewPatientDetailsContaine
 import SearchPatientContainer from './containers/SearchPatientContainer';
 import AddConsultationContainer from "./containers/AddConsultationContainer";
 import ViewPatientDashboard from "./views/ViewPatientDashboard";
+import {AnalyticsTableView} from "./views/AnalyticsTableView";
 import ViewConsultationContainer from "./containers/ViewConsultationContainer";
 import ViewAllConsultationsContainer from "./containers/ViewAllConsultationsContainer";
 import ViewAllConsultationsByDoctorContainer from "./containers/ViewAllConsultationByDoctor";
@@ -29,37 +30,52 @@ import PrintContainer from './containers/PrintContainer';
 import {ReferalAnalyticsContainer} from "./containers/ReferalAnalyticsContainer";
 import {Icd10AnalyticsContainer} from "./containers/Icd10AnalyticsContainer";
 import {StateDoctorAnalyticsContainer} from "./containers/StateDoctorAnalysisContainer"
+import {useSelector} from "react-redux"
 function App() {
+  const authState = useSelector((state) => state.AuthReducer);
   return (
     <Router>
       <Switch>
         <Route path="/login" component={LoginContainer}></Route>
-        <ProtectedRoute path="/dashboard/" component={DashboardContainer}></ProtectedRoute>
+
         <ProtectedRoute path="/changePassword" component={ChangePasswordContainer}></ProtectedRoute>
         <ProtectedRoute path="/myProfile" component={MyProfileContainer}></ProtectedRoute>
-        <ProtectedRoute path="/create" component={CreateContainer}></ProtectedRoute>
-        <ProtectedRoute path="/addHospital" component={AddHospitalView}></ProtectedRoute>
-        <ProtectedRoute path="/addDoctor" component={AddDoctorView}></ProtectedRoute>
-        <ProtectedRoute path="/addAdmin" component={AddAdminView}></ProtectedRoute>
-        <ProtectedRoute path="/addAdminOrg" component={AddAdminOrgView}></ProtectedRoute>
+        <ProtectedRoute path="/dashboard/" component={DashboardContainer}></ProtectedRoute>
+        {authState.role === "admin" ? 
+        <>
+          <ProtectedRoute path="/create" component={CreateContainer}></ProtectedRoute>
+          <ProtectedRoute path="/addHospital" component={AddHospitalView}></ProtectedRoute>
+          <ProtectedRoute path="/addDoctor" component={AddDoctorView}></ProtectedRoute>
+          <ProtectedRoute path="/addAdmin" component={AddAdminView}></ProtectedRoute>
+          <ProtectedRoute path="/addAdminOrg" component={AddAdminOrgView}></ProtectedRoute>
+          <ProtectedRoute path="/analyticsTable" component={AnalyticsTableView}></ProtectedRoute>
+          <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/districtHospitals" component={DistrictHospitalAnalyticsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/icd10Analytics" component={Icd10AnalyticsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/stateDoctorAnalytics" component={StateDoctorAnalyticsContainer}></ProtectedRoute>
+
+          <Redirect from="*" to="/dashboard"></Redirect>
+        </>
+        :
+        <>
         <ProtectedRoute path="/patientOptions" component={PatientOptionsView}></ProtectedRoute>
-        <ProtectedRoute path="/refered" component={ReferedContainer}></ProtectedRoute>
-        <ProtectedRoute path="/addPatient" component={AddPatientDetailsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/searchPatient" component={SearchPatientContainer}></ProtectedRoute>
-        <ProtectedRoute path="/viewPatientDashboard" component={ViewPatientDashboard}></ProtectedRoute>
-        <ProtectedRoute path="/viewPatient/:id" component={ViewPatientDetailsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/addConsultation/:id" component={AddConsultationContainer}></ProtectedRoute>
-        <ProtectedRoute path="/viewConsultation/:pid/:cid" component={ViewConsultationContainer}></ProtectedRoute>
-        <ProtectedRoute path="/doctorConsultations" component={ViewAllConsultationsByDoctorContainer}></ProtectedRoute>
-        <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/districtHospitals" component={DistrictHospitalAnalyticsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/icd10Analytics" component={Icd10AnalyticsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/stateDoctorAnalytics" component={StateDoctorAnalyticsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/refered" component={ReferedContainer}></ProtectedRoute>
+          <ProtectedRoute path="/addPatient" component={AddPatientDetailsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/searchPatient" component={SearchPatientContainer}></ProtectedRoute>
+          <ProtectedRoute path="/viewPatientDashboard" component={ViewPatientDashboard}></ProtectedRoute>
+          <ProtectedRoute path="/viewPatient/:id" component={ViewPatientDetailsContainer}></ProtectedRoute>
+          <ProtectedRoute path="/addConsultation/:id" component={AddConsultationContainer}></ProtectedRoute>
+          <ProtectedRoute path="/viewConsultation/:pid/:cid" component={ViewConsultationContainer}></ProtectedRoute>
+          <ProtectedRoute path="/doctorConsultations" component={ViewAllConsultationsByDoctorContainer}></ProtectedRoute>
+          <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
+          <Redirect from="*" to="/dashboard"></Redirect>
+        </>
+        }
 
         {/* <ProtectedRoute path="/print" component={PrintContainer}></ProtectedRoute> */}
-        <Redirect from="*" to="/dashboard"></Redirect>
+        
       </Switch>
     </Router>
   )
