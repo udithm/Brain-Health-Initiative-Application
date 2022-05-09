@@ -126,10 +126,10 @@ const AllConsultations = (props) => {
     filterType: "dropdown",
     responsive: "standard",
     selectableRows: "none",
-    onRowClick: (rowData, rowState) => {
-      console.log(results[rowState.dataIndex]);
-      ViewConsultation(results[rowState.dataIndex]);
-    },
+    // onRowClick: (rowData, rowState) => {
+    //   console.log(results[rowState.dataIndex]);
+    //   ViewConsultation(results[rowState.dataIndex]);
+    // },
   };
   const goBack = () => {
     setResult([]);
