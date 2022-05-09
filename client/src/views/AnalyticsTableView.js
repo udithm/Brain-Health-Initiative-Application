@@ -1,8 +1,9 @@
 import * as React from "react";
 import { NavBar } from "../components/NavBar";
 import MUIDataTable from "mui-datatables";
-
-export const AnalyticsContainerView = () => {
+import {useHistory} from "react-router-dom"
+export const AnalyticsTableView = () => {
+    let history = useHistory();
   const data = [
     {
       name: "Referral Analytics",
@@ -55,7 +56,7 @@ export const AnalyticsContainerView = () => {
     },
   ];
 
-  const options_friends = {
+  const options = {
     filterType: "checkbox",
     download: false,
     print: false,
@@ -69,12 +70,14 @@ export const AnalyticsContainerView = () => {
   return (
     <>
       <NavBar></NavBar>
-      <MUIDataTable
-        title={"Analytics"}
-        data={data}
-        columns={columns}
-        options={options}
-      />
+      <div style={{width:"80%", margin:"10px auto"}}>
+        <MUIDataTable
+          title={"Analytics"}
+          data={data}
+          columns={columns}
+          options={options}
+        />
+      </div>
     </>
   );
 };
