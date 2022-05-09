@@ -67,3 +67,16 @@ export const GET_REFERALS_FAILURE = "getReferalsFailure";
 export const REFERAL_ANALYITICS_REQUEST = "ReferalsAnalyticsRequest";
 export const REFERAL_ANALYITICS_SUCCESS = "ReferalsAnalyticsSuccess";
 export const REFERAL_ANALYITICS_FAILURE = "ReferalsAnalyticsFailure";
+
+export const DISTRICT_HOSPITAL_ANALYITICS_REQUEST = "DistrictHospitalAnalyticsRequest";
+export const DISTRICT_HOSPITAL_ANALYITICS_SUCCESS = "DistrictHospitalAnalyticsSuccess";
+export const DISTRICT_HOSPITAL_ANALYITICS_FAILURE = "DistrictHospitalAnalyticsFailure";
+
+export const ICD10_ANALYITICS_REQUEST = "Icd10AnalyticsRequest";
+export const ICD10_ANALYITICS_SUCCESS = "Icd10AnalyticsSuccess";
+export const ICD10_ANALYITICS_FAILURE = "Icd10AnalyticsFailure";
+
+
+export const STATE_DOCTOR_ANALYITICS_REQUEST = "StateDoctorAnalyticsRequest";
+export const STATE_DOCTOR_ANALYITICS_SUCCESS = "StateDoctorAnalyticsSuccess";
+export const STATE_DOCTOR_ANALYITICS_FAILURE = "StateDoctorAnalyticsFailure";
