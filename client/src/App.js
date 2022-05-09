@@ -33,6 +33,8 @@ import {StateDoctorAnalyticsContainer} from "./containers/StateDoctorAnalysisCon
 import {useSelector} from "react-redux"
 function App() {
   const authState = useSelector((state) => state.AuthReducer);
+  const role = localStorage.getItem("role");
+  console.log(role);
   return (
     <Router>
       <Switch>
@@ -41,7 +43,7 @@ function App() {
         <ProtectedRoute path="/changePassword" component={ChangePasswordContainer}></ProtectedRoute>
         <ProtectedRoute path="/myProfile" component={MyProfileContainer}></ProtectedRoute>
         <ProtectedRoute path="/dashboard/" component={DashboardContainer}></ProtectedRoute>
-        {authState.role === "admin" ? 
+        {role === "ADMIN" ? 
         <>
           <ProtectedRoute path="/create" component={CreateContainer}></ProtectedRoute>
           <ProtectedRoute path="/addHospital" component={AddHospitalView}></ProtectedRoute>
@@ -55,8 +57,8 @@ function App() {
           <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
           <ProtectedRoute path="/icd10Analytics" component={Icd10AnalyticsContainer}></ProtectedRoute>
           <ProtectedRoute path="/stateDoctorAnalytics" component={StateDoctorAnalyticsContainer}></ProtectedRoute>
-
-          <Redirect from="*" to="/dashboard"></Redirect>
+            {console.log("app",role === "ADMIN" , role)}
+          {/* <Redirect from="*" to="/dashboard"></Redirect> */}
         </>
         :
         <>
@@ -70,10 +72,12 @@ function App() {
           <ProtectedRoute path="/viewConsultation/:pid/:cid" component={ViewConsultationContainer}></ProtectedRoute>
           <ProtectedRoute path="/doctorConsultations" component={ViewAllConsultationsByDoctorContainer}></ProtectedRoute>
           <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
-          <Redirect from="*" to="/dashboard"></Redirect>
+          {console.log("app",role === "ADMIN" , role)}
+
+          {/* <Redirect from="*" to="/dashboard"></Redirect> */}
         </>
         }
-
+        <Redirect from="*" to="/dashboard"></Redirect>
         {/* <ProtectedRoute path="/print" component={PrintContainer}></ProtectedRoute> */}
         
       </Switch>

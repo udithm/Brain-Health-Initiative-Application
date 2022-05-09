@@ -29,7 +29,7 @@ export const ChangePasswordView = ({change, err}) => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      change(sha256(values.confirmPassword));
+      change((values.confirmPassword));
     },
   });
   const paperStyle={padding :30,height:'40vh',width:'20vw', margin:"20vh auto"};
