@@ -16,7 +16,10 @@ import {
     ICD10_ANALYITICS_SUCCESS,
     STATE_DOCTOR_ANALYITICS_FAILURE,
     STATE_DOCTOR_ANALYITICS_REQUEST,
-    STATE_DOCTOR_ANALYITICS_SUCCESS
+    STATE_DOCTOR_ANALYITICS_SUCCESS,
+    QUESTION_ANALYITICS_FAILURE,
+    QUESTION_ANALYITICS_REQUEST,
+    QUESTION_ANALYITICS_SUCCESS
 } from "../common/constants/ActionConstants";
 
 export const diseaseAnalyticsRequest = () => ({
@@ -101,5 +104,19 @@ export const stateDoctorAnalyticsSuccess = (stateDoctorChartData) => ({
 
 export const stateDoctorAnalyticsFailure = (err) => ({
     type: STATE_DOCTOR_ANALYITICS_FAILURE,
+    err: err
+})
+
+export const questionAnalyticsRequest = () => ({
+    type: QUESTION_ANALYITICS_REQUEST
+})
+
+export const questionAnalyticsSuccess = (questionChartData) => ({
+    type: QUESTION_ANALYITICS_SUCCESS,
+    questionChartData: questionChartData
+})
+
+export const questionAnalyticsFailure = (err) => ({
+    type: QUESTION_ANALYITICS_FAILURE,
     err: err
 })

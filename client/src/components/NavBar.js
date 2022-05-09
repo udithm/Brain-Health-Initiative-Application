@@ -42,7 +42,7 @@ Dashboard
                                     Create
                                 </Button>
                             </Link>
-                            <Link href="/analytics" underline='none'>
+                            <Link href="/analyticsTable" underline='none'>
                                 <Button sx={{ color: "#fff" }}>
                                     Analytics
                                 </Button>

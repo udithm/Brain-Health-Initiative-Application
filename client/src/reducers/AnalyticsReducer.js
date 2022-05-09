@@ -16,7 +16,10 @@ import {
     ICD10_ANALYITICS_SUCCESS,
     STATE_DOCTOR_ANALYITICS_FAILURE,
     STATE_DOCTOR_ANALYITICS_REQUEST,
-    STATE_DOCTOR_ANALYITICS_SUCCESS
+    STATE_DOCTOR_ANALYITICS_SUCCESS,
+    QUESTION_ANALYITICS_FAILURE,
+    QUESTION_ANALYITICS_REQUEST,
+    QUESTION_ANALYITICS_SUCCESS
 } from "../common/constants/ActionConstants";
 
 const initialState ={
@@ -38,6 +41,9 @@ const initialState ={
     stateDoctorChartData:{},
     stateDoctorChartLoading: true,
     stateDoctorChartError:"",
+    questionChartData:{},
+    questionChartLoading: true,
+    questionChartError:"",
 }
 
 export const AnalyticsReducer = (state = initialState, action) => {
@@ -146,6 +152,24 @@ export const AnalyticsReducer = (state = initialState, action) => {
                 ...state,
                 stateDoctorChartLoading:false,
                 stateDoctorChartError: action.err
+            };
+        case QUESTION_ANALYITICS_SUCCESS:
+            console.log("reduceee questioonnn",action);
+            return {
+                ...state,
+                questionChartData: action.questionChartData,
+                questionChartLoading:true
+            };
+        case QUESTION_ANALYITICS_REQUEST:
+            return {
+                ...state,
+                questionChartLoading:false
+            };   
+        case QUESTION_ANALYITICS_FAILURE:
+            return {
+                ...state,
+                questionChartLoading:false,
+                questionChartError: action.err
             };
         default:
                 return state;

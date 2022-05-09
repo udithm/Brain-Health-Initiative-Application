@@ -30,9 +30,8 @@ import PrintContainer from './containers/PrintContainer';
 import {ReferalAnalyticsContainer} from "./containers/ReferalAnalyticsContainer";
 import {Icd10AnalyticsContainer} from "./containers/Icd10AnalyticsContainer";
 import {StateDoctorAnalyticsContainer} from "./containers/StateDoctorAnalysisContainer"
-import {useSelector} from "react-redux"
+import {QuestionAnalyticsContainer} from "./containers/QuestionAnalyticsContainer"
 function App() {
-  const authState = useSelector((state) => state.AuthReducer);
   const role = localStorage.getItem("role");
   console.log(role);
   return (
@@ -43,6 +42,8 @@ function App() {
         <ProtectedRoute path="/changePassword" component={ChangePasswordContainer}></ProtectedRoute>
         <ProtectedRoute path="/myProfile" component={MyProfileContainer}></ProtectedRoute>
         <ProtectedRoute path="/dashboard/" component={DashboardContainer}></ProtectedRoute>
+        <ProtectedRoute path="/questionnaireAnalytics" component={QuestionAnalyticsContainer}></ProtectedRoute>
+
         {role === "ADMIN" ? 
         <>
           <ProtectedRoute path="/create" component={CreateContainer}></ProtectedRoute>
@@ -51,10 +52,9 @@ function App() {
           <ProtectedRoute path="/addAdmin" component={AddAdminView}></ProtectedRoute>
           <ProtectedRoute path="/addAdminOrg" component={AddAdminOrgView}></ProtectedRoute>
           <ProtectedRoute path="/analyticsTable" component={AnalyticsTableView}></ProtectedRoute>
-          <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute>
+          {/* <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute> */}
           <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
           <ProtectedRoute path="/districtHospitals" component={DistrictHospitalAnalyticsContainer}></ProtectedRoute>
-          <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
           <ProtectedRoute path="/icd10Analytics" component={Icd10AnalyticsContainer}></ProtectedRoute>
           <ProtectedRoute path="/stateDoctorAnalytics" component={StateDoctorAnalyticsContainer}></ProtectedRoute>
             {console.log("app",role === "ADMIN" , role)}

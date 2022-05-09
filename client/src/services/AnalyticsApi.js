@@ -17,7 +17,10 @@ import {
     icd10AnalyticsSuccess,
     stateDoctorAnalyticsFailure,
     stateDoctorAnalyticsRequest,
-    stateDoctorAnalyticsSuccess
+    stateDoctorAnalyticsSuccess,
+    questionAnalyticsFailure,
+    questionAnalyticsRequest,
+    questionAnalyticsSuccess
 } from "../actionCreators/AnalyticsActions";
 
 import { alertError } from "../actionCreators/AlertActions";
@@ -160,6 +163,31 @@ export const stateDoctorAnalytics = (s) => {
                 dispatch(stateDoctorAnalyticsFailure(err.message));
                 dispatch(alertError(err.message));
                 console.log("-----this is catch phc anali------", err);
+                
+            })
+    }
+}
+
+export const questionereAnalytics = () => {
+    return (dispatch) => {
+        dispatch(questionAnalyticsRequest()); 
+        console.log("questionereAnalyticsRequest");
+        axios
+            .get ("/QuestionnaireAnalysis") 
+            .then ((res) => {
+                console.log("questionereAnalyticsSuccess",res);
+                console.log("questionereAnalyticsSuccess",res.data);
+
+                if (!res.data) { throw new Error(" referals analytics fetch unsucessful.");} // this is added so mock server can be used(jugad)
+                dispatch(questionAnalyticsSuccess(res.data));
+
+            })
+            .catch((err)=>{
+                console.log("questionereAnalyticsFailure",err);
+
+                dispatch(questionAnalyticsFailure(err.message));
+                dispatch(alertError(err.message));
+                console.log("-----this is catch refeal anali------", err);
                 
             })
     }

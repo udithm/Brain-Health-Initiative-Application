@@ -80,3 +80,7 @@ export const ICD10_ANALYITICS_FAILURE = "Icd10AnalyticsFailure";
 export const STATE_DOCTOR_ANALYITICS_REQUEST = "StateDoctorAnalyticsRequest";
 export const STATE_DOCTOR_ANALYITICS_SUCCESS = "StateDoctorAnalyticsSuccess";
 export const STATE_DOCTOR_ANALYITICS_FAILURE = "StateDoctorAnalyticsFailure";
+
+export const QUESTION_ANALYITICS_REQUEST = "QuestionAnalyticsRequest";
+export const QUESTION_ANALYITICS_SUCCESS = "QuestionAnalyticsSuccess";
+export const QUESTION_ANALYITICS_FAILURE = "QuestionAnalyticsFailure";

@@ -95,7 +95,7 @@ export const LoginView = ({ login, err }) => {
               fullWidth
               id="email"
               name="email"
-              label="Username"
+              label="Email"
               style={textstyle}
               value={formik.values.email}
               onChange={formik.handleChange}
