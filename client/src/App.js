@@ -24,9 +24,11 @@ import ViewConsultationContainer from "./containers/ViewConsultationContainer";
 import ViewAllConsultationsContainer from "./containers/ViewAllConsultationsContainer";
 import ViewAllConsultationsByDoctorContainer from "./containers/ViewAllConsultationByDoctor";
 import {AnalyticsContainer} from "./containers/AnalyticsContainer";
-import {DiseaseAnalyticsContainer} from "./containers/DiseaseAnalyticsContainer";
+import {DistrictHospitalAnalyticsContainer} from "./containers/DistrictHospitalAnalyticsContainer";
 import PrintContainer from './containers/PrintContainer';
 import {ReferalAnalyticsContainer} from "./containers/ReferalAnalyticsContainer";
+import {Icd10AnalyticsContainer} from "./containers/Icd10AnalyticsContainer";
+import {StateDoctorAnalyticsContainer} from "./containers/StateDoctorAnalysisContainer"
 function App() {
   return (
     <Router>
@@ -51,8 +53,10 @@ function App() {
         <ProtectedRoute path="/doctorConsultations" component={ViewAllConsultationsByDoctorContainer}></ProtectedRoute>
         <ProtectedRoute path="/viewPastConsultations/:id" component={ViewAllConsultationsContainer}></ProtectedRoute>
         <ProtectedRoute path="/analytics" component={AnalyticsContainer}></ProtectedRoute>
-        <ProtectedRoute path="/diseaseAnalytics" component={DiseaseAnalyticsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/districtHospitals" component={DistrictHospitalAnalyticsContainer}></ProtectedRoute>
         <ProtectedRoute path="/referalAnalytics" component={ReferalAnalyticsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/icd10Analytics" component={Icd10AnalyticsContainer}></ProtectedRoute>
+        <ProtectedRoute path="/stateDoctorAnalytics" component={StateDoctorAnalyticsContainer}></ProtectedRoute>
 
         {/* <ProtectedRoute path="/print" component={PrintContainer}></ProtectedRoute> */}
         <Redirect from="*" to="/dashboard"></Redirect>

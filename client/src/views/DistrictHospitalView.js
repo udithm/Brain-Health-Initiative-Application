@@ -5,6 +5,10 @@ import {
   PieSeries,
   Legend,
   Title,
+  BarSeries,
+  ArgumentAxis,
+  ValueAxis,
+  Tooltip,
 } from '@devexpress/dx-react-chart-material-ui';
 import Autocomplete from '@mui/material/Autocomplete';
 import { getDropdownList } from '../utlis/utils';
@@ -12,12 +16,20 @@ import TextField from '@material-ui/core/TextField';
 import statesData from "../common/StatesData.json";
 import { NavBar } from '../components/NavBar';
 import Button from '@mui/material/Button';
+import { useEffect } from 'react';
+import { EventTracker } from '@devexpress/dx-react-chart';
+import { Animation } from '@devexpress/dx-react-chart';
+import { phcAnalytics } from '../services/AnalyticsApi';
+import { useDispatch } from 'react-redux';
+import MUIDataTable from "mui-datatables";
+import {districtHospitalAnalytics} from '../services/AnalyticsApi';
+
+// import {}
 // import Dialog from '@mui/material/Dialog';
 // import DialogActions from '@mui/material/DialogActions';
 // import DialogContent from '@mui/material/DialogContent';
 // import DialogContentText from '@mui/material/DialogContentText';
 // import DialogTitle from '@mui/material/DialogTitle';
-import { useEffect } from 'react';
 // import { referalAnalytics } from '../services/AnalyticsApi';
 // const style = {
 //     position: "absolute",
@@ -98,9 +110,88 @@ import { useEffect } from 'react';
 
 
 
-export const DiseaseView = ({apiData}) => {
-    console.log(apiData);
+export const DistrictHospitalView = ({apiData,data1,apiData1,data2}) => {
+    console.log("api1",apiData);
+    console.log("api2",apiData1);
+    console.log("data2",data2);
+   const dispatch = useDispatch();
+    useEffect(() => {
+        phcAnalytics()(dispatch);
+        const d = localStorage.getItem("d");
+        if (d)
+            districtHospitalAnalytics(d)(dispatch);
 
+    }, [])
+    apiData = [apiData];
+    const columns = [
+        {name:"NumberOfSHC",label:"Number Of SHC",        
+        options: { filterOptions: { fullWidth: true } ,
+        customBodyRenderLite: (dataIndex) => {
+            let val = apiData[dataIndex].NumberOfSHC;
+            // let val1= dates[val%11] +"-02-2022"
+            return val;
+          } } 
+        },
+        
+        {label:"Number Of THC",name:"NumberOfTHC",options: { filterOptions: { fullWidth: true } ,
+        customBodyRenderLite: (dataIndex) => {
+            let val = apiData[dataIndex].NumberOfTHC  ;
+            return val;
+          } } },
+        {label:"Total Hospitals",name:"TotalHospitals",options: { filterOptions: { fullWidth: true } ,
+          customBodyRenderLite: (dataIndex) => {
+              let val = apiData[dataIndex].TotalHospitals;
+              return val;
+            } } },
+        {name:"NumberOfPHC",label:"Number Of PHC ",        
+        options: { filterOptions: { fullWidth: true } ,
+        customBodyRenderLite: (dataIndex) => {
+          let val = apiData[dataIndex].NumberOfPHC;
+        //   let val1= Hospitals[val%15]
+          return val;
+          } } 
+        }
+    ];
+    apiData1 = [apiData1];
+    const columns1 = [
+        {name:"NumberOfSHC",label:"Number Of SHC",        
+        options: { filterOptions: { fullWidth: true } ,
+        customBodyRenderLite: (dataIndex) => {
+            let val = apiData1[dataIndex].NumberOfSHC;
+            // let val1= dates[val%11] +"-02-2022"
+            return val;
+          } } 
+        },
+        
+        {label:"Number Of THC",name:"NumberOfTHC",options: { filterOptions: { fullWidth: true } ,
+        customBodyRenderLite: (dataIndex) => {
+            let val = apiData1[dataIndex].NumberOfTHC  ;
+            return val;
+          } } },
+        {label:"Total Hospitals",name:"TotalHospitals",options: { filterOptions: { fullWidth: true } ,
+          customBodyRenderLite: (dataIndex) => {
+              let val = apiData1[dataIndex].TotalHospitals;
+              return val;
+            } } },
+        {name:"NumberOfPHC",label:"Number Of PHC ",        
+        options: { filterOptions: { fullWidth: true } ,
+        customBodyRenderLite: (dataIndex) => {
+          let val = apiData1[dataIndex].NumberOfPHC;
+        //   let val1= Hospitals[val%15]
+          return val;
+          } } 
+        }
+    ];
+    const options = {
+        search: true,
+        download: true,
+        print: true,
+        viewColumns: true,
+        filter: true,
+        filterType: "dropdown",
+        responsive:"standard",
+        selectableRows:"none",
+      };
     const formik = useFormik({
         initialValues: {
           district: '',
@@ -108,7 +199,10 @@ export const DiseaseView = ({apiData}) => {
         },
         onSubmit: (values) => {
           //add(values.email,values.role,values.hospitalName,values.phoneNumber,values.stateName,values.district,values.city,values.pincode)
-            console.log(values.stateName,values.district);
+          console.log(values.stateName,values.district);
+          localStorage.setItem("d",values.district);
+          const d = values.district;
+          districtHospitalAnalytics(d)(dispatch);
         },
       });
     const [stateName, setStateName] = useState("");
@@ -144,7 +238,7 @@ return(<>
     <Paper>
         <Typography> 
         <h2>
-            Please select the state and district to view the disease pie chart distribution of diseases
+            Please select the state and district to view the hospital count  pie chart 
         </h2>
         </Typography>
         <Grid container spacing={2}>
@@ -181,10 +275,15 @@ return(<>
         </Grid> 
     </Paper>
     </form>
-
+    <MUIDataTable
+        title={"Selected hopital Statistics"}
+        data={apiData1}
+        columns={columns1}
+        options={options}
+      />
     <Paper>
         <Chart
-          data={apiData}
+          data={data2}
         >
         <PieSeries
             valueField="val"
@@ -194,7 +293,29 @@ return(<>
         </Chart>
 
       </Paper>
+      <MUIDataTable
+        title={"Total program hopital Statistics"}
+        data={apiData}
+        columns={columns}
+        options={options}
+      />
+      <Paper>
+        <Chart
+          data={data1}
+        >
+          <ArgumentAxis />
+          <ValueAxis />
 
+          <BarSeries
+            valueField="val"
+            argumentField="category"
+          />
+          <Title text="Total program hopital Statistics" />
+          <Animation />
+          <EventTracker />
+          <Tooltip />
+        </Chart>
+      </Paper>
   </>
 );
 }
