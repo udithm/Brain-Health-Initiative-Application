@@ -13,12 +13,12 @@ export const AnalyticsTableView = () => {
     {
       name: "Hospital Count Analytics",
       desc: "Visualization to see statistics of Hospitals",
-      link: "/hospitalAnalysis",
+      link: "/districtHospitals",
     },
     {
       name: "ICD10 Frequency Analysis",
       desc: "Visualization to see distribution of ICD10 recorded",
-      link: "/diseaseAnalytics",
+      link: "/icd10Analytics",
     },
     {
       name: "Questionnaire Analysis",
@@ -26,9 +26,9 @@ export const AnalyticsTableView = () => {
       link: "/questionnaireAnalytics",
     },
     {
-      name: "Distict Doctor Analysis",
-      desc: "Visualization to see the spread of doctors in different districts",
-      link: "doctorAnalytics",
+      name: "State Doctor Analysis",
+      desc: "Visualization to see the spread of doctors type in a state",
+      link: "/stateDoctorAnalytics",
     },
   ];
   const columns = [
