@@ -108,10 +108,10 @@ const SearchPatient = (props) => {
       filterType: "dropdown",
       responsive: "standard",
       selectableRows: "none",
-      onRowClick: (rowData, rowState) => {
-        console.log(results[rowState.dataIndex]);
-        viewPatient(results[rowState.dataIndex]);
-      },
+    //   onRowClick: (rowData, rowState) => {
+    //     console.log(results[rowState.dataIndex]);
+    //     viewPatient(results[rowState.dataIndex]);
+    //   },
     };
   return (
     <React.Fragment>
