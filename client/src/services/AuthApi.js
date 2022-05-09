@@ -28,7 +28,7 @@ export const userLogin = (userName, password, history) => {
                 dispatch(alertSuccess("Login Successful!"));
                 localStorage.setItem("userId", res.data.id);
                 localStorage.setItem("hid",res.data.hospitalId);
-
+                localStorage.setItem("role",res.data.roles[0]);
                 // if (res.data.users[0].firstLogin)
                 //     history.push("/changePassword");
                 // else//
@@ -53,7 +53,7 @@ export const userLogout = (userName, history) => {
         localStorage.removeItem("hid");
         localStorage.removeItem("Value");
         localStorage.removeItem("Field");
-        
+        localStorage.removeItem("role");
 
         history.push("/login");
 
@@ -82,6 +82,7 @@ export const userLogout = (userName, history) => {
 export const changePassword = (userName, newPassword, history) => {
     return (dispatch) => {
         dispatch(changePasswordRequest());
+        console.log("changePasswordRequest")
         axios
             .post("/changePassword", { userName, newPassword })
             .then((message) => {
